@@ -4,36 +4,28 @@ using UnityEngine.InputSystem;
 namespace InGame.Player
 {
     /// <summary>
-    /// Furukubo(Fixed BodyMove_GOD)
+    /// Furukubo(Refactoring of BodyMove_GOD)
     /// </summary>
     public class PlayerBodyMove : MonoBehaviour
     {
-        [Header("Initialize Parameters")]
-        [SerializeField] private float _initLookingAngle;
-
         [Header("Parameters")]
+        [SerializeField] private float _initLookingAngle;
         [SerializeField] private float _dashPower;
-        [SerializeField] private float _gravityScale;
-        [SerializeField] private float _linearDamping;
         [SerializeField] private float _distanceFromLipMax;
         [SerializeField] private float _moveInputThreshoud;
 
         [Header("References")]
         [SerializeField] private Rigidbody2D _rb;
-        //[SerializeField] private LipController _lip;
+        [SerializeField] private PlayerLipControler _lip;
 
         private Vector2 _moveInput;
         private Vector2 _lookingDirection;
         private bool _isIgnoreInput;
 
+        public Vector2 Position => _rb.position;
+
         private void Start()
         {
-            if (_rb != null)
-            {
-                _rb.gravityScale = _gravityScale;
-                _rb.linearDamping = _linearDamping;
-            }
-
             SetLookingDirection(_initLookingAngle);
         }
 
@@ -49,7 +41,6 @@ namespace InGame.Player
                 SetLookingDirection(_moveInput);
             }
 
-            /*
             if (_lip == null) return;
 
             if (_lip.IsAttached)
@@ -66,7 +57,7 @@ namespace InGame.Player
                     Vector2 outwardVel = Vector3.Project(_rb.linearVelocity, direction);
                     _rb.linearVelocity -= outwardVel;
                 }
-            }*/
+            }
         }
 
         private void OnValidate()
@@ -78,6 +69,8 @@ namespace InGame.Player
             }
 #endif
         }
+
+        public void AddForce(Vector2 force) => _rb.AddForce(force);
 
         //Sended message from Input Action
         public void OnMove(InputValue value)
@@ -98,11 +91,9 @@ namespace InGame.Player
         //Sended message from Input Action ?
         public void OnDetach()
         {
-            /*
             if (_isIgnoreInput) return;
             if (_lip == null) return;
             _lip.Detach();
-            */
         }
 
         public void SetIgnoreInput(bool value)
@@ -128,9 +119,9 @@ namespace InGame.Player
 
         private float DirectionToAngle(Vector2 dir) => Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
 
-        private Vector2 AngleToDirection(float deg)
+        private Vector2 AngleToDirection(float angle)
         {
-            float radiun = deg * Mathf.Deg2Rad;
+            float radiun = angle * Mathf.Deg2Rad;
             return new Vector2(Mathf.Cos(radiun), Mathf.Sin(radiun));
         }
     }
