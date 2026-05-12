@@ -1,5 +1,4 @@
 using InGame.Player;
-using System;
 using UnityEngine;
 
 namespace InGame
@@ -7,28 +6,25 @@ namespace InGame
     /// <summary>
     /// Furukubo (Refactoring of SunctionZone)
     /// </summary>
-    public class TestAttractArea : MonoBehaviour
+    public class LipAttracter : MonoBehaviour
     {
-        public event Func<IAttracter> Attracter;
+        [SerializeField] LipConnecter _connecter;
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            //dammy
             if (other.TryGetComponent(out PlayerLipControler lip))
             {
-                if (Attracter == null) return;
-                lip.AttractedStateEnter(Attracter.Invoke());
+                if (_connecter == null) return;
+                lip.AttractedStateEnter(_connecter);
             }
         }
 
-        /*
         private void OnTriggerExit2D(Collider2D other)
         {
-            //dammy
             if (other.TryGetComponent(out PlayerLipControler lip))
             {
                 lip.Detach();
             }
-        }*/
+        }
     }
 }

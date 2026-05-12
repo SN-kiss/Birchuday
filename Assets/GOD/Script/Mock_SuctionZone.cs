@@ -4,7 +4,7 @@ using UnityEngine;
 /// オブジェクトAの吸いつき範囲
 /// 別途CircleCollider2D(IsTrigger=ON)を大きめにつけること
 /// </summary>
-public class SuctionZone : MonoBehaviour
+public class Mock_SuctionZone : MonoBehaviour
 {
     private Rigidbody2D rb;
 
@@ -16,7 +16,7 @@ public class SuctionZone : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         // Lipが範囲に入ったら吸着開始
-        LipController lip = other.GetComponent<LipController>();
+        Mock_LipController lip = other.GetComponent<Mock_LipController>();
         if (lip != null)
         {
             lip.StartAttracting(rb);
@@ -26,7 +26,7 @@ public class SuctionZone : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
         // 範囲から出たら（くっつく前に離れた場合）戻す
-        LipController lip = other.GetComponent<LipController>();
+        Mock_LipController lip = other.GetComponent<Mock_LipController>();
         if (lip != null && !lip.IsAttached)
         {
             lip.Detach();

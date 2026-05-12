@@ -4,7 +4,7 @@ using UnityEngine;
 /// 口パーツの制御
 /// ・発射 → オブジェクトにくっつく → ボディを引き寄せる
 /// </summary>
-public class KissController : MonoBehaviour
+public class Mock_KissController : MonoBehaviour
 {
     [Header("参照")]
     [SerializeField] private Rigidbody2D bodyRb;        // ボディのRigidbody2D

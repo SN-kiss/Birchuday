@@ -3,20 +3,15 @@ using UnityEngine;
 namespace InGame
 {
     /// <summary>
-    /// Furukubo (Refactoring of ObjectA)
+    /// Furukubo (Refactoring of Mock_ObjectA)
     /// </summary>
-    public class TestAttractObject : MonoBehaviour, IAttracter
+    public class LipConnecter : MonoBehaviour, ILipConnecter
     {
         [SerializeField] private Rigidbody2D _rb;
         [SerializeField] private Collider2D _col;
-        [SerializeField] private TestAttractArea _area;
 
+        public float Rotation => _rb.rotation;
         public float Weight => _rb.mass;
-
-        private void Awake()
-        {
-            _area.Attracter += () => this;
-        }
 
         public void AddForce(Vector2 force) => _rb.AddForce(force);
 

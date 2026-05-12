@@ -18,14 +18,13 @@ namespace InGame.Player
         [SerializeField] private float _attachDistance;
         [SerializeField] private float _pullBodyPower;
         [SerializeField] private float _pullBodyPowerMax;
-        [SerializeField] private float _pullBodyStopDistance;
-        [SerializeField] private float _pullableTargetWeightMax;
+        [SerializeField] private float _pullStopDistance;
 
-        private IAttracter _target;
+        private ILipConnecter _target;
         private PlayerLipState _currentState;
         private Vector2 _attachedLocalOffset;
 
-        public bool IsAttached => _currentState == PlayerLipState.Pulling;
+        public bool IsAttached => _currentState == PlayerLipState.FollowTarget;
 
         private void Start()
         {
@@ -39,8 +38,8 @@ namespace InGame.Player
                 case PlayerLipState.Attracted:
                     AttractedStateUpdate();
                     break;
-                case PlayerLipState.Pulling:
-                    PullingStateUpdate();
+                case PlayerLipState.FollowTarget:
+                    FollowTargetStateUpdate();
                     break;
             }
         }
@@ -55,14 +54,15 @@ namespace InGame.Player
         {
             _currentState = PlayerLipState.FollowBody;
 
-            transform.SetParent(_body.transform);
+            if(_body.transform != null) transform.SetParent(_body.transform);
             transform.localPosition = _lipDefaultPointTr.localPosition;
+            transform.localEulerAngles = new Vector3(0f, 0f, 0f);
 
             _rb.linearVelocity = Vector2.zero;
             _rb.bodyType = RigidbodyType2D.Kinematic;
         }
 
-        public void AttractedStateEnter(IAttracter target)
+        public void AttractedStateEnter(ILipConnecter target)
         {
             if (_currentState != PlayerLipState.FollowBody) return;
             transform.SetParent(_playerMainTr);
@@ -81,8 +81,10 @@ namespace InGame.Player
 
             Vector2 closestPoint = _target.GetClosestPoint(_rb.position);
             Vector2 betweenToClosestPoint = closestPoint - _rb.position;
-
+            
             _rb.linearVelocity = betweenToClosestPoint.normalized * _attractSpeed;
+
+            if(_rb.linearVelocity.sqrMagnitude != 0f) _rb.rotation = CalculateUtilities.DirectionToAngle(_rb.linearVelocity);
 
             if (betweenToClosestPoint.sqrMagnitude < _attachDistance * _attachDistance)
             {
@@ -90,11 +92,11 @@ namespace InGame.Player
                 _rb.linearVelocity = Vector2.zero;
                 _rb.bodyType = RigidbodyType2D.Kinematic;
                 _attachedLocalOffset = _target.GetInverseTransformPoint(_rb.position);
-                _currentState = PlayerLipState.Pulling;
+                _currentState = PlayerLipState.FollowTarget;
             }
         }
 
-        private void PullingStateUpdate()
+        private void FollowTargetStateUpdate()
         {
             if (_target == null)
             {
@@ -103,29 +105,27 @@ namespace InGame.Player
             }
 
             _rb.position = _target.GetTransformPoint(_attachedLocalOffset);
+            _rb.rotation = _target.Rotation;
 
             Vector2 betweenToBody = _rb.position - _body.Position;
             float distanceToBody = betweenToBody.magnitude;
 
-            if (distanceToBody <= _pullBodyStopDistance) return;
-
-            Vector2 pullForce =
-                betweenToBody.normalized
-                * Mathf.Clamp(distanceToBody * _pullBodyPower, 0f, _pullBodyPowerMax);
-
-            if (_target.Weight <= _pullableTargetWeightMax)
+            if (_pullStopDistance < distanceToBody)
             {
-                _target.AddForce(-pullForce);
-            }
+                Vector2 pullForce =
+                    betweenToBody.normalized
+                    * Mathf.Clamp((distanceToBody - _pullStopDistance) * _pullBodyPower, 0f, _pullBodyPowerMax);
 
-            _body.AddForce(pullForce);
+                _target.AddForce(-pullForce);
+                _body.AddForce(pullForce);
+            }
         }
 
         private enum PlayerLipState
         {
             FollowBody,
             Attracted,
-            Pulling,
+            FollowTarget,
         }
     }
 }
