@@ -27,10 +27,10 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6781168923843293511}
+  m_Father: {fileID: 2045317591642878268}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!212 &81992673584339646
 SpriteRenderer:
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -155,7 +155,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1503321618494526529}
   - {fileID: 6996503593780138737}
+  - {fileID: 2455955728822694402}
   - {fileID: 633218613496899251}
   m_Father: {fileID: 561611508804786352}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -173,7 +175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Player.PlayerBodyMove
   _initLookingAngle: 0
   _dashPower: 5
-  _distanceFromLipMax: 3
+  _distanceFromLipMax: 5
   _moveInputThreshoud: 0.1
   _rotateSpeed: 10
   _rb: {fileID: 1951988637841431446}
@@ -192,8 +194,8 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDamping: 1
-  m_AngularDamping: 0.05
-  m_GravityScale: 0
+  m_AngularDamping: 0.1
+  m_GravityScale: 0.1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -296,12 +298,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2961276149473981608}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.75, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 633218613496899251}
+  m_Father: {fileID: 4661841967650697519}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!212 &6988076098161661036
 SpriteRenderer:
@@ -353,7 +355,7 @@ SpriteRenderer:
   m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0.9960785, b: 0.9960785, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -390,10 +392,11 @@ Transform:
   m_GameObject: {fileID: 3359591918751862802}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalPosition: {x: 0.75, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1697987510370593341}
   - {fileID: 6781168923843293511}
   - {fileID: 4278969630681958282}
   m_Father: {fileID: 561611508804786352}
@@ -407,15 +410,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 3359591918751862802}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9377b5ae93b50647ad982bf49642e55, type: 3}
+  m_Script: {fileID: 11500000, guid: 5572775c387fa0b4987c3bd21200d6ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Player.PlayerLipMove
   _rb: {fileID: 278509828133917856}
   _body: {fileID: 4751885898393672741}
-  _playerMainTr: {fileID: 561611508804786352}
-  _lipDefaultPointTr: {fileID: 633218613496899251}
-  _attractSpeed: 8
-  _attachDistance: 0.1
+  _lipDefaultPointTr: {fileID: 2455955728822694402}
+  _attractableAngle: 45
+  _attachDistance: 0.5
   _pullBodyPower: 2.5
   _pullBodyPowerMax: 5
   _pullStopDistance: 1
@@ -432,7 +434,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 0
+  m_LinearDamping: 1
   m_AngularDamping: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -527,11 +529,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93ffeb6b79a848940b05a0e2834f6e7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Player.PlayerLipLine
-  _lineSegments: 32
-  _waveAmplitude: 0.1
-  _waveSpeed: 1
-  _bodyTr: {fileID: 633218613496899251}
-  _lipTr: {fileID: 4278969630681958282}
+  _lineSegments: 16
+  _waveAmplitude: 0
+  _waveSpeed: 0
+  _handleLengthCoef: 0.75
+  _bodyRb: {fileID: 1951988637841431446}
+  _lipRb: {fileID: 278509828133917856}
+  _connectPointTrBody: {fileID: 4661841967650697519}
+  _connectPointTrLip: {fileID: 2045317591642878268}
   _line: {fileID: 3553208535524089218}
 --- !u!120 &3553208535524089218
 LineRenderer:
@@ -583,11 +588,11 @@ LineRenderer:
   m_SortingOrder: -2
   m_MaskInteraction: 0
   m_Positions:
-  - {x: 0.4, y: 0, z: 0}
-  - {x: 1, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0.75, y: 0, z: 0}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.6
+    widthMultiplier: 0.75
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -614,8 +619,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0.9921569, g: 0.30588236, b: 0.31764707, a: 1}
+      key1: {r: 0.9960785, g: 0.30588236, b: 0.31764707, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -639,7 +644,7 @@ LineRenderer:
       atime6: 0
       atime7: 0
       m_Mode: 0
-      m_ColorSpace: -1
+      m_ColorSpace: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0
@@ -768,7 +773,7 @@ SpriteRenderer:
   m_SortingOrder: -1
   m_MaskInteraction: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.3066038, b: 0.319779, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -777,6 +782,37 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &5631725069593479262
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2455955728822694402}
+  m_Layer: 0
+  m_Name: LipDefaultPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2455955728822694402
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5631725069593479262}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4661841967650697519}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5763927603076121417
 GameObject:
   m_ObjectHideFlags: 0
@@ -802,11 +838,10 @@ Transform:
   m_GameObject: {fileID: 5763927603076121417}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.4, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1503321618494526529}
+  m_Children: []
   m_Father: {fileID: 4661841967650697519}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!1 &8384745533697283612
@@ -838,8 +873,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1697987510370593341}
+  m_Children: []
   m_Father: {fileID: 2045317591642878268}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5988073462970348639
@@ -892,7 +926,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -9095717837082945937, guid: bd3cb4af8406d4436a2ae8c2aafe1f8d, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9960785, g: 0.30588236, b: 0.31764707, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

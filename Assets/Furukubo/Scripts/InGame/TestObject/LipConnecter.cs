@@ -5,11 +5,12 @@ namespace InGame
     /// <summary>
     /// Furukubo (Refactoring of Mock_ObjectA)
     /// </summary>
-    public class LipConnecter : MonoBehaviour, ILipConnecter
+    public class LipConnecter : MonoBehaviour
     {
         [SerializeField] private Rigidbody2D _rb;
         [SerializeField] private Collider2D _col;
 
+        public Vector2 Position => _rb.position;
         public float Rotation => _rb.rotation;
         public float Weight => _rb.mass;
 

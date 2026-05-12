@@ -17,13 +17,14 @@ namespace InGame.Player
 
         [Header("References")]
         [SerializeField] private Rigidbody2D _rb;
-        [SerializeField] private PlayerLipControler _lip;
+        [SerializeField] private PlayerLip _lip;
 
         private Vector2 _moveInput;
         private Vector2 _lookingDirection;
         private bool _isIgnoreInput;
 
         public Vector2 Position => _rb.position;
+        public float Rotation => _rb.rotation;
 
         private void Start()
         {
@@ -40,7 +41,7 @@ namespace InGame.Player
         {
             if (_moveInput.sqrMagnitude > _moveInputThreshoud * _moveInputThreshoud)
             {
-                UpdateRotation(_moveInput, Time.fixedDeltaTime);
+                AddRotation(_moveInput, Time.fixedDeltaTime);
             }
 
             if (_lip == null) return;
@@ -82,7 +83,7 @@ namespace InGame.Player
         {
             if (_isIgnoreInput) return;
             if (_lip == null) return;
-            _lip.Detach();
+            _lip.OnCancelFollowingTarget();
         }
 
         public void SetIgnoreInput(bool value)
@@ -90,7 +91,7 @@ namespace InGame.Player
             _isIgnoreInput = value;
         }
         
-        private void UpdateRotation(Vector2 targetDir, float deltaTime)
+        private void AddRotation(Vector2 targetDir, float deltaTime)
         {
             if (_rb == null) return;
 

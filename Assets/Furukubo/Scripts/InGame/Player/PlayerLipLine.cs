@@ -1,5 +1,4 @@
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 namespace InGame.Player
 {
@@ -9,27 +8,38 @@ namespace InGame.Player
     public class PlayerLipLine : MonoBehaviour
     {
         [Header("Parameters")]
-        [SerializeField] private int _lineSegments;//20;
-        [SerializeField] private float _waveAmplitude;//0.1f;
-        [SerializeField] private float _waveSpeed;//3f;
+        [SerializeField] private int _lineSegments;
+        [SerializeField] private float _waveAmplitude;
+        [SerializeField] private float _waveSpeed;
+        [SerializeField] private float _handleLengthCoef;
 
         [Header("References")]
-        [SerializeField] private Transform _bodyTr;
-        [SerializeField] private Transform _lipTr;
+        [SerializeField] private Rigidbody2D _bodyRb;
+        [SerializeField] private Rigidbody2D _lipRb;
+        [SerializeField] private Transform _connectPointTrBody;
+        [SerializeField] private Transform _connectPointTrLip;
         [SerializeField] private LineRenderer _line;
-
-        private Vector2 BodyPoint => _bodyTr?.position ?? Vector2.zero;
-        private Vector2 LipPoint => _lipTr?.position ?? Vector2.zero;
 
         private void Start()
         {
-            _line.positionCount = _lineSegments;
+            _line.positionCount = _lineSegments + 1;
         }
         
         private void Update()
         {
             if(_line == null) return;
 
+            Vector2 body = _connectPointTrBody.position;
+            Vector2 lip = _connectPointTrLip.position;
+
+            Vector2 bodyDir = CalculateUtilities.AngleToDirection(_bodyRb.rotation);
+            Vector2 lipDir = CalculateUtilities.AngleToDirection(_lipRb.rotation);
+
+            float length = (body - lip).magnitude * _handleLengthCoef;
+
+            _line.SetPositions(GetPoints(body, body + bodyDir * length, lip - lipDir * length, lip, _lineSegments));
+
+            /*
             for (int i = 0; i < _lineSegments; i++)
             {
                 float t = (float)i / (_lineSegments - 1);
@@ -45,7 +55,36 @@ namespace InGame.Player
                 pos += perp * wave;
 
                 _line.SetPosition(i, pos);
+            }*/
+        }
+
+        private Vector3 GetPointThree(Vector3 start, Vector3 handle, Vector3 end, float time)
+        {
+            return Vector3.Lerp(Vector3.Lerp(start, handle, time), Vector3.Lerp(handle, end, time), time);
+        }
+
+        private Vector3 GetPointFour(Vector3 start, Vector3 handle1, Vector3 handle2, Vector3 end, float time)
+        {
+            Vector3 a = GetPointThree(start, handle1, handle2, time);
+            Vector3 b = GetPointThree(handle1, handle2, end, time);
+
+            return Vector3.Lerp(a, b, time);
+        }
+
+        private Vector3[] GetPoints(Vector3 start, Vector3 handle1, Vector3 handle2, Vector3 end, int disits)
+        {
+            if (disits <= 0) return new Vector3[0];
+
+            Vector3[] points = new Vector3[disits + 1];
+
+            for (int i = 0; i <= disits; i++)
+            {
+                float t = (float)i / disits;
+
+                points[i] = GetPointFour(start, handle1, handle2, end, t);
             }
+
+            return points;
         }
 
         private void OnDrawGizmos()
@@ -53,11 +92,11 @@ namespace InGame.Player
 #if UNITY_EDITOR
             if (!Application.isPlaying)
             {
-                if (_bodyTr == null || _lipTr == null) return;
+                if (_connectPointTrBody == null || _connectPointTrLip == null) return;
 
                 _line.positionCount = 2;
-                _line.SetPosition(0, _bodyTr.position);
-                _line.SetPosition(1, _lipTr.position);
+                _line.SetPosition(0, _connectPointTrBody.position);
+                _line.SetPosition(1, _connectPointTrLip.position);
             }
 #endif
         }
