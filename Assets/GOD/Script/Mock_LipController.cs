@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LipController : MonoBehaviour
+public class Mock_LipController : MonoBehaviour
 {
     public enum LipState
     {
@@ -100,7 +100,7 @@ public class LipController : MonoBehaviour
         if (dist <= pullStopDistance) return;
 
         // ★ 重さチェック
-        ObjectA liftable = targetRb.GetComponent<ObjectA>();
+        Mock_ObjectA liftable = targetRb.GetComponent<Mock_ObjectA>();
         float weight = liftable != null ? liftable.weight : 1f;
 
         float force = Mathf.Clamp(dist * pullForce, 0f, pullForce * 2f);

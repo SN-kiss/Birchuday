@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 namespace InGame.Player
 {
     /// <summary>
-    /// Furukubo(Refactoring of BodyMove_GOD)
+    /// Furukubo(Refactoring of Mock_BodyMove)
     /// </summary>
     public class PlayerBodyMove : MonoBehaviour
     {
@@ -13,6 +13,7 @@ namespace InGame.Player
         [SerializeField] private float _dashPower;
         [SerializeField] private float _distanceFromLipMax;
         [SerializeField] private float _moveInputThreshoud;
+        [SerializeField] private float _rotateSpeed;
 
         [Header("References")]
         [SerializeField] private Rigidbody2D _rb;
@@ -26,7 +27,8 @@ namespace InGame.Player
 
         private void Start()
         {
-            SetLookingDirection(_initLookingAngle);
+            _lookingDirection = CalculateUtilities.AngleToDirection(_initLookingAngle);
+            _rb.rotation = _initLookingAngle;
         }
 
         private void Update()
@@ -38,7 +40,7 @@ namespace InGame.Player
         {
             if (_moveInput.sqrMagnitude > _moveInputThreshoud * _moveInputThreshoud)
             {
-                SetLookingDirection(_moveInput);
+                UpdateRotation(_moveInput, Time.fixedDeltaTime);
             }
 
             if (_lip == null) return;
@@ -60,26 +62,14 @@ namespace InGame.Player
             }
         }
 
-        private void OnValidate()
-        {
-#if UNITY_EDITOR
-            if (!Application.isPlaying)
-            {
-                transform.localEulerAngles = new Vector3(0f, 0f, _initLookingAngle);
-            }
-#endif
-        }
-
         public void AddForce(Vector2 force) => _rb.AddForce(force);
 
-        //Sended message from Input Action
         public void OnMove(InputValue value)
         {
             if (_isIgnoreInput) return;
             _moveInput = value.Get<Vector2>();
         }
 
-        //Sended message from Input Action
         public void OnDash()
         {
             if (_isIgnoreInput) return;
@@ -88,7 +78,6 @@ namespace InGame.Player
             _rb.AddForce(_lookingDirection * _dashPower, ForceMode2D.Impulse);
         }
 
-        //Sended message from Input Action ?
         public void OnDetach()
         {
             if (_isIgnoreInput) return;
@@ -101,28 +90,18 @@ namespace InGame.Player
             _isIgnoreInput = value;
         }
         
-        private void SetLookingDirection(float angle)
+        private void UpdateRotation(Vector2 targetDir, float deltaTime)
         {
             if (_rb == null) return;
 
-            _lookingDirection = AngleToDirection(angle);
-            _rb.SetRotation(angle);
-        }
+            float currentAng = _rb.rotation;
+            float targetAng = CalculateUtilities.DirectionToAngle(targetDir);
+            float betweenAng = Mathf.DeltaAngle(currentAng, targetAng);
 
-        private void SetLookingDirection(Vector2 direction)
-        {
-            if (_rb == null) return;
+            float newAng = currentAng + betweenAng * _rotateSpeed * deltaTime;
 
-            _lookingDirection = direction;
-            _rb.SetRotation(DirectionToAngle(direction));
-        }
-
-        private float DirectionToAngle(Vector2 dir) => Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-
-        private Vector2 AngleToDirection(float angle)
-        {
-            float radiun = angle * Mathf.Deg2Rad;
-            return new Vector2(Mathf.Cos(radiun), Mathf.Sin(radiun));
+            _lookingDirection = CalculateUtilities.AngleToDirection(newAng);
+            _rb.SetRotation(newAng);
         }
     }
 }

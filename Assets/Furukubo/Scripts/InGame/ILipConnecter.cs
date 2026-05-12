@@ -5,8 +5,9 @@ namespace InGame
     /// <summary>
     /// Furukubo
     /// </summary>
-    public interface IAttracter
+    public interface ILipConnecter
     {
+        float Rotation { get; }
         float Weight { get; }
         void AddForce(Vector2 force);
         Vector2 GetClosestPoint(Vector2 pos);

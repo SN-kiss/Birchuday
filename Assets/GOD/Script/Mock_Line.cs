@@ -1,5 +1,5 @@
 using UnityEngine;
-public class Line_GOD : MonoBehaviour
+public class Mock_Line : MonoBehaviour
 {
     [SerializeField] private Transform bodyTransform;   // ボディ
     [SerializeField] private Transform kissTransform;   // 口パーツ

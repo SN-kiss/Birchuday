@@ -1,13 +1,13 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class BodyMove_GOD : MonoBehaviour
+public class Mock_BodyMove : MonoBehaviour
 {
     [Header("パラメータ")]
     public float dashPower = 5f;
 
     [Header("参照")]
-    [SerializeField] private LipController lipController;
+    [SerializeField] private Mock_LipController lipController;
 
     [Header("Lipとの最大距離")]
     [SerializeField] private float maxDistanceFromLip = 3f;

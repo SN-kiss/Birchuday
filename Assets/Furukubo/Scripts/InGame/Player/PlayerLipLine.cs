@@ -4,7 +4,7 @@ using static UnityEditor.PlayerSettings;
 namespace InGame.Player
 {
     /// <summary>
-    /// Furukubo (Refactoring of Line_GOD)
+    /// Furukubo (Refactoring of Mock_Line)
     /// </summary>
     public class PlayerLipLine : MonoBehaviour
     {
