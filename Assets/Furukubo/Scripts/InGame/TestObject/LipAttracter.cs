@@ -1,4 +1,5 @@
 using InGame.Player;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace InGame
@@ -10,20 +11,19 @@ namespace InGame
     {
         [SerializeField] LipConnecter _connecter;
 
-        private void OnTriggerEnter2D(Collider2D other)
+        /// <summary>
+        /// Dammy
+        /// </summary>
+        private void OnTriggerStay2D(Collider2D other)
         {
-            if (other.TryGetComponent(out PlayerLipControler lip))
+            if (other.TryGetComponent(out PlayerLip lip))
             {
-                if (_connecter == null) return;
-                lip.AttractedStateEnter(_connecter);
-            }
-        }
+                Vector2 lipPos = lip.Position;
+                Vector2 closestPos = _connecter.GetClosestPoint(lipPos);
 
-        private void OnTriggerExit2D(Collider2D other)
-        {
-            if (other.TryGetComponent(out PlayerLipControler lip))
-            {
-                lip.Detach();
+                Vector2 between = closestPos - lipPos;
+
+                lip.OnAttracted(between * 5f, closestPos, _connecter);
             }
         }
     }

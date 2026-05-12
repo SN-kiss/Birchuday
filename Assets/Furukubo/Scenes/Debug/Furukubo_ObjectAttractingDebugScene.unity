@@ -167,21 +167,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1951988637841431446, guid: baf01140ee6d00248828f3ccb41ecfe4, type: 3}
-      propertyPath: m_GravityScale
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 3553208535524089218, guid: baf01140ee6d00248828f3ccb41ecfe4, type: 3}
       propertyPath: m_Positions.Array.data[0].x
-      value: -1.47
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3553208535524089218, guid: baf01140ee6d00248828f3ccb41ecfe4, type: 3}
       propertyPath: m_Positions.Array.data[0].y
-      value: 0.08
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3553208535524089218, guid: baf01140ee6d00248828f3ccb41ecfe4, type: 3}
       propertyPath: m_Positions.Array.data[1].x
-      value: 1
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 3553208535524089218, guid: baf01140ee6d00248828f3ccb41ecfe4, type: 3}
       propertyPath: m_Positions.Array.data[1].y
@@ -190,14 +186,6 @@ PrefabInstance:
     - target: {fileID: 4576121960555575272, guid: baf01140ee6d00248828f3ccb41ecfe4, type: 3}
       propertyPath: m_Name
       value: ObjPlayer
-      objectReference: {fileID: 0}
-    - target: {fileID: 4661841967650697519, guid: baf01140ee6d00248828f3ccb41ecfe4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.87
-      objectReference: {fileID: 0}
-    - target: {fileID: 4661841967650697519, guid: baf01140ee6d00248828f3ccb41ecfe4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.08
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -394,6 +382,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Debug_AttractObject
       objectReference: {fileID: 0}
+    - target: {fileID: 7331937254628597830, guid: 08bd4e57238761245887872d2ad6ef56, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7331937254628597830, guid: 08bd4e57238761245887872d2ad6ef56, type: 3}
+      propertyPath: m_Color.g
+      value: 0.11449814
+      objectReference: {fileID: 0}
+    - target: {fileID: 7331937254628597830, guid: 08bd4e57238761245887872d2ad6ef56, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9041486827750736709, guid: 08bd4e57238761245887872d2ad6ef56, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9041486827750736709, guid: 08bd4e57238761245887872d2ad6ef56, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 9041486827750736709, guid: 08bd4e57238761245887872d2ad6ef56, type: 3}
       propertyPath: m_GravityScale
       value: 0.2
@@ -439,8 +447,8 @@ Camera:
   m_GameObject: {fileID: 1748243459}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
