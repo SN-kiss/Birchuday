@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace InGame
+namespace InGame.Gimmick
 {
     public class Blower : MonoBehaviour
     {
