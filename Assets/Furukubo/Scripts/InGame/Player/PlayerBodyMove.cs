@@ -6,7 +6,7 @@ namespace InGame.Player
     /// <summary>
     /// Furukubo(Refactoring of Mock_BodyMove)
     /// </summary>
-    public class PlayerBodyMove : MonoBehaviour
+    public class PlayerBodyMove : MonoBehaviour, IBlowTarget
     {
         [Header("Parameters")]
         [SerializeField] private float _initLookingAngle;
@@ -51,7 +51,7 @@ namespace InGame.Player
                 Vector2 lipPos = _lip.transform.position;
                 Vector2 between = _rb.position - lipPos;
 
-                if (between.sqrMagnitude > _distanceFromLipMax * _distanceFromLipMax)
+                if (_distanceFromLipMax * _distanceFromLipMax < between.sqrMagnitude)
                 {
                     Vector2 direction = between.normalized;
 

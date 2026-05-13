@@ -175,7 +175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Player.PlayerBodyMove
   _initLookingAngle: 0
   _dashPower: 5
-  _distanceFromLipMax: 5
+  _distanceFromLipMax: 3
   _moveInputThreshoud: 0.1
   _rotateSpeed: 10
   _rb: {fileID: 1951988637841431446}
@@ -376,7 +376,7 @@ GameObject:
   - component: {fileID: 373577956428877147}
   - component: {fileID: 278509828133917856}
   - component: {fileID: 8109369219970251208}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Lip
   m_TagString: Untagged
   m_Icon: {fileID: 0}

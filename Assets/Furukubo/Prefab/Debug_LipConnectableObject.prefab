@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 4210996475733353328}
   - component: {fileID: 5692829544351318280}
   - component: {fileID: 4329833775870547377}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LipAttracter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
