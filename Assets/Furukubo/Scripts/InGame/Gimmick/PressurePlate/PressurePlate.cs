@@ -15,16 +15,18 @@ namespace InGame.Gimmick
 
         private bool _pressed;
 
-        private void Update()
+        private void FixedUpdate()
         {
             if (!_pressed)
             {
-                OnPressingEvent?.Invoke();
+                Debug.Log("Releasing");
+                OnReleasingEvent?.Invoke();
             }
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
+            Debug.Log("Pressed");
             _pressed = true;
             _textureTr.localPosition = Vector3.down * _plateDownOffset;
             OnPressedEvent?.Invoke();
@@ -32,6 +34,7 @@ namespace InGame.Gimmick
 
         private void OnTriggerStay2D(Collider2D collision)
         {
+            Debug.Log("Pressing");
             _pressed = true;
             _textureTr.localPosition = Vector3.down * _plateDownOffset;
             OnPressingEvent?.Invoke();
@@ -39,6 +42,7 @@ namespace InGame.Gimmick
 
         private void OnTriggerExit2D(Collider2D collision)
         {
+            Debug.Log("Released");
             _pressed = false;
             _textureTr.localPosition = Vector3.zero;
             OnReleasedEvent?.Invoke();
