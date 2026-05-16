@@ -32,11 +32,6 @@ namespace InGame.Player
             _rb.rotation = _initLookingAngle;
         }
 
-        private void Update()
-        {
-            if (_isIgnoreInput) _moveInput = Vector2.zero;
-        }
-
         private void FixedUpdate()
         {
             if (_moveInput.sqrMagnitude > _moveInputThreshoud * _moveInputThreshoud)
@@ -63,8 +58,6 @@ namespace InGame.Player
             }
         }
 
-        public void AddForce(Vector2 force) => _rb.AddForce(force);
-
         public void OnMove(InputValue value)
         {
             if (_isIgnoreInput) return;
@@ -83,14 +76,13 @@ namespace InGame.Player
         {
             if (_isIgnoreInput) return;
             if (_lip == null) return;
-            _lip.OnCancelAttachOnTarget();
+            _lip.OnDetachTarget();
         }
 
-        public void SetIgnoreInput(bool value)
-        {
-            _isIgnoreInput = value;
-        }
-        
+        public void AddForce(Vector2 force) => _rb.AddForce(force);
+
+        public void OnDead() => _isIgnoreInput = true;
+
         private void AddRotation(Vector2 targetDir, float deltaTime)
         {
             if (_rb == null) return;

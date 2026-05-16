@@ -5,7 +5,7 @@ namespace InGame
     /// <summary>
     /// Furukubo (Refactoring of Mock_ObjectA)
     /// </summary>
-    public class LipAttacherNormal : MonoBehaviour, ILipAttacher
+    public class LipAttacherNormal : MonoBehaviour, ILipAttachTarget
     {
         [Header("References")]
         [SerializeField] private Rigidbody2D _rb;
