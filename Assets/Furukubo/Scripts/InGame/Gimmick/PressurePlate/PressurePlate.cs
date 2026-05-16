@@ -8,44 +8,63 @@ namespace InGame.Gimmick
         [SerializeField] private float _plateDownOffset;
         [SerializeField] private Transform _textureTr;
 
-        public event UnityAction OnPressedEvent;
-        public event UnityAction OnPressingEvent;
-        public event UnityAction OnReleasedEvent;
-        public event UnityAction OnReleasingEvent;
+        public event UnityAction OnPressed;
+        public event UnityAction OnPressing;
+        public event UnityAction OnReleased;
+        public event UnityAction OnReleasing;
 
-        private bool _pressed;
+        private bool _curPressing;
+        private bool _oldPressing;
 
         private void FixedUpdate()
         {
-            if (!_pressed)
+            if (_curPressing == _oldPressing)
             {
-                Debug.Log("Releasing");
-                OnReleasingEvent?.Invoke();
+                if (_curPressing)
+                {
+                    Debug.Log("Pressing");
+                    OnPressing?.Invoke();
+                    _textureTr.localPosition = Vector3.down * _plateDownOffset;
+                }
+                else
+                {
+                    Debug.Log("Releasing");
+                    OnReleasing?.Invoke();
+                    _textureTr.localPosition = Vector3.zero;
+                }
+            }
+            else
+            {
+                _oldPressing = _curPressing;
+
+                if (_curPressing)
+                {
+                    Debug.Log("Pressed");
+                    OnPressed?.Invoke();
+                    _textureTr.localPosition = Vector3.down * _plateDownOffset;
+                }
+                else
+                {
+                    Debug.Log("Released");
+                    OnReleased?.Invoke();
+                    _textureTr.localPosition = Vector3.zero;
+                }
             }
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            Debug.Log("Pressed");
-            _pressed = true;
-            _textureTr.localPosition = Vector3.down * _plateDownOffset;
-            OnPressedEvent?.Invoke();
+            _curPressing = true;
         }
 
         private void OnTriggerStay2D(Collider2D collision)
         {
-            Debug.Log("Pressing");
-            _pressed = true;
-            _textureTr.localPosition = Vector3.down * _plateDownOffset;
-            OnPressingEvent?.Invoke();
+            _curPressing = true;
         }
 
         private void OnTriggerExit2D(Collider2D collision)
         {
-            Debug.Log("Released");
-            _pressed = false;
-            _textureTr.localPosition = Vector3.zero;
-            OnReleasedEvent?.Invoke();
+            _curPressing = false;
         }
     }
 }
