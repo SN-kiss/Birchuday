@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace InGame.Gimmick
 {
+    /// <summary>
+    /// Furukubo
+    /// </summary>
     public class Door : MonoBehaviour
     {
         [Header("References")]

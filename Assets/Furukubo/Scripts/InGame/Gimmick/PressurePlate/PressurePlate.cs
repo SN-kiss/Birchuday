@@ -3,6 +3,9 @@ using UnityEngine.Events;
 
 namespace InGame.Gimmick
 {
+    /// <summary>
+    /// Furukubo
+    /// </summary>
     public class PressurePlate : MonoBehaviour
     {
         [Header("Parameters")]

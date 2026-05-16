@@ -5,9 +5,10 @@ namespace InGame
     /// <summary>
     /// Furukubo
     /// </summary>
-    public interface IBlowTarget
+    public interface IDamageTarget
     {
         Vector2 Position { get; }
-        void AddForce(Vector2 force);
+        void OnDamaged(int damage);
+        void OnNockBack(Vector2 force);
     }
 }

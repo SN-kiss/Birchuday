@@ -21,10 +21,11 @@ namespace InGame.Player
         [SerializeField] private Rigidbody2D _bodyRb;
         [SerializeField] private Transform _lipDefaultPointTr;
 
-        private ILipAttacher _target;
+        private ILipAttachTarget _target;
         private PlayerLipState _currentState;
         private Vector2 _attachedLocalOffset;
         private float _attractedCancelTimeCounter;
+        private bool _isBodyDead;
 
         public bool IsAttached => _currentState == PlayerLipState.AttachOnTarget;
         public Vector2 Position => _rb.position;
@@ -54,7 +55,7 @@ namespace InGame.Player
         {
             if (_currentState != PlayerLipState.Attracted) return;
 
-            if (collision.TryGetComponent(out ILipAttacher target)) OnAttachOnTarget(target);
+            if (collision.TryGetComponent(out ILipAttachTarget target)) OnAttachOnTarget(target);
         }
 
         private void OnFollowBody()
@@ -74,6 +75,7 @@ namespace InGame.Player
 
         public void OnAttracted(Vector2 force)
         {
+            if (_isBodyDead) return;
             if (_currentState == PlayerLipState.AttachOnTarget) return;
 
             float currentAng = _rb.rotation;
@@ -108,7 +110,7 @@ namespace InGame.Player
             OnFollowBody();
         }
 
-        private void OnAttachOnTarget(ILipAttacher target)
+        private void OnAttachOnTarget(ILipAttachTarget target)
         {
             Vector2 closestPoint = target.GetClosestPoint(_rb.position);
 
@@ -129,7 +131,7 @@ namespace InGame.Player
         {
             if (_target == null)
             {
-                OnCancelAttachOnTarget();
+                OnDetachTarget();
             }
             else
             {
@@ -151,7 +153,7 @@ namespace InGame.Player
             }
         }
 
-        public void OnCancelAttachOnTarget()
+        public void OnDetachTarget()
         {
             if (_currentState != PlayerLipState.AttachOnTarget) return;
 
@@ -162,6 +164,23 @@ namespace InGame.Player
             }
 
             OnFollowBody();
+        }
+
+        public void OnBodyDamaged()
+        {
+            if (_currentState == PlayerLipState.AttachOnTarget)
+            {
+                OnDetachTarget();
+            }
+            else if (_currentState == PlayerLipState.Attracted)
+            {
+                OnCancelAttracted();
+            }
+        }
+
+        public void OnBodyDead()
+        {
+            _isBodyDead = true;
         }
 
         private enum PlayerLipState

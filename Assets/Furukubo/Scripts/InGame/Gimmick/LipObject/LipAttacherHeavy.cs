@@ -3,7 +3,10 @@ using UnityEngine;
 
 namespace InGame.Gimmick
 {
-    public class LipAttacherHeavy : MonoBehaviour, ILipAttacher
+    /// <summary>
+    /// Furukubo
+    /// </summary>
+    public class LipAttacherHeavy : MonoBehaviour, ILipAttachTarget
     {
         [Header("Parameters")]
         [SerializeField] private int _attachedCountNeedToMoveMin;

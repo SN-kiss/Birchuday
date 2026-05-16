@@ -2,7 +2,10 @@ using UnityEngine;
 
 namespace InGame
 {
-    public interface ILipAttacher
+    /// <summary>
+    /// Furukubo
+    /// </summary>
+    public interface ILipAttachTarget
     {
         public Vector2 Position { get; }
         public float Rotation { get; }
