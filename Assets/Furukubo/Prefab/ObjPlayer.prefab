@@ -413,14 +413,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5572775c387fa0b4987c3bd21200d6ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Player.PlayerLipMove
-  _rb: {fileID: 278509828133917856}
-  _body: {fileID: 4751885898393672741}
-  _lipDefaultPointTr: {fileID: 2455955728822694402}
   _attractableAngle: 45
+  _attractedCancelTime: 1
   _attachDistance: 0.5
   _pullBodyPower: 2.5
   _pullBodyPowerMax: 5
   _pullStopDistance: 1
+  _rb: {fileID: 278509828133917856}
+  _bodyRb: {fileID: 1951988637841431446}
+  _lipDefaultPointTr: {fileID: 2455955728822694402}
 --- !u!50 &278509828133917856
 Rigidbody2D:
   serializedVersion: 5

@@ -83,7 +83,7 @@ namespace InGame.Player
         {
             if (_isIgnoreInput) return;
             if (_lip == null) return;
-            _lip.OnCancelFollowingTarget();
+            _lip.OnCancelAttachOnTarget();
         }
 
         public void SetIgnoreInput(bool value)

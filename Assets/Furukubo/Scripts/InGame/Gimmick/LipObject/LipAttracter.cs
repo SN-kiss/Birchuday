@@ -1,5 +1,4 @@
 using InGame.Player;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace InGame
@@ -9,22 +8,28 @@ namespace InGame
     /// </summary>
     public class LipAttracter : MonoBehaviour
     {
-        [SerializeField] LipConnecter _connecter;
+        [Header("Parameters")]
+        [SerializeField] private float _attractPower;
 
-        /// <summary>
-        /// Dammy
-        /// </summary>
+        [Header("References")]
+        [SerializeField] private Collider2D _col;
+
         private void OnTriggerStay2D(Collider2D other)
         {
             if (other.TryGetComponent(out PlayerLip lip))
             {
                 Vector2 lipPos = lip.Position;
-                Vector2 closestPos = _connecter.GetClosestPoint(lipPos);
-
+                Vector2 closestPos = GetClosestPoint(lipPos);
                 Vector2 between = closestPos - lipPos;
 
-                lip.OnAttracted(between * 5f, closestPos, _connecter);
+                lip.OnAttracted(between * _attractPower);
             }
+        }
+
+        private Vector2 GetClosestPoint(Vector2 pos)
+        {
+            if(_col == null) return transform.position;
+            return _col.ClosestPoint(pos);
         }
     }
 }
