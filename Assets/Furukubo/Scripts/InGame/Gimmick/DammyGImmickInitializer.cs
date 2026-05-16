@@ -12,12 +12,12 @@ namespace InGame.Gimmick
             if(_targetPressurePlate == null) return;
             if (_targetDoor == null) return;
 
-            _targetPressurePlate.OnPressingEvent += () =>
+            _targetPressurePlate.OnPressing += () =>
             {
                 if(_targetDoor != null) _targetDoor.OnCloseUpdate();
             };
 
-            _targetPressurePlate.OnReleasingEvent += () =>
+            _targetPressurePlate.OnReleasing += () =>
             {
                 if (_targetDoor != null) _targetDoor.OnOpenUpdate();
             };
