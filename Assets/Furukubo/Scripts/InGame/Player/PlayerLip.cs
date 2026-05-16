@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace InGame.Player
@@ -7,73 +8,80 @@ namespace InGame.Player
     /// </summary>
     public class PlayerLip : MonoBehaviour
     {
-        [Header("References")]
-        [SerializeField] private Rigidbody2D _rb;
-        [SerializeField] private PlayerBodyMove _body;
-        [SerializeField] private Transform _lipDefaultPointTr;
-
         [Header("Parameters")]
         [SerializeField] private float _attractableAngle;
+        [SerializeField] private float _attractedCancelTime;
         [SerializeField] private float _attachDistance;
         [SerializeField] private float _pullBodyPower;
         [SerializeField] private float _pullBodyPowerMax;
         [SerializeField] private float _pullStopDistance;
 
-        private LipConnecter _target;
+        [Header("References")]
+        [SerializeField] private Rigidbody2D _rb;
+        [SerializeField] private Rigidbody2D _bodyRb;
+        [SerializeField] private Transform _lipDefaultPointTr;
+
+        private ILipAttacher _target;
         private PlayerLipState _currentState;
         private Vector2 _attachedLocalOffset;
+        private float _attractedCancelTimeCounter;
 
-        public bool IsAttached => _currentState == PlayerLipState.FollowingTarget;
+        public bool IsAttached => _currentState == PlayerLipState.AttachOnTarget;
         public Vector2 Position => _rb.position;
-
-        private float _attractedCancelCounter;
 
         private void Start()
         {
-            OnStartFollowingBodyState();
+            OnFollowBody();
         }
 
         private void FixedUpdate()
         {
             switch (_currentState)
             {
-                case PlayerLipState.FollowingBody:
-                    FollowingBodyStateUpdate(Time.fixedDeltaTime);
+                case PlayerLipState.FollowBody:
+                    FollowBodyStateUpdate(Time.fixedDeltaTime);
                     break;
                 case PlayerLipState.Attracted:
                     AttractedStateUpdate(Time.fixedDeltaTime);
                     break;
-                case PlayerLipState.FollowingTarget:
-                    FollowingTargetStateUpdate(Time.fixedDeltaTime);
+                case PlayerLipState.AttachOnTarget:
+                    AttachOnTargetStateUpdate(Time.fixedDeltaTime);
                     break;
             }
         }
 
-        private void OnStartFollowingBodyState()
+        private void OnTriggerEnter2D(Collider2D collision)
         {
-            _currentState = PlayerLipState.FollowingBody;
+            if (_currentState != PlayerLipState.Attracted) return;
+
+            if (collision.TryGetComponent(out ILipAttacher target)) OnAttachOnTarget(target);
+        }
+
+        private void OnFollowBody()
+        {
+            _currentState = PlayerLipState.FollowBody;
             _rb.linearVelocity = Vector2.zero;
             _rb.bodyType = RigidbodyType2D.Kinematic;
             _rb.position = _lipDefaultPointTr.position;
-            _rb.rotation = _lipDefaultPointTr.localEulerAngles.z;
+            _rb.rotation = _bodyRb.rotation;
         }
 
-        private void FollowingBodyStateUpdate(float dt)
+        private void FollowBodyStateUpdate(float dt)
         {
             _rb.position = _lipDefaultPointTr.position;
-            _rb.rotation = _body.Rotation;
+            _rb.rotation = _bodyRb.rotation;
         }
 
-        public void OnAttracted(Vector2 force, Vector2 closestPoint, LipConnecter connecter)
+        public void OnAttracted(Vector2 force)
         {
-            if (_currentState == PlayerLipState.FollowingTarget) return;
+            if (_currentState == PlayerLipState.AttachOnTarget) return;
 
             float currentAng = _rb.rotation;
             float forceAngle = CalculateUtilities.DirectionToAngle(force);
 
             if (Mathf.Abs(Mathf.DeltaAngle(currentAng, forceAngle)) <= _attractableAngle)
             {
-                _attractedCancelCounter = 0f;
+                _attractedCancelTimeCounter = 0f;
                 _currentState = PlayerLipState.Attracted;
                 _rb.bodyType = RigidbodyType2D.Dynamic;
 
@@ -81,47 +89,54 @@ namespace InGame.Player
 
                 if (_rb.linearVelocity.sqrMagnitude != 0f)
                     _rb.rotation = CalculateUtilities.DirectionToAngle(_rb.linearVelocity);
-
-                if ((_rb.position - closestPoint).sqrMagnitude < _attachDistance * _attachDistance)
-                {
-                    _currentState = PlayerLipState.FollowingTarget;
-                    _target = connecter;
-                    _rb.linearVelocity = Vector2.zero;
-                    _rb.bodyType = RigidbodyType2D.Kinematic;
-                    _rb.position = closestPoint;
-                    _attachedLocalOffset = _target.GetInverseTransformPoint(_rb.position);
-                }
             }
         }
 
         private void AttractedStateUpdate(float dt)
         {
-            _attractedCancelCounter += dt;
+            _attractedCancelTimeCounter += dt;
 
-            if (1f <= _attractedCancelCounter)
+            if (_attractedCancelTime <= _attractedCancelTimeCounter)
             {
-                _attractedCancelCounter = 0f;
+                _attractedCancelTimeCounter = 0f;
                 OnCancelAttracted();
             }
         }
 
         private void OnCancelAttracted()
         {
-            OnStartFollowingBodyState();
+            OnFollowBody();
         }
 
-        private void FollowingTargetStateUpdate(float dt)
+        private void OnAttachOnTarget(ILipAttacher target)
+        {
+            Vector2 closestPoint = target.GetClosestPoint(_rb.position);
+
+            if ((_rb.position - closestPoint).sqrMagnitude < _attachDistance * _attachDistance)
+            {
+                _currentState = PlayerLipState.AttachOnTarget;
+                _target = target;
+                _rb.linearVelocity = Vector2.zero;
+                _rb.bodyType = RigidbodyType2D.Kinematic;
+                _rb.position = closestPoint;
+                _attachedLocalOffset = _target.GetInverseTransformPoint(_rb.position);
+            }
+
+            target.OnAttached();
+        }
+
+        private void AttachOnTargetStateUpdate(float dt)
         {
             if (_target == null)
             {
-                OnStartFollowingBodyState();
+                OnCancelAttachOnTarget();
             }
             else
             {
                 _rb.position = _target.GetTransformPoint(_attachedLocalOffset);
                 _rb.rotation = CalculateUtilities.DirectionToAngle(_target.Position - Position);
 
-                Vector2 betweenToBody = _rb.position - _body.Position;
+                Vector2 betweenToBody = _rb.position - _bodyRb.position;
                 float distanceToBody = betweenToBody.magnitude;
 
                 if (_pullStopDistance < distanceToBody)
@@ -131,23 +146,29 @@ namespace InGame.Player
                         * Mathf.Clamp((distanceToBody - _pullStopDistance) * _pullBodyPower, 0f, _pullBodyPowerMax);
 
                     _target.AddForce(-pullForce);
-                    _body.AddForce(pullForce);
+                    _bodyRb.AddForce(pullForce);
                 }
             }
         }
 
-        public void OnCancelFollowingTarget()
+        public void OnCancelAttachOnTarget()
         {
-            if (_currentState != PlayerLipState.FollowingTarget) return;
-            _target = null;
-            OnStartFollowingBodyState();
+            if (_currentState != PlayerLipState.AttachOnTarget) return;
+
+            if (_target != null)
+            {
+                _target.OnDetached();
+                _target = null;
+            }
+
+            OnFollowBody();
         }
 
         private enum PlayerLipState
         {
-            FollowingBody,
+            FollowBody,
             Attracted,
-            FollowingTarget,
+            AttachOnTarget,
         }
     }
 }
