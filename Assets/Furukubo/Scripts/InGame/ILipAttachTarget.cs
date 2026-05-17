@@ -1,3 +1,4 @@
+using InGame.Player;
 using UnityEngine;
 
 namespace InGame
@@ -10,7 +11,7 @@ namespace InGame
         public Vector2 Position { get; }
         public float Rotation { get; }
 
-        public void OnAttached();
+        public void OnAttached(PlayerLip attacher);
         public void OnDetached();
         public void AddForce(Vector2 force);
         public Vector2 GetClosestPoint(Vector2 pos);

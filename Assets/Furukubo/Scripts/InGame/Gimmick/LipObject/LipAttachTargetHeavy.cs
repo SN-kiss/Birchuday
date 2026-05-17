@@ -1,3 +1,4 @@
+using InGame.Player;
 using TMPro;
 using UnityEngine;
 
@@ -6,7 +7,7 @@ namespace InGame.Gimmick
     /// <summary>
     /// Furukubo
     /// </summary>
-    public class LipAttacherHeavy : MonoBehaviour, ILipAttachTarget
+    public class LipAttachTargetHeavy : MonoBehaviour, ILipAttachTarget
     {
         [Header("Parameters")]
         [SerializeField] private int _attachedCountNeedToMoveMin;
@@ -26,7 +27,7 @@ namespace InGame.Gimmick
             _debugAttachedCountText.text = $"{_attachedCount}/{_attachedCountNeedToMoveMin}";
         }
 
-        public void OnAttached()
+        public void OnAttached(PlayerLip attacher)
         {
             _attachedCount++;
 

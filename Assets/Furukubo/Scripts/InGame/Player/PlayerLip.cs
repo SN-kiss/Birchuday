@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace InGame.Player
 {
@@ -20,6 +21,7 @@ namespace InGame.Player
         [SerializeField] private Rigidbody2D _rb;
         [SerializeField] private Rigidbody2D _bodyRb;
         [SerializeField] private Transform _lipDefaultPointTr;
+        [SerializeField] private UnityEvent<int, Vector2> _onDamaged;
 
         private ILipAttachTarget _target;
         private PlayerLipState _currentState;
@@ -52,6 +54,13 @@ namespace InGame.Player
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (_currentState != PlayerLipState.Attracted) return;
+
+            if (collision.TryGetComponent(out ILipAttachTarget target)) OnAttachOnTarget(target);
+        }
+
+        private void OnTriggerStay2D(Collider2D collision)
         {
             if (_currentState != PlayerLipState.Attracted) return;
 
@@ -114,17 +123,14 @@ namespace InGame.Player
         {
             Vector2 closestPoint = target.GetClosestPoint(_rb.position);
 
-            if ((_rb.position - closestPoint).sqrMagnitude < _attachDistance * _attachDistance)
-            {
-                _currentState = PlayerLipState.AttachOnTarget;
-                _target = target;
-                _rb.linearVelocity = Vector2.zero;
-                _rb.bodyType = RigidbodyType2D.Kinematic;
-                _rb.position = closestPoint;
-                _attachedLocalOffset = _target.GetInverseTransformPoint(_rb.position);
-            }
+            _currentState = PlayerLipState.AttachOnTarget;
+            _target = target;
+            _rb.linearVelocity = Vector2.zero;
+            _rb.bodyType = RigidbodyType2D.Kinematic;
+            _rb.position = closestPoint;
+            _attachedLocalOffset = _target.GetInverseTransformPoint(_rb.position);
 
-            target.OnAttached();
+            target.OnAttached(this);
         }
 
         private void AttachOnTargetStateUpdate(float dt)
@@ -164,6 +170,12 @@ namespace InGame.Player
             }
 
             OnFollowBody();
+        }
+
+        public void OnLipAttachDamage(int damageAmount, float nockbackPower)
+        {
+            Vector2 nockback = (_bodyRb.position - _rb.position).normalized * nockbackPower;
+            _onDamaged?.Invoke(damageAmount, nockback);
         }
 
         public void OnBodyDamaged()

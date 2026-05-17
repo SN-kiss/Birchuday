@@ -48,14 +48,17 @@ namespace InGame.Player
             }
         }
 
-        public void OnDamaged(int damage)
+        public void OnDamaged(int damage, Vector2 nockback)
         {
+            _rb.linearVelocity = Vector2.zero;
+            _rb.AddForce(nockback, ForceMode2D.Impulse);
+
+            _onDamaged?.Invoke();
+
             if (IsInvincible) return;
             if(IsDead) return;
 
             _remainHealth = Mathf.Clamp(_remainHealth - damage, 0, _healthMax);
-
-            _onDamaged?.Invoke();
 
             if (IsDead)
             {
@@ -64,17 +67,8 @@ namespace InGame.Player
             }
             else
             {
-                SetInvincibleTime();
+                _remainInvincibleTime = _invincibleTime;
             }
         }
-
-        public void OnNockBack(Vector2 force)
-        {
-            if (IsDead) return;
-            _rb.linearVelocity = Vector2.zero;
-            _rb.AddForce(force, ForceMode2D.Impulse);
-        }
-
-        private void SetInvincibleTime() => _remainInvincibleTime = _invincibleTime;
     }
 }

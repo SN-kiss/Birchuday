@@ -20,7 +20,6 @@ namespace InGame.Player
         [SerializeField] private PlayerLip _lip;
 
         private Vector2 _moveInput;
-        private Vector2 _lookingDirection;
         private bool _isIgnoreInput;
 
         public Vector2 Position => _rb.position;
@@ -28,7 +27,6 @@ namespace InGame.Player
 
         private void Start()
         {
-            _lookingDirection = CalculateUtilities.AngleToDirection(_initLookingAngle);
             _rb.rotation = _initLookingAngle;
         }
 
@@ -69,7 +67,8 @@ namespace InGame.Player
             if (_isIgnoreInput) return;
             if (_rb == null) return;
             _rb.linearVelocity = Vector2.zero;
-            _rb.AddForce(_lookingDirection * _dashPower, ForceMode2D.Impulse);
+            Vector2 dir = CalculateUtilities.AngleToDirection(_rb.rotation);
+            _rb.AddForce(dir * _dashPower, ForceMode2D.Impulse);
         }
 
         public void OnDetach()
@@ -93,7 +92,6 @@ namespace InGame.Player
 
             float newAng = currentAng + betweenAng * _rotateSpeed * deltaTime;
 
-            _lookingDirection = CalculateUtilities.AngleToDirection(newAng);
             _rb.SetRotation(newAng);
         }
     }

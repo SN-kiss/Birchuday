@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c957072f3bf04544692760dd944d39f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Player.PlayerBodyDamage
-  _healthMax: 100
+  _healthMax: 5
   _invincibleTime: 1.5
   _rb: {fileID: 1951988637841431446}
   _srBody: {fileID: 9072272913764650286}
@@ -481,6 +481,21 @@ MonoBehaviour:
   _rb: {fileID: 278509828133917856}
   _bodyRb: {fileID: 1951988637841431446}
   _lipDefaultPointTr: {fileID: 2455955728822694402}
+  _onDamaged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7920196932021533494}
+        m_TargetAssemblyTypeName: InGame.Player.PlayerBodyDamage, Assembly-CSharp
+        m_MethodName: OnDamaged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!50 &278509828133917856
 Rigidbody2D:
   serializedVersion: 5
@@ -652,7 +667,7 @@ LineRenderer:
   - {x: 0.75, y: 0, z: 0}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.75
+    widthMultiplier: 0.9
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -729,7 +744,7 @@ GameObject:
   m_Layer: 0
   m_Name: ObjPlayer
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
