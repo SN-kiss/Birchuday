@@ -8,7 +8,6 @@ namespace InGame
     public interface IDamageTarget
     {
         Vector2 Position { get; }
-        void OnDamaged(int damage);
-        void OnNockBack(Vector2 force);
+        void OnDamaged(int damage, Vector2 nockback);
     }
 }
