@@ -27,7 +27,7 @@ namespace InGame.Gimmick
             _debugAttachedCountText.text = $"{_attachedCount}/{_attachedCountNeedToMoveMin}";
         }
 
-        public void OnAttached(PlayerLip attacher)
+        public void OnAttached(ILip attacher)
         {
             _attachedCount++;
 
