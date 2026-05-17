@@ -15,7 +15,7 @@ namespace InGame
         public Vector2 Position => _rb.position;
         public float Rotation => _rb.rotation;
 
-        public void OnAttached(PlayerLip attacher) => Debug.Log("Attached");
+        public void OnAttached(ILip attacher) => Debug.Log("Attached");
         public void OnDetached() => Debug.Log("Detached");
 
         public void AddForce(Vector2 force) => _rb.AddForce(force);

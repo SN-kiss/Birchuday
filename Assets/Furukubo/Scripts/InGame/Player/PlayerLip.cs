@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,7 +6,7 @@ namespace InGame.Player
     /// <summary>
     /// Furukubo (Refactoring of LipControler)
     /// </summary>
-    public class PlayerLip : MonoBehaviour
+    public class PlayerLip : MonoBehaviour, ILip
     {
         [Header("Parameters")]
         [SerializeField] private float _attractableAngle;
@@ -16,8 +15,10 @@ namespace InGame.Player
         [SerializeField] private float _pullBodyPower;
         [SerializeField] private float _pullBodyPowerMax;
         [SerializeField] private float _pullStopDistance;
+        [SerializeField] private float _attractCoolTime;
 
         [Header("References")]
+        [SerializeField] private SpriteRenderer _sr;
         [SerializeField] private Rigidbody2D _rb;
         [SerializeField] private Rigidbody2D _bodyRb;
         [SerializeField] private Transform _lipDefaultPointTr;
@@ -28,6 +29,7 @@ namespace InGame.Player
         private Vector2 _attachedLocalOffset;
         private float _attractedCancelTimeCounter;
         private bool _isBodyDead;
+        private float _attractCoolTimeCount;
 
         public bool IsAttached => _currentState == PlayerLipState.AttachOnTarget;
         public Vector2 Position => _rb.position;
@@ -39,6 +41,8 @@ namespace InGame.Player
 
         private void FixedUpdate()
         {
+            if (0f < _attractCoolTimeCount) _attractCoolTimeCount -= Time.fixedDeltaTime;
+
             switch (_currentState)
             {
                 case PlayerLipState.FollowBody:
@@ -86,6 +90,7 @@ namespace InGame.Player
         {
             if (_isBodyDead) return;
             if (_currentState == PlayerLipState.AttachOnTarget) return;
+            if (0f < _attractCoolTimeCount) return;
 
             float currentAng = _rb.rotation;
             float forceAngle = CalculateUtilities.DirectionToAngle(force);
@@ -116,6 +121,8 @@ namespace InGame.Player
 
         private void OnCancelAttracted()
         {
+            StartAttractCoolTime();
+
             OnFollowBody();
         }
 
@@ -169,13 +176,28 @@ namespace InGame.Player
                 _target = null;
             }
 
+            StartAttractCoolTime();
+
             OnFollowBody();
         }
 
-        public void OnLipAttachDamage(int damageAmount, float nockbackPower)
+        public void OnLipDamage(int damageAmount, float nockbackPower, LipDamageType type)
         {
             Vector2 nockback = (_bodyRb.position - _rb.position).normalized * nockbackPower;
             _onDamaged?.Invoke(damageAmount, nockback);
+
+            switch (type)
+            {
+                case LipDamageType.None:
+                    _sr.color = Color.red;
+                    break;
+                case LipDamageType.Needle:
+                    _sr.color = Color.magenta;
+                    break;
+                case LipDamageType.Heat:
+                    _sr.color = Color.yellow;
+                    break;
+            }
         }
 
         public void OnBodyDamaged()
@@ -194,6 +216,8 @@ namespace InGame.Player
         {
             _isBodyDead = true;
         }
+
+        private void StartAttractCoolTime() => _attractCoolTimeCount = _attractCoolTime;
 
         private enum PlayerLipState
         {

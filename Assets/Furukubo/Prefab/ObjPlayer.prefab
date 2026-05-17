@@ -477,7 +477,9 @@ MonoBehaviour:
   _attachDistance: 0.5
   _pullBodyPower: 2.5
   _pullBodyPowerMax: 5
-  _pullStopDistance: 1
+  _pullStopDistance: 2
+  _attractCoolTime: 1
+  _sr: {fileID: 5988073462970348639}
   _rb: {fileID: 278509828133917856}
   _bodyRb: {fileID: 1951988637841431446}
   _lipDefaultPointTr: {fileID: 2455955728822694402}
@@ -558,7 +560,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.25
+  m_Radius: 0.4
 --- !u!1 &4289688285051152314
 GameObject:
   m_ObjectHideFlags: 0
@@ -946,7 +948,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2045317591642878268}

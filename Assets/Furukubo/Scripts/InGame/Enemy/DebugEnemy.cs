@@ -8,6 +8,7 @@ namespace InGame.Enemy
         [Header("Parameters")]
         [SerializeField] private int _damageAmount;
         [SerializeField] private float _nockbackPower;
+        [SerializeField] private LipDamageType _damageType;
 
         [Header("References")]
         [SerializeField] private Rigidbody2D _rb;
@@ -27,9 +28,9 @@ namespace InGame.Enemy
             if (collision.gameObject.TryGetComponent(out IDamageTarget target)) Attack(target);
         }
 
-        public void OnAttached(PlayerLip lip)//change to ILip
+        public void OnAttached(ILip lip)//change to ILip
         {
-            lip.OnLipAttachDamage(1, _nockbackPower);
+            lip.OnLipDamage(1, _nockbackPower, _damageType);
         }
 
         public void OnDetached() { }

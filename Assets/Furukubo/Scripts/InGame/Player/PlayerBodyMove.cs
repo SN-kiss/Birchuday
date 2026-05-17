@@ -93,6 +93,7 @@ namespace InGame.Player
             float newAng = currentAng + betweenAng * _rotateSpeed * deltaTime;
 
             _rb.SetRotation(newAng);
+            _rb.angularVelocity = 0f;
         }
     }
 }
