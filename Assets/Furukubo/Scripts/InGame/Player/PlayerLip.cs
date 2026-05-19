@@ -9,7 +9,7 @@ namespace InGame.Player
     public class PlayerLip : MonoBehaviour, ILip
     {
         [Header("Parameters")]
-        [SerializeField] private float _attractableAngle;
+        [SerializeField, Range(-1f, 1f)] private float _attractableRangeThreshoud;
         [SerializeField] private float _attractedCancelTime;
         [SerializeField] private float _attachDistance;
         [SerializeField] private float _pullBodyPower;
@@ -22,6 +22,7 @@ namespace InGame.Player
         [SerializeField] private Rigidbody2D _rb;
         [SerializeField] private Rigidbody2D _bodyRb;
         [SerializeField] private Transform _lipDefaultPointTr;
+        [SerializeField] private Collider2D _ignoreCol;
         [SerializeField] private UnityEvent<int, Vector2> _onDamaged;
 
         private ILipAttachTarget _target;
@@ -57,18 +58,20 @@ namespace InGame.Player
             }
         }
 
-        private void OnTriggerEnter2D(Collider2D collision)
+        private void OnTriggerEnter2D(Collider2D col)
         {
+            if(col == _ignoreCol) return;
             if (_currentState != PlayerLipState.Attracted) return;
 
-            if (collision.TryGetComponent(out ILipAttachTarget target)) OnAttachOnTarget(target);
+            if (col.TryGetComponent(out ILipAttachTarget target)) OnAttachOnTarget(target);
         }
 
-        private void OnTriggerStay2D(Collider2D collision)
+        private void OnTriggerStay2D(Collider2D col)
         {
+            if (col == _ignoreCol) return;
             if (_currentState != PlayerLipState.Attracted) return;
 
-            if (collision.TryGetComponent(out ILipAttachTarget target)) OnAttachOnTarget(target);
+            if (col.TryGetComponent(out ILipAttachTarget target)) OnAttachOnTarget(target);
         }
 
         private void OnFollowBody()
@@ -92,10 +95,7 @@ namespace InGame.Player
             if (_currentState == PlayerLipState.AttachOnTarget) return;
             if (0f < _attractCoolTimeCount) return;
 
-            float currentAng = _rb.rotation;
-            float forceAngle = CalculateUtilities.DirectionToAngle(force);
-
-            if (Mathf.Abs(Mathf.DeltaAngle(currentAng, forceAngle)) <= _attractableAngle)
+            if (_attractableRangeThreshoud < Vector2.Dot(CalculateUtilities.AngleToDirection(_rb.rotation), force.normalized))
             {
                 _attractedCancelTimeCounter = 0f;
                 _currentState = PlayerLipState.Attracted;
