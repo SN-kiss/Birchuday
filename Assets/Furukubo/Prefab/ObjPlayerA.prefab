@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 4661841967650697519}
   - component: {fileID: 4751885898393672741}
   - component: {fileID: 7920196932021533494}
+  - component: {fileID: 5025743071273418443}
   - component: {fileID: 1951988637841431446}
   - component: {fileID: 2717984402589636751}
   - component: {fileID: 5226923501324766743}
@@ -160,6 +161,7 @@ Transform:
   - {fileID: 6996503593780138737}
   - {fileID: 2455955728822694402}
   - {fileID: 633218613496899251}
+  - {fileID: 8271715189729085492}
   m_Father: {fileID: 561611508804786352}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4751885898393672741
@@ -239,6 +241,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5025743071273418443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2779530561194208092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3f2aba97c3de3f43af8e01598ca14b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InGame.LipAttachTargetNormal
+  _rb: {fileID: 1951988637841431446}
+  _col: {fileID: 2717984402589636751}
 --- !u!50 &1951988637841431446
 Rigidbody2D:
   serializedVersion: 5
@@ -329,7 +345,7 @@ MonoBehaviour:
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: InGame_Player
+  m_DefaultActionMap: InGame_PlayerA
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!1 &2961276149473981608
@@ -472,7 +488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5572775c387fa0b4987c3bd21200d6ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Player.PlayerLipMove
-  _attractableAngle: 45
+  _attractableRangeThreshoud: 0.5
   _attractedCancelTime: 1
   _attachDistance: 0.5
   _pullBodyPower: 2.5
@@ -483,6 +499,7 @@ MonoBehaviour:
   _rb: {fileID: 278509828133917856}
   _bodyRb: {fileID: 1951988637841431446}
   _lipDefaultPointTr: {fileID: 2455955728822694402}
+  _ignoreCol: {fileID: 2717984402589636751}
   _onDamaged:
     m_PersistentCalls:
       m_Calls:
@@ -744,7 +761,7 @@ GameObject:
   m_Component:
   - component: {fileID: 561611508804786352}
   m_Layer: 0
-  m_Name: ObjPlayer
+  m_Name: ObjPlayerA
   m_TagString: Untagged
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -921,6 +938,92 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4661841967650697519}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+--- !u!1 &7623922933540871045
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8271715189729085492}
+  - component: {fileID: 5814704315311364240}
+  - component: {fileID: 1923119900670522848}
+  m_Layer: 0
+  m_Name: LipAttracter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8271715189729085492
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7623922933540871045}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.5, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4661841967650697519}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5814704315311364240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7623922933540871045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb24bfdd1c5e28543abaa4b72a8199fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InGame.Player.PlayerBodyLipAttracter
+  _attractPower: 6
+  _attractRangeThrehoud: 0
+  _rb: {fileID: 1951988637841431446}
+  _col: {fileID: 2717984402589636751}
+  _ingnoreCol: {fileID: 8109369219970251208}
+--- !u!58 &1923119900670522848
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7623922933540871045}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 3
 --- !u!1 &8384745533697283612
 GameObject:
   m_ObjectHideFlags: 0
