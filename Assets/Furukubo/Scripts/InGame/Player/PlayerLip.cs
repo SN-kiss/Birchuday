@@ -6,7 +6,7 @@ namespace InGame.Player
     /// <summary>
     /// Furukubo (Refactoring of LipControler)
     /// </summary>
-    public class PlayerLip : MonoBehaviour, ILip
+    public class PlayerLip : MonoBehaviour, ILip, ILipAttractTarget
     {
         [Header("Parameters")]
         [SerializeField, Range(-1f, 1f)] private float _attractableRangeThreshoud;

@@ -18,7 +18,6 @@ namespace InGame.Gimmick
         [SerializeField] private TextMeshProUGUI _debugAttachedCountText;
 
         public Vector2 Position => _rb.position;
-        public float Rotation => _rb.rotation;
 
         private int _attachedCount;
 

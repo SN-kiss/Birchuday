@@ -20,7 +20,7 @@ namespace InGame.Player
         {
             if (col == _ingnoreCol) return;
 
-            if (col.TryGetComponent(out ILip lip))
+            if (col.TryGetComponent(out ILipAttractTarget lip))
             {
                 Vector2 lipPos = lip.Position;
                 Vector2 closestPos = GetClosestPoint(lipPos);
