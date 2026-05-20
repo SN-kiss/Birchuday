@@ -12,13 +12,41 @@ namespace InGame
 
         public Vector2 Position => _rb.position;
 
+        private ILip _lipA;
+        private ILip _lipB;
+
         public void Kiss(ILip lipA, ILip lipB)
         {
+            _lipA = lipA;
+            _lipB = lipB;
 
+            transform.position = (lipA.Position + lipB.Position) * 0.5f;
+
+            float lipAAngle = lipA.Rotation;
+
+            lipA.OnKissAttach(this, Vector2.zero, lipAAngle);
+            lipB.OnKissAttach(this, Vector2.zero, lipAAngle + 180f);
+
+            Debug.Log($"Kiss started : {_lipA} <=> {_lipB}");
         }
 
-        public void OnAttached(ILip attacher) => Debug.Log("Attached");
-        public void OnDetached(ILip lip) => Debug.Log("Detached");
+        public void OnAttached(ILip attacher) { }
+
+        public void OnDetached(ILip lip)
+        {
+            if (lip == _lipA)
+            {
+                _lipB.OnKissDetach();
+            }
+            else if (lip == _lipB)
+            {
+                _lipA.OnKissDetach();
+            }
+
+            Debug.Log($"Kiss finished : {_lipA} <=> {_lipB}");
+
+            Destroy(gameObject);
+        }
 
         public void AddForce(Vector2 force) => _rb.AddForce(force);
         public Vector2 GetAttachPoint(Vector2 pos) => Vector2.zero;

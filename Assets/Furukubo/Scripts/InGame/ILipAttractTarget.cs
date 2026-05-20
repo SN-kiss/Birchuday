@@ -14,9 +14,17 @@ namespace InGame
     public interface ILip
     {
         Vector2 Position { get; }
-        //bool IsKissableNow { get; }
-        //void OnKissAttach(ILipAttachTarget target);
-        //void OnKissDetach();
+        float Rotation { get; }
+        bool IsKissableNow { get; }
+        void OnKissAttach(ILipAttachTarget target, Vector2 inversePos, float inverseRot);
+        void OnKissDetach();
         void OnLipDamage(int damageAmount, float nockbackPower, LipDamageType type);
     }
+
+    /*
+    public interface IKissTarget
+    {
+        void OnKissAttach(ILipAttachTarget target, Vector2 inversePos, float inverseRot);
+        void OnKissDetach();
+    }*/
 }

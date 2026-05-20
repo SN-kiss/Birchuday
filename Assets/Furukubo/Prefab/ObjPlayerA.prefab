@@ -270,7 +270,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 1
   m_AngularDamping: 0.1
-  m_GravityScale: 0.1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -358,7 +358,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5961774006640513579}
   - component: {fileID: 2764435851461626189}
-  - component: {fileID: 7495013853870240730}
+  - component: {fileID: 6820428129676407951}
   m_Layer: 2
   m_Name: LipAttracter
   m_TagString: Untagged
@@ -393,10 +393,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3cbc5c5d68e1db44aeea89672f8cda4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InGame.LipAttracter
-  _attractPower: 5
+  _attractPower: 1
   _col: {fileID: 5973058095796014326}
---- !u!58 &7495013853870240730
-CircleCollider2D:
+--- !u!70 &6820428129676407951
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -430,7 +430,8 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 1.5, y: 0}
-  m_Radius: 2
+  m_Size: {x: 3, y: 1.5}
+  m_Direction: 1
 --- !u!1 &2961276149473981608
 GameObject:
   m_ObjectHideFlags: 0
@@ -554,10 +555,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5961774006640513579}
   - {fileID: 1697987510370593341}
   - {fileID: 6781168923843293511}
   - {fileID: 4278969630681958282}
-  - {fileID: 5961774006640513579}
   m_Father: {fileID: 561611508804786352}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &373577956428877147
@@ -584,6 +585,8 @@ MonoBehaviour:
   _bodyRb: {fileID: 1951988637841431446}
   _lipDefaultPointTr: {fileID: 2455955728822694402}
   _ignoreCol: {fileID: 2717984402589636751}
+  _objLipAttracter: {fileID: 2812026530920582850}
+  _prefabKissConnector: {fileID: 7818896086079290122, guid: 53e2ee437eba7454581f39d1ca98b7df, type: 3}
   _onDamaged:
     m_PersistentCalls:
       m_Calls:
@@ -1066,7 +1069,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb24bfdd1c5e28543abaa4b72a8199fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Player.PlayerBodyLipAttracter
-  _attractPower: 6
+  _attractPower: 2.5
   _attractRangeThrehoud: 0
   _rb: {fileID: 1951988637841431446}
   _col: {fileID: 2717984402589636751}
