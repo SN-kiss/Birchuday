@@ -18,5 +18,6 @@ EditorBuildSettings:
     path: Assets/GOD/Scene/GOD_MainTest.unity
     guid: b1164c1f9a50ed9429114f595679ea6e
   m_configObjects:
-    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+    com.unity.input.settings: {fileID: 11400000, guid: cdbbbda81706c0c40831365cb219fcce, type: 2}
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: f31fedd08c2bb2c479e75261ac1381c3, type: 3}
   m_UseUCBPForAssetBundles: 0
