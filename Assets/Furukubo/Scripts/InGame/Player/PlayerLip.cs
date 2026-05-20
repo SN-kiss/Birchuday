@@ -23,6 +23,8 @@ namespace InGame.Player
         [SerializeField] private Rigidbody2D _bodyRb;
         [SerializeField] private Transform _lipDefaultPointTr;
         [SerializeField] private Collider2D _ignoreCol;
+        [SerializeField] private GameObject _objLipAttracter;
+        [SerializeField] private KissConnector _prefabKissConnector;
         [SerializeField] private UnityEvent<int, Vector2> _onDamaged;
 
         private ILipAttachTarget _target;
@@ -35,6 +37,9 @@ namespace InGame.Player
 
         public bool IsAttached => _currentState == PlayerLipState.Attaching;
         public Vector2 Position => _rb.position;
+        public float Rotation => _rb.rotation;
+
+        public bool IsKissableNow => true;
 
         private void Start() => OnFollowBody();
 
@@ -61,18 +66,17 @@ namespace InGame.Player
             if(col == _ignoreCol) return;
             if (_currentState != PlayerLipState.Attracted) return;
 
-            if (false)//IKissTarget?
+            if (col.TryGetComponent(out ILip otherLip))
             {
-                //相手がキス対象だったらクッションを生成してクッション側でキス専用アタッチ
-                //クッション生成
+                Instantiate(_prefabKissConnector).Kiss(this, otherLip);
             }
-            else if (col.TryGetComponent(out ILipAttachTarget target))
+            else if (col.TryGetComponent(out ILipAttachTarget attachTarget))
             {
-                //それ以外の普通に接続する対象なら普通にアタッチ
-                OnAttach(target);
+                OnNormalAttach(attachTarget);
             }
         }
 
+        /*
         private void OnTriggerStay2D(Collider2D col)
         {
             if (col == _ignoreCol) return;
@@ -86,9 +90,10 @@ namespace InGame.Player
             else if (col.TryGetComponent(out ILipAttachTarget target))
             {
                 //それ以外の普通に接続する対象なら普通にアタッチ
-                OnAttach(target);
+                OnNormalAttach(target);
             }
         }
+        */
 
         private void SetAttractCoolTime() => _attractCoolTimeCount = _attractCoolTime;
 
@@ -144,9 +149,11 @@ namespace InGame.Player
             OnFollowBody();
         }
 
-        public void OnAttach(ILipAttachTarget target)
+        public void OnNormalAttach(ILipAttachTarget target)
         {
             _currentState = PlayerLipState.Attaching;
+
+            _objLipAttracter.SetActive(false);
 
             _target = target;
 
@@ -166,7 +173,7 @@ namespace InGame.Player
         {
             if (_target == null)
             {
-                OnDetach();
+                OnNormalDetach();
             }
             else
             {
@@ -188,15 +195,18 @@ namespace InGame.Player
             }
         }
 
-        public void OnDetach()
+        public void OnNormalDetach()
         {
             if (_currentState != PlayerLipState.Attaching) return;
+
+            _objLipAttracter.SetActive(true);
 
             if (_target != null)
             {
                 _target.OnDetached(this);
-                _target = null;
             }
+
+            _target = null;
 
             SetAttractCoolTime();
 
@@ -226,7 +236,7 @@ namespace InGame.Player
         {
             if (_currentState == PlayerLipState.Attaching)
             {
-                OnDetach();
+                OnNormalDetach();
             }
             else if (_currentState == PlayerLipState.Attracted)
             {
@@ -235,6 +245,37 @@ namespace InGame.Player
         }
 
         public void OnBodyDead() => _isBodyDead = true;
+
+        public void OnKissAttach(ILipAttachTarget target, Vector2 inversePos, float inverseRot)
+        {
+            _currentState = PlayerLipState.Attaching;
+
+            _target = target;
+
+            _objLipAttracter.SetActive(false);
+
+            _rb.linearVelocity = Vector2.zero;
+            _rb.bodyType = RigidbodyType2D.Kinematic;
+
+            _attachedPositionOffset = inversePos;
+            _attachedRotationOffset = inverseRot;
+
+            _rb.position = _target.GetTransformPoint(inversePos);
+            _rb.rotation = _target.GetTransformRotation(inverseRot);
+        }
+
+        public void OnKissDetach()
+        {
+            if (_currentState != PlayerLipState.Attaching) return;
+
+            _target = null;
+
+            _objLipAttracter.SetActive(true);
+
+            SetAttractCoolTime();
+
+            OnFollowBody();
+        }
 
         private enum PlayerLipState
         {
