@@ -8,7 +8,6 @@ namespace InGame
     public interface ILipAttachTarget
     {
         public Vector2 Position { get; }
-        public float Rotation { get; }
 
         public void OnAttached(ILip lip);
         public void OnDetached(ILip lip);

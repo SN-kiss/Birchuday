@@ -16,7 +16,6 @@ namespace InGame.Enemy
         [SerializeField] private Transform _trTexture;
 
         public Vector2 Position => _rb.position;
-        public float Rotation => _rb.rotation;
 
         private void Update()
         {
@@ -28,7 +27,7 @@ namespace InGame.Enemy
             if (collision.gameObject.TryGetComponent(out IDamageTarget target)) Attack(target);
         }
 
-        public void OnAttached(ILip lip)//change to ILip
+        public void OnAttached(ILip lip)//change to ILipAttractTarget
         {
             lip.OnLipDamage(1, _nockbackPower, _damageType);
         }

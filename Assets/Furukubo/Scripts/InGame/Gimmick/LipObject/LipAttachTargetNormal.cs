@@ -1,4 +1,3 @@
-using InGame.Player;
 using UnityEngine;
 
 namespace InGame
@@ -13,7 +12,6 @@ namespace InGame
         [SerializeField] private Collider2D _col;
 
         public Vector2 Position => _rb.position;
-        public float Rotation => _rb.rotation;
 
         public void OnAttached(ILip attacher) => Debug.Log("Attached");
         public void OnDetached(ILip lip) => Debug.Log("Detached");
