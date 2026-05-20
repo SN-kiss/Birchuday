@@ -33,11 +33,18 @@ namespace InGame.Enemy
             lip.OnLipDamage(1, _nockbackPower, _damageType);
         }
 
-        public void OnDetached() { }
+        public void OnDetached(ILip lip) { }
+
         public void AddForce(Vector2 force) { }
-        public Vector2 GetClosestPoint(Vector2 pos) => _col.ClosestPoint(pos);
+
+        public Vector2 GetAttachPoint(Vector2 pos) => _col.ClosestPoint(pos);
+        public float GetAttachRotation(Vector2 pos) => CalculateUtilities.DirectionToAngle((_rb.position - pos).normalized);
+
         public Vector2 GetInverseTransformPoint(Vector2 pos) => transform.InverseTransformPoint(pos);
         public Vector2 GetTransformPoint(Vector2 pos) => transform.TransformPoint(pos);
+
+        public float GetInverseTransformRotation(float rot) => Mathf.DeltaAngle(_rb.rotation, rot);
+        public float GetTransformRotation(float rot) => _rb.rotation + rot;
 
         private void Attack(IDamageTarget target)
         {

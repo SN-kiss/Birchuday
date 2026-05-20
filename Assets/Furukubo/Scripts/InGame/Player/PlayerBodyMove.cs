@@ -75,7 +75,7 @@ namespace InGame.Player
         {
             if (_isIgnoreInput) return;
             if (_lip == null) return;
-            _lip.OnDetachTarget();
+            _lip.OnDetach();
         }
 
         public void AddForce(Vector2 force) => _rb.AddForce(force);

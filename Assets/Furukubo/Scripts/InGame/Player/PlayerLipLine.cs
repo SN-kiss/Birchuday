@@ -9,8 +9,6 @@ namespace InGame.Player
     {
         [Header("Parameters")]
         [SerializeField] private int _lineSegments;
-        [SerializeField] private float _waveAmplitude;
-        [SerializeField] private float _waveSpeed;
         [SerializeField] private float _handleLengthCoef;
 
         [Header("References")]
@@ -38,24 +36,6 @@ namespace InGame.Player
             float length = (body - lip).magnitude * _handleLengthCoef;
 
             _line.SetPositions(GetPoints(body, body + bodyDir * length, lip - lipDir * length, lip, _lineSegments));
-
-            /*
-            for (int i = 0; i < _lineSegments; i++)
-            {
-                float t = (float)i / (_lineSegments - 1);
-
-                Vector3 pos = Vector3.Lerp(BodyPoint, LipPoint, t);
-
-                float wave = 
-                    Mathf.Sin(t * Mathf.PI + Time.time * _waveSpeed)
-                    * _waveAmplitude * (1 - Mathf.Abs(t - 0.5f) * 2);
-
-                Vector3 perp = Vector3.Cross((LipPoint - BodyPoint).normalized, Vector3.forward);
-
-                pos += perp * wave;
-
-                _line.SetPosition(i, pos);
-            }*/
         }
 
         private Vector3 GetPointThree(Vector3 start, Vector3 handle, Vector3 end, float time)

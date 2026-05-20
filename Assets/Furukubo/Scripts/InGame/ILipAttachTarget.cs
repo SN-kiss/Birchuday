@@ -1,4 +1,3 @@
-using InGame.Player;
 using UnityEngine;
 
 namespace InGame
@@ -12,9 +11,16 @@ namespace InGame
         public float Rotation { get; }
 
         public void OnAttached(ILip lip);
-        public void OnDetached();
+        public void OnDetached(ILip lip);
+
         public void AddForce(Vector2 force);
-        public Vector2 GetClosestPoint(Vector2 pos);
+
+        public float GetAttachRotation(Vector2 pos);
+        public Vector2 GetAttachPoint(Vector2 pos);
+
+        public float GetInverseTransformRotation(float rot);//Mathf.DeltaAngle(_rb.rotation, rot);
+        public float GetTransformRotation(float rot);
+
         public Vector2 GetInverseTransformPoint(Vector2 pos);
         public Vector2 GetTransformPoint(Vector2 pos);
     }
