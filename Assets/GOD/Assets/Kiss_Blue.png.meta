@@ -103,10 +103,10 @@ TextureImporter:
       name: Kiss_Blue_0
       rect:
         serializedVersion: 2
-        x: 88
-        y: 86
-        width: 325
-        height: 373
+        x: 11
+        y: 48
+        width: 358
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
