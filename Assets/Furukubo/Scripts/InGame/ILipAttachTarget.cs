@@ -13,6 +13,7 @@ namespace InGame
         public void OnDetached(ILip lip);
 
         public void AddForce(Vector2 force);
+        public void AddImpulse(Vector2 force);
 
         public float GetAttachRotation(Vector2 pos);
         public Vector2 GetAttachPoint(Vector2 pos);
