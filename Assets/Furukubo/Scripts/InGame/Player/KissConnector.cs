@@ -20,12 +20,16 @@ namespace InGame
             _lipA = lipA;
             _lipB = lipB;
 
-            transform.position = (lipA.Position + lipB.Position) * 0.5f;
+            Vector2 center = (lipA.Position + lipB.Position) * 0.5f;
+            transform.position = center;
+            _rb.position = center;
 
-            float lipAAngle = lipA.Rotation;
+            float intverseAngleLipA = lipA.Rotation;
 
-            lipA.OnKissAttach(this, Vector2.zero, lipAAngle);
-            lipB.OnKissAttach(this, Vector2.zero, lipAAngle + 180f);
+            Vector2 inversePosLipB = CalculateUtilities.AngleToDirection(intverseAngleLipA) * 0.2f;
+
+            lipA.OnKissAttach(this, -inversePosLipB, intverseAngleLipA);
+            lipB.OnKissAttach(this, inversePosLipB, intverseAngleLipA + 180f);
 
             Debug.Log($"Kiss started : {_lipA} <=> {_lipB}");
         }
@@ -50,8 +54,12 @@ namespace InGame
 
         public void AddForce(Vector2 force) => _rb.AddForce(force);
         public void AddImpulse(Vector2 force) => _rb.AddForce(force, ForceMode2D.Impulse);
+
+        public void AddTorque(float torque) => _rb.AddTorque(torque);
+        public void AddTorqueImpulse(float torque) => _rb.AddTorque(torque, ForceMode2D.Impulse);
+
         public Vector2 GetAttachPoint(Vector2 pos) => Vector2.zero;
-        public float GetAttachRotation(Vector2 pos) => CalculateUtilities.DirectionToAngle((_rb.position - pos).normalized);
+        public float GetAttachRotation(Vector2 pos) => 0f;
 
         public Vector2 GetInverseTransformPoint(Vector2 pos) => transform.InverseTransformPoint(pos);
         public Vector2 GetTransformPoint(Vector2 inversPos) => transform.TransformPoint(inversPos);

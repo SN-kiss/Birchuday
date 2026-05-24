@@ -15,18 +15,18 @@ namespace InGame.Player
         [SerializeField] private float _rotateSpeed;
 
         [Header("References")]
-        [SerializeField] private Rigidbody2D _rb;
+        [SerializeField] private Rigidbody2D _bodyRb;
         [SerializeField] private PlayerLip _lip;
 
         private Vector2 _rotateInput;
         private bool _isIgnoreInput;
 
-        public Vector2 Position => _rb.position;
-        public float Rotation => _rb.rotation;
+        public Vector2 Position => _bodyRb.position;
+        public float Rotation => _bodyRb.rotation;
 
         private void Start()
         {
-            _rb.rotation = _initLookingAngle;
+            _bodyRb.rotation = _initLookingAngle;
         }
 
         private void FixedUpdate()
@@ -47,10 +47,10 @@ namespace InGame.Player
         public void OnDash()
         {
             if (_isIgnoreInput) return;
-            if (_rb == null) return;
+            if (_bodyRb == null) return;
             if(_lip == null) return;
 
-            AddImpulse(CalculateUtilities.AngleToDirection(_rb.rotation) * _dashPower);
+            AddForceImpulse(CalculateUtilities.AngleToDirection(_bodyRb.rotation) * _dashPower);
         }
 
         public void OnDetach()
@@ -60,52 +60,44 @@ namespace InGame.Player
             _lip.OnNormalDetach();
         }
 
-        public void AddForce(Vector2 force) => _rb.AddForce(force);
+        public void AddForce(Vector2 force) => _bodyRb.AddForce(force);
 
-        private void AddImpulse(Vector2 force)
+        private void AddForceImpulse(Vector2 force)
         {
+            _bodyRb.linearVelocity = Vector2.zero;
+            _bodyRb.AddForce(force, ForceMode2D.Impulse);
+
             if (_lip.IsAttached)
             {
-                Vector2 between = _rb.position - _lip.Position;
+                Vector2 between = _bodyRb.position - _lip.Position;
                 float sqrMag = between.sqrMagnitude;
 
                 float lipLengthMax = _lip.LipLengthMax;
 
                 if (lipLengthMax * lipLengthMax < sqrMag)
                 {
-                    _rb.linearVelocity = Vector2.zero;
-                    _rb.AddForce(force, ForceMode2D.Impulse);
-
                     float dot = Mathf.Clamp01(Vector2.Dot(force.normalized, between.normalized));
-                    _lip.AddImpulseToAttachingTarget(between.normalized * dot * _dashPower);
+                    _lip.AddForceImpulseToAttachingTarget(between.normalized * dot * _dashPower);
                 }
-                else
-                {
-                    _rb.linearVelocity = Vector2.zero;
-                    _rb.AddForce(force, ForceMode2D.Impulse);
-                }
-            }
-            else
-            {
-                _rb.linearVelocity = Vector2.zero;
-                _rb.AddForce(force, ForceMode2D.Impulse);
             }
         }
+
+        public void AddTorque(float torque) => _bodyRb.AddTorque(torque);
 
         public void OnDead() => _isIgnoreInput = true;
 
         private void AddRotation(Vector2 targetDir, float deltaTime)
         {
-            if (_rb == null) return;
+            if (_bodyRb == null) return;
 
-            float currentAng = _rb.rotation;
+            float currentAng = _bodyRb.rotation;
             float targetAng = CalculateUtilities.DirectionToAngle(targetDir);
             float betweenAng = Mathf.DeltaAngle(currentAng, targetAng);
 
             float newAng = currentAng + betweenAng * _rotateSpeed * deltaTime;
 
-            _rb.SetRotation(newAng);
-            _rb.angularVelocity = 0f;
+            _bodyRb.SetRotation(newAng);
+            _bodyRb.angularVelocity = 0f;
         }
     }
 }

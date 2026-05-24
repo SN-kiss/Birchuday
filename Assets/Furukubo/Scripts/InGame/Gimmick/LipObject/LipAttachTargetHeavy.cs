@@ -45,6 +45,7 @@ namespace InGame.Gimmick
             _debugAttachedCountText.text = $"{_attachedCount}/{_attachedCountNeedToMoveMin}";
 
             _rb.linearVelocity = Vector2.zero;
+            _rb.angularVelocity = 0f;
 
             _rb.bodyType = 
                 _attachedCountNeedToMoveMin <= _attachedCount 
@@ -65,6 +66,22 @@ namespace InGame.Gimmick
             if (_attachedCountNeedToMoveMin <= _attachedCount)
             {
                 _rb.AddForce(force, ForceMode2D.Impulse);
+            }
+        }
+
+        public void AddTorque(float torque)
+        {
+            if (_attachedCountNeedToMoveMin <= _attachedCount)
+            {
+                _rb.AddTorque(torque);
+            }
+        }
+
+        public void AddTorqueImpulse(float torque)
+        {
+            if (_attachedCountNeedToMoveMin <= _attachedCount)
+            {
+                _rb.AddTorque(torque, ForceMode2D.Impulse);
             }
         }
 

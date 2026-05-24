@@ -37,6 +37,9 @@ namespace InGame.Enemy
         public void AddForce(Vector2 force) { }
         public void AddImpulse(Vector2 force) { }
 
+        public void AddTorque(float torque) { }
+        public void AddTorqueImpulse(float torque) { }
+
         public Vector2 GetAttachPoint(Vector2 pos) => _col.ClosestPoint(pos);
         public float GetAttachRotation(Vector2 pos) => CalculateUtilities.DirectionToAngle((_rb.position - pos).normalized);
 
