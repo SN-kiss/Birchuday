@@ -62,9 +62,9 @@ namespace InGame.Player
             }
         }
 
-        private void OnTriggerEnter2D(Collider2D col)
+        public void OnLipHitCollider(Collider2D col)
         {
-            if(col == _ignoreCol) return;
+            if (col == _ignoreCol) return;
             if (_currentState != PlayerLipState.Attracted) return;
 
             if (col.TryGetComponent(out ILip otherLip))
@@ -234,13 +234,13 @@ namespace InGame.Player
             switch (type)
             {
                 case DamageType.None:
-                    _sr.color = Color.red;
+                    _sr.color = _selfMagneticType == MagneticType.North ? Color.blue : Color.red;
                     break;
                 case DamageType.Needle:
                     _sr.color = Color.magenta;
                     break;
                 case DamageType.Heat:
-                    _sr.color = Color.yellow;
+                    _sr.color = Color.orange;
                     break;
             }
         }

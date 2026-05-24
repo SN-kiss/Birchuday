@@ -13,64 +13,37 @@ namespace InGame.Gimmick
         [SerializeField] private float _platePressingPoint;
 
         [Header("References")]
-        [SerializeField] private UnityEvent _onPressed;
         [SerializeField] private UnityEvent _onPressing;
-        [SerializeField] private UnityEvent _onReleased;
         [SerializeField] private UnityEvent _onReleasing;
         [SerializeField] private Transform _textureTr;
 
-        private bool _curPressing;
-        private bool _oldPressing;
+        private bool _isPressing;
 
         private void Update()
         {
-            _textureTr.localPosition = Vector3.up * (_curPressing ? _platePressingPoint : _plateReleasingPoint);
+            _textureTr.localPosition = Vector3.up * (_isPressing ? _platePressingPoint : _plateReleasingPoint);
         }
 
         private void FixedUpdate()
         {
-            if (_curPressing == _oldPressing)
+            if (_isPressing)
             {
-                if (_curPressing)
-                {
-                    _onPressing?.Invoke();
-                }
-                else
-                {
-                    _onReleasing?.Invoke();
-                }
+                _onPressing?.Invoke();
             }
             else
             {
-                _oldPressing = _curPressing;
-
-                if (_curPressing)
-                {
-                    _onPressed?.Invoke();
-                }
-                else
-                {
-                    _onReleased?.Invoke();
-                }
+                _onReleasing?.Invoke();
             }
-        }
-
-        private void OnTriggerEnter2D(Collider2D collision)
-        {
-            Debug.Log(collision);
-            _curPressing = true;
         }
 
         private void OnTriggerStay2D(Collider2D collision)
         {
-            Debug.Log(collision);
-            _curPressing = true;
+            _isPressing = true;
         }
 
         private void OnTriggerExit2D(Collider2D collision)
         {
-            Debug.Log(collision);
-            _curPressing = false;
+            _isPressing = false;
         }
     }
 }

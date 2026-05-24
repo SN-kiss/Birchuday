@@ -14,15 +14,9 @@ namespace InGame.Enemy
         [Header("References")]
         [SerializeField] private Rigidbody2D _rb;
         [SerializeField] private Collider2D _col;
-        [SerializeField] private Transform _trTexture;
 
         public Vector2 Position => _rb.position;
         public MagneticType MagneticType => _selfMagneticType;
-
-        private void Update()
-        {
-            _trTexture.localEulerAngles = new Vector3(0, 0, Time.time * 90f);
-        }
 
         private void OnCollisionEnter2D(Collision2D collision)
         {

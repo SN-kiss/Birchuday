@@ -39,11 +39,11 @@ namespace InGame.Player
 
                 if (IsInvincible)
                 {
-                    _srBody.color = Color.blue;
+                    _srBody.color = new Color(_srBody.color.r, _srBody.color.g, _srBody.color.b, 0.5f);
                 }
                 else
                 {
-                    _srBody.color = Color.red;
+                    _srBody.color = new Color(_srBody.color.r, _srBody.color.g, _srBody.color.b, 1f);
                 }
             }
         }
