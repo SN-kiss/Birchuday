@@ -9,6 +9,7 @@ namespace InGame
     public class LipAttracter : MonoBehaviour
     {
         [Header("Parameters")]
+        [SerializeField] private float _attractPowerBase;
         [SerializeField] private float _attractPower;
         [SerializeField] private MagneticType _selfMagneticType;
 
@@ -25,7 +26,8 @@ namespace InGame
                 Vector2 closestPos = GetClosestPoint(lipPos);
                 Vector2 between = closestPos - lipPos;
 
-                target.OnAttracted(between * _attractPower);
+                float power = _attractPowerBase + (_attractPower / Mathf.Clamp(between.sqrMagnitude, 1f, float.MaxValue));
+                target.OnAttracted(between.normalized * power);
             }
         }
 

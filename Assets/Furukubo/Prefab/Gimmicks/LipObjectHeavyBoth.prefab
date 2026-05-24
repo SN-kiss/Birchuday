@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 734655112142065382}
   - component: {fileID: 3175536090177903982}
   m_Layer: 0
-  m_Name: LipObjectHeavy
+  m_Name: LipObjectHeavyBoth
   m_TagString: Untagged
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -274,7 +274,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3cbc5c5d68e1db44aeea89672f8cda4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InGame.TestAttractArea
-  _attractPower: 10
+  _attractPowerBase: 10
+  _attractPower: 100
   _selfMagneticType: 0
   _col: {fileID: 3175536090177903982}
 --- !u!61 &6809954321244594866

@@ -77,7 +77,7 @@ namespace InGame.Player
                 if (lipLengthMax * lipLengthMax < sqrMag)
                 {
                     float dot = Mathf.Clamp01(Vector2.Dot(force.normalized, between.normalized));
-                    _lip.AddForceImpulseToAttachingTarget(between.normalized * dot * _dashPower);
+                    _lip.AddForceImpulseToAttachingTarget(between.normalized * dot * _dashPower * 0.75f);
                 }
             }
         }

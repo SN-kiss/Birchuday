@@ -8,6 +8,7 @@ namespace InGame.Player
     public class PlayerBodyLipAttracter : MonoBehaviour
     {
         [Header("Parameters")]
+        [SerializeField] private float _attractPowerBase;
         [SerializeField] private float _attractPower;
         [SerializeField, Range(-1f, 1f)] private float _attractRangeThrehoud;
 
@@ -20,9 +21,9 @@ namespace InGame.Player
         {
             if (col == _ingnoreCol) return;
 
-            if (col.TryGetComponent(out ILipAttractTarget lip))
+            if (col.TryGetComponent(out ILipAttractTarget target))
             {
-                Vector2 lipPos = lip.Position;
+                Vector2 lipPos = target.Position;
                 Vector2 closestPos = GetClosestPoint(lipPos);
                 Vector2 between = closestPos - lipPos;
 
@@ -30,7 +31,8 @@ namespace InGame.Player
 
                 if (_attractRangeThrehoud <= dirSimilarity)
                 {
-                    lip.OnAttracted(between * _attractPower);
+                    float power = _attractPowerBase + (_attractPower / Mathf.Clamp(between.sqrMagnitude, 1f, float.MaxValue));
+                    target.OnAttracted(between.normalized * power);
                 }
             }
         }
