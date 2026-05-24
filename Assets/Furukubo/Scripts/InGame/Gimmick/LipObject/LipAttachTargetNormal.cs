@@ -7,11 +7,15 @@ namespace InGame
     /// </summary>
     public class LipAttachTargetNormal : MonoBehaviour, ILipAttachTarget
     {
+        [Header("Parameters")]
+        [SerializeField] private MagneticType _selfMagneticType;
+
         [Header("References")]
         [SerializeField] private Rigidbody2D _rb;
         [SerializeField] private Collider2D _col;
 
         public Vector2 Position => _rb.position;
+        public MagneticType MagneticType => _selfMagneticType;
 
         public void OnAttached(ILip attacher) => Debug.Log("Attached");
         public void OnDetached(ILip lip) => Debug.Log("Detached");

@@ -8,7 +8,8 @@ namespace InGame.Enemy
         [Header("Parameters")]
         [SerializeField] private int _damageAmount;
         [SerializeField] private float _nockbackPower;
-        [SerializeField] private LipDamageType _damageType;
+        [SerializeField] private DamageType _damageType;
+        [SerializeField] private MagneticType _selfMagneticType;
 
         [Header("References")]
         [SerializeField] private Rigidbody2D _rb;
@@ -16,6 +17,7 @@ namespace InGame.Enemy
         [SerializeField] private Transform _trTexture;
 
         public Vector2 Position => _rb.position;
+        public MagneticType MagneticType => _selfMagneticType;
 
         private void Update()
         {
@@ -29,7 +31,7 @@ namespace InGame.Enemy
 
         public void OnAttached(ILip lip)//change to ILipAttractTarget
         {
-            lip.OnLipDamage(1, _nockbackPower, _damageType);
+            lip.OnLipDamaged(1, _nockbackPower, _damageType);
         }
 
         public void OnDetached(ILip lip) { }

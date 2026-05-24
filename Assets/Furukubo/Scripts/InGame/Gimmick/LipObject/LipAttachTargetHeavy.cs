@@ -1,4 +1,3 @@
-using InGame.Player;
 using TMPro;
 using UnityEngine;
 
@@ -11,6 +10,7 @@ namespace InGame.Gimmick
     {
         [Header("Parameters")]
         [SerializeField] private int _attachedCountNeedToMoveMin;
+        [SerializeField] private MagneticType _selfMagneticType;
 
         [Header("References")]
         [SerializeField] private Rigidbody2D _rb;
@@ -18,6 +18,7 @@ namespace InGame.Gimmick
         [SerializeField] private TextMeshProUGUI _debugAttachedCountText;
 
         public Vector2 Position => _rb.position;
+        public MagneticType MagneticType => _selfMagneticType;
 
         private int _attachedCount;
 
@@ -28,7 +29,7 @@ namespace InGame.Gimmick
 
         public void OnAttached(ILip attacher)
         {
-            _attachedCount++;
+            _attachedCount = Mathf.Clamp(_attachedCount + 1, 0, _attachedCountNeedToMoveMin);
 
             _debugAttachedCountText.text = $"{_attachedCount}/{_attachedCountNeedToMoveMin}";
 
@@ -40,7 +41,7 @@ namespace InGame.Gimmick
 
         public void OnDetached(ILip lip)
         {
-            _attachedCount--;
+            _attachedCount = Mathf.Clamp(_attachedCount - 1, 0, _attachedCountNeedToMoveMin);
 
             _debugAttachedCountText.text = $"{_attachedCount}/{_attachedCountNeedToMoveMin}";
 
