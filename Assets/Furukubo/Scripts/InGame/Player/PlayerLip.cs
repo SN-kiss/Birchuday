@@ -15,6 +15,7 @@ namespace InGame.Player
         [SerializeField] private float _pullBodyPowerCoef;
         [SerializeField] private float _pullBodyPowerMax;
         [SerializeField] private float _lipLengthMax;
+        [SerializeField] private MagneticType _selfMagneticType;
 
         [Header("References")]
         [SerializeField] private SpriteRenderer _sr;
@@ -34,11 +35,11 @@ namespace InGame.Player
         private bool _isBodyDead;
         private float _attractCoolTimeCount;
 
-        public bool IsAttached => _currentState == PlayerLipState.Attaching;
         public Vector2 Position => _lipRb.position;
+        public MagneticType MagneticType => _selfMagneticType;
+        public bool IsAttached => _currentState == PlayerLipState.Attaching;
         public float Rotation => _lipRb.rotation;
-
-        public bool IsKissableNow => true;
+        public bool IsKissableNow => _currentState != PlayerLipState.Attaching;
         public float LipLengthMax => _lipLengthMax;
 
         private void Start() => OnFollowBody();
@@ -68,6 +69,8 @@ namespace InGame.Player
 
             if (col.TryGetComponent(out ILip otherLip))
             {
+                if (!otherLip.IsKissableNow) return;
+
                 Instantiate(_prefabKissConnector).Kiss(this, otherLip);
             }
             else if (col.TryGetComponent(out ILipAttachTarget attachTarget))
@@ -132,6 +135,8 @@ namespace InGame.Player
 
         public void OnNormalAttach(ILipAttachTarget target)
         {
+            if (!MagnetJudgement.IsAttachable(_selfMagneticType, target.MagneticType)) return;
+
             _currentState = PlayerLipState.Attaching;
 
             _objLipAttracter.SetActive(false);
@@ -221,20 +226,20 @@ namespace InGame.Player
             OnFollowBody();
         }
 
-        public void OnLipDamage(int damageAmount, float nockbackPower, LipDamageType type)
+        public void OnLipDamaged(int damageAmount, float nockbackPower, DamageType type)
         {
             Vector2 nockback = (_bodyRb.position - _lipRb.position).normalized * nockbackPower;
             _onDamaged?.Invoke(damageAmount, nockback);
 
             switch (type)
             {
-                case LipDamageType.None:
+                case DamageType.None:
                     _sr.color = Color.red;
                     break;
-                case LipDamageType.Needle:
+                case DamageType.Needle:
                     _sr.color = Color.magenta;
                     break;
-                case LipDamageType.Heat:
+                case DamageType.Heat:
                     _sr.color = Color.yellow;
                     break;
             }

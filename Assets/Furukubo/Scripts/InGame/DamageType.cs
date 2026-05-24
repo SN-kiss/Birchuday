@@ -6,7 +6,7 @@ namespace InGame
     /// <summary>
     /// Furukubo
     /// </summary>
-    public enum LipDamageType
+    public enum DamageType
     {
         None,
         Needle,

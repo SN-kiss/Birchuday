@@ -8,6 +8,7 @@ namespace InGame
     public interface ILipAttractTarget
     {
         Vector2 Position { get; }
+        MagneticType MagneticType { get; }
         void OnAttracted(Vector2 force);
     }
 
@@ -18,13 +19,6 @@ namespace InGame
         bool IsKissableNow { get; }
         void OnKissAttach(ILipAttachTarget target, Vector2 inversePos, float inverseRot);
         void OnKissDetach();
-        void OnLipDamage(int damageAmount, float nockbackPower, LipDamageType type);
+        void OnLipDamaged(int damageAmount, float nockbackPower, DamageType type);
     }
-
-    /*
-    public interface IKissTarget
-    {
-        void OnKissAttach(ILipAttachTarget target, Vector2 inversePos, float inverseRot);
-        void OnKissDetach();
-    }*/
 }

@@ -11,6 +11,7 @@ namespace InGame
         [SerializeField] private Rigidbody2D _rb;
 
         public Vector2 Position => _rb.position;
+        public MagneticType MagneticType => MagneticType.Both;
 
         private ILip _lipA;
         private ILip _lipB;

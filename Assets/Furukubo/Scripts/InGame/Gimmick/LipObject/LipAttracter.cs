@@ -10,19 +10,22 @@ namespace InGame
     {
         [Header("Parameters")]
         [SerializeField] private float _attractPower;
+        [SerializeField] private MagneticType _selfMagneticType;
 
         [Header("References")]
         [SerializeField] private Collider2D _col;
 
         private void OnTriggerStay2D(Collider2D other)
         {
-            if (other.TryGetComponent(out ILipAttractTarget lip))
+            if (other.TryGetComponent(out ILipAttractTarget target))
             {
-                Vector2 lipPos = lip.Position;
+                if (!MagnetJudgement.IsAttachable(_selfMagneticType, target.MagneticType)) return;
+
+                Vector2 lipPos = target.Position;
                 Vector2 closestPos = GetClosestPoint(lipPos);
                 Vector2 between = closestPos - lipPos;
 
-                lip.OnAttracted(between * _attractPower);
+                target.OnAttracted(between * _attractPower);
             }
         }
 
