@@ -11,11 +11,10 @@ namespace InGame.Player
         [Header("Parameters")]
         [SerializeField, Range(-1f, 1f)] private float _attractableRangeThreshoud;
         [SerializeField] private float _attractedCancelTime;
-        [SerializeField] private float _attachDistance;
-        [SerializeField] private float _pullBodyPower;
+        [SerializeField] private float _attractedCoolTime;
+        [SerializeField] private float _pullBodyPowerBase;
         [SerializeField] private float _pullBodyPowerMax;
-        [SerializeField] private float _pullStopDistance;
-        [SerializeField] private float _attractCoolTime;
+        [SerializeField] private float _lipLengthMax;
 
         [Header("References")]
         [SerializeField] private SpriteRenderer _sr;
@@ -40,6 +39,7 @@ namespace InGame.Player
         public float Rotation => _rb.rotation;
 
         public bool IsKissableNow => true;
+        public float LipLengthMax => _lipLengthMax;
 
         private void Start() => OnFollowBody();
 
@@ -95,7 +95,7 @@ namespace InGame.Player
         }
         */
 
-        private void SetAttractCoolTime() => _attractCoolTimeCount = _attractCoolTime;
+        private void SetAttractCoolTime() => _attractCoolTimeCount = _attractedCoolTime;
 
         private void OnFollowBody()
         {
@@ -181,18 +181,24 @@ namespace InGame.Player
                 _rb.rotation = _target.GetTransformRotation(_attachedRotationOffset);
 
                 Vector2 betweenToBody = _rb.position - _bodyRb.position;
-                float distanceToBody = betweenToBody.magnitude;
+                float sqrDistanceToBody = betweenToBody.sqrMagnitude;
 
-                if (_pullStopDistance < distanceToBody)
+                if (_lipLengthMax * _lipLengthMax < sqrDistanceToBody)
                 {
                     Vector2 pullForce =
-                        betweenToBody.normalized
-                        * Mathf.Clamp((distanceToBody - _pullStopDistance) * _pullBodyPower, 0f, _pullBodyPowerMax);
+                        betweenToBody
+                        * Mathf.Clamp((sqrDistanceToBody - _lipLengthMax * _lipLengthMax) * _pullBodyPowerBase, 0f, _pullBodyPowerMax);
 
                     _target.AddForce(-pullForce);
                     _bodyRb.AddForce(pullForce);
                 }
             }
+        }
+
+        public void AddImpulseToAttachingTarget(Vector2 force)
+        {
+            if (_target == null) return;
+            _target.AddImpulse(force);
         }
 
         public void OnNormalDetach()

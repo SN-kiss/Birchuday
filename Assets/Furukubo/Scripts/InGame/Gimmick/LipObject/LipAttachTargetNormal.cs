@@ -17,6 +17,8 @@ namespace InGame
         public void OnDetached(ILip lip) => Debug.Log("Detached");
 
         public void AddForce(Vector2 force) => _rb.AddForce(force);
+        public void AddImpulse(Vector2 force) => _rb.AddForce(force, ForceMode2D.Impulse);
+
         public Vector2 GetAttachPoint(Vector2 pos) => _col.ClosestPoint(pos);
         public float GetAttachRotation(Vector2 pos) => CalculateUtilities.DirectionToAngle((_rb.position - pos).normalized);
 

@@ -177,8 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Player.PlayerBodyMove
   _initLookingAngle: 0
-  _dashPower: 5
-  _distanceFromLipMax: 10
+  _dashPower: 10
   _moveInputThreshoud: 0.1
   _rotateSpeed: 10
   _rb: {fileID: 1951988637841431446}
@@ -575,11 +574,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Player.PlayerLipMove
   _attractableRangeThreshoud: 0.5
   _attractedCancelTime: 1
-  _attachDistance: 0.5
-  _pullBodyPower: 2.5
-  _pullBodyPowerMax: 5
-  _pullStopDistance: 2
-  _attractCoolTime: 1
+  _attractedCoolTime: 1
+  _pullBodyPowerBase: 1
+  _pullBodyPowerMax: 30
+  _lipLengthMax: 3
   _sr: {fileID: 5988073462970348639}
   _rb: {fileID: 278509828133917856}
   _bodyRb: {fileID: 1951988637841431446}

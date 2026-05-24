@@ -11,7 +11,6 @@ namespace InGame.Player
         [Header("Parameters")]
         [SerializeField] private float _initLookingAngle;
         [SerializeField] private float _dashPower;
-        [SerializeField] private float _distanceFromLipMax;
         [SerializeField] private float _moveInputThreshoud;
         [SerializeField] private float _rotateSpeed;
 
@@ -19,7 +18,7 @@ namespace InGame.Player
         [SerializeField] private Rigidbody2D _rb;
         [SerializeField] private PlayerLip _lip;
 
-        private Vector2 _moveInput;
+        private Vector2 _rotateInput;
         private bool _isIgnoreInput;
 
         public Vector2 Position => _rb.position;
@@ -32,43 +31,26 @@ namespace InGame.Player
 
         private void FixedUpdate()
         {
-            if (_moveInput.sqrMagnitude > _moveInputThreshoud * _moveInputThreshoud)
+            if (_rotateInput.sqrMagnitude > _moveInputThreshoud * _moveInputThreshoud)
             {
-                AddRotation(_moveInput, Time.fixedDeltaTime);
-            }
-
-            if (_lip == null) return;
-
-            if (_lip.IsAttached)
-            {
-                Vector2 lipPos = _lip.transform.position;
-                Vector2 between = _rb.position - lipPos;
-
-                if (_distanceFromLipMax * _distanceFromLipMax < between.sqrMagnitude)
-                {
-                    Vector2 direction = between.normalized;
-
-                    _rb.MovePosition(lipPos + direction * _distanceFromLipMax);
-
-                    Vector2 outwardVel = Vector3.Project(_rb.linearVelocity, direction);
-                    _rb.linearVelocity -= outwardVel;
-                }
+                AddRotation(_rotateInput, Time.fixedDeltaTime);
             }
         }
 
-        public void OnMove(InputValue value)
+        public void OnRotate(InputValue value)
         {
             if (_isIgnoreInput) return;
-            _moveInput = value.Get<Vector2>();
+
+            _rotateInput = value.Get<Vector2>();
         }
 
         public void OnDash()
         {
             if (_isIgnoreInput) return;
             if (_rb == null) return;
-            _rb.linearVelocity = Vector2.zero;
-            Vector2 dir = CalculateUtilities.AngleToDirection(_rb.rotation);
-            _rb.AddForce(dir * _dashPower, ForceMode2D.Impulse);
+            if(_lip == null) return;
+
+            AddImpulse(CalculateUtilities.AngleToDirection(_rb.rotation) * _dashPower);
         }
 
         public void OnDetach()
@@ -79,6 +61,36 @@ namespace InGame.Player
         }
 
         public void AddForce(Vector2 force) => _rb.AddForce(force);
+
+        private void AddImpulse(Vector2 force)
+        {
+            if (_lip.IsAttached)
+            {
+                Vector2 between = _rb.position - _lip.Position;
+                float sqrMag = between.sqrMagnitude;
+
+                float lipLengthMax = _lip.LipLengthMax;
+
+                if (lipLengthMax * lipLengthMax < sqrMag)
+                {
+                    _rb.linearVelocity = Vector2.zero;
+                    _rb.AddForce(force, ForceMode2D.Impulse);
+
+                    float dot = Mathf.Clamp01(Vector2.Dot(force.normalized, between.normalized));
+                    _lip.AddImpulseToAttachingTarget(between.normalized * dot * _dashPower);
+                }
+                else
+                {
+                    _rb.linearVelocity = Vector2.zero;
+                    _rb.AddForce(force, ForceMode2D.Impulse);
+                }
+            }
+            else
+            {
+                _rb.linearVelocity = Vector2.zero;
+                _rb.AddForce(force, ForceMode2D.Impulse);
+            }
+        }
 
         public void OnDead() => _isIgnoreInput = true;
 
