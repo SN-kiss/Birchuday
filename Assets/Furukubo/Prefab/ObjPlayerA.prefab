@@ -180,7 +180,7 @@ MonoBehaviour:
   _dashPower: 10
   _moveInputThreshoud: 0.1
   _rotateSpeed: 10
-  _rb: {fileID: 1951988637841431446}
+  _bodyRb: {fileID: 1951988637841431446}
   _lip: {fileID: 373577956428877147}
 --- !u!114 &7920196932021533494
 MonoBehaviour:
@@ -268,7 +268,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDamping: 1
-  m_AngularDamping: 0.1
+  m_AngularDamping: 60
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -575,11 +575,11 @@ MonoBehaviour:
   _attractableRangeThreshoud: 0.5
   _attractedCancelTime: 1
   _attractedCoolTime: 1
-  _pullBodyPowerBase: 1
+  _pullBodyPowerCoef: 2
   _pullBodyPowerMax: 30
   _lipLengthMax: 3
   _sr: {fileID: 5988073462970348639}
-  _rb: {fileID: 278509828133917856}
+  _lipRb: {fileID: 278509828133917856}
   _bodyRb: {fileID: 1951988637841431446}
   _lipDefaultPointTr: {fileID: 2455955728822694402}
   _ignoreCol: {fileID: 2717984402589636751}

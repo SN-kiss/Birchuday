@@ -12,13 +12,13 @@ namespace InGame.Player
         [SerializeField, Range(-1f, 1f)] private float _attractableRangeThreshoud;
         [SerializeField] private float _attractedCancelTime;
         [SerializeField] private float _attractedCoolTime;
-        [SerializeField] private float _pullBodyPowerBase;
+        [SerializeField] private float _pullBodyPowerCoef;
         [SerializeField] private float _pullBodyPowerMax;
         [SerializeField] private float _lipLengthMax;
 
         [Header("References")]
         [SerializeField] private SpriteRenderer _sr;
-        [SerializeField] private Rigidbody2D _rb;
+        [SerializeField] private Rigidbody2D _lipRb;
         [SerializeField] private Rigidbody2D _bodyRb;
         [SerializeField] private Transform _lipDefaultPointTr;
         [SerializeField] private Collider2D _ignoreCol;
@@ -35,8 +35,8 @@ namespace InGame.Player
         private float _attractCoolTimeCount;
 
         public bool IsAttached => _currentState == PlayerLipState.Attaching;
-        public Vector2 Position => _rb.position;
-        public float Rotation => _rb.rotation;
+        public Vector2 Position => _lipRb.position;
+        public float Rotation => _lipRb.rotation;
 
         public bool IsKissableNow => true;
         public float LipLengthMax => _lipLengthMax;
@@ -76,40 +76,21 @@ namespace InGame.Player
             }
         }
 
-        /*
-        private void OnTriggerStay2D(Collider2D col)
-        {
-            if (col == _ignoreCol) return;
-            if (_currentState != PlayerLipState.Attracted) return;
-
-            if (false)
-            {
-                //相手がキス対象だったらクッションを生成してクッション側でキス専用アタッチ
-                //クッション生成
-            }
-            else if (col.TryGetComponent(out ILipAttachTarget target))
-            {
-                //それ以外の普通に接続する対象なら普通にアタッチ
-                OnNormalAttach(target);
-            }
-        }
-        */
-
         private void SetAttractCoolTime() => _attractCoolTimeCount = _attractedCoolTime;
 
         private void OnFollowBody()
         {
             _currentState = PlayerLipState.FollowBody;
-            _rb.linearVelocity = Vector2.zero;
-            _rb.bodyType = RigidbodyType2D.Kinematic;
-            _rb.position = _lipDefaultPointTr.position;
-            _rb.rotation = _bodyRb.rotation;
+            _lipRb.linearVelocity = Vector2.zero;
+            _lipRb.bodyType = RigidbodyType2D.Kinematic;
+            _lipRb.position = _lipDefaultPointTr.position;
+            _lipRb.rotation = _bodyRb.rotation;
         }
 
         private void FollowBodyStateUpdate(float dt)
         {
-            _rb.position = _lipDefaultPointTr.position;
-            _rb.rotation = _bodyRb.rotation;
+            _lipRb.position = _lipDefaultPointTr.position;
+            _lipRb.rotation = _bodyRb.rotation;
         }
 
         public void OnAttracted(Vector2 force)
@@ -118,16 +99,16 @@ namespace InGame.Player
             if (_currentState == PlayerLipState.Attaching) return;
             if (0f < _attractCoolTimeCount) return;
 
-            if (_attractableRangeThreshoud < Vector2.Dot(CalculateUtilities.AngleToDirection(_rb.rotation), force.normalized))
+            if (_attractableRangeThreshoud < Vector2.Dot(CalculateUtilities.AngleToDirection(_lipRb.rotation), force.normalized))
             {
                 _attractedCancelTimeCounter = 0f;
                 _currentState = PlayerLipState.Attracted;
-                _rb.bodyType = RigidbodyType2D.Dynamic;
+                _lipRb.bodyType = RigidbodyType2D.Dynamic;
 
-                _rb.AddForce(force);
+                _lipRb.AddForce(force);
 
-                if (_rb.linearVelocity.sqrMagnitude != 0f)
-                    _rb.rotation = CalculateUtilities.DirectionToAngle(_rb.linearVelocity);
+                if (_lipRb.linearVelocity.sqrMagnitude != 0f)
+                    _lipRb.rotation = CalculateUtilities.DirectionToAngle(_lipRb.linearVelocity);
             }
         }
 
@@ -157,14 +138,14 @@ namespace InGame.Player
 
             _target = target;
 
-            _rb.linearVelocity = Vector2.zero;
-            _rb.bodyType = RigidbodyType2D.Kinematic;
+            _lipRb.linearVelocity = Vector2.zero;
+            _lipRb.bodyType = RigidbodyType2D.Kinematic;
 
-            _rb.position = _target.GetAttachPoint(_rb.position);
-            _rb.rotation = _target.GetAttachRotation(_rb.position);
+            _lipRb.position = _target.GetAttachPoint(_lipRb.position);
+            _lipRb.rotation = _target.GetAttachRotation(_lipRb.position);
 
-            _attachedPositionOffset = _target.GetInverseTransformPoint(_rb.position);
-            _attachedRotationOffset = _target.GetInverseTransformRotation(_rb.rotation);//angle degree
+            _attachedPositionOffset = _target.GetInverseTransformPoint(_lipRb.position);
+            _attachedRotationOffset = _target.GetInverseTransformRotation(_lipRb.rotation);//angle degree
 
             target.OnAttached(this);
         }
@@ -177,25 +158,46 @@ namespace InGame.Player
             }
             else
             {
-                _rb.position = _target.GetTransformPoint(_attachedPositionOffset);
-                _rb.rotation = _target.GetTransformRotation(_attachedRotationOffset);
+                _lipRb.position = _target.GetTransformPoint(_attachedPositionOffset);
 
-                Vector2 betweenToBody = _rb.position - _bodyRb.position;
-                float sqrDistanceToBody = betweenToBody.sqrMagnitude;
+                Vector2 deltaVectorBodyToLip = _lipRb.position - _bodyRb.position;
+                float deltaSqrMagBodyToLip = deltaVectorBodyToLip.sqrMagnitude;
 
-                if (_lipLengthMax * _lipLengthMax < sqrDistanceToBody)
+                if (_lipLengthMax * _lipLengthMax < deltaSqrMagBodyToLip)
                 {
                     Vector2 pullForce =
-                        betweenToBody
-                        * Mathf.Clamp((sqrDistanceToBody - _lipLengthMax * _lipLengthMax) * _pullBodyPowerBase, 0f, _pullBodyPowerMax);
+                        deltaVectorBodyToLip
+                        * Mathf.Clamp((deltaSqrMagBodyToLip - _lipLengthMax * _lipLengthMax) * _pullBodyPowerCoef, 0f, _pullBodyPowerMax);
 
                     _target.AddForce(-pullForce);
                     _bodyRb.AddForce(pullForce);
                 }
+
+                _lipRb.rotation = _target.GetTransformRotation(_attachedRotationOffset);
+
+                //target rotation
+                float angleBodyToLip = CalculateUtilities.DirectionToAngle((_lipRb.position - _bodyRb.position).normalized);
+                float deltaAngleLipToBody = Mathf.DeltaAngle(_lipRb.rotation, angleBodyToLip);
+
+                float allowAngle = 90f;
+
+                if (allowAngle < Mathf.Abs(deltaAngleLipToBody))
+                {
+                    _target.AddTorque((Mathf.Abs(deltaAngleLipToBody) - allowAngle) * Mathf.Sign(deltaAngleLipToBody));
+                }
+
+                /*
+                //body rotation
+                float deltaAngleBodyToLip = Mathf.DeltaAngle(_bodyRb.rotation, angleBodyToLip);
+
+                if (allowAngle < Mathf.Abs(deltaAngleBodyToLip))
+                {
+                    _bodyRb.AddTorque((Mathf.Abs(deltaAngleBodyToLip) - allowAngle) * Mathf.Sign(deltaAngleBodyToLip));
+                }*/
             }
         }
 
-        public void AddImpulseToAttachingTarget(Vector2 force)
+        public void AddForceImpulseToAttachingTarget(Vector2 force)
         {
             if (_target == null) return;
             _target.AddImpulse(force);
@@ -221,7 +223,7 @@ namespace InGame.Player
 
         public void OnLipDamage(int damageAmount, float nockbackPower, LipDamageType type)
         {
-            Vector2 nockback = (_bodyRb.position - _rb.position).normalized * nockbackPower;
+            Vector2 nockback = (_bodyRb.position - _lipRb.position).normalized * nockbackPower;
             _onDamaged?.Invoke(damageAmount, nockback);
 
             switch (type)
@@ -260,14 +262,14 @@ namespace InGame.Player
 
             _objLipAttracter.SetActive(false);
 
-            _rb.linearVelocity = Vector2.zero;
-            _rb.bodyType = RigidbodyType2D.Kinematic;
+            _lipRb.linearVelocity = Vector2.zero;
+            _lipRb.bodyType = RigidbodyType2D.Kinematic;
 
             _attachedPositionOffset = inversePos;
             _attachedRotationOffset = inverseRot;
 
-            _rb.position = _target.GetTransformPoint(inversePos);
-            _rb.rotation = _target.GetTransformRotation(inverseRot);
+            _lipRb.position = _target.GetTransformPoint(inversePos);
+            _lipRb.rotation = _target.GetTransformRotation(inverseRot);
         }
 
         public void OnKissDetach()
