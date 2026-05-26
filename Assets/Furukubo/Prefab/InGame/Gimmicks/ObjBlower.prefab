@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7837786431697456298}
   - component: {fileID: 5610328272065616606}
   m_Layer: 0
-  m_Name: Blower
+  m_Name: ObjBlower
   m_TagString: Untagged
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
