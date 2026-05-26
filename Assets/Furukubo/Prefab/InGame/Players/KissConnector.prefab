@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 4259050053732820126}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.24727, y: -0.44276, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 999b32c4820c2ef4386018894ab698c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InGame.KissConnector
-  _lipOffsetRadius: 0.2
+  _lipOffsetRadius: 0.05
   _rb: {fileID: 2949832740481110970}
 --- !u!50 &2949832740481110970
 Rigidbody2D:
