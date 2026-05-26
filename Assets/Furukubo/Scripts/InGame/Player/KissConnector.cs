@@ -7,6 +7,9 @@ namespace InGame
     /// </summary>
     public class KissConnector : MonoBehaviour, ILipAttachTarget
     {
+        [Header("Parameters")]
+        [SerializeField] private float _lipOffsetRadius;
+
         [Header("References")]
         [SerializeField] private Rigidbody2D _rb;
 
@@ -27,7 +30,7 @@ namespace InGame
 
             float intverseAngleLipA = lipA.Rotation;
 
-            Vector2 inversePosLipB = CalculateUtilities.AngleToDirection(intverseAngleLipA) * 0.2f;
+            Vector2 inversePosLipB = CalculateUtilities.AngleToDirection(intverseAngleLipA) * _lipOffsetRadius;
 
             lipA.OnKissAttach(this, -inversePosLipB, intverseAngleLipA);
             lipB.OnKissAttach(this, inversePosLipB, intverseAngleLipA + 180f);

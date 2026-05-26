@@ -6,19 +6,16 @@ namespace InGame.Gimmick
     /// <summary>
     /// Furukubo
     /// </summary>
-    public class LipAttachTargetHeavy : MonoBehaviour, ILipAttachTarget
+    public class LipAttachTargetHeavy : LipAttachTargetNormal
     {
+        [Header("LipAttachTargetHeavy----------------")]
         [Header("Parameters")]
         [SerializeField] private int _attachedCountNeedToMoveMin;
-        [SerializeField] private MagneticType _selfMagneticType;
 
         [Header("References")]
-        [SerializeField] private Rigidbody2D _rb;
-        [SerializeField] private Collider2D _col;
         [SerializeField] private TextMeshProUGUI _debugAttachedCountText;
 
-        public Vector2 Position => _rb.position;
-        public MagneticType MagneticType => _selfMagneticType;
+        private bool IsMovable => _attachedCountNeedToMoveMin <= _attachedCount;
 
         private int _attachedCount;
 
@@ -27,72 +24,56 @@ namespace InGame.Gimmick
             _debugAttachedCountText.text = $"{_attachedCount}/{_attachedCountNeedToMoveMin}";
         }
 
-        public void OnAttached(ILip attacher)
+        public override void OnAttached(ILip attacher)
         {
             _attachedCount = Mathf.Clamp(_attachedCount + 1, 0, _attachedCountNeedToMoveMin);
 
-            _debugAttachedCountText.text = $"{_attachedCount}/{_attachedCountNeedToMoveMin}";
-
-            _rb.bodyType =
+            Rb.bodyType =
                 _attachedCountNeedToMoveMin <= _attachedCount
                 ? RigidbodyType2D.Dynamic
                 : RigidbodyType2D.Kinematic;
+
+            UpdateAttachedCountText();
         }
 
-        public void OnDetached(ILip lip)
+        public override void OnDetached(ILip lip)
         {
             _attachedCount = Mathf.Clamp(_attachedCount - 1, 0, _attachedCountNeedToMoveMin);
 
-            _debugAttachedCountText.text = $"{_attachedCount}/{_attachedCountNeedToMoveMin}";
+            Rb.linearVelocity = Vector2.zero;
+            Rb.angularVelocity = 0f;
 
-            _rb.linearVelocity = Vector2.zero;
-            _rb.angularVelocity = 0f;
-
-            _rb.bodyType = 
+            Rb.bodyType = 
                 _attachedCountNeedToMoveMin <= _attachedCount 
                 ? RigidbodyType2D.Dynamic 
                 : RigidbodyType2D.Kinematic;
+
+            UpdateAttachedCountText();
         }
 
-        public void AddForce(Vector2 force)
+        public override void AddForce(Vector2 force)
         {
-            if (_attachedCountNeedToMoveMin <= _attachedCount)
-            {
-                _rb.AddForce(force);
-            }
+            if (IsMovable) Rb.AddForce(force);
         }
 
-        public void AddImpulse(Vector2 force)
+        public override void AddImpulse(Vector2 force)
         {
-            if (_attachedCountNeedToMoveMin <= _attachedCount)
-            {
-                _rb.AddForce(force, ForceMode2D.Impulse);
-            }
+            if (IsMovable) Rb.AddForce(force, ForceMode2D.Impulse);
         }
 
-        public void AddTorque(float torque)
+        public override void AddTorque(float torque)
         {
-            if (_attachedCountNeedToMoveMin <= _attachedCount)
-            {
-                _rb.AddTorque(torque);
-            }
+            if (IsMovable) Rb.AddTorque(torque);
         }
 
-        public void AddTorqueImpulse(float torque)
+        public override void AddTorqueImpulse(float torque)
         {
-            if (_attachedCountNeedToMoveMin <= _attachedCount)
-            {
-                _rb.AddTorque(torque, ForceMode2D.Impulse);
-            }
+            if (IsMovable) Rb.AddTorque(torque, ForceMode2D.Impulse);
         }
 
-        public Vector2 GetAttachPoint(Vector2 pos) => _col.ClosestPoint(pos);
-        public float GetAttachRotation(Vector2 pos) => CalculateUtilities.DirectionToAngle((_rb.position - pos).normalized);
-
-        public Vector2 GetInverseTransformPoint(Vector2 pos) => transform.InverseTransformPoint(pos);
-        public Vector2 GetTransformPoint(Vector2 pos) => transform.TransformPoint(pos);
-
-        public float GetInverseTransformRotation(float rot) => _rb.rotation - rot;
-        public float GetTransformRotation(float rot) => _rb.rotation + rot;
+        private void UpdateAttachedCountText()
+        {
+            _debugAttachedCountText.text = $"{_attachedCount}/{_attachedCountNeedToMoveMin}";
+        }
     }
 }

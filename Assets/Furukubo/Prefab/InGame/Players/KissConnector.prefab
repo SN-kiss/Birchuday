@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 999b32c4820c2ef4386018894ab698c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InGame.KissConnector
+  _lipOffsetRadius: 0.2
   _rb: {fileID: 2949832740481110970}
 --- !u!50 &2949832740481110970
 Rigidbody2D:
