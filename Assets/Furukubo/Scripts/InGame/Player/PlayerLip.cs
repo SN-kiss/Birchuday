@@ -146,11 +146,11 @@ namespace InGame.Player
             _lipRb.linearVelocity = Vector2.zero;
             _lipRb.bodyType = RigidbodyType2D.Kinematic;
 
-            _lipRb.position = _target.GetAttachPoint(_lipRb.position);
             _lipRb.rotation = _target.GetAttachRotation(_lipRb.position);
+            _lipRb.position = _target.GetAttachPoint(_lipRb.position);
 
-            _attachedPositionOffset = _target.GetInverseTransformPoint(_lipRb.position);
             _attachedRotationOffset = _target.GetInverseTransformRotation(_lipRb.rotation);//angle degree
+            _attachedPositionOffset = _target.GetInverseTransformPoint(_lipRb.position);
 
             target.OnAttached(this);
         }

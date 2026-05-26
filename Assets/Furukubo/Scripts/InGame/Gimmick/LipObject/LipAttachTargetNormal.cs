@@ -7,6 +7,7 @@ namespace InGame
     /// </summary>
     public class LipAttachTargetNormal : MonoBehaviour, ILipAttachTarget
     {
+        [Header("LipAttachTargetNormal----------------")]
         [Header("Parameters")]
         [SerializeField] private MagneticType _selfMagneticType;
 
@@ -14,25 +15,28 @@ namespace InGame
         [SerializeField] private Rigidbody2D _rb;
         [SerializeField] private Collider2D _col;
 
-        public Vector2 Position => _rb.position;
+        public virtual Vector2 Position => _rb.position;
         public MagneticType MagneticType => _selfMagneticType;
 
-        public void OnAttached(ILip attacher) => Debug.Log("Attached");
-        public void OnDetached(ILip lip) => Debug.Log("Detached");
+        protected Rigidbody2D Rb => _rb;
+        protected Collider2D Col => _col;
 
-        public void AddForce(Vector2 force) => _rb.AddForce(force);
-        public void AddImpulse(Vector2 force) => _rb.AddForce(force, ForceMode2D.Impulse);
+        public virtual void OnAttached(ILip attacher) { }
+        public virtual void OnDetached(ILip lip) { }
 
-        public void AddTorque(float torque) => _rb.AddTorque(torque);
-        public void AddTorqueImpulse(float torque) => _rb.AddTorque(torque, ForceMode2D.Impulse);
+        public virtual void AddForce(Vector2 force) => _rb.AddForce(force);
+        public virtual void AddImpulse(Vector2 force) => _rb.AddForce(force, ForceMode2D.Impulse);
 
-        public Vector2 GetAttachPoint(Vector2 pos) => _col.ClosestPoint(pos);
-        public float GetAttachRotation(Vector2 pos) => CalculateUtilities.DirectionToAngle((_rb.position - pos).normalized);
+        public virtual void AddTorque(float torque) => _rb.AddTorque(torque);
+        public virtual void AddTorqueImpulse(float torque) => _rb.AddTorque(torque, ForceMode2D.Impulse);
 
-        public Vector2 GetInverseTransformPoint(Vector2 pos) => transform.InverseTransformPoint(pos);
-        public Vector2 GetTransformPoint(Vector2 pos) => transform.TransformPoint(pos);
+        public virtual Vector2 GetAttachPoint(Vector2 pos) => _col.ClosestPoint(pos);
+        public virtual float GetAttachRotation(Vector2 pos) => CalculateUtilities.DirectionToAngle((_col.ClosestPoint(pos) - pos).normalized);
 
-        public float GetInverseTransformRotation(float rot) => Mathf.DeltaAngle(_rb.rotation, rot);
-        public float GetTransformRotation(float rot) => _rb.rotation + rot;
+        public virtual Vector2 GetInverseTransformPoint(Vector2 pos) => transform.InverseTransformPoint(pos);
+        public virtual Vector2 GetTransformPoint(Vector2 pos) => transform.TransformPoint(pos);
+
+        public virtual float GetInverseTransformRotation(float rot) => Mathf.DeltaAngle(_rb.rotation, rot);
+        public virtual float GetTransformRotation(float rot) => _rb.rotation + rot;
     }
 }
