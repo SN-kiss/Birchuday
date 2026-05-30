@@ -108,6 +108,9 @@ MonoBehaviour:
   _srBody: {fileID: 9072272913764650286}
   _bodyMove: {fileID: 4751885898393672741}
   _lip: {fileID: 373577956428877147}
+  _onHealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
   _onDead:
     m_PersistentCalls:
       m_Calls: []
@@ -216,7 +219,7 @@ MonoBehaviour:
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: InGame_PlayerA
+  m_DefaultActionMap: af7b9fb2-a761-49a0-9e10-840bbfff146c
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!1 &2812026530920582850

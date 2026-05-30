@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace InGame.Enemy
 {
+    /// <summary>
+    /// Furukubo
+    /// </summary>
     public class EnemyMoveChase : MonoBehaviour
     {
         [Header("Parameters")]
