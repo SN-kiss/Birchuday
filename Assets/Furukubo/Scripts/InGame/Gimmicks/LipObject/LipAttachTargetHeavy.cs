@@ -56,7 +56,7 @@ namespace InGame.Gimmick
             if (IsMovable) Rb.AddForce(force);
         }
 
-        public override void AddImpulse(Vector2 force)
+        public override void AddForceImpulse(Vector2 force)
         {
             if (IsMovable) Rb.AddForce(force, ForceMode2D.Impulse);
         }

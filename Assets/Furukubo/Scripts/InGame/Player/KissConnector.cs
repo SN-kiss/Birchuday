@@ -24,16 +24,16 @@ namespace InGame
             _lipA = lipA;
             _lipB = lipB;
 
-            Vector2 center = (lipA.Position + lipB.Position) * 0.5f;
+            Vector2 center = (lipA.LipPosition + lipB.LipPosition) * 0.5f;
             transform.position = center;
             _rb.position = center;
 
-            float intverseAngleLipA = lipA.Rotation;
+            float intverseAngleLipA = lipA.LipRotation;
 
             Vector2 inversePosLipB = CalculateUtilities.AngleToDirection(intverseAngleLipA) * _lipOffsetRadius;
 
-            lipA.OnKissAttach(this, -inversePosLipB, intverseAngleLipA);
-            lipB.OnKissAttach(this, inversePosLipB, intverseAngleLipA + 180f);
+            lipA.OnAttachFromOther(this, -inversePosLipB, intverseAngleLipA);
+            lipB.OnAttachFromOther(this, inversePosLipB, intverseAngleLipA + 180f);
 
             Debug.Log($"Kiss started : {_lipA} <=> {_lipB}");
         }
@@ -44,11 +44,11 @@ namespace InGame
         {
             if (lip == _lipA)
             {
-                _lipB.OnKissDetach();
+                _lipB.OnDetachFromOther();
             }
             else if (lip == _lipB)
             {
-                _lipA.OnKissDetach();
+                _lipA.OnDetachFromOther();
             }
 
             Debug.Log($"Kiss finished : {_lipA} <=> {_lipB}");
@@ -57,7 +57,7 @@ namespace InGame
         }
 
         public void AddForce(Vector2 force) => _rb.AddForce(force);
-        public void AddImpulse(Vector2 force) => _rb.AddForce(force, ForceMode2D.Impulse);
+        public void AddForceImpulse(Vector2 force) => _rb.AddForce(force, ForceMode2D.Impulse);
 
         public void AddTorque(float torque) => _rb.AddTorque(torque);
         public void AddTorqueImpulse(float torque) => _rb.AddTorque(torque, ForceMode2D.Impulse);

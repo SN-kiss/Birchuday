@@ -8,7 +8,6 @@ namespace InGame
     /// </summary>
     public enum DamageType
     {
-        None,
         Needle,
         Heat,
     }

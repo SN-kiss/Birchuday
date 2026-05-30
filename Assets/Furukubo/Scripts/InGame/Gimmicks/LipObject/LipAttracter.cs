@@ -22,7 +22,7 @@ namespace InGame
             {
                 if (!MagnetJudgement.IsAttachable(_selfMagneticType, target.MagneticType)) return;
 
-                Vector2 lipPos = target.Position;
+                Vector2 lipPos = target.LipPosition;
                 Vector2 closestPos = GetClosestPoint(lipPos);
                 Vector2 between = closestPos - lipPos;
 

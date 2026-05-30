@@ -106,48 +106,11 @@ MonoBehaviour:
   _invincibleTime: 1.5
   _rb: {fileID: 7552898071879817585}
   _srBody: {fileID: 5328167503501202440}
-  _onDamaged:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1555302358898285022}
-        m_TargetAssemblyTypeName: InGame.Player.PlayerLip, Assembly-CSharp
-        m_MethodName: OnBodyDamaged
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  _bodyMove: {fileID: 2094306004515770775}
+  _lip: {fileID: 1555302358898285022}
   _onDead:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2094306004515770775}
-        m_TargetAssemblyTypeName: InGame.Player.PlayerBodyMove, Assembly-CSharp
-        m_MethodName: OnDead
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1555302358898285022}
-        m_TargetAssemblyTypeName: InGame.Player.PlayerLip, Assembly-CSharp
-        m_MethodName: OnBodyDead
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &5767760167821540655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,7 +216,7 @@ MonoBehaviour:
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: af7b9fb2-a761-49a0-9e10-840bbfff146c
+  m_DefaultActionMap: InGame_PlayerB
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!1 &1438438552386131143
@@ -405,28 +368,14 @@ MonoBehaviour:
   _pullBodyPowerMax: 30
   _lipLengthMax: 3
   _selfMagneticType: 1
+  _bodyMove: {fileID: 2094306004515770775}
+  _bodyDamage: {fileID: 4922311300274727807}
+  _rb: {fileID: 5796012382741495494}
   _sr: {fileID: 729134834543033381}
-  _lipRb: {fileID: 5796012382741495494}
-  _bodyRb: {fileID: 7552898071879817585}
   _lipDefaultPointTr: {fileID: 1540051819962716687}
   _ignoreCol: {fileID: 1060926977014591627}
   _objLipAttracter: {fileID: 5073564110217300456}
   _prefabKissConnector: {fileID: 7818896086079290122, guid: 53e2ee437eba7454581f39d1ca98b7df, type: 3}
-  _onDamaged:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4922311300274727807}
-        m_TargetAssemblyTypeName: InGame.Player.PlayerBodyDamage, Assembly-CSharp
-        m_MethodName: OnDamaged
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!50 &5796012382741495494
 Rigidbody2D:
   serializedVersion: 5

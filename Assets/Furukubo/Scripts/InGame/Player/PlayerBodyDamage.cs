@@ -15,7 +15,8 @@ namespace InGame.Player
         [Header("References")]
         [SerializeField] private Rigidbody2D _rb;
         [SerializeField] private SpriteRenderer _srBody;
-        [SerializeField] private UnityEvent _onDamaged;
+        [SerializeField] private PlayerBodyMove _bodyMove;
+        [SerializeField] private PlayerLip _lip;
         [SerializeField] private UnityEvent _onDead;
 
         private int _remainHealth;
@@ -32,28 +33,27 @@ namespace InGame.Player
 
         private void Update()
         {
-            //dammy
             if(IsInvincible)
             {
                 _remainInvincibleTime -= Time.deltaTime;
 
+                Color col = _srBody.color;
+
                 if (IsInvincible)
                 {
-                    _srBody.color = new Color(_srBody.color.r, _srBody.color.g, _srBody.color.b, 0.5f);
+                    _srBody.color = new Color(col.r, col.g,col.b, 0.5f);
                 }
                 else
                 {
-                    _srBody.color = new Color(_srBody.color.r, _srBody.color.g, _srBody.color.b, 1f);
+                    _srBody.color = new Color(col.r, col.g, col.b, 1f);
                 }
             }
         }
 
-        public void OnDamaged(int damage, Vector2 nockback)
+        public void OnDamaged(int damage, Vector2 knockback)
         {
             _rb.linearVelocity = Vector2.zero;
-            _rb.AddForce(nockback, ForceMode2D.Impulse);
-
-            _onDamaged?.Invoke();
+            _rb.AddForce(knockback, ForceMode2D.Impulse);
 
             if (IsInvincible) return;
             if(IsDead) return;
@@ -62,11 +62,14 @@ namespace InGame.Player
 
             if (IsDead)
             {
+                _bodyMove.OnDead();
+                _lip.OnDead();
                 _onDead?.Invoke();
                 _srBody.color = Color.gray;
             }
             else
             {
+                _bodyMove.AddForce(knockback);
                 _remainInvincibleTime = _invincibleTime;
             }
         }
