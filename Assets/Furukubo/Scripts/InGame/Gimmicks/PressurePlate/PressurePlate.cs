@@ -8,20 +8,18 @@ namespace InGame.Gimmick
     /// </summary>
     public class PressurePlate : MonoBehaviour
     {
-        [Header("Parameters")]
-        [SerializeField] private float _plateReleasingPoint;
-        [SerializeField] private float _platePressingPoint;
-
         [Header("References")]
+        [SerializeField] private SpriteRenderer _sr;
+        [SerializeField] private Sprite _sprOn;
+        [SerializeField] private Sprite _sprOff;
         [SerializeField] private UnityEvent _onPressing;
         [SerializeField] private UnityEvent _onReleasing;
-        [SerializeField] private Transform _textureTr;
 
         private bool _isPressing;
 
         private void Update()
         {
-            _textureTr.localPosition = Vector3.up * (_isPressing ? _platePressingPoint : _plateReleasingPoint);
+            _sr.sprite = _isPressing ? _sprOn : _sprOff;
         }
 
         private void FixedUpdate()
