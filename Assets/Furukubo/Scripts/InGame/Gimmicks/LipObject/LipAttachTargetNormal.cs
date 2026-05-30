@@ -25,7 +25,7 @@ namespace InGame
         public virtual void OnDetached(ILip lip) { }
 
         public virtual void AddForce(Vector2 force) => _rb.AddForce(force);
-        public virtual void AddImpulse(Vector2 force) => _rb.AddForce(force, ForceMode2D.Impulse);
+        public virtual void AddForceImpulse(Vector2 force) => _rb.AddForce(force, ForceMode2D.Impulse);
 
         public virtual void AddTorque(float torque) => _rb.AddTorque(torque);
         public virtual void AddTorqueImpulse(float torque) => _rb.AddTorque(torque, ForceMode2D.Impulse);

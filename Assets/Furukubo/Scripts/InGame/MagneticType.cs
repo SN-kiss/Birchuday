@@ -19,6 +19,9 @@ namespace InGame
     //North x North
     //South x South
 
+    /// <summary>
+    /// Furukubo
+    /// </summary>
     public static class MagnetJudgement
     {
         public static bool IsAttachable(MagneticType a, MagneticType b)

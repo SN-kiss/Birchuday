@@ -23,7 +23,7 @@ namespace InGame.Player
 
             if (col.TryGetComponent(out ILipAttractTarget target))
             {
-                Vector2 lipPos = target.Position;
+                Vector2 lipPos = target.LipPosition;
                 Vector2 closestPos = GetClosestPoint(lipPos);
                 Vector2 between = closestPos - lipPos;
 
