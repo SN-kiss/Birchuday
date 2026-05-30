@@ -3,7 +3,7 @@
     "name": "Furukubo_DebugInputAction",
     "maps": [
         {
-            "name": "InGame_PlayerA",
+            "name": "InGame_PlayerNorth",
             "id": "5bcc9514-9ca1-40e7-8656-51162263ae1f",
             "actions": [
                 {
@@ -148,7 +148,7 @@
             ]
         },
         {
-            "name": "InGame_PlayerB",
+            "name": "InGame_PlayerSouth",
             "id": "af7b9fb2-a761-49a0-9e10-840bbfff146c",
             "actions": [
                 {

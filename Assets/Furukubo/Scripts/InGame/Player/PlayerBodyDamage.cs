@@ -17,6 +17,7 @@ namespace InGame.Player
         [SerializeField] private SpriteRenderer _srBody;
         [SerializeField] private PlayerBodyMove _bodyMove;
         [SerializeField] private PlayerLip _lip;
+        [SerializeField] private UnityEvent<int, int> _onHealthChanged;
         [SerializeField] private UnityEvent _onDead;
 
         private int _remainHealth;
@@ -26,9 +27,10 @@ namespace InGame.Player
         private bool IsInvincible => 0f < _remainInvincibleTime;
         private bool IsDead => _remainHealth <= 0;
 
-        private void Awake()
+        private void Start()
         {
             _remainHealth = _healthMax;
+            _onHealthChanged?.Invoke(_remainHealth, _healthMax);
         }
 
         private void Update()
@@ -72,6 +74,8 @@ namespace InGame.Player
                 _bodyMove.AddForce(knockback);
                 _remainInvincibleTime = _invincibleTime;
             }
+
+            _onHealthChanged?.Invoke(_remainHealth, _healthMax);
         }
     }
 }
