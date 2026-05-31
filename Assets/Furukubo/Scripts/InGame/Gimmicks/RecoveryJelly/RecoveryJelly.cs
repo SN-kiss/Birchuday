@@ -6,8 +6,9 @@ namespace InGame.Gimmick
     public class RecoveryJelly : MonoBehaviour, ILipAttachTarget
     {
         [Header("References")]
-        [SerializeField, Min(0)] private int _recoveryAmount;
-        [SerializeField, Min(1)] private int _recoveryCountMax;
+        [SerializeField, Min(0f)] private int _recoveryAmount;
+        [SerializeField, Min(1f)] private int _recoveryCountMax;
+        [SerializeField, Range(0f, 1f)] private float _scaleMin;
 
         [Header("References")]
         [SerializeField] private Collider2D _col;
@@ -48,6 +49,9 @@ namespace InGame.Gimmick
                 {
                     _attachingLips?.Remove(lip);
                     _scaleAnim.OnSpring();
+
+                    float scale = Mathf.Lerp(_scaleMin, 1f, (float)_recoveryCount / _recoveryCountMax);
+                    transform.localScale = new Vector3(scale, scale, 1f);
                 }
             }
             else
