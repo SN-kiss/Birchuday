@@ -18,7 +18,7 @@ namespace InGame.Player
 
         [Header("References")]
         [SerializeField] private PlayerBodyMove _bodyMove;
-        [SerializeField] private PlayerBodyDamage _bodyDamage;
+        [SerializeField] private PlayerBodyHealth _bodyHealth;
         [SerializeField] private Rigidbody2D _rb;
         [SerializeField] private SpriteRenderer _sr;
         [SerializeField] private Transform _lipDefaultPointTr;
@@ -105,19 +105,22 @@ namespace InGame.Player
 
         public void OnDamaged(int damageAmount, float nockbackPower, DamageType type)
         {
+            /*
             switch (type)
             {
                 case DamageType.Needle:
                     _sr.color = Color.magenta;
                     break;
-                case DamageType.Heat:
-                    _sr.color = Color.orange;
-                    break;
-            }
+            }*/
+            _sr.color = Color.red;
 
-            OnDetach();
+            _bodyHealth.OnDamaged(damageAmount, (_bodyMove.Position - LipPosition).normalized * nockbackPower);
+        }
 
-            _bodyDamage.OnDamaged(damageAmount, (_bodyMove.Position - LipPosition).normalized * nockbackPower);
+        public void OnRecover(int recoverAmount)
+        {
+            _sr.color = Color.white;
+            _bodyHealth.OnRecovered(recoverAmount);
         }
 
         public void OnDead()

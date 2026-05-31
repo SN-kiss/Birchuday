@@ -366,7 +366,7 @@ MonoBehaviour:
   _lipLengthMax: 3
   _selfMagneticType: 2
   _bodyMove: {fileID: 4751885898393672741}
-  _bodyDamage: {fileID: 7920196932021533494}
+  _bodyHealth: {fileID: 7920196932021533494}
   _rb: {fileID: 278509828133917856}
   _sr: {fileID: 5988073462970348639}
   _lipDefaultPointTr: {fileID: 2455955728822694402}
@@ -1030,7 +1030,7 @@ Transform:
   m_GameObject: {fileID: 7623922933540871045}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.5, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1088,8 +1088,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 3
+  m_Offset: {x: -2, y: 0}
+  m_Radius: 2
 --- !u!1 &8384745533697283612
 GameObject:
   m_ObjectHideFlags: 0

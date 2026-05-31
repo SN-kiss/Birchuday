@@ -13,5 +13,6 @@ namespace InGame
         void OnAttachFromOther(ILipAttachTarget target, Vector2 inversePos, float inverseRot);
         void OnDetachFromOther();
         void OnDamaged(int damageAmount, float nockbackPower, DamageType type);
+        void OnRecover(int recoveryAmount);
     }
 }

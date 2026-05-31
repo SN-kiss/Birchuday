@@ -6,7 +6,7 @@ namespace InGame.Player
     /// <summary>
     /// Furukubo
     /// </summary>
-    public class PlayerBodyDamage : MonoBehaviour, IDamageTarget
+    public class PlayerBodyHealth : MonoBehaviour, IDamageTarget
     {
         [Header("Parameters")]
         [SerializeField] private int _healthMax;
@@ -52,7 +52,13 @@ namespace InGame.Player
             }
         }
 
-        public void OnDamaged(int damage, Vector2 knockback)
+        public void OnRecovered(int recoverAmount)
+        {
+            if (IsDead) return;
+            AddHealthAmount(recoverAmount);
+        }
+
+        public void OnDamaged(int damageAmount, Vector2 knockback)
         {
             _rb.linearVelocity = Vector2.zero;
             _rb.AddForce(knockback, ForceMode2D.Impulse);
@@ -60,7 +66,7 @@ namespace InGame.Player
             if (IsInvincible) return;
             if(IsDead) return;
 
-            _remainHealth = Mathf.Clamp(_remainHealth - damage, 0, _healthMax);
+            AddHealthAmount(-damageAmount);
 
             if (IsDead)
             {
@@ -74,6 +80,11 @@ namespace InGame.Player
                 _bodyMove.AddForce(knockback);
                 _remainInvincibleTime = _invincibleTime;
             }
+        }
+
+        private void AddHealthAmount(int add)
+        {
+            _remainHealth = Mathf.Clamp(_remainHealth + add, 0, _healthMax);
 
             _onHealthChanged?.Invoke(_remainHealth, _healthMax);
         }
