@@ -159,7 +159,7 @@ namespace InGame.Player
             if (CurrentState == PlayerLipState.Attaching) return;
             if (0f < _attractCoolTimeCount) return;
 
-            if (_attractableRangeThreshoud < Vector2.Dot(CalculateUtilities.AngleToDirection(_rb.rotation), force.normalized))
+            if (_attractableRangeThreshoud < Vector2.Dot(OriginalCalculateUtils.AngleToDirection(_rb.rotation), force.normalized))
             {
                 _attractedCancelTimeCounter = 0f;
                 CurrentState = PlayerLipState.Attracted;
@@ -169,7 +169,7 @@ namespace InGame.Player
 
                 if (LipVelocity.sqrMagnitude != 0f)
                 {
-                    LipRotation = CalculateUtilities.DirectionToAngle(_rb.linearVelocity);
+                    LipRotation = OriginalCalculateUtils.DirectionToAngle(_rb.linearVelocity);
                 }
             }
         }
@@ -236,7 +236,7 @@ namespace InGame.Player
                     _bodyMove.AddForce(pullForce);
                 }
 
-                float angleBodyToLip = CalculateUtilities.DirectionToAngle((LipPosition - _bodyMove.Position).normalized);
+                float angleBodyToLip = OriginalCalculateUtils.DirectionToAngle((LipPosition - _bodyMove.Position).normalized);
                 float deltaAngleLipToBody = Mathf.DeltaAngle(LipRotation, angleBodyToLip);
                 float allowAngle = 90f;
 

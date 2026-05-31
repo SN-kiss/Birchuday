@@ -25,7 +25,7 @@ namespace InGame.Gimmick
             hitColsInFrame.Clear();
 
             Vector2 center = transform.position;
-            Vector2 rotation = CalculateUtilities.AngleToDirection(Angle - 90f);
+            Vector2 rotation = OriginalCalculateUtils.AngleToDirection(Angle - 90f);
             int rayDisitsHalf = _rayDisits / 2;
             float interval = Range / _rayDisits;
 
@@ -56,7 +56,7 @@ namespace InGame.Gimmick
             if(_rayDisits <= 0) return;
 
             Vector2 center = transform.position;
-            Vector2 rotation = CalculateUtilities.AngleToDirection(Angle - 90f);
+            Vector2 rotation = OriginalCalculateUtils.AngleToDirection(Angle - 90f);
             int rayDisitsHalf = _rayDisits / 2;
             float interval = Range / _rayDisits;
 
@@ -75,7 +75,7 @@ namespace InGame.Gimmick
             Debug.DrawLine(center - rotation * radius, center + rotation * radius, Color.cyan);
         }
 
-        private Vector2 BlowDirection() => CalculateUtilities.AngleToDirection(Angle);
+        private Vector2 BlowDirection() => OriginalCalculateUtils.AngleToDirection(Angle);
 
         private float BlowPower(Vector2 targetPos)
         {

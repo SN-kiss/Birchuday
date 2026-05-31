@@ -43,7 +43,7 @@ namespace InGame.Enemy
         public void AddTorqueImpulse(float torque) { }
 
         public Vector2 GetAttachPoint(Vector2 pos) => _col.ClosestPoint(pos);
-        public float GetAttachRotation(Vector2 pos) => CalculateUtilities.DirectionToAngle((Position - pos).normalized);
+        public float GetAttachRotation(Vector2 pos) => OriginalCalculateUtils.DirectionToAngle((Position - pos).normalized);
 
         public Vector2 GetInverseTransformPoint(Vector2 pos) => transform.InverseTransformPoint(pos);
         public Vector2 GetTransformPoint(Vector2 pos) => transform.TransformPoint(pos);

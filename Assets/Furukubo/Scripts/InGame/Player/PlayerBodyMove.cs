@@ -50,7 +50,7 @@ namespace InGame.Player
             if (_bodyRb == null) return;
             if(_lip == null) return;
 
-            AddForceImpulse(CalculateUtilities.AngleToDirection(_bodyRb.rotation) * _dashPower);
+            AddForceImpulse(OriginalCalculateUtils.AngleToDirection(_bodyRb.rotation) * _dashPower);
         }
 
         public void OnDetach()
@@ -91,7 +91,7 @@ namespace InGame.Player
             if (_bodyRb == null) return;
 
             float currentAng = _bodyRb.rotation;
-            float targetAng = CalculateUtilities.DirectionToAngle(targetDir);
+            float targetAng = OriginalCalculateUtils.DirectionToAngle(targetDir);
             float betweenAng = Mathf.DeltaAngle(currentAng, targetAng);
 
             float newAng = currentAng + betweenAng * _rotateSpeed * deltaTime;

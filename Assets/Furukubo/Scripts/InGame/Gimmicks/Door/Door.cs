@@ -38,7 +38,7 @@ namespace InGame.Gimmick
 
             float curvedTime = _openCurve?.Evaluate(time) ?? 0f;
 
-            Vector2 dir = CalculateUtilities.AngleToDirection(transform.localEulerAngles.z);
+            Vector2 dir = OriginalCalculateUtils.AngleToDirection(transform.localEulerAngles.z);
 
             Vector2 aDefPos = _doorADefaultPointTr.position;
             Vector2 aPos = Vector2.Lerp(aDefPos, aDefPos + dir * _openRadius, curvedTime);

@@ -30,7 +30,7 @@ namespace InGame.Player
                 Vector2 closestPos = GetClosestPoint(lipPos);
                 Vector2 between = closestPos - lipPos;
 
-                float dirSimilarity = Vector2.Dot(between.normalized, CalculateUtilities.AngleToDirection(_rb.rotation));
+                float dirSimilarity = Vector2.Dot(between.normalized, OriginalCalculateUtils.AngleToDirection(_rb.rotation));
 
                 if (_attractRangeThrehoud <= dirSimilarity)
                 {

@@ -67,7 +67,7 @@ namespace InGame.Gimmick
         public virtual void AddTorqueImpulse(float torque) { }
 
         public virtual Vector2 GetAttachPoint(Vector2 pos) => _col.ClosestPoint(pos);
-        public virtual float GetAttachRotation(Vector2 pos) => CalculateUtilities.DirectionToAngle((_col.ClosestPoint(pos) - pos).normalized);
+        public virtual float GetAttachRotation(Vector2 pos) => OriginalCalculateUtils.DirectionToAngle((_col.ClosestPoint(pos) - pos).normalized);
 
         public virtual Vector2 GetInverseTransformPoint(Vector2 pos) => transform.InverseTransformPoint(pos);
         public virtual Vector2 GetTransformPoint(Vector2 pos) => transform.TransformPoint(pos);
