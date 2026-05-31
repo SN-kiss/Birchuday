@@ -30,7 +30,7 @@ namespace InGame
 
             float intverseAngleLipA = lipA.LipRotation;
 
-            Vector2 inversePosLipB = CalculateUtilities.AngleToDirection(intverseAngleLipA) * _lipOffsetRadius;
+            Vector2 inversePosLipB = OriginalCalculateUtils.AngleToDirection(intverseAngleLipA) * _lipOffsetRadius;
 
             lipA.OnAttachFromOther(this, -inversePosLipB, intverseAngleLipA);
             lipB.OnAttachFromOther(this, inversePosLipB, intverseAngleLipA + 180f);

@@ -30,8 +30,8 @@ namespace InGame.Player
             Vector2 body = _connectPointTrBody.position;
             Vector2 lip = _connectPointTrLip.position;
 
-            Vector2 bodyDir = CalculateUtilities.AngleToDirection(_bodyRb.rotation);
-            Vector2 lipDir = CalculateUtilities.AngleToDirection(_lipRb.rotation);
+            Vector2 bodyDir = OriginalCalculateUtils.AngleToDirection(_bodyRb.rotation);
+            Vector2 lipDir = OriginalCalculateUtils.AngleToDirection(_lipRb.rotation);
 
             float length = (body - lip).magnitude * _handleLengthCoef;
 
