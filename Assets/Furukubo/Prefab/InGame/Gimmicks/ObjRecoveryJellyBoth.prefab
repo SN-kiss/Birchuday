@@ -236,6 +236,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Gimmick.RecoveryJelly
   _recoveryAmount: 1
   _recoveryCountMax: 2
+  _scaleMin: 0.25
   _col: {fileID: 3656350272691877558}
   _scaleAnim: {fileID: 330397626782766919}
 --- !u!114 &330397626782766919
