@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 15cd54c22ed9baf4d8d2d6973afb7b44
+guid: 497ecdbd44e845c4ba55cd68d1048af7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5108877598013932826
-    second: Switch_On_0
+      213: -1763421648102705783
+    second: player_red_eye_0
+  - first:
+      213: -7153923880420027501
+    second: player_red_eye_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +116,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Switch_On_0
+      name: spr_ply_n_eyes_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 19
-        width: 200
-        height: 30
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 6eabd6184ee9919b0800000000000000
-      internalID: -5108877598013932826
+      spriteID: 28b556300e360bd4c87e2cc01e93f1e5
+      internalID: -2073465785
       vertices: []
       indices: 
       edges: []
@@ -138,7 +141,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: c11bff194410c9149b02035f4e507a36
+    spriteID: b3fb65ad7a25b7f4098cb26da5717caa
     internalID: 0
     vertices: []
     indices: 
@@ -146,9 +149,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":100.0,"y":100.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Switch_On_0: -5108877598013932826
+      spr_ply_n_eyes_0: -2073465785
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
