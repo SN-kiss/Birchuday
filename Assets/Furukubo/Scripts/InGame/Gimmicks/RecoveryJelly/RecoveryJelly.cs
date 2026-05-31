@@ -30,26 +30,31 @@ namespace InGame.Gimmick
         public virtual void OnAttached(ILip lip)
         {
             _attachingLips?.Add(lip);
-
-            lip.OnRecover(_recoveryAmount);
-
-            _recoveryCount--;
-
-            if (_recoveryCount <= 0)
-            {
-                DetachAll();
-                gameObject.SetActive(false);//dammy
-            }
-            else
-            {
-                _scaleAnim.OnSpring();
-            }
+            _scaleAnim.OnSpring();
         }
 
         public virtual void OnDetached(ILip lip)
         {
-            _attachingLips?.Remove(lip);
-            _scaleAnim.OnSpring();
+            if (lip.TryRecover(_recoveryAmount))
+            {
+                _recoveryCount--;
+
+                if (_recoveryCount <= 0)
+                {
+                    DetachAll();
+                    gameObject.SetActive(false);
+                }
+                else
+                {
+                    _attachingLips?.Remove(lip);
+                    _scaleAnim.OnSpring();
+                }
+            }
+            else
+            {
+                _attachingLips?.Remove(lip);
+                _scaleAnim.OnSpring();
+            }
         }
 
         public virtual void AddForce(Vector2 force) { }

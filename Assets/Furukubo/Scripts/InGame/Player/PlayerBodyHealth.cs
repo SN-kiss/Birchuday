@@ -52,10 +52,14 @@ namespace InGame.Player
             }
         }
 
-        public void OnRecovered(int recoverAmount)
+        public bool TryRecovered(int recoverAmount)
         {
-            if (IsDead) return;
+            if (IsDead) return false;
+            if(_healthMax == _remainHealth) return false;
+
             AddHealthAmount(recoverAmount);
+
+            return true;
         }
 
         public void OnDamaged(int damageAmount, Vector2 knockback)

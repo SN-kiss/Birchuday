@@ -117,10 +117,10 @@ namespace InGame.Player
             _bodyHealth.OnDamaged(damageAmount, (_bodyMove.Position - LipPosition).normalized * nockbackPower);
         }
 
-        public void OnRecover(int recoverAmount)
+        public bool TryRecover(int recoverAmount)
         {
             _sr.color = Color.white;
-            _bodyHealth.OnRecovered(recoverAmount);
+            return _bodyHealth.TryRecovered(recoverAmount);
         }
 
         public void OnDead()
