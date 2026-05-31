@@ -70,6 +70,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Enemy.EnemyMoveChase
   _missDistance: 10
   _chasePower: 4
+  _selfMagnetixType: 1
   _rb: {fileID: 6182139779195821986}
   _objSearchArea: {fileID: 8376500306190248895}
 --- !u!50 &6182139779195821986

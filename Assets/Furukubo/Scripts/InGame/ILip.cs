@@ -7,6 +7,7 @@ namespace InGame
     /// </summary>
     public interface ILip
     {
+        MagneticType MagneticType { get; }
         Vector2 LipPosition { get; }
         float LipRotation { get; }
         bool IsKissableNow { get; }
