@@ -183,12 +183,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -6617642030315273898, guid: c91e980ac34f3354db78d0b086538937, type: 3}
+  m_Sprite: {fileID: -833517034, guid: 465bda8830a3d914e8eb18915ac9c514, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.98, y: 0.98}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -292,7 +292,7 @@ GameObject:
   - component: {fileID: 4751335758256358277}
   - component: {fileID: 915652399882768146}
   m_Layer: 0
-  m_Name: ObjEnemyNormalNorth
+  m_Name: ObjEnemyImmoveNorth
   m_TagString: Untagged
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0

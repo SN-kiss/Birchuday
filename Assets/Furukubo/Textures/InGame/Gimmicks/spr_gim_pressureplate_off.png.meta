@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f7826f517af962b428cc9c6667eca2f8
+guid: 6255b37fd99cfc9409e42b87bbdbf75a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4302193690813242020
-    second: player_blue_body_0
+      213: 2027678462117220591
+    second: Switch_Off_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: player_blue_body_0
+      name: spr_gim_pressureplate_off_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 1
-        width: 95
-        height: 98
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 10
+        y: 19
+        width: 180
+        height: 51
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: c556628d1a98b44c0800000000000000
-      internalID: -4302193690813242020
+      spriteID: 2c314e0d1c5134f46a2e23e6f1e3ae06
+      internalID: 1292223162
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 229db67b7681faf41b5c4d10445c0453
     internalID: 0
     vertices: []
     indices: 
@@ -146,9 +146,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":200.0,"y":200.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      player_blue_body_0: -4302193690813242020
+      spr_gim_pressureplate_off_0: 1292223162
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 16b554582348c49459e07e5fa194bfba
+guid: 5575b93bf9fe3174eb408bf2ac9cd257
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4814271640095007972
-    second: SprSpikeMoveNorth_0
+      213: -3643342848875537960
+    second: SprBoxHeavyBoth_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SprSpikeMoveNorth_0
+      name: spr_gim_box_heavy_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 1
-        width: 198
-        height: 198
+        x: 0
+        y: 0
+        width: 200
+        height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: c1b56ef4375403db0800000000000000
-      internalID: -4814271640095007972
+      spriteID: 33038382c79c31546805825a2bbddc18
+      internalID: -207052185
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 06fa985447b8817429453d362f56fdd5
     internalID: 0
     vertices: []
     indices: 
@@ -146,9 +146,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":200.0,"y":200.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      SprSpikeMoveNorth_0: -4814271640095007972
+      spr_gim_box_heavy_0: -207052185
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 609f94e07418e244e920a972eae4a3ba
+guid: c6515c4ecc1303d4a83c75ef8dfa6e42
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5074674964691655289
-    second: SprBoxNormalNorth_0
+      213: -1699773082009573270
+    second: player_blue_lipline_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 200
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SprBoxNormalNorth_0
+      name: spr_ply_s_lipline_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 200
-        height: 200
+        width: 100
+        height: 100
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 159, y: 20, z: 25, w: 163}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 7856cf2a1022399b0800000000000000
-      internalID: -5074674964691655289
+      spriteID: eb2ee3e59e08d324d955ccac80745b95
+      internalID: 146667150
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 48b06ca3a3a183f4198e045f88da18da
+    spriteID: dfea1344cc561f24fb318445d361a4a2
     internalID: 0
     vertices: []
     indices: 
@@ -146,9 +146,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":100.0,"y":100.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      SprBoxNormalNorth_0: -5074674964691655289
+      spr_ply_s_lipline_0: 146667150
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

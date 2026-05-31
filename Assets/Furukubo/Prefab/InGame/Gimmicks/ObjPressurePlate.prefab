@@ -48,8 +48,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InGame.PressurePlate
   _sr: {fileID: 3794319474417279268}
-  _sprOn: {fileID: -5108877598013932826, guid: 15cd54c22ed9baf4d8d2d6973afb7b44, type: 3}
-  _sprOff: {fileID: 2027678462117220591, guid: 6255b37fd99cfc9409e42b87bbdbf75a, type: 3}
+  _sprOn: {fileID: -1450984921, guid: 15cd54c22ed9baf4d8d2d6973afb7b44, type: 3}
+  _sprOff: {fileID: 1292223162, guid: 6255b37fd99cfc9409e42b87bbdbf75a, type: 3}
   _onPressing:
     m_PersistentCalls:
       m_Calls: []
@@ -178,7 +178,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.75, y: 0.25}
+  m_Size: {x: 1.5, y: 0.25}
   m_EdgeRadius: 0
 --- !u!1 &8250233276724915159
 GameObject:
@@ -261,12 +261,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 2027678462117220591, guid: 6255b37fd99cfc9409e42b87bbdbf75a, type: 3}
+  m_Sprite: {fileID: 1292223162, guid: 6255b37fd99cfc9409e42b87bbdbf75a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.8, y: 0.51}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

@@ -11,6 +11,7 @@ namespace InGame.Player
         [SerializeField] private float _attractPowerBase;
         [SerializeField] private float _attractPower;
         [SerializeField, Range(-1f, 1f)] private float _attractRangeThrehoud;
+        [SerializeField] private MagneticType _selfMagneticType;
 
         [Header("References")]
         [SerializeField] private Rigidbody2D _rb;
@@ -23,6 +24,8 @@ namespace InGame.Player
 
             if (col.TryGetComponent(out ILipAttractTarget target))
             {
+                if (!MagnetJudgement.IsAttachable(_selfMagneticType, target.MagneticType)) return;
+
                 Vector2 lipPos = target.LipPosition;
                 Vector2 closestPos = GetClosestPoint(lipPos);
                 Vector2 between = closestPos - lipPos;
