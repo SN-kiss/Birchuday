@@ -28,7 +28,11 @@ namespace InGame.Enemy
             }
         }
 
-        public void OnAttached(ILip lip) => lip.OnDamaged(_damageAmount, _nockbackPower, _DamageType);
+        public void OnAttached(ILip lip)
+        {
+            lip.OnDamaged(_damageAmount, _nockbackPower, _DamageType);
+            lip.OnDetachFromOther();
+        }
 
         public void OnDetached(ILip lip) { }
 
