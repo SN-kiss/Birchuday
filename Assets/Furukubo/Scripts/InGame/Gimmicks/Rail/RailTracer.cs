@@ -5,14 +5,14 @@ namespace InGame
     /// <summary>
     /// Furukubo
     /// </summary>
-    public class RailTrailer : MonoBehaviour
+    public class RailTracer : MonoBehaviour
     {
         [Header("Parameters")]
         [SerializeField] private float _speed;
 
         [Header("References")]
         [SerializeField] private Rigidbody2D _rb;
-        [SerializeField] private RailLine _rail;
+        [SerializeField] private Rail _rail;
 
         private int _index;
         private float _time;
