@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace InGame
 {
-    public class RailLine : MonoBehaviour
+    public class Rail : MonoBehaviour
     {
         [SerializeField] private Vector2[] _points;
 
