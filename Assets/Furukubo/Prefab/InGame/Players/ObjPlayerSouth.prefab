@@ -670,8 +670,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3cbc5c5d68e1db44aeea89672f8cda4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InGame.LipAttracter
-  _attractPowerBase: 10
-  _attractPower: 100
+  _attractPowerBase: 20
+  _attractPower: 80
   _selfMagneticType: 2
   _col: {fileID: 8827685636854380862}
 --- !u!70 &1494711417748306004
@@ -1108,8 +1108,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb24bfdd1c5e28543abaa4b72a8199fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Player.PlayerBodyLipAttracter
-  _attractPowerBase: 10
-  _attractPower: 100
+  _attractPowerBase: 20
+  _attractPower: 80
   _attractRangeThrehoud: 0
   _selfMagneticType: 2
   _rb: {fileID: 7552898071879817585}

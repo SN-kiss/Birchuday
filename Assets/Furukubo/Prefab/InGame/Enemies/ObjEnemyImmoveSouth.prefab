@@ -136,8 +136,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3cbc5c5d68e1db44aeea89672f8cda4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InGame.LipAttracter
-  _attractPowerBase: 7.5
-  _attractPower: 50
+  _attractPowerBase: 20
+  _attractPower: 60
   _selfMagneticType: 2
   _col: {fileID: 4751335758256358277}
 --- !u!58 &1972151531535613612

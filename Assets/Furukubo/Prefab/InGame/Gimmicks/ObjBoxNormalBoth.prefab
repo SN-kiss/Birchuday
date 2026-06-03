@@ -260,8 +260,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3cbc5c5d68e1db44aeea89672f8cda4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InGame.TestAttractArea
-  _attractPowerBase: 10
-  _attractPower: 100
+  _attractPowerBase: 20
+  _attractPower: 70
   _selfMagneticType: 0
   _col: {fileID: 6225051707508153361}
 --- !u!61 &3957937475156818513

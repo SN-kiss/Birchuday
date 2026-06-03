@@ -70,6 +70,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Enemy.EnemyMoveChase
   _missDistance: 10
   _chasePower: 4
+  _selfMagnetixType: 0
   _rb: {fileID: 6182139779195821986}
   _objSearchArea: {fileID: 8376500306190248895}
 --- !u!50 &6182139779195821986
@@ -386,8 +387,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3cbc5c5d68e1db44aeea89672f8cda4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InGame.LipAttracter
-  _attractPowerBase: 7.5
-  _attractPower: 50
+  _attractPowerBase: 20
+  _attractPower: 60
   _selfMagneticType: 0
   _col: {fileID: 8990956398772320896}
 --- !u!58 &2844437076667675942

@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace InGame.Gimmick
 {
+    /// <summary>
+    /// Furukubo
+    /// </summary>
     public class RecoveryJelly : MonoBehaviour, ILipAttachTarget
     {
         [Header("References")]
