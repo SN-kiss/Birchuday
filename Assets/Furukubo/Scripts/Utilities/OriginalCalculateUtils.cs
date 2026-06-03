@@ -17,7 +17,14 @@ public static class OriginalCalculateUtils
         return new Vector2(Mathf.Cos(radiun), Mathf.Sin(radiun));
     }
 
-    public static int Loop(int min, int max, int value)
+    public static float Loop(float min, float max, float value)
+    {
+        if (max <= min) return max;
+        float range = (max - min);
+        return ((value - min) % range + range) % range;
+    }
+
+    public static int LoopInt(int min, int max, int value)
     {
         if (max <= min) return max;
         int range = (max - min);
