@@ -38,6 +38,7 @@ namespace InGame.Enemy
             if (collision.TryGetComponent(out IDamageTarget target))
             {
                 target.OnDamaged(_damageAmount, _rb.linearVelocity);//dammy
+                target.OnDetach();
 
                 if (OnReleaseToPool == null) Destroy(gameObject);
                 else OnReleaseToPool.Invoke();

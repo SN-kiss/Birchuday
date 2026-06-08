@@ -11674,7 +11674,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf2d905b9f057cb4f88dcd6341c75a56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Enemy.EnemyMeteor
-  _initMovePower: 5
+  _damageAmount: 1
+  _initMovePower: 2.5
   _initMoveAngle: 160
   _rotateSpeed: 360
   _rb: {fileID: 1748525155}
