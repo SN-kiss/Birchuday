@@ -9,5 +9,6 @@ namespace InGame
     {
         Vector2 Position { get; }
         void OnDamaged(int damage, Vector2 nockback);
+        void OnDetach();
     }
 }

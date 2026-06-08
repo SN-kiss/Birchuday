@@ -62,6 +62,8 @@ namespace InGame.Player
             return true;
         }
 
+        public void OnDetach() => _lip.OnDetach();
+
         public void OnDamaged(int damageAmount, Vector2 knockback)
         {
             _rb.linearVelocity = Vector2.zero;
