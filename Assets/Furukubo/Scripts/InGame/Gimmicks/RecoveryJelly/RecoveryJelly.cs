@@ -83,7 +83,7 @@ namespace InGame.Gimmick
             foreach (var lip in _attachingLips)
             {
                 if(lip == null) continue;
-                lip.OnDetachFromOther();
+                lip.OnDetachFromTarget();
             }
 
             _attachingLips.Clear();

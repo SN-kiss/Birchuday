@@ -32,8 +32,8 @@ namespace InGame
 
             Vector2 inversePosLipB = OriginalCalculateUtils.AngleToDirection(intverseAngleLipA) * _lipOffsetRadius;
 
-            lipA.OnAttachFromOther(this, -inversePosLipB, intverseAngleLipA);
-            lipB.OnAttachFromOther(this, inversePosLipB, intverseAngleLipA + 180f);
+            lipA.OnAttachFromTarget(this, -inversePosLipB, intverseAngleLipA);
+            lipB.OnAttachFromTarget(this, inversePosLipB, intverseAngleLipA + 180f);
 
             Debug.Log($"Kiss started : {_lipA} <=> {_lipB}");
         }
@@ -44,11 +44,11 @@ namespace InGame
         {
             if (lip == _lipA)
             {
-                _lipB.OnDetachFromOther();
+                _lipB.OnDetachFromTarget();
             }
             else if (lip == _lipB)
             {
-                _lipA.OnDetachFromOther();
+                _lipA.OnDetachFromTarget();
             }
 
             Debug.Log($"Kiss finished : {_lipA} <=> {_lipB}");

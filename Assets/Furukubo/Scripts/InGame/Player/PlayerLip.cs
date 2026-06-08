@@ -264,7 +264,7 @@ namespace InGame.Player
             FollowBody();
         }
 
-        public void OnAttachFromOther(ILipAttachTarget target, Vector2 inversePos, float inverseRot)
+        public void OnAttachFromTarget(ILipAttachTarget target, Vector2 inversePos, float inverseRot)
         {
             CurrentState = PlayerLipState.Attaching;
 
@@ -281,7 +281,7 @@ namespace InGame.Player
             LipRotation = _target.GetTransformRotation(_attachedRotation);
         }
 
-        public void OnDetachFromOther()
+        public void OnDetachFromTarget()
         {
             if (CurrentState != PlayerLipState.Attaching) return;
 
