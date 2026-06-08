@@ -11,8 +11,8 @@ namespace InGame
         Vector2 LipPosition { get; }
         float LipRotation { get; }
         bool IsKissableNow { get; }
-        void OnAttachFromOther(ILipAttachTarget target, Vector2 inversePos, float inverseRot);
-        void OnDetachFromOther();
+        void OnAttachFromTarget(ILipAttachTarget target, Vector2 inversePos, float inverseRot);
+        void OnDetachFromTarget();
         void OnDamaged(int damageAmount, float nockbackPower, DamageType type);
         bool TryRecover(int recoveryAmount);
     }
