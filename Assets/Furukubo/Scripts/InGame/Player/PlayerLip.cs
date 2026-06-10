@@ -28,7 +28,7 @@ namespace InGame.Player
 
         public MagneticType MagneticType => _selfMagneticType;
         public float LipLengthMax => _lipLengthMax;
-        public bool IsKissableNow => CurrentState != PlayerLipState.Attaching && CurrentState != PlayerLipState.Dead;
+        public bool IsKissableNow => CurrentState != PlayerLipState.Attaching;
         private Vector2 LipPositionDefault => _lipDefaultPointTr.position;
 
         private ILipAttachTarget _target;
@@ -80,9 +80,6 @@ namespace InGame.Player
                 case PlayerLipState.Attaching:
                     AttachingUpdate(Time.fixedDeltaTime);
                     break;
-                case PlayerLipState.Dead:
-                    FollowBodyUpdate(Time.fixedDeltaTime);
-                    break;
             }
         }
 
@@ -105,13 +102,6 @@ namespace InGame.Player
 
         public void OnDamaged(int damageAmount, float nockbackPower, DamageType type)
         {
-            /*
-            switch (type)
-            {
-                case DamageType.Needle:
-                    _sr.color = Color.magenta;
-                    break;
-            }*/
             _sr.color = Color.red;
 
             _bodyHealth.OnDamaged(damageAmount, (_bodyMove.Position - LipPosition).normalized * nockbackPower);
@@ -125,12 +115,11 @@ namespace InGame.Player
 
         public void OnDead()
         {
-            CurrentState = PlayerLipState.Dead;
-            LipVelocity = Vector2.zero;
-            LipKinematic = true;
-            LipPosition = LipPositionDefault;
-            LipRotation = _bodyMove.Rotation;
-            SetTarget(null);
+            //LipVelocity = Vector2.zero;
+            //LipKinematic = true;
+            //LipPosition = LipPositionDefault;
+            //LipRotation = _bodyMove.Rotation;
+            //SetTarget(null);
             SetAttracterEnable(false);
         }
 
@@ -155,7 +144,6 @@ namespace InGame.Player
 
         public void OnAttracted(Vector2 force)
         {
-            if (CurrentState == PlayerLipState.Dead) return;
             if (CurrentState == PlayerLipState.Attaching) return;
             if (0f < _attractCoolTimeCount) return;
 

@@ -10,6 +10,5 @@ namespace InGame.Player
         FollowBody,
         Attracted,
         Attaching,
-        Dead
     }
 }

@@ -7,7 +7,7 @@ namespace InGame.Enemy
     /// <summary>
     /// Furukubo
     /// </summary>
-    public class EnemyMeteor : MonoBehaviour
+    public class EnemyMeteor : MonoBehaviour, IBlackHoleTarget
     {
         [SerializeField] private int _damageAmount;
         [SerializeField] private float _rotateSpeed;
@@ -17,6 +17,8 @@ namespace InGame.Enemy
 
         public event Action OnReleaseToPool;
         private bool _rotatePlus;
+
+        public Vector2 Position => transform.position;
 
         private void Update()
         {
@@ -56,5 +58,7 @@ namespace InGame.Enemy
                 trail.Clear();
             }
         }
+
+        public void AddForce(Vector2 force) => _rb.AddForce(force, ForceMode2D.Force);
     }
 }
