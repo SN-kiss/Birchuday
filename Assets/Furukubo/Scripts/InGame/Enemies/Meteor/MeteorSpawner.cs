@@ -3,6 +3,9 @@ using UnityEngine.Pool;
 
 namespace InGame.Enemy
 {
+    /// <summary>
+    /// Furukubo
+    /// </summary>
     public class MeteorSpawner : MonoBehaviour
     {
         [SerializeField, Min(0.05f)] private float _spawnIntervalTime;
