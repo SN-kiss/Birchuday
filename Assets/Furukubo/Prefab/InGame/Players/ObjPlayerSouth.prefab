@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c957072f3bf04544692760dd944d39f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Player.PlayerBodyDamage
-  _healthMax: 5
+  _healthMax: 3
   _invincibleTime: 1.5
   _rb: {fileID: 7552898071879817585}
   _srBody: {fileID: 5328167503501202440}
