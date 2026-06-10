@@ -25,4 +25,32 @@ public static class OriginalGizmoUtils
         Debug.DrawLine(end, head2, color);
         Debug.DrawLine(head1, head2, color);
     }
+
+    public static void DrawStar(Vector2 pos, int vert, float outRadius, float inRadius) => DrawStar(pos, vert, outRadius, inRadius, Color.white);
+
+    public static void DrawStar(Vector2 pos, int vert, float outRadius, float inRadius, Color color)
+    {
+        Vector2 oldPoint = Vector2.zero;
+
+        int disit = vert * 2;
+        float interval = 360f / disit;
+        float halfInterval = interval * 0.5f;
+
+        for (int i = 0; i <= disit; i++)
+        {
+            if(i == 0)
+            {
+                float angle = interval * i + halfInterval;
+                oldPoint = pos + OriginalCalculateUtils.AngleToDirection(angle) * outRadius;
+            }
+            else
+            {
+                float radius = i % 2 == 0 ? outRadius : inRadius;
+                float angle = interval * i + halfInterval;
+                Vector2 point = pos + OriginalCalculateUtils.AngleToDirection(angle) * radius;
+                Debug.DrawLine(oldPoint, point, color);
+                oldPoint = point;
+            }
+        }
+    }
 }

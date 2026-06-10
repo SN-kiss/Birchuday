@@ -10,8 +10,6 @@ namespace InGame.Enemy
     public class EnemyMeteor : MonoBehaviour
     {
         [SerializeField] private int _damageAmount;
-        [SerializeField] private float _initMovePower;//dammy
-        [SerializeField] private float _initMoveAngle;//dammy
         [SerializeField] private float _rotateSpeed;
         [SerializeField] private Rigidbody2D _rb;
         [SerializeField] private Transform _trTexture;
@@ -19,12 +17,6 @@ namespace InGame.Enemy
 
         public event Action OnReleaseToPool;
         private bool _rotatePlus;
-
-        private void Start()
-        {
-            //dammy
-            OnShot(transform.position, OriginalCalculateUtils.AngleToDirection(_initMoveAngle) * _initMovePower);
-        }
 
         private void Update()
         {
