@@ -6,7 +6,7 @@ namespace InGame.Player
     /// <summary>
     /// Furukubo(Refactoring of Mock_BodyMove)
     /// </summary>
-    public class PlayerBodyMove : MonoBehaviour, IBlowTarget
+    public class PlayerBodyMove : MonoBehaviour, IBlowTarget, IBlackHoleTarget
     {
         [Header("Parameters")]
         [SerializeField] private float _initLookingAngle;
