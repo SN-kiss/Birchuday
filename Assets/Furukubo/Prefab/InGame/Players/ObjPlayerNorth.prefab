@@ -85,7 +85,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Player.PlayerBodyMove
   _initLookingAngle: 0
-  _dashPower: 10
+  _dashPower: 5
   _moveInputThreshoud: 0.1
   _rotateSpeed: 10
   _bodyRb: {fileID: 1951988637841431446}

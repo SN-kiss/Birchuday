@@ -13,6 +13,7 @@ namespace InGame
         bool IsKissableNow { get; }
         void OnAttachFromTarget(ILipAttachTarget target, Vector2 inversePos, float inverseRot);
         void OnDetachFromTarget();
+        void OnKiss();
         void OnDamaged(int damageAmount, float nockbackPower, DamageType type);
         bool TryRecover(int recoveryAmount);
     }

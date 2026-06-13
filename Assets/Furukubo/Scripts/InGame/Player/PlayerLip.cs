@@ -1,3 +1,4 @@
+using InGame.Gimmick;
 using UnityEngine;
 
 namespace InGame.Player
@@ -121,6 +122,27 @@ namespace InGame.Player
             //LipRotation = _bodyMove.Rotation;
             //SetTarget(null);
             SetAttracterEnable(false);
+        }
+
+        public void OnKiss()
+        {
+            Debug.Log($"{gameObject.name} : Kiss Started!");
+
+            Collider2D[] cols = Physics2D.OverlapPointAll(LipPosition);
+
+            foreach (Collider2D col in cols)
+            {
+                if (col.TryGetComponent(out Goal goal))
+                {
+                    goal.OnGoal();
+
+                    //Generate Special Kiss Particle.
+                    
+                    return;
+                }
+            }
+
+            //Generate Normal Kiss Particle.
         }
 
         private void SetAttracterEnable(bool value) => _objLipAttracter.SetActive(value);
