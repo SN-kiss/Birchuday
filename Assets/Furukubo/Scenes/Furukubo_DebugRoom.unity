@@ -168,10 +168,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2045317591642878268, guid: baf01140ee6d00248828f3ccb41ecfe4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2045317591642878268, guid: baf01140ee6d00248828f3ccb41ecfe4, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1
       objectReference: {fileID: 0}
@@ -185,7 +181,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3553208535524089218, guid: baf01140ee6d00248828f3ccb41ecfe4, type: 3}
       propertyPath: m_Positions.Array.data[1].x
-      value: 1
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 3553208535524089218, guid: baf01140ee6d00248828f3ccb41ecfe4, type: 3}
       propertyPath: m_Positions.Array.data[1].y
@@ -375,7 +371,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'debugroom_20260611_0
 
-    Background'
+    Player Eye Growing'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -384,8 +380,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4294835968
+  m_fontColor: {r: 0, g: 1, b: 0.9903989, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -7479,9 +7475,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1540051819962716687, guid: ee05a8af25a7e444aacc3a8c341bfce2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 1900744275665061950, guid: ee05a8af25a7e444aacc3a8c341bfce2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 1900744275665061950, guid: ee05a8af25a7e444aacc3a8c341bfce2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7497,7 +7497,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2255970650008981745, guid: ee05a8af25a7e444aacc3a8c341bfce2, type: 3}
       propertyPath: m_Positions.Array.data[1].x
-      value: 1
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 2255970650008981745, guid: ee05a8af25a7e444aacc3a8c341bfce2, type: 3}
       propertyPath: m_Positions.Array.data[1].y

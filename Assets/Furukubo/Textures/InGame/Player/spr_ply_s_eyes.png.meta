@@ -119,9 +119,9 @@ TextureImporter:
       name: spr_ply_s_eyes_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 70
         y: 0
-        width: 100
+        width: 17
         height: 100
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
