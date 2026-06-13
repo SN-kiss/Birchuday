@@ -35,7 +35,9 @@ namespace InGame
             lipA.OnAttachFromTarget(this, -inversePosLipB, intverseAngleLipA);
             lipB.OnAttachFromTarget(this, inversePosLipB, intverseAngleLipA + 180f);
 
-            Debug.Log($"Kiss started : {_lipA} <=> {_lipB}");
+            lipA.OnKiss();
+
+            Debug.Log($"Kiss Started : {_lipA} <=> {_lipB}");
         }
 
         public void OnAttached(ILip attacher) { }
@@ -51,7 +53,7 @@ namespace InGame
                 _lipA.OnDetachFromTarget();
             }
 
-            Debug.Log($"Kiss finished : {_lipA} <=> {_lipB}");
+            Debug.Log($"Kiss Finished : {_lipA} <=> {_lipB}");
 
             Destroy(gameObject);
         }
