@@ -60,6 +60,17 @@ namespace InGame.Player
             _lip.OnDetach();
         }
 
+        public void OnStageClear()
+        {
+            _isIgnoreInput = true;
+            _bodyRb.linearVelocity = Vector2.zero;
+        }
+
+        public void OnMiss()
+        {
+            _isIgnoreInput = true;
+        }
+
         public void AddForce(Vector2 force) => _bodyRb.AddForce(force);
 
         private void AddForceImpulse(Vector2 force)
@@ -83,8 +94,6 @@ namespace InGame.Player
         }
 
         public void AddTorque(float torque) => _bodyRb.AddTorque(torque);
-
-        public void OnDead() => _isIgnoreInput = true;
 
         private void AddRotation(Vector2 targetDir, float deltaTime)
         {

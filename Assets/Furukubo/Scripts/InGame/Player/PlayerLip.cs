@@ -114,16 +114,6 @@ namespace InGame.Player
             return _bodyHealth.TryRecovered(recoverAmount);
         }
 
-        public void OnDead()
-        {
-            //LipVelocity = Vector2.zero;
-            //LipKinematic = true;
-            //LipPosition = LipPositionDefault;
-            //LipRotation = _bodyMove.Rotation;
-            //SetTarget(null);
-            SetAttracterEnable(false);
-        }
-
         public void OnKiss()
         {
             Debug.Log($"{gameObject.name} : Kiss Started!");

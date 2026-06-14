@@ -14,7 +14,6 @@ namespace InGame.Player
 
         [Header("References")]
         [SerializeField] private Rigidbody2D _rb;
-        [SerializeField] private SpriteRenderer _srBody;
         [SerializeField] private PlayerBodyMove _bodyMove;
         [SerializeField] private PlayerLip _lip;
         [SerializeField] private UnityEvent<int, int> _onHealthChanged;
@@ -35,21 +34,7 @@ namespace InGame.Player
 
         private void Update()
         {
-            if(IsInvincible)
-            {
-                _remainInvincibleTime -= Time.deltaTime;
-
-                Color col = _srBody.color;
-
-                if (IsInvincible)
-                {
-                    _srBody.color = new Color(col.r, col.g,col.b, 0.5f);
-                }
-                else
-                {
-                    _srBody.color = new Color(col.r, col.g, col.b, 1f);
-                }
-            }
+            if (0f < _remainInvincibleTime) _remainInvincibleTime -= Time.deltaTime;
         }
 
         public bool TryRecovered(int recoverAmount)
@@ -76,10 +61,7 @@ namespace InGame.Player
 
             if (IsDead)
             {
-                _bodyMove.OnDead();
-                _lip.OnDead();
                 _onDead?.Invoke();
-                _srBody.color = Color.gray;
             }
             else
             {

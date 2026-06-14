@@ -103,9 +103,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Player.PlayerBodyDamage
   _healthMax: 3
-  _invincibleTime: 1.5
+  _invincibleTime: 1
   _rb: {fileID: 1951988637841431446}
-  _srBody: {fileID: 9072272913764650286}
   _bodyMove: {fileID: 4751885898393672741}
   _lip: {fileID: 373577956428877147}
   _onHealthChanged:
