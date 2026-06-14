@@ -6,6 +6,7 @@ namespace InGame.Gimmick
     public class Goal : MonoBehaviour
     {
         [SerializeField] private UnityEvent _onGoal;
+        [SerializeField] private Animator _anim;
 
         private bool _isGoaled;
 
@@ -16,6 +17,9 @@ namespace InGame.Gimmick
             _isGoaled = true;
 
             Debug.Log("Goaled!!!");
+
+            _anim.gameObject.SetActive(true);
+            _anim.Play("Start");
 
             _onGoal?.Invoke();
         }
