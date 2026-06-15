@@ -10,10 +10,6 @@ public class GOD_ControllerConnectionUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI slot1StatusText;
     [SerializeField] TextMeshProUGUI slot2StatusText;
 
-    [Header("キャラクター画像")]
-    [SerializeField] GameObject slot1Image;
-    [SerializeField] GameObject slot2Image;
-
     [Header("次へ")]
     [SerializeField] TextMeshProUGUI NextText;
 
@@ -88,7 +84,7 @@ public class GOD_ControllerConnectionUI : MonoBehaviour
 
     void GoToNextScene()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("GOD_MainTest");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("GOD_Stage01");
     }
 
     void HandleSlotConnected(int slot, InputDevice device)
@@ -146,11 +142,8 @@ public class GOD_ControllerConnectionUI : MonoBehaviour
         bool p1 = slots[0] != null;
         bool p2 = slots[1] != null;
 
-        slot1StatusText.text = p1 ? "OK" : "-";
-        slot2StatusText.text = p2 ? "OK" : "-";
-
-        if (slot1Image != null) slot1Image.SetActive(p1);
-        if (slot2Image != null) slot2Image.SetActive(p2);
+        slot1StatusText.text = p1 ? "OK" : "Press A";
+        slot2StatusText.text = p2 ? "OK" : "Press A";
 
         if (NextText != null)
             NextText.gameObject.SetActive(GOD_ControllerConnectionManager.AllSlotsReady());

@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: GOD_CharacterData2P
   m_EditorClassIdentifier: Assembly-CSharp::GOD_CharacterData
   CharacterName: Kiss_Red
-  Prefab: {fileID: 3116046109759702437, guid: e771e9a56fed7ec4797683e257ae6620, type: 3}
-  PreviewSprite: {fileID: 21300000, guid: 068823d65a19aca4bbca8e24ec3dc9ae, type: 3}
+  Prefab: {fileID: 4576121960555575272, guid: ee05a8af25a7e444aacc3a8c341bfce2, type: 3}
