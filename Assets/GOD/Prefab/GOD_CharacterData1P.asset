@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: GOD_CharacterData1P
   m_EditorClassIdentifier: Assembly-CSharp::GOD_CharacterData
   CharacterName: Kiss_Blue
-  Prefab: {fileID: 5427140258752108404, guid: eb759b6925afd4349a9b3f1aef260753, type: 3}
-  PreviewSprite: {fileID: 21300000, guid: e702f340f5784a142b2fe02d5d6c09d5, type: 3}
+  Prefab: {fileID: 6250810631187044936, guid: baf01140ee6d00248828f3ccb41ecfe4, type: 3}

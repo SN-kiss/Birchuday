@@ -6,5 +6,4 @@ public class GOD_CharacterData : ScriptableObject
 {
     public string CharacterName;
     public GameObject Prefab;
-    public Sprite PreviewSprite; // Ú‘±‰æ–Ê‚ÅŒ©‚¹‚é‰æ‘œ
 }
