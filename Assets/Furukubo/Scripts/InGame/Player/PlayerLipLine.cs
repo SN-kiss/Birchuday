@@ -27,8 +27,10 @@ namespace InGame.Player
         {
             if(_line == null) return;
 
-            Vector2 body = _connectPointTrBody.position;
-            Vector2 lip = _connectPointTrLip.position;
+            Vector3 pos = transform.position;
+
+            Vector2 body = _connectPointTrBody.position - pos;
+            Vector2 lip = _connectPointTrLip.position - pos;
 
             Vector2 bodyDir = OriginalCalculateUtils.AngleToDirection(_bodyRb.rotation);
             Vector2 lipDir = OriginalCalculateUtils.AngleToDirection(_lipRb.rotation);
@@ -74,9 +76,11 @@ namespace InGame.Player
             {
                 if (_connectPointTrBody == null || _connectPointTrLip == null) return;
 
+                Vector3 pos = transform.position;
+
                 _line.positionCount = 2;
-                _line.SetPosition(0, _connectPointTrBody.position);
-                _line.SetPosition(1, _connectPointTrLip.position);
+                _line.SetPosition(0, _connectPointTrBody.position - pos);
+                _line.SetPosition(1, _connectPointTrLip.position - pos);
             }
 #endif
         }

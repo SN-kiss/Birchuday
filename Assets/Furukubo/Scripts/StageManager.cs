@@ -13,7 +13,8 @@ namespace InGame
         [SerializeField] private UnityEvent _onStageClear;
         [SerializeField] private UnityEvent _onMiss;
 
-        [SerializeField] private GameObject _msgMiss;
+        [SerializeField] private GameObject _msgMissPlayerNorth;
+        [SerializeField] private GameObject _msgMissPlayerSouth;
         [SerializeField] private GameObject _msgStageClear;
         [SerializeField] private Animator _animFlash;
         [SerializeField] private string _flashAnimStateName;
@@ -40,11 +41,11 @@ namespace InGame
 
                 yield return new WaitUntil(() => 1f <= _animFlash.GetCurrentAnimatorStateInfo(0).normalizedTime);
 
-                _msgStageClear.SetActive(true);//dammy
+                _msgStageClear.SetActive(true);
             }
         }
 
-        public void OnMissStage()
+        public void OnMissPlayerNorth()
         {
             if (_isStageClear || _isMiss) return;
 
@@ -52,7 +53,18 @@ namespace InGame
 
             _onMiss?.Invoke();
 
-            _msgMiss.gameObject.SetActive(true);
+            _msgMissPlayerNorth.gameObject.SetActive(true);
+        }
+
+        public void OnMissPlayerSouth()
+        {
+            if (_isStageClear || _isMiss) return;
+
+            _isMiss = true;
+
+            _onMiss?.Invoke();
+
+            _msgMissPlayerSouth.gameObject.SetActive(true);
         }
     }
 }
