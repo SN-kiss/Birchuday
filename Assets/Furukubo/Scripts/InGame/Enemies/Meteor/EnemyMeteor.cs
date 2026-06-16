@@ -1,6 +1,6 @@
 using UnityEngine;
+using System;
 using Random = UnityEngine.Random;
-using Action = System.Action;
 
 namespace InGame.Enemy
 {
@@ -16,6 +16,7 @@ namespace InGame.Enemy
         [SerializeField] private TrailRenderer[] _trails;
 
         public event Action OnReleaseToPool;
+        public event Action<Vector2> OnGenerateEffect;
         private bool _rotatePlus;
 
         public Vector2 Position => transform.position;
@@ -33,9 +34,17 @@ namespace InGame.Enemy
             {
                 target.OnDamaged(_damageAmount, _rb.linearVelocity);//dammy
                 target.OnDetach();
+            }
 
-                if (OnReleaseToPool == null) Destroy(gameObject);
-                else OnReleaseToPool.Invoke();
+            OnGenerateEffect?.Invoke(_rb.position);
+
+            if (OnReleaseToPool == null)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                OnReleaseToPool.Invoke();
             }
         }
 
