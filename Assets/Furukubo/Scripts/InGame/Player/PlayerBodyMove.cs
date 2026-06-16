@@ -60,15 +60,16 @@ namespace InGame.Player
             _lip.OnDetach();
         }
 
-        public void OnStageClear()
+        public void OnClearStage()
         {
             _isIgnoreInput = true;
             _bodyRb.linearVelocity = Vector2.zero;
         }
 
-        public void OnMiss()
+        public void OnMissStage()
         {
             _isIgnoreInput = true;
+            _bodyRb.linearVelocity = Vector2.zero;
         }
 
         public void AddForce(Vector2 force) => _bodyRb.AddForce(force);

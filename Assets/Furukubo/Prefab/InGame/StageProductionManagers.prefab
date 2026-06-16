@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1446213897045226218}
   - component: {fileID: 2700339846389002083}
+  - component: {fileID: 3270252490295341879}
   m_Layer: 0
-  m_Name: StageManager
+  m_Name: StageProductionManagers
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -44,3 +45,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3bbc07a428d96a4b991dfaa8dc68395, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  _moveNorth: {fileID: 0}
+  _moveSouth: {fileID: 0}
+  _msgStageClear: {fileID: 0}
+  _animFlash: {fileID: 0}
+  _flashAnimStateName: Flash
+--- !u!114 &3270252490295341879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4368082227994164560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b37648ac9882474c9401db436b2589b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InGame.PlayerMissProductionManager
+  _moveNorth: {fileID: 0}
+  _moveSouth: {fileID: 0}
+  _msgMissPlayerNorth: {fileID: 0}
+  _msgMissPlayerSouth: {fileID: 0}
