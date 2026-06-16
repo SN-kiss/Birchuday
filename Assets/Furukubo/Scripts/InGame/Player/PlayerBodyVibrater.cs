@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace InGame.Player
 {
+    /// <summary>
+    /// Furukubo
+    /// </summary>
     public class PlayerBodyVibrater : MonoBehaviour
     {
         [SerializeField] private int _count;

@@ -1,3 +1,4 @@
+using InGame.Effect;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -8,21 +9,30 @@ namespace InGame.Enemy
     /// </summary>
     public class MeteorSpawner : MonoBehaviour
     {
+        [Header("Paramters")]
         [SerializeField, Min(0.05f)] private float _spawnIntervalTime;
         [SerializeField] private float _angle;
         [SerializeField, Min(0f)] private float _power;
+        [Header("References")]
         [SerializeField] private EnemyMeteor _meteorPrefab;
+        [SerializeField] private EffectControler _meteorBombEffectPrefab;
 
-        private ObjectPool<EnemyMeteor> _pool;
+        private ObjectPool<EnemyMeteor> _meteorPool;
+        private ObjectPool<EffectControler> _effectPool;
         private float _spawnIntervalTimeCount;
         private bool _isStop;
 
         private void Awake()
         {
-            _pool = new ObjectPool<EnemyMeteor>(
+            _meteorPool = new ObjectPool<EnemyMeteor>(
                 () => InstantiateNewMeteor(),
                 (m) => m.gameObject.SetActive(true),
                 (m) => m.gameObject.SetActive(false));
+
+            _effectPool = new ObjectPool<EffectControler>(
+                () => InstantiateNewEffect(),
+                (e) => e.gameObject.SetActive(true),
+                (e) => e.gameObject.SetActive(false));
         }
 
         public void Update()
@@ -46,17 +56,38 @@ namespace InGame.Enemy
         {
             if (_meteorPrefab == null) return;
 
-            _pool.Get().OnShot(
+            _meteorPool.Get().OnShot(
                 transform.position,
                 OriginalCalculateUtils.AngleToDirection(_angle) * _power);
+        }
+
+        private void OnGenerateEffect(Vector2 pos)
+        {
+            if (_meteorBombEffectPrefab == null) return;
+
+            _effectPool.Get().OnGenerated(pos);
         }
 
         private EnemyMeteor InstantiateNewMeteor()
         {
             EnemyMeteor m = Instantiate(_meteorPrefab);
-            m.OnReleaseToPool += () => _pool?.Release(m);
+            m.OnReleaseToPool += () => ReleaseMeteorToPool(m);
+            m.OnGenerateEffect += OnGenerateEffect;
+            m.transform.SetParent(transform);
             return m;
         }
+
+        private EffectControler InstantiateNewEffect()
+        {
+            EffectControler e = Instantiate(_meteorBombEffectPrefab);
+            e.OnReleaseToPool += () => ReleaseEffectToPool(e);
+            e.transform.SetParent(transform);
+            return e;
+        }
+
+        private void ReleaseMeteorToPool(EnemyMeteor meteor) => _meteorPool?.Release(meteor);
+
+        private void ReleaseEffectToPool(EffectControler effect) => _effectPool?.Release(effect); 
 
         private void OnDrawGizmos()
         {

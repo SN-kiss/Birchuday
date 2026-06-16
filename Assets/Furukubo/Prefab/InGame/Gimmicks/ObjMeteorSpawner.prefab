@@ -48,3 +48,4 @@ MonoBehaviour:
   _angle: 0
   _power: 5
   _meteorPrefab: {fileID: 6754554871022338048, guid: 514135f82c4df6747bf9b2ae957a4e0a, type: 3}
+  _meteorBombEffectPrefab: {fileID: 7283597939057811325, guid: 2e6199e492131804a9d68cef8ec7f252, type: 3}
