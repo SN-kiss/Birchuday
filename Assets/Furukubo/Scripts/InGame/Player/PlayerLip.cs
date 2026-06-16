@@ -37,6 +37,7 @@ namespace InGame.Player
         private float _attachedRotation;
         private float _attractedCancelTimeCounter;
         private float _attractCoolTimeCount;
+        private bool _isIgnoreAttracted;
 
         public PlayerLipState CurrentState { get; private set; }
 
@@ -103,8 +104,7 @@ namespace InGame.Player
 
         public void OnDamaged(int damageAmount, float nockbackPower, DamageType type)
         {
-            _sr.color = Color.red;
-
+            //Write changing texture code here.
             _bodyHealth.OnDamaged(damageAmount, (_bodyMove.Position - LipPosition).normalized * nockbackPower);
         }
 
@@ -135,6 +135,16 @@ namespace InGame.Player
             //Generate Normal Kiss Particle.
         }
 
+        public void OnClearStage()
+        {
+            _isIgnoreAttracted = true;
+        }
+
+        public void OnMissStage()
+        {
+            _isIgnoreAttracted = true;
+        }
+
         private void SetAttracterEnable(bool value) => _objLipAttracter.SetActive(value);
         private void SetAttractCoolTime() => _attractCoolTimeCount = _attractedCoolTime;
         private void SetTarget(ILipAttachTarget target) => _target = target;
@@ -156,6 +166,7 @@ namespace InGame.Player
 
         public void OnAttracted(Vector2 force)
         {
+            if (_isIgnoreAttracted) return;
             if (CurrentState == PlayerLipState.Attaching) return;
             if (0f < _attractCoolTimeCount) return;
 
