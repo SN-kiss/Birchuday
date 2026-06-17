@@ -195,6 +195,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5226923501324766743, guid: baf01140ee6d00248828f3ccb41ecfe4, type: 3}
+      propertyPath: m_Actions
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: 59d67d6d2e253664e8e189bdffa8fdf5, type: 3}
+    - target: {fileID: 5226923501324766743, guid: baf01140ee6d00248828f3ccb41ecfe4, type: 3}
+      propertyPath: m_DefaultActionMap
+      value: InGame_PlayerNorth
+      objectReference: {fileID: 0}
     - target: {fileID: 7920196932021533494, guid: baf01140ee6d00248828f3ccb41ecfe4, type: 3}
       propertyPath: _onDead.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -400,11 +408,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 306357743}
   m_CullTransparentMesh: 1
---- !u!4 &368140254 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4661841967650697519, guid: baf01140ee6d00248828f3ccb41ecfe4, type: 3}
-  m_PrefabInstance: {fileID: 238429366}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &505033596 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1555302358898285022, guid: ee05a8af25a7e444aacc3a8c341bfce2, type: 3}
@@ -1515,11 +1518,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!4 &1228928566 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7090241134757372504, guid: ee05a8af25a7e444aacc3a8c341bfce2, type: 3}
-  m_PrefabInstance: {fileID: 1565177137}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1228928571 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2094306004515770775, guid: ee05a8af25a7e444aacc3a8c341bfce2, type: 3}
@@ -8090,6 +8088,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1108037850823516290, guid: ee05a8af25a7e444aacc3a8c341bfce2, type: 3}
+      propertyPath: m_Actions
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: 59d67d6d2e253664e8e189bdffa8fdf5, type: 3}
+    - target: {fileID: 1108037850823516290, guid: ee05a8af25a7e444aacc3a8c341bfce2, type: 3}
+      propertyPath: m_DefaultActionMap
+      value: af7b9fb2-a761-49a0-9e10-840bbfff146c
+      objectReference: {fileID: 0}
     - target: {fileID: 1540051819962716687, guid: ee05a8af25a7e444aacc3a8c341bfce2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.6
@@ -8685,14 +8691,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e371525a373055c41b219c395a552305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Camera.CameraWide
+  _targetName: Body
   _wideMin: 4
   _wideMax: Infinity
   _widePadding: 3
   _backgroundScroleWeight: 0.1
   _cam: {fileID: 1748243461}
-  _tr: {fileID: 1844719818}
-  _targetATr: {fileID: 368140254}
-  _targetBTr: {fileID: 1228928566}
   _targetBGPositionTr: {fileID: 547724985}
   _targetBGScaleTr: {fileID: 661875525}
 --- !u!1001 &1904675886

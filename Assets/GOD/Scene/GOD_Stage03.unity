@@ -5329,14 +5329,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e371525a373055c41b219c395a552305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Camera.CameraWide
+  _playerNorthTag: PlayerNorth
+  _playerSouthTag: PlayerSouth
+  _bodyObjName: Body
   _wideMin: 4
   _wideMax: Infinity
   _widePadding: 3
   _backgroundScroleWeight: 0.1
   _cam: {fileID: 2092243517}
-  _tr: {fileID: 285766895}
-  _targetATr: {fileID: 0}
-  _targetBTr: {fileID: 0}
   _targetBGPositionTr: {fileID: 1920802259}
   _targetBGScaleTr: {fileID: 856925589}
 --- !u!4 &285766895
