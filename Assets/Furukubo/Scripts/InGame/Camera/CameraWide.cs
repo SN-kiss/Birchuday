@@ -46,8 +46,8 @@ namespace InGame.Camera
 
         private void Update()
         {
-            if(_playerNorthTr == null) SetPlayerNorthTr(GameObject.FindGameObjectWithTag(_playerNorthTag));
-            if (_playerSouthTr == null) SetPlayerSouthTr(GameObject.FindGameObjectWithTag(_playerSouthTag));
+            if(_playerNorthTr == null) SetPlayerNorthBodyTr(GameObject.FindGameObjectWithTag(_playerNorthTag));
+            if (_playerSouthTr == null) SetPlayerSouthBodyTr(GameObject.FindGameObjectWithTag(_playerSouthTag));
 
             Vector2 centerPoint = (PlayerNorthPos + PlayerSouthPos) * 0.5f;
 
@@ -68,41 +68,35 @@ namespace InGame.Camera
             _targetBGScaleTr.localScale = new Vector3(bgScale, bgScale, 1f);
         }
 
-        private void SetPlayerNorthTr(GameObject obj)
+        private void SetPlayerNorthBodyTr(GameObject player)
         {
-            if (obj == null) return;
+            if (player == null) return;
 
             if (_playerNorthTr == null)
             {
-                Transform[] trs = obj.GetComponentsInChildren<Transform>();
-                foreach (Transform t in trs)
-                {
-                    if (t.gameObject.name == _bodyObjName)
-                    {
-                        _playerNorthTr = t;
-                        Debug.Log($"Found: {obj.name} - {t.gameObject.name}");
-                        return;
-                    }
-                }
+                Transform tr = player.transform.Find(_bodyObjName);
+
+                if (tr == null) return;
+
+                _playerNorthTr = tr;
+
+                Debug.Log($"Found: {player.name} / {tr.gameObject.name}");
             }
         }
 
-        private void SetPlayerSouthTr(GameObject obj)
+        private void SetPlayerSouthBodyTr(GameObject player)
         {
-            if (obj == null) return;
+            if (player == null) return;
 
             if (_playerSouthTr == null)
             {
-                Transform[] trs = obj.GetComponentsInChildren<Transform>();
-                foreach (Transform t in trs)
-                {
-                    if (t.gameObject.name == _bodyObjName)
-                    {
-                        _playerSouthTr = t;
-                        Debug.Log($"Found: {obj.name} - {t.gameObject.name}");
-                        return;
-                    }
-                }
+                Transform tr = player.transform.Find(_bodyObjName);
+
+                if (tr == null) return;
+
+                _playerSouthTr = tr;
+
+                Debug.Log($"Found: {player.name} / {tr.gameObject.name}");
             }
         }
     }
