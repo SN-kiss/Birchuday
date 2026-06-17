@@ -1,3 +1,4 @@
+using InGame.Effect;
 using InGame.Player;
 using System.Collections;
 using UnityEngine;
@@ -15,8 +16,10 @@ namespace InGame
         [SerializeField] private PlayerBodyVibrater _vibraterSouth;
         [SerializeField] private PlayerLip _lipSouth;
         [Header("Others")]
-        [SerializeField] private GameObject _msgMissPlayerNorth;
-        [SerializeField] private GameObject _msgMissPlayerSouth;
+        [SerializeField] private float _waitingExplodeTime;
+        [SerializeField] private float _waitingFadeTime;
+        [SerializeField] private Fade _fade;
+        [SerializeField] private EffectControler _explosionEffectPrefab;
 
         private bool _isMiss;
 
@@ -24,8 +27,6 @@ namespace InGame
         {
             if (_isMiss) return;
             _isMiss = true;
-
-            _msgMissPlayerNorth.gameObject.SetActive(true);
 
             _moveNorth.OnMissStage();
             _moveSouth.OnMissStage();
@@ -39,9 +40,15 @@ namespace InGame
             {
                 yield return _vibraterNorth.VibrateCoroutine();
 
+                yield return new WaitForSeconds(_waitingExplodeTime);
+
+                _moveNorth.transform.parent.gameObject.SetActive(false);
+                GenerateExplodeEffect(_moveNorth.Position);
                 Debug.Log("<color=red>(North)BOMB!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</color>");
 
-                _msgMissPlayerSouth.gameObject.SetActive(true);
+                yield return new WaitForSeconds(_waitingFadeTime);
+
+                yield return _fade.WaitForEndOfAnimationCoroutine();
             }
         }
 
@@ -62,10 +69,21 @@ namespace InGame
             {
                 yield return _vibraterSouth.VibrateCoroutine();
 
+                yield return new WaitForSeconds(_waitingExplodeTime);
+
+                _moveSouth.transform.parent.gameObject.SetActive(false);
+                GenerateExplodeEffect(_moveSouth.Position);
                 Debug.Log("<color=blue>(South)BOMB!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</color>");
 
-                _msgMissPlayerSouth.gameObject.SetActive(true);
+                yield return new WaitForSeconds(_waitingFadeTime);
+
+                yield return _fade.WaitForEndOfAnimationCoroutine();
             }
+        }
+
+        private void GenerateExplodeEffect(Vector2 pos)
+        {
+            Instantiate(_explosionEffectPrefab).OnGenerated(pos);
         }
     }
 }

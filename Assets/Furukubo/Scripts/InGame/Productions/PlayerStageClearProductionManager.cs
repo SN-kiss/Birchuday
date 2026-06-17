@@ -16,9 +16,7 @@ namespace InGame
         [SerializeField] private PlayerBodyMove _moveSouth;
         [SerializeField] private PlayerLip _lipSouth;
         [Header("Others")]
-        [SerializeField] private GameObject _msgStageClear;
-        [SerializeField] private Animator _animFlash;
-        [SerializeField] private string _flashAnimStateName;
+        [SerializeField] private Fade _fade;
 
         private bool _isStageClear;
 
@@ -38,14 +36,9 @@ namespace InGame
             
             IEnumerator ClearStageCoroutine()
             {
-                _animFlash.gameObject.SetActive(true);
-                _animFlash.Play(_flashAnimStateName);
+                yield return _fade.WaitForEndOfAnimationCoroutine();
 
-                yield return new WaitUntil(() => _animFlash.GetCurrentAnimatorStateInfo(0).IsName(_flashAnimStateName));
-
-                yield return new WaitUntil(() => 1f <= _animFlash.GetCurrentAnimatorStateInfo(0).normalizedTime);
-
-                _msgStageClear.SetActive(true);
+                Debug.Log("<color=yellow>Stage Clear!</color>");
             }
         }
     }
