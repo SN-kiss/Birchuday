@@ -1,6 +1,7 @@
 using InGame.Player;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace InGame
 {
@@ -11,6 +12,7 @@ namespace InGame
     {
         [SerializeField] private string _playerNorthTag;
         [SerializeField] private string _playerSouthTag;
+        [SerializeField] private string _nextSceneName;
         [SerializeField] private Fade _fade;
 
         private bool _isStageCleared;
@@ -31,7 +33,7 @@ namespace InGame
 
                 Debug.Log("<color=yellow>Stage Clear!</color>");
 
-                //Change Scene
+                TransitionToNextScene();
             }
         }
 
@@ -55,6 +57,11 @@ namespace InGame
             Debug.Log(_fade);
             if (_fade == null) yield break;
             yield return _fade.WaitForEndOfAnimationCoroutine();
+        }
+
+        private void TransitionToNextScene()
+        {
+            SceneManager.LoadScene(_nextSceneName);
         }
     }
 }

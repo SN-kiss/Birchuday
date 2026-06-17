@@ -3,6 +3,7 @@ using InGame.Player;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace InGame
 {
@@ -69,7 +70,7 @@ namespace InGame
                 Debug.Log("<color=red>Player North Exploded!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</color>");
                 yield return new WaitForSeconds(_waitingFadeStartTime);
                 yield return WaitForEndOfFadeOut();
-                //Reload Scene
+                ReloadCurrentScene();
             }
         }
 
@@ -91,7 +92,7 @@ namespace InGame
                 Debug.Log("<color=blue>Player South Exploded!</color>");
                 yield return new WaitForSeconds(_waitingFadeStartTime);
                 yield return WaitForEndOfFadeOut();
-                //Reload Scene
+                ReloadCurrentScene();
             }
         }
 
@@ -132,6 +133,11 @@ namespace InGame
         {
             if(_fade == null) yield break;
             yield return _fade.WaitForEndOfAnimationCoroutine();
+        }
+
+        private void ReloadCurrentScene()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }
