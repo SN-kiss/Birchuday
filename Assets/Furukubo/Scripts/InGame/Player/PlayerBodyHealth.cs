@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -17,8 +18,8 @@ namespace InGame.Player
         [SerializeField] private PlayerBodyMove _bodyMove;
         [SerializeField] private PlayerLip _lip;
         [SerializeField] private UnityEvent<int, int> _onHealthChanged;
-        [SerializeField] private UnityEvent _onDead;
 
+        public event Action OnDead;
         private int _remainHealth;
         private float _remainInvincibleTime;
 
@@ -61,7 +62,7 @@ namespace InGame.Player
 
             if (IsDead)
             {
-                _onDead?.Invoke();
+                OnDead?.Invoke();
             }
             else
             {

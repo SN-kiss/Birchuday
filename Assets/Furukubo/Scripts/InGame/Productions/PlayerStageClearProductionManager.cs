@@ -13,43 +13,48 @@ namespace InGame
         [SerializeField] private string _playerSouthTag;
         [SerializeField] private Fade _fade;
 
-        private bool _isStageClear;
+        private bool _isStageCleared;
 
         public void OnClearStage()
         {
-            if (_isStageClear) return;
+            if (_isStageCleared) return;
+            _isStageCleared = true;
 
-            _isStageClear = true;
-
-            PlayerStageClear(_playerNorthTag);
-            PlayerStageClear(_playerSouthTag);
+            PlayerStageClear(GameObject.FindGameObjectWithTag(_playerNorthTag));
+            PlayerStageClear(GameObject.FindGameObjectWithTag(_playerSouthTag));
 
             StartCoroutine(ClearStageCoroutine());
             
             IEnumerator ClearStageCoroutine()
             {
-                yield return _fade.WaitForEndOfAnimationCoroutine();
+                yield return WaitForEndOfFadeOut();
 
                 Debug.Log("<color=yellow>Stage Clear!</color>");
+
+                //Change Scene
             }
         }
 
-        private void PlayerStageClear(string playerTag)
+        private void PlayerStageClear(GameObject player)
         {
-            GameObject obj = GameObject.FindGameObjectWithTag(playerTag);
+            if (player == null) return;
 
-            if (obj != null)
-            {
-                Debug.Log($"Found: {obj.name}");
+            Debug.Log($"Found: {player.name}");
 
-                Transform tr = obj.transform;
+            Transform tr = player.transform;
 
-                PlayerBodyMove move = tr.GetComponentInChildren<PlayerBodyMove>();
-                if (move != null) move.OnClearStage();
+            PlayerBodyMove move = tr.GetComponentInChildren<PlayerBodyMove>();
+            if (move != null) move.OnClearStage();
 
-                PlayerLip lip = tr.GetComponentInChildren<PlayerLip>();
-                if(lip != null) lip.OnClearStage();
-            }
+            PlayerLip lip = tr.GetComponentInChildren<PlayerLip>();
+            if (lip != null) lip.OnClearStage();
+        }
+
+        private IEnumerator WaitForEndOfFadeOut()
+        {
+            Debug.Log(_fade);
+            if (_fade == null) yield break;
+            yield return _fade.WaitForEndOfAnimationCoroutine();
         }
     }
 }
