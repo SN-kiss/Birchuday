@@ -9,13 +9,8 @@ namespace InGame
     /// </summary>
     public class PlayerStageClearProductionManager : MonoBehaviour
     {
-        [Header("Player North")]
-        [SerializeField] private PlayerBodyMove _moveNorth;
-        [SerializeField] private PlayerLip _lipNorth;
-        [Header("Player South")]
-        [SerializeField] private PlayerBodyMove _moveSouth;
-        [SerializeField] private PlayerLip _lipSouth;
-        [Header("Others")]
+        [SerializeField] private string _playerNorthTag;
+        [SerializeField] private string _playerSouthTag;
         [SerializeField] private Fade _fade;
 
         private bool _isStageClear;
@@ -26,11 +21,8 @@ namespace InGame
 
             _isStageClear = true;
 
-            _moveNorth.OnClearStage();
-            _moveSouth.OnClearStage();
-
-            _lipNorth.OnClearStage();
-            _lipSouth.OnClearStage();
+            PlayerStageClear(_playerNorthTag);
+            PlayerStageClear(_playerSouthTag);
 
             StartCoroutine(ClearStageCoroutine());
             
@@ -39,6 +31,24 @@ namespace InGame
                 yield return _fade.WaitForEndOfAnimationCoroutine();
 
                 Debug.Log("<color=yellow>Stage Clear!</color>");
+            }
+        }
+
+        private void PlayerStageClear(string playerTag)
+        {
+            GameObject obj = GameObject.FindGameObjectWithTag(playerTag);
+
+            if (obj != null)
+            {
+                Debug.Log($"Found: {obj.name}");
+
+                Transform tr = obj.transform;
+
+                PlayerBodyMove move = tr.GetComponentInChildren<PlayerBodyMove>();
+                if (move != null) move.OnClearStage();
+
+                PlayerLip lip = tr.GetComponentInChildren<PlayerLip>();
+                if(lip != null) lip.OnClearStage();
             }
         }
     }
