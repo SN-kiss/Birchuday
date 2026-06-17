@@ -8691,7 +8691,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e371525a373055c41b219c395a552305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Camera.CameraWide
-  _targetName: Body
+  _playerNorthTag: PlayerNorth
+  _playerSouthTag: PlayerSouth
+  _bodyObjName: Body
   _wideMin: 4
   _wideMax: Infinity
   _widePadding: 3

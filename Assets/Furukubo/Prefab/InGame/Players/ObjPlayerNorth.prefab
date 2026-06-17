@@ -719,7 +719,7 @@ GameObject:
   - component: {fileID: 9062840978838392338}
   m_Layer: 0
   m_Name: ObjPlayerNorth
-  m_TagString: PlayerNoth
+  m_TagString: PlayerNorth
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

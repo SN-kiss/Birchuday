@@ -3,8 +3,8 @@ guid: 31c117d8dcbd85b4c9cb266096f5d243
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6653384513934500453
-    second: SprSpikeMoveBoth_0
+      213: -7072652284757629767
+    second: spr_enm_spike_move_b_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SprSpikeMoveBoth_0
+      name: spr_enm_spike_move_b_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 1
-        width: 198
-        height: 198
+        x: 4
+        y: 4
+        width: 192
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b9d59d4290e6aa3a0800000000000000
-      internalID: -6653384513934500453
+      spriteID: 9b4aa233834e8dd90800000000000000
+      internalID: -7072652284757629767
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SprSpikeMoveBoth_0: -6653384513934500453
+      spr_enm_spike_move_b_0: -7072652284757629767
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
