@@ -27,7 +27,15 @@ namespace InGame.Effect
             if (!_disposed)
             {
                 _disposed = true;
-                OnReleaseToPool?.Invoke();
+
+                if (OnReleaseToPool == null)
+                {
+                    gameObject.SetActive(false);
+                }
+                else
+                {
+                    OnReleaseToPool.Invoke();
+                }
             }
         }
 

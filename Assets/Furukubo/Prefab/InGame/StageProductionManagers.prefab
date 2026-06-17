@@ -46,10 +46,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   _moveNorth: {fileID: 0}
+  _lipNorth: {fileID: 0}
   _moveSouth: {fileID: 0}
-  _msgStageClear: {fileID: 0}
-  _animFlash: {fileID: 0}
-  _flashAnimStateName: Flash
+  _lipSouth: {fileID: 0}
+  _fade: {fileID: 0}
 --- !u!114 &3270252490295341879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,6 +63,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InGame.PlayerMissProductionManager
   _moveNorth: {fileID: 0}
+  _vibraterNorth: {fileID: 0}
+  _lipNorth: {fileID: 0}
   _moveSouth: {fileID: 0}
-  _msgMissPlayerNorth: {fileID: 0}
-  _msgMissPlayerSouth: {fileID: 0}
+  _vibraterSouth: {fileID: 0}
+  _lipSouth: {fileID: 0}
+  _waitingExplodeTime: 1
+  _waitingFadeTime: 2
+  _fade: {fileID: 0}
+  _explosionEffectPrefab: {fileID: 7283597939057811325, guid: 2e6199e492131804a9d68cef8ec7f252, type: 3}
