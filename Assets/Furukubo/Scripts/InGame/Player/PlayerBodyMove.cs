@@ -37,7 +37,7 @@ namespace InGame.Player
             }
         }
 
-        public void OnRotate(InputValue value)
+        public void OnMove(InputValue value)
         {
             if (_isIgnoreInput) return;
 

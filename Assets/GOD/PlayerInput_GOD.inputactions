@@ -23,6 +23,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Detach",
+                    "type": "Button",
+                    "id": "90f3782d-ad4a-40e9-8926-109d8109397d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -104,6 +113,17 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "",
+                    "id": "8886083a-7080-45d0-a2e5-575c3ba8a426",
+                    "path": "<SwitchProControllerHID>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "1D Axis",
                     "id": "89152344-cc79-4cc2-a32c-befa612ca158",
                     "path": "1DAxis",
@@ -124,6 +144,39 @@
                     "action": "Dash",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "8bc3c398-e32c-44b6-9ac1-0bee56220ef7",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Detach",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3b261228-70d8-4bf3-a90d-724cda5207d0",
+                    "path": "<SwitchProControllerHID>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Detach",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c7b000f1-468f-409d-b473-19ed8881d1c0",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Detach",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
