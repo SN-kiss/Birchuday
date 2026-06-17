@@ -81,12 +81,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 440433423, guid: 5db1893a640a13d41af54adc0551d5c0, type: 3}
+  m_Sprite: {fileID: -1984215937940627200, guid: 5db1893a640a13d41af54adc0551d5c0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.96, y: 0.96}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -315,6 +315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4518687e831934d40bb3e892caf3a500, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InGame.RailLine
+  _positionMode: 0
   _points:
   - {x: -2, y: 2}
   - {x: 2, y: 2}
