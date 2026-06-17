@@ -80,7 +80,7 @@ namespace InGame.Camera
                     if (t.gameObject.name == _bodyObjName)
                     {
                         _playerNorthTr = t;
-                        Debug.Log("Player North Finded!");
+                        Debug.Log($"Found: {obj.name} - {t.gameObject.name}");
                         return;
                     }
                 }
@@ -99,7 +99,7 @@ namespace InGame.Camera
                     if (t.gameObject.name == _bodyObjName)
                     {
                         _playerSouthTr = t;
-                        Debug.Log("Player South Finded!");
+                        Debug.Log($"Found: {obj.name} - {t.gameObject.name}");
                         return;
                     }
                 }
