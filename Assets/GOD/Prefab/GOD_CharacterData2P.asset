@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acf11998a33d434488122608f25ee2db, type: 3}
   m_Name: GOD_CharacterData2P
   m_EditorClassIdentifier: Assembly-CSharp::GOD_CharacterData
-  CharacterName: Kiss_Red
-  Prefab: {fileID: 4576121960555575272, guid: ee05a8af25a7e444aacc3a8c341bfce2, type: 3}
+  CharacterName: PlayerSouth
+  Prefab: {fileID: 6250810631187044936, guid: ee05a8af25a7e444aacc3a8c341bfce2, type: 3}
