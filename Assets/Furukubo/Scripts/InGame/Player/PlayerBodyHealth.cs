@@ -14,6 +14,8 @@ namespace InGame.Player
         [SerializeField] private float _invincibleTime;
 
         [Header("References")]
+        [SerializeField] private AudioClip _damagedAudioClip;
+        [SerializeField] private AudioSource _audioSource;
         [SerializeField] private Rigidbody2D _rb;
         [SerializeField] private PlayerBodyMove _bodyMove;
         [SerializeField] private PlayerLip _lip;
@@ -69,6 +71,8 @@ namespace InGame.Player
                 _bodyMove.AddForce(knockback);
                 _remainInvincibleTime = _invincibleTime;
             }
+
+            PlayDamagedAudio();
         }
 
         private void AddHealthAmount(int add)
@@ -77,5 +81,7 @@ namespace InGame.Player
 
             _onHealthChanged?.Invoke(_remainHealth, _healthMax);
         }
+
+        private void PlayDamagedAudio() => _audioSource.PlayOneShot(_damagedAudioClip);
     }
 }
