@@ -12,17 +12,9 @@ namespace InGame.Gimmick
         [Header("Parameters")]
         [SerializeField] private int _attachedCountNeedToMoveMin;
 
-        [Header("References")]
-        [SerializeField] private TextMeshProUGUI _debugAttachedCountText;
-
         private bool IsMovable => _attachedCountNeedToMoveMin <= _attachedCount;
 
         private int _attachedCount;
-
-        private void Awake()
-        {
-            _debugAttachedCountText.text = $"{_attachedCount}/{_attachedCountNeedToMoveMin}";
-        }
 
         public override void OnAttached(ILip attacher)
         {
@@ -32,8 +24,6 @@ namespace InGame.Gimmick
                 _attachedCountNeedToMoveMin <= _attachedCount
                 ? RigidbodyType2D.Dynamic
                 : RigidbodyType2D.Kinematic;
-
-            UpdateAttachedCountText();
         }
 
         public override void OnDetached(ILip lip)
@@ -47,8 +37,6 @@ namespace InGame.Gimmick
                 _attachedCountNeedToMoveMin <= _attachedCount 
                 ? RigidbodyType2D.Dynamic 
                 : RigidbodyType2D.Kinematic;
-
-            UpdateAttachedCountText();
         }
 
         public override void AddForce(Vector2 force)
@@ -69,11 +57,6 @@ namespace InGame.Gimmick
         public override void AddTorqueImpulse(float torque)
         {
             if (IsMovable) Rb.AddTorque(torque, ForceMode2D.Impulse);
-        }
-
-        private void UpdateAttachedCountText()
-        {
-            _debugAttachedCountText.text = $"{_attachedCount}/{_attachedCountNeedToMoveMin}";
         }
     }
 }
