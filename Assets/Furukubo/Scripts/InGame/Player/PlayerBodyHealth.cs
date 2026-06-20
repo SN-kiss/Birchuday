@@ -19,11 +19,13 @@ namespace InGame.Player
         [SerializeField] private Rigidbody2D _rb;
         [SerializeField] private PlayerBodyMove _bodyMove;
         [SerializeField] private PlayerLip _lip;
-        [SerializeField] private UnityEvent<int, int> _onHealthChanged;
-
+        [SerializeField] private PlayerSpriteChange _spriteChange;
+        
         public event Action OnDead;
+        public event Action<int, int> OnHealthChanged;
         private int _remainHealth;
         private float _remainInvincibleTime;
+
 
         public Vector2 Position => _rb.position;
         private bool IsInvincible => 0f < _remainInvincibleTime;
@@ -32,7 +34,6 @@ namespace InGame.Player
         private void Start()
         {
             _remainHealth = _healthMax;
-            _onHealthChanged?.Invoke(_remainHealth, _healthMax);
         }
 
         private void Update()
@@ -64,7 +65,7 @@ namespace InGame.Player
 
             if (IsDead)
             {
-                OnDead?.Invoke();
+                InvokeOnDead();
             }
             else
             {
@@ -79,9 +80,14 @@ namespace InGame.Player
         {
             _remainHealth = Mathf.Clamp(_remainHealth + add, 0, _healthMax);
 
-            _onHealthChanged?.Invoke(_remainHealth, _healthMax);
+            _spriteChange.ChangeSprites(_remainHealth);
+            InvokeOnHealthAmountChanged();
         }
 
         private void PlayDamagedAudio() => _audioSource.PlayOneShot(_damagedAudioClip);
+
+        private void InvokeOnDead() => OnDead?.Invoke();
+
+        public void InvokeOnHealthAmountChanged() => OnHealthChanged?.Invoke(_remainHealth, _healthMax);
     }
 }

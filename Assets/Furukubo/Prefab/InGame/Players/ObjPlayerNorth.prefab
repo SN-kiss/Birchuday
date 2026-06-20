@@ -107,9 +107,7 @@ MonoBehaviour:
   _rb: {fileID: 1951988637841431446}
   _bodyMove: {fileID: 4751885898393672741}
   _lip: {fileID: 373577956428877147}
-  _onHealthChanged:
-    m_PersistentCalls:
-      m_Calls: []
+  _spriteChange: {fileID: 1047346530120764059}
 --- !u!114 &5025743071273418443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -715,6 +713,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 561611508804786352}
+  - component: {fileID: 1047346530120764059}
   - component: {fileID: 9062840978838392338}
   - component: {fileID: 8376911725583067250}
   m_Layer: 0
@@ -742,6 +741,30 @@ Transform:
   - {fileID: 5752350886177733888}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1047346530120764059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4576121960555575272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8e557ceed48a7e418aaadb1b46cf036, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerSpriteChange
+  _bodySr: {fileID: 9072272913764650286}
+  _lipSr: {fileID: 5988073462970348639}
+  _bodySprites:
+  - {fileID: 5634326602489119314, guid: 9f11de7c0963eae408ba88324dd9f19a, type: 3}
+  - {fileID: -3023853177784854288, guid: c603179ad8fc21d48b139289ec5bff71, type: 3}
+  - {fileID: -3047998472900003330, guid: e60f805aa50a35c469ec8847130f2470, type: 3}
+  - {fileID: -436429673, guid: a45b01587f538dc49bc316bbd1321a16, type: 3}
+  _lipSprites:
+  - {fileID: 303235197, guid: 32ae93793cafa014e8c7c7ee97ada2d4, type: 3}
+  - {fileID: 303235197, guid: 32ae93793cafa014e8c7c7ee97ada2d4, type: 3}
+  - {fileID: 303235197, guid: 32ae93793cafa014e8c7c7ee97ada2d4, type: 3}
+  - {fileID: 303235197, guid: 32ae93793cafa014e8c7c7ee97ada2d4, type: 3}
 --- !u!210 &9062840978838392338
 SortingGroup:
   m_ObjectHideFlags: 0
