@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ae2bc6769769bd46b9559389a0706b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MeteorSpawner
-  _spawnIntervalTime: 1
+  _spawnIntervalTime: 2
   _angle: 0
   _power: 5
   _meteorPrefab: {fileID: 6754554871022338048, guid: 514135f82c4df6747bf9b2ae957a4e0a, type: 3}
