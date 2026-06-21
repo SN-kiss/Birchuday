@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PlayerNorth
   - PlayerSouth
+  - Wall
   layers:
   - Default
   - TransparentFX
