@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1446213897045226218}
-  - component: {fileID: 3270252490295341879}
+  - component: {fileID: 2700339846389002083}
   m_Layer: 0
-  m_Name: PlayerStageMissProductionManager
+  m_Name: FinalStageClearProductionManager
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3270252490295341879
+--- !u!114 &2700339846389002083
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,13 +41,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4368082227994164560}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b37648ac9882474c9401db436b2589b, type: 3}
+  m_Script: {fileID: 11500000, guid: f3bbc07a428d96a4b991dfaa8dc68395, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InGame.PlayerMissProductionManager
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
   _playerNorthTag: PlayerNorth
   _playerSouthTag: PlayerSouth
-  _bodyObjName: Body
-  _waitingExplodeStartTime: 1
-  _waitingFadeStartTime: 2
+  _nextSceneName: 
   _fade: {fileID: 0}
-  _explosionEffectPrefab: {fileID: 7283597939057811325, guid: 2e6199e492131804a9d68cef8ec7f252, type: 3}

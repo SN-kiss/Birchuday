@@ -1,13 +1,12 @@
 using InGame.Effect;
 using InGame.Player;
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace InGame
 {
-    public class PlayerStageMissProductionManager : MonoBehaviour
+    public class StageMissProductionManager : MonoBehaviour
     {
         [SerializeField] private string _playerNorthTag;
         [SerializeField] private string _playerSouthTag;
