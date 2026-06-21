@@ -9,6 +9,7 @@ namespace InGame.Enemy
     /// </summary>
     public class EnemyMeteor : MonoBehaviour, IBlackHoleTarget
     {
+        [SerializeField] private string _wallTag;
         [SerializeField] private int _damageAmount;
         [SerializeField] private float _rotateSpeed;
         [SerializeField] private Rigidbody2D _rb;
@@ -34,17 +35,11 @@ namespace InGame.Enemy
             {
                 target.OnDamaged(_damageAmount, _rb.linearVelocity);//dammy
                 target.OnDetach();
+                Explode();
             }
-
-            OnGenerateEffect?.Invoke(_rb.position);
-
-            if (OnReleaseToPool == null)
+            else if(collision.gameObject.tag == _wallTag)
             {
-                Destroy(gameObject);
-            }
-            else
-            {
-                OnReleaseToPool.Invoke();
+                Explode();
             }
         }
 
@@ -65,6 +60,20 @@ namespace InGame.Enemy
             {
                 if(trail == null) continue;
                 trail.Clear();
+            }
+        }
+
+        private void Explode()
+        {
+            OnGenerateEffect?.Invoke(_rb.position);
+
+            if (OnReleaseToPool == null)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                OnReleaseToPool.Invoke();
             }
         }
 
