@@ -331,7 +331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 790ff322ba9740f4f96f84e411e97bb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Camera.CameraTarget
-  _lerpSpeed: 0.5
+  _lerpSpeed: 0.75
   _playerNorthTag: PlayerNorth
   _playerSouthTag: PlayerSouth
   _bodyObjName: Body
