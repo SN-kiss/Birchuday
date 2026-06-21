@@ -274,6 +274,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8864407671965041069}
   - component: {fileID: 1231904269601749666}
+  - component: {fileID: 7082180714275775922}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -310,9 +311,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e371525a373055c41b219c395a552305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Camera.CameraWide
-  _playerNorthTag: PlayerNorth
-  _playerSouthTag: PlayerSouth
-  _bodyObjName: Body
   _wideMin: 4
   _wideMax: Infinity
   _widePadding: 3
@@ -320,6 +318,23 @@ MonoBehaviour:
   _cam: {fileID: 6930965958296433027}
   _targetBGPositionTr: {fileID: 4850382649970882563}
   _targetBGScaleTr: {fileID: 8724626966761468142}
+  _cameraTarget: {fileID: 7082180714275775922}
+--- !u!114 &7082180714275775922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6076279064305368998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ff322ba9740f4f96f84e411e97bb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InGame.Camera.CameraTarget
+  _lerpSpeed: 0.5
+  _playerNorthTag: PlayerNorth
+  _playerSouthTag: PlayerSouth
+  _bodyObjName: Body
 --- !u!1 &6571525608570197962
 GameObject:
   m_ObjectHideFlags: 0

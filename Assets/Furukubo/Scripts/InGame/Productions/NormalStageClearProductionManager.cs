@@ -1,3 +1,4 @@
+using InGame.Camera;
 using InGame.Player;
 using System.Collections;
 using UnityEngine;
@@ -10,6 +11,7 @@ namespace InGame
         [SerializeField] private string _playerNorthTag;
         [SerializeField] private string _playerSouthTag;
         [SerializeField] private string _nextSceneName;
+        [SerializeField] private CameraTarget _cameraTarget;
         [SerializeField] private Fade _fade;
 
         private bool _isPlayerNorthStageCleared;
@@ -22,6 +24,8 @@ namespace InGame
 
             PlayerStageClear(GameObject.FindGameObjectWithTag(_playerNorthTag));
 
+            _cameraTarget.SetIgnorePlayerNorth();
+
             if (_isPlayerSouthStageCleared) PlayerBothStageClear();
         }
 
@@ -31,6 +35,8 @@ namespace InGame
             _isPlayerSouthStageCleared = true;
 
             PlayerStageClear(GameObject.FindGameObjectWithTag(_playerSouthTag));
+
+            _cameraTarget.SetIgnorePlayerSouth();
 
             if (_isPlayerNorthStageCleared) PlayerBothStageClear();
         }
