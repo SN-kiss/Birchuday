@@ -74,7 +74,7 @@ namespace InGame.Player
 
         public void AddForce(Vector2 force) => _bodyRb.AddForce(force);
 
-        private void AddForceImpulse(Vector2 force)
+        public void AddForceImpulse(Vector2 force)
         {
             _bodyRb.linearVelocity = Vector2.zero;
             _bodyRb.AddForce(force, ForceMode2D.Impulse);

@@ -8,7 +8,7 @@ namespace InGame
     /// <summary>
     /// Furukubo
     /// </summary>
-    public class PlayerStageClearProductionManager : MonoBehaviour
+    public class FinalStageClearProductionManager : MonoBehaviour
     {
         [SerializeField] private string _playerNorthTag;
         [SerializeField] private string _playerSouthTag;

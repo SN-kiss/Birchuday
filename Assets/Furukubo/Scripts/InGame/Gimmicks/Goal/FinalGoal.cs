@@ -3,7 +3,10 @@ using UnityEngine.Events;
 
 namespace InGame.Gimmick
 {
-    public class Goal : MonoBehaviour
+    /// <summary>
+    /// Furukubo
+    /// </summary>
+    public class FinalGoal : MonoBehaviour
     {
         [SerializeField] private UnityEvent _onGoal;
         [SerializeField] private Animator _anim;

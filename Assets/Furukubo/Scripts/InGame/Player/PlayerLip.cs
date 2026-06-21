@@ -122,7 +122,7 @@ namespace InGame.Player
 
             foreach (Collider2D col in cols)
             {
-                if (col.TryGetComponent(out Goal goal))
+                if (col.TryGetComponent(out FinalGoal goal))
                 {
                     goal.OnGoal();
 
