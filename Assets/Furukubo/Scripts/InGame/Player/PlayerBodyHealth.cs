@@ -34,6 +34,7 @@ namespace InGame.Player
         private void Start()
         {
             _remainHealth = _healthMax;
+            InvokeOnHealthAmountChanged();
         }
 
         private void Update()
