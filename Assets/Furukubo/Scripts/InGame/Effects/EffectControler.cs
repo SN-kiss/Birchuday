@@ -22,7 +22,10 @@ namespace InGame.Effect
         {
             if (_pss == null) return;
 
-            foreach (ParticleSystem ps in _pss) if (ps.IsAlive(true)) return;
+            foreach (ParticleSystem ps in _pss)
+            {
+                if (ps != null && ps.IsAlive(true)) return;
+            }
 
             if (!_disposed)
             {

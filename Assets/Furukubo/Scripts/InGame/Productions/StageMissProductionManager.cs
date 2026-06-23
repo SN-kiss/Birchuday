@@ -12,6 +12,8 @@ namespace InGame
         [SerializeField] private string _playerSouthTag;
         [SerializeField] private string _bodyObjName;
         [SerializeField] private float _waitingExplodeStartTime;
+        [SerializeField] private float _waitingDeadPlayerPassiveTime;
+        [SerializeField] private float _waitingRemainPlayerPassiveTime;
         [SerializeField] private float _waitingFadeStartTime;
         [SerializeField] private Fade _fade;
         [SerializeField] private EffectControler _explosionEffectPrefab;
@@ -56,21 +58,7 @@ namespace InGame
             if (_isStageMissed) return;
             _isStageMissed = true;
 
-            PlayerStageMiss(_playerNorth);
-            PlayerStageMiss(_playerSouth);
-
-            StartCoroutine(PlayerNorthMissCoroutine());
-
-            IEnumerator PlayerNorthMissCoroutine()
-            {
-                yield return WaitForEndOfVibrate(_playerNorth);
-                yield return new WaitForSeconds(_waitingExplodeStartTime);
-                GenerateExplodeEffect(_playerNorth);
-                Debug.Log("<color=red>Player North Exploded!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</color>");
-                yield return new WaitForSeconds(_waitingFadeStartTime);
-                yield return WaitForEndOfFadeOut();
-                ReloadCurrentScene();
-            }
+            StartCoroutine(PlayerMissCoroutine(_playerNorth, _playerSouth));
         }
 
         public void OnPlayerSouthMiss()
@@ -78,21 +66,34 @@ namespace InGame
             if (_isStageMissed) return;
             _isStageMissed = true;
 
-            PlayerStageMiss(_playerNorth);
-            PlayerStageMiss(_playerSouth);
+            StartCoroutine(PlayerMissCoroutine(_playerSouth, _playerNorth));
+        }
 
-            StartCoroutine(PlayerSouthMissCoroutine());
+        private IEnumerator PlayerMissCoroutine(GameObject deadPlayer, GameObject remainPlayer)
+        {
+            PlayerStageMiss(deadPlayer);
+            PlayerStageMiss(remainPlayer);
 
-            IEnumerator PlayerSouthMissCoroutine()
-            {
-                yield return WaitForEndOfVibrate(_playerSouth);
-                yield return new WaitForSeconds(_waitingExplodeStartTime);
-                GenerateExplodeEffect(_playerSouth);
-                Debug.Log("<color=blue>Player South Exploded!</color>");
-                yield return new WaitForSeconds(_waitingFadeStartTime);
-                yield return WaitForEndOfFadeOut();
-                ReloadCurrentScene();
-            }
+            yield return WaitForEndOfVibrate(deadPlayer);
+
+            yield return new WaitForSeconds(_waitingExplodeStartTime);
+
+            GenerateExplodeEffect(deadPlayer);
+            Debug.Log($"<color=blue>{deadPlayer} Exploded!</color>");
+
+            yield return new WaitForSeconds(_waitingDeadPlayerPassiveTime);
+
+            deadPlayer.gameObject.SetActive(false);
+
+            yield return new WaitForSeconds(_waitingRemainPlayerPassiveTime);
+
+            remainPlayer.gameObject.SetActive(false);
+
+            yield return new WaitForSeconds(_waitingFadeStartTime);
+
+            yield return WaitForEndOfFadeOut();
+
+            ReloadCurrentScene();
         }
 
         private void PlayerStageMiss(GameObject player)
@@ -120,8 +121,6 @@ namespace InGame
         private void GenerateExplodeEffect(GameObject player)
         {
             if (player == null) return;
-
-            player.SetActive(false);
 
             Transform tr = player.transform.Find(_bodyObjName);
 
