@@ -47,7 +47,9 @@ MonoBehaviour:
   _playerNorthTag: PlayerNorth
   _playerSouthTag: PlayerSouth
   _bodyObjName: Body
-  _waitingExplodeStartTime: 1
-  _waitingFadeStartTime: 2
+  _waitingExplodeStartTime: 0.1
+  _waitingDeadPlayerPassiveTime: 2.5
+  _waitingRemainPlayerPassiveTime: 0.5
+  _waitingFadeStartTime: 3
   _fade: {fileID: 0}
-  _explosionEffectPrefab: {fileID: 2311788055329787889, guid: 1b49c41830ab8ca47a0354a8d9d32c3c, type: 3}
+  _explosionEffectPrefab: {fileID: 6040070245916911295, guid: 47318205e0138bd4883285de5ea522dd, type: 3}
