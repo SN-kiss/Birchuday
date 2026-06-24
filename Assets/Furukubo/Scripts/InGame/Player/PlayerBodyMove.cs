@@ -17,6 +17,7 @@ namespace InGame.Player
         [Header("References")]
         [SerializeField] private Rigidbody2D _bodyRb;
         [SerializeField] private PlayerLip _lip;
+        [SerializeField] private ParticleSystem _dashParticle;
 
         private Vector2 _rotateInput;
         private bool _isIgnoreInput;
@@ -49,6 +50,8 @@ namespace InGame.Player
             if (_isIgnoreInput) return;
             if (_bodyRb == null) return;
             if(_lip == null) return;
+
+            if(_dashParticle != null) _dashParticle.Play(true);
 
             AddForceImpulse(OriginalCalculateUtils.AngleToDirection(_bodyRb.rotation) * _dashPower);
         }

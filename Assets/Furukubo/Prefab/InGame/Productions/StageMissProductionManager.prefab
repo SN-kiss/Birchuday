@@ -49,7 +49,7 @@ MonoBehaviour:
   _bodyObjName: Body
   _waitingExplodeStartTime: 0.1
   _waitingDeadPlayerPassiveTime: 2.5
-  _waitingRemainPlayerPassiveTime: 0.5
+  _waitingRemainPlayerPassiveTime: 0.2
   _waitingFadeStartTime: 3
   _fade: {fileID: 0}
   _explosionEffectPrefab: {fileID: 6040070245916911295, guid: 47318205e0138bd4883285de5ea522dd, type: 3}

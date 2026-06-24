@@ -4,6 +4,7 @@ namespace InGame.Player
 {
     public class PlayerSpriteChange : MonoBehaviour
     {
+        [SerializeField] private ParticleSystem _tearParticle;
         [SerializeField] private SpriteRenderer _bodySr;
         [SerializeField] private SpriteRenderer _lipSr;
         [SerializeField] private Sprite[] _bodySprites;
@@ -20,6 +21,9 @@ namespace InGame.Player
 
             _bodySr.sprite = _bodySprites[health];
             _lipSr.sprite = _lipSprites[health];
+
+            if (health <= 1) _tearParticle.Play(true);
+            else _tearParticle.Stop(true);
         }
     }
 }
