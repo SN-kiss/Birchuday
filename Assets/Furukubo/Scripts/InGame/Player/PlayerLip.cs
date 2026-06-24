@@ -26,6 +26,7 @@ namespace InGame.Player
         [SerializeField] private Collider2D _ignoreCol;
         [SerializeField] private GameObject _objLipAttracter;
         [SerializeField] private KissConnector _prefabKissConnector;
+        [SerializeField] private ParticleSystem _kissParticle;
 
         public MagneticType MagneticType => _selfMagneticType;
         public float LipLengthMax => _lipLengthMax;
@@ -126,13 +127,17 @@ namespace InGame.Player
                 {
                     goal.OnGoal();
 
-                    //Generate Special Kiss Particle.
-                    
+                    if (_kissParticle != null) _kissParticle.Play(true);
+                    Debug.Log("<color=#FF00FF>Goal Kiss!!!</color>");
                     return;
                 }
             }
 
-            //Generate Normal Kiss Particle.
+            if (_kissParticle != null)
+            {
+                _kissParticle.Play(true);
+                Debug.Log("<color=#FF00FF>Normal Kiss!!!</color>");
+            }
         }
 
         public void OnClearStage()
