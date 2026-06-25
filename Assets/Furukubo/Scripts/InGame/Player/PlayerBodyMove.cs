@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 namespace InGame.Player
@@ -17,7 +18,7 @@ namespace InGame.Player
         [Header("References")]
         [SerializeField] private Rigidbody2D _bodyRb;
         [SerializeField] private PlayerLip _lip;
-        [SerializeField] private ParticleSystem _dashParticle;
+        [SerializeField] private UnityEvent _onDashEvent;
 
         private Vector2 _rotateInput;
         private bool _isIgnoreInput;
@@ -51,7 +52,7 @@ namespace InGame.Player
             if (_bodyRb == null) return;
             if(_lip == null) return;
 
-            if(_dashParticle != null) _dashParticle.Play(true);
+            _onDashEvent?.Invoke();
 
             AddForceImpulse(OriginalCalculateUtils.AngleToDirection(_bodyRb.rotation) * _dashPower);
         }

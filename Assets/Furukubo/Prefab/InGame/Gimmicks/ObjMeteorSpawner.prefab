@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9037402878856822480}
   - component: {fileID: 7997041131287944797}
+  - component: {fileID: 7804721621076840760}
   m_Layer: 0
   m_Name: ObjMeteorSpawner
   m_TagString: Untagged
@@ -48,4 +49,17 @@ MonoBehaviour:
   _angle: 0
   _power: 5
   _meteorPrefab: {fileID: 6754554871022338048, guid: 514135f82c4df6747bf9b2ae957a4e0a, type: 3}
-  _meteorBombEffectPrefab: {fileID: 2311788055329787889, guid: 1b49c41830ab8ca47a0354a8d9d32c3c, type: 3}
+  _effectGenerator: {fileID: 7804721621076840760}
+--- !u!114 &7804721621076840760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6278292931987932104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17f46122a90674f46ac4630c6f75fea6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InGame.Effect.EffectGenerator
+  _prefab: {fileID: 2311788055329787889, guid: 1b49c41830ab8ca47a0354a8d9d32c3c, type: 3}
