@@ -10,9 +10,6 @@ public class GOD_ControllerConnectionUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI slot1StatusText;
     [SerializeField] TextMeshProUGUI slot2StatusText;
 
-    [Header("次へ")]
-    [SerializeField] TextMeshProUGUI NextText;
-
     [Header("キャラクター割り当て（スロット順）")]
     [SerializeField] GOD_CharacterData[] characterPerSlot = new GOD_CharacterData[2];
 
@@ -145,7 +142,5 @@ public class GOD_ControllerConnectionUI : MonoBehaviour
         slot1StatusText.text = p1 ? "OK" : "Press A";
         slot2StatusText.text = p2 ? "OK" : "Press A";
 
-        if (NextText != null)
-            NextText.gameObject.SetActive(GOD_ControllerConnectionManager.AllSlotsReady());
     }
 }
