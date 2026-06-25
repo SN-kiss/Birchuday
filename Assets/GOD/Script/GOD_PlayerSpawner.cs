@@ -20,15 +20,15 @@ public class GOD_PlayerSpawner : MonoBehaviour
         var slotData = GOD_PlayerData.Instance.Slots[slot];
         if (slotData.CharacterPrefab == null || slotData.Device == null) return;
 
-        var go = Instantiate(slotData.CharacterPrefab, spawnPoint.position, spawnPoint.rotation);
-
-        var playerInput = go.GetComponent<PlayerInput>();
-        if (playerInput == null) return;
-
-        // デバイスに応じた ControlScheme 名を決定
         string scheme = slotData.Device is Gamepad ? "Gamepad" : "Keyboard";
 
-        // このキャラは指定デバイスのみ受け付けるように紐づける
-        playerInput.SwitchCurrentControlScheme(scheme, slotData.Device);
+        var go = PlayerInput.Instantiate(
+            slotData.CharacterPrefab,
+            controlScheme: scheme,
+            pairWithDevice: slotData.Device
+        );
+
+        go.transform.position = spawnPoint.position;
+        go.transform.rotation = spawnPoint.rotation;
     }
 }
