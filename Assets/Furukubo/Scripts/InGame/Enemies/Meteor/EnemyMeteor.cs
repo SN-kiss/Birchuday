@@ -16,9 +16,10 @@ namespace InGame.Enemy
         [SerializeField] private Transform _trTexture;
         [SerializeField] private TrailRenderer[] _trails;
 
-        public event Action OnReleaseToPool;
+        public event Action<EnemyMeteor> OnReleaseToPool;
         public event Action<Vector2> OnGenerateEffect;
         private bool _rotatePlus;
+        private bool _dispose;
 
         public Vector2 Position => transform.position;
 
@@ -45,6 +46,8 @@ namespace InGame.Enemy
 
         public void OnShot(Vector2 pos, Vector2 initForce)
         {
+            _dispose = false;
+
             _rotatePlus = Random.value < 0.5f;
 
             transform.position = pos;
@@ -65,6 +68,10 @@ namespace InGame.Enemy
 
         private void Explode()
         {
+            if (_dispose) return;
+
+            _dispose = true;
+
             OnGenerateEffect?.Invoke(_rb.position);
 
             if (OnReleaseToPool == null)
@@ -73,7 +80,7 @@ namespace InGame.Enemy
             }
             else
             {
-                OnReleaseToPool.Invoke();
+                OnReleaseToPool.Invoke(this);
             }
         }
 

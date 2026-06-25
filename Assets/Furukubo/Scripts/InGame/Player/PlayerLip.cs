@@ -1,5 +1,6 @@
 using InGame.Gimmick;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace InGame.Player
 {
@@ -26,7 +27,9 @@ namespace InGame.Player
         [SerializeField] private Collider2D _ignoreCol;
         [SerializeField] private GameObject _objLipAttracter;
         [SerializeField] private KissConnector _prefabKissConnector;
-        [SerializeField] private ParticleSystem _kissParticle;
+        [SerializeField] private UnityEvent _onNoKissAttachEvent;
+        [SerializeField] private UnityEvent _onKissNoGoalAttachEvent;
+        [SerializeField] private UnityEvent _onKissGoalAttachEvent;
 
         public MagneticType MagneticType => _selfMagneticType;
         public float LipLengthMax => _lipLengthMax;
@@ -96,10 +99,14 @@ namespace InGame.Player
                 if (!otherLip.IsKissableNow) return;
 
                 Instantiate(_prefabKissConnector).Kiss(this, otherLip);
+
+                _onKissNoGoalAttachEvent?.Invoke();
             }
             else if (col.TryGetComponent(out ILipAttachTarget attachTarget))
             {
                 OnAttach(attachTarget);
+
+                _onNoKissAttachEvent?.Invoke();
             }
         }
 
@@ -127,17 +134,17 @@ namespace InGame.Player
                 {
                     goal.OnGoal();
 
-                    if (_kissParticle != null) _kissParticle.Play(true);
+                    _onKissGoalAttachEvent?.Invoke();
+
                     Debug.Log("<color=#FF00FF>Goal Kiss!!!</color>");
+
                     return;
                 }
             }
 
-            if (_kissParticle != null)
-            {
-                _kissParticle.Play(true);
-                Debug.Log("<color=#FF00FF>Normal Kiss!!!</color>");
-            }
+            _onKissNoGoalAttachEvent?.Invoke();
+
+            Debug.Log("<color=#FF00FF>Normal Kiss!!!</color>");
         }
 
         public void OnClearStage()

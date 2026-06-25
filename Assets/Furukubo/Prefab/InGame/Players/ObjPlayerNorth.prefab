@@ -91,7 +91,33 @@ MonoBehaviour:
   _rotateSpeed: 10
   _bodyRb: {fileID: 1951988637841431446}
   _lip: {fileID: 373577956428877147}
-  _dashParticle: {fileID: 7583384824791511204}
+  _onDashEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8376911725583067250}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: ffed0989912fd3c4eae22a28cb4eb12c, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7583384824791511204}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Play
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &7920196932021533494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,6 +369,7 @@ Transform:
   - {fileID: 6781168923843293511}
   - {fileID: 4278969630681958282}
   - {fileID: 7930127690188671369}
+  - {fileID: 4004612439375699307}
   m_Father: {fileID: 561611508804786352}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &373577956428877147
@@ -372,7 +399,75 @@ MonoBehaviour:
   _ignoreCol: {fileID: 2717984402589636751}
   _objLipAttracter: {fileID: 2812026530920582850}
   _prefabKissConnector: {fileID: 7818896086079290122, guid: 53e2ee437eba7454581f39d1ca98b7df, type: 3}
-  _kissParticle: {fileID: 4844362384155780511}
+  _onNoKissAttachEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8376911725583067250}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: ffed0989912fd3c4eae22a28cb4eb12c, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onKissNoGoalAttachEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8376911725583067250}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: ffed0989912fd3c4eae22a28cb4eb12c, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4844362384155780511}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Play
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  _onKissGoalAttachEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8376911725583067250}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: ffed0989912fd3c4eae22a28cb4eb12c, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1919911397696254333}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Play
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!50 &278509828133917856
 Rigidbody2D:
   serializedVersion: 5
@@ -1761,6 +1856,73 @@ ParticleSystem:
 Transform:
   m_CorrespondingSourceObject: {fileID: 6342545572902113721, guid: bffae22959b10684fbdd3ac98f1d053b, type: 3}
   m_PrefabInstance: {fileID: 3893439421242005552}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8040616744459947218
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2045317591642878268}
+    m_Modifications:
+    - target: {fileID: 5445784175768851279, guid: bffae22959b10684fbdd3ac98f1d053b, type: 3}
+      propertyPath: m_Name
+      value: EffectPlayerGoalKiss
+      objectReference: {fileID: 0}
+    - target: {fileID: 6342545572902113721, guid: bffae22959b10684fbdd3ac98f1d053b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6342545572902113721, guid: bffae22959b10684fbdd3ac98f1d053b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6342545572902113721, guid: bffae22959b10684fbdd3ac98f1d053b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6342545572902113721, guid: bffae22959b10684fbdd3ac98f1d053b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6342545572902113721, guid: bffae22959b10684fbdd3ac98f1d053b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6342545572902113721, guid: bffae22959b10684fbdd3ac98f1d053b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6342545572902113721, guid: bffae22959b10684fbdd3ac98f1d053b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6342545572902113721, guid: bffae22959b10684fbdd3ac98f1d053b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6342545572902113721, guid: bffae22959b10684fbdd3ac98f1d053b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6342545572902113721, guid: bffae22959b10684fbdd3ac98f1d053b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bffae22959b10684fbdd3ac98f1d053b, type: 3}
+--- !u!198 &1919911397696254333 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8445066708883832239, guid: bffae22959b10684fbdd3ac98f1d053b, type: 3}
+  m_PrefabInstance: {fileID: 8040616744459947218}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4004612439375699307 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6342545572902113721, guid: bffae22959b10684fbdd3ac98f1d053b, type: 3}
+  m_PrefabInstance: {fileID: 8040616744459947218}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8910155517739812946
 PrefabInstance:

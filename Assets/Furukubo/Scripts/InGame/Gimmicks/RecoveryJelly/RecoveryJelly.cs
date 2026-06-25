@@ -1,5 +1,7 @@
+using InGame.Effect;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
 
 namespace InGame.Gimmick
 {
@@ -15,7 +17,10 @@ namespace InGame.Gimmick
 
         [Header("References")]
         [SerializeField] private Collider2D _col;
+        [SerializeField] private AudioClip _recoveryAudioClip;
+        [SerializeField] private AudioSource _audioSource;
         [SerializeField] private SpringyScaleAnimation _scaleAnim;
+        [SerializeField] private EffectGenerator _recoveryEffectGenerater;
 
         public virtual Vector2 Position => transform.position;
         public MagneticType MagneticType => MagneticType.Both;
@@ -56,6 +61,10 @@ namespace InGame.Gimmick
                     float scale = Mathf.Lerp(_scaleMin, 1f, (float)_recoveryCount / _recoveryCountMax);
                     transform.localScale = new Vector3(scale, scale, 1f);
                 }
+
+                if (_recoveryEffectGenerater != null) _recoveryEffectGenerater.GenerateEffect(transform.position);
+
+                if (_audioSource != null && _recoveryAudioClip != null) _audioSource.PlayOneShot(_recoveryAudioClip);
             }
             else
             {
