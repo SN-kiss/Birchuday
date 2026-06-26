@@ -1,3 +1,4 @@
+using InGame.Camera;
 using InGame.Effect;
 using InGame.Player;
 using System.Collections;
@@ -6,6 +7,9 @@ using UnityEngine.SceneManagement;
 
 namespace InGame
 {
+    /// <summary>
+    /// Furukubo
+    /// </summary>
     public class StageMissProductionManager : MonoBehaviour
     {
         [SerializeField] private string _playerNorthTag;
@@ -15,8 +19,10 @@ namespace InGame
         [SerializeField] private float _waitingDeadPlayerPassiveTime;
         [SerializeField] private float _waitingRemainPlayerPassiveTime;
         [SerializeField] private float _waitingFadeStartTime;
-        [SerializeField] private Fade _fade;
         [SerializeField] private EffectControler _explosionEffectPrefab;
+        [SerializeField] private CameraShakeData _explosionCamShakeData;
+        [SerializeField] private CameraShake _cameraShake;
+        [SerializeField] private Fade _fade;
 
         private GameObject _playerNorth;
         private GameObject _playerSouth;
@@ -83,6 +89,7 @@ namespace InGame
 
             yield return new WaitForSeconds(_waitingDeadPlayerPassiveTime);
 
+            if(_cameraShake != null) _cameraShake.SetShake(_explosionCamShakeData);
             deadPlayer.gameObject.SetActive(false);
 
             yield return new WaitForSeconds(_waitingRemainPlayerPassiveTime);

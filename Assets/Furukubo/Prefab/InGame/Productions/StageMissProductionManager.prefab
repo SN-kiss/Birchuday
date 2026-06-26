@@ -53,3 +53,5 @@ MonoBehaviour:
   _waitingFadeStartTime: 3
   _fade: {fileID: 0}
   _explosionEffectPrefab: {fileID: 6040070245916911295, guid: 47318205e0138bd4883285de5ea522dd, type: 3}
+  _explosionCamShakeData: {fileID: 11400000, guid: b27c929a10f0f1740ba6b512e6c017f9, type: 2}
+  _cameraShake: {fileID: 0}
