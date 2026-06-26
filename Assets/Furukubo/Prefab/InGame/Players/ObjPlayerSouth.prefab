@@ -1378,15 +1378,16 @@ MonoBehaviour:
   _tearParticle: {fileID: 6490655954319593732}
   _bodySr: {fileID: 5328167503501202440}
   _lipSr: {fileID: 729134834543033381}
+  _bodyLightSr: {fileID: 4844234110461687697}
   _bodySprites:
   - {fileID: 486358669474042583, guid: 65969c6ae3207d44d89d1e732b2aa256, type: 3}
   - {fileID: 4393467405464792525, guid: 172d9f6d7c76f6b418a7f12c2ec76f49, type: 3}
   - {fileID: -8843360704205339574, guid: 262825a09c000d64db79ac115e834484, type: 3}
   - {fileID: 1712780680, guid: f7826f517af962b428cc9c6667eca2f8, type: 3}
   _lipSprites:
-  - {fileID: 1766132129, guid: 0d8dd0eef4e3d734e8b45bec3b1e99f9, type: 3}
-  - {fileID: 1766132129, guid: 0d8dd0eef4e3d734e8b45bec3b1e99f9, type: 3}
-  - {fileID: 1766132129, guid: 0d8dd0eef4e3d734e8b45bec3b1e99f9, type: 3}
+  - {fileID: -687349454160499416, guid: 11019f73ba1ed734aab1861891a9f8d4, type: 3}
+  - {fileID: -687349454160499416, guid: 11019f73ba1ed734aab1861891a9f8d4, type: 3}
+  - {fileID: -687349454160499416, guid: 11019f73ba1ed734aab1861891a9f8d4, type: 3}
   - {fileID: 1766132129, guid: 0d8dd0eef4e3d734e8b45bec3b1e99f9, type: 3}
 --- !u!210 &2675308372304179214
 SortingGroup:
