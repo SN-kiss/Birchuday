@@ -7,6 +7,7 @@ namespace InGame.Player
         [SerializeField] private ParticleSystem _tearParticle;
         [SerializeField] private SpriteRenderer _bodySr;
         [SerializeField] private SpriteRenderer _lipSr;
+        [SerializeField] private SpriteRenderer _bodyLightSr;
         [SerializeField] private Sprite[] _bodySprites;
         [SerializeField] private Sprite[] _lipSprites;
 
@@ -24,6 +25,8 @@ namespace InGame.Player
 
             if (health <= 1) _tearParticle.Play(true);
             else _tearParticle.Stop(true);
+
+            if(_bodyLightSr != null) _bodyLightSr.enabled = 2 <= health;
         }
     }
 }
