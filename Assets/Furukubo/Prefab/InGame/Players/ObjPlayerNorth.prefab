@@ -89,6 +89,7 @@ MonoBehaviour:
   _dashPower: 5
   _moveInputThreshoud: 0.1
   _rotateSpeed: 10
+  _blackHoleEffectPrefab: {fileID: 5474132957568414665, guid: 8b1d1600523ec8341801957979b97469, type: 3}
   _bodyRb: {fileID: 1951988637841431446}
   _lip: {fileID: 373577956428877147}
   _onDashEvent:

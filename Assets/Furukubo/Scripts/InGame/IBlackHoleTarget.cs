@@ -6,5 +6,6 @@ namespace InGame
     {
         Vector2 Position { get; }
         void AddForce(Vector2 force);
+        void OnHitBlackhole(Vector2 blackHolePos);
     }
 }

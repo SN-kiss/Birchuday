@@ -24,7 +24,7 @@ namespace InGame
 
             PlayerStageClear(GameObject.FindGameObjectWithTag(_playerNorthTag));
 
-            _cameraTarget.SetIgnorePlayerNorth();
+            if(_cameraTarget != null) _cameraTarget.SetIgnorePlayerNorth();
 
             if (_isPlayerSouthStageCleared) PlayerBothStageClear();
         }
@@ -36,7 +36,7 @@ namespace InGame
 
             PlayerStageClear(GameObject.FindGameObjectWithTag(_playerSouthTag));
 
-            _cameraTarget.SetIgnorePlayerSouth();
+            if (_cameraTarget != null) _cameraTarget.SetIgnorePlayerSouth();
 
             if (_isPlayerNorthStageCleared) PlayerBothStageClear();
         }
@@ -47,17 +47,18 @@ namespace InGame
 
             Debug.Log($"Found: {player.name}");
 
-            Transform tr = player.transform;
-
-            PlayerBodyMove move = tr.GetComponentInChildren<PlayerBodyMove>();
+            PlayerBodyMove move = player.GetComponentInChildren<PlayerBodyMove>();
             if (move != null)
             {
                 move.OnClearStage();
                 move.AddForceImpulse(Vector2.right * 20f);
             }
 
-            PlayerLip lip = tr.GetComponentInChildren<PlayerLip>();
+            PlayerLip lip = player.GetComponentInChildren<PlayerLip>();
             if (lip != null) lip.OnClearStage();
+
+            PlayerBodyHealth health = player.GetComponentInChildren<PlayerBodyHealth>();
+            if (health != null) health.SetIgnoreDamage(true);
         }
 
         private void PlayerBothStageClear()

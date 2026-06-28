@@ -16,8 +16,10 @@ namespace InGame.Enemy
         [Header("References")]
         [SerializeField] private EnemyMeteor _meteorPrefab;
         [SerializeField] private EffectGenerator _effectGenerator;
+        [SerializeField] private EffectBlackHoleDead _blackHoleEffectPrefab;
 
         private ObjectPool<EnemyMeteor> _meteorPool;
+        private ObjectPool<EffectBlackHoleDead> _blackHoleEffectPool;
         private float _spawnIntervalTimeCount;
         private bool _isStop;
 
@@ -27,6 +29,11 @@ namespace InGame.Enemy
                 () => InstantiateNewMeteor(),
                 (m) => m.gameObject.SetActive(true),
                 (m) => m.gameObject.SetActive(false));
+
+            _blackHoleEffectPool = new ObjectPool<EffectBlackHoleDead>(
+                () => InstantiateNewBlackHoleEffect(),
+                (e) => e.gameObject.SetActive(true),
+                (e) => e.gameObject.SetActive(false));
         }
 
         public void Update()
@@ -43,6 +50,18 @@ namespace InGame.Enemy
             }
         }
 
+        private void OnDrawGizmos()
+        {
+            Vector2 pos = transform.position;
+
+            OriginalGizmoUtils.DrawArrow(
+                pos,
+                pos + OriginalCalculateUtils.AngleToDirection(_angle) * _power,
+                Color.cyan);
+
+            OriginalGizmoUtils.DrawStar(pos, 5, 1f, 0.5f, Color.cyan);
+        }
+
         public void Stop() => _isStop = true;
         public void Play() => _isStop = false;
 
@@ -55,7 +74,7 @@ namespace InGame.Enemy
                 OriginalCalculateUtils.AngleToDirection(_angle) * _power);
         }
 
-        private void OnGenerateEffect(Vector2 pos)
+        private void OnGenerateExplosionEffect(Vector2 pos)
         {
             if (_effectGenerator == null) return;
             _effectGenerator.GenerateEffect(pos);
@@ -63,11 +82,12 @@ namespace InGame.Enemy
 
         private EnemyMeteor InstantiateNewMeteor()
         {
-            EnemyMeteor m = Instantiate(_meteorPrefab);
-            m.OnReleaseToPool += (M) => ReleaseMeteorToPool(M);
-            m.OnGenerateEffect += OnGenerateEffect;
-            m.transform.SetParent(transform);
-            return m;
+            EnemyMeteor instance = Instantiate(_meteorPrefab);
+            instance.OnReleaseToPool += (m) => ReleaseMeteorToPool(m);
+            instance.OnGenerateExplosionEffect += OnGenerateExplosionEffect;
+            instance.OnGenerateBlackHoleEffect += OnGenerateBackHoleEffect;
+            instance.transform.SetParent(transform);
+            return instance;
         }
 
         private void ReleaseMeteorToPool(EnemyMeteor meteor)
@@ -75,16 +95,25 @@ namespace InGame.Enemy
             _meteorPool?.Release(meteor);
         }
 
-        private void OnDrawGizmos()
+        //-------------------------------------------------------------------------
+
+        private void OnGenerateBackHoleEffect(Vector2 posS, Vector2 velo, Vector2 posG, float rot)
         {
-            Vector2 pos = transform.position;
+            if (_blackHoleEffectPrefab == null) return;
+            _blackHoleEffectPool.Get().StartBlackHoleAttracted(posS, velo, posG, rot);
+        }
 
-            OriginalGizmoUtils.DrawArrow(
-                pos,
-                pos + OriginalCalculateUtils.AngleToDirection(_angle) * _power,
-                Color.cyan);
+        private EffectBlackHoleDead InstantiateNewBlackHoleEffect()
+        {
+            EffectBlackHoleDead instance = Instantiate(_blackHoleEffectPrefab);
+            instance.OnReleaseToPool += (e) => { ReleaseBlackHoleEffectToPool(e); };
+            instance.transform.parent = transform;
+            return instance;
+        }
 
-            OriginalGizmoUtils.DrawStar(pos, 5, 1f, 0.5f, Color.cyan);
+        private void ReleaseBlackHoleEffectToPool(EffectBlackHoleDead effect)
+        {
+            _blackHoleEffectPool.Release(effect);
         }
     }
 }
