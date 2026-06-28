@@ -50,6 +50,9 @@ namespace InGame
 
             PlayerLip lip = tr.GetComponentInChildren<PlayerLip>();
             if (lip != null) lip.OnClearStage();
+
+            PlayerBodyHealth health = player.GetComponentInChildren<PlayerBodyHealth>();
+            if (health != null) health.SetIgnoreDamage(true);
         }
 
         private IEnumerator WaitForEndOfFadeOut()

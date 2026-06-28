@@ -18,9 +18,9 @@ namespace InGame.Gimmick
 
         public void OnHitAttackColiider(Collider2D col)
         {
-            if(col.TryGetComponent(out IDamageTarget target))
+            if(col.TryGetComponent(out IBlackHoleTarget target))
             {
-                target.OnDamaged(999, Vector2.zero);
+                target.OnHitBlackhole(transform.position);
             }
         }
     }

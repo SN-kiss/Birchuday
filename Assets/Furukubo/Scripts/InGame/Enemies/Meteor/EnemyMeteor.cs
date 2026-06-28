@@ -17,7 +17,8 @@ namespace InGame.Enemy
         [SerializeField] private TrailRenderer[] _trails;
 
         public event Action<EnemyMeteor> OnReleaseToPool;
-        public event Action<Vector2> OnGenerateEffect;
+        public event Action<Vector2> OnGenerateExplosionEffect;
+        public event Action<Vector2, Vector2, Vector2, float> OnGenerateBlackHoleEffect;
         private bool _rotatePlus;
         private bool _dispose;
 
@@ -72,7 +73,7 @@ namespace InGame.Enemy
 
             _dispose = true;
 
-            OnGenerateEffect?.Invoke(_rb.position);
+            OnGenerateExplosionEffect?.Invoke(_rb.position);
 
             if (OnReleaseToPool == null)
             {
@@ -85,5 +86,26 @@ namespace InGame.Enemy
         }
 
         public void AddForce(Vector2 force) => _rb.AddForce(force, ForceMode2D.Force);
+
+        public void OnHitBlackhole(Vector2 blackHolePos)
+        {
+            if (_dispose) return;
+            _dispose = true;
+
+            OnGenerateBlackHoleEffect?.Invoke(
+                transform.position,
+                _rb.linearVelocity,
+                blackHolePos,
+                transform.localEulerAngles.z);
+
+            if (OnReleaseToPool == null)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                OnReleaseToPool.Invoke(this);
+            }
+        }
     }
 }

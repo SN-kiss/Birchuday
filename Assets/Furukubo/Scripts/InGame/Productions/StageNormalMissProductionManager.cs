@@ -10,7 +10,7 @@ namespace InGame
     /// <summary>
     /// Furukubo
     /// </summary>
-    public class StageMissProductionManager : MonoBehaviour
+    public class StageNormalMissProductionManager : MonoBehaviour
     {
         [SerializeField] private string _playerNorthTag;
         [SerializeField] private string _playerSouthTag;
@@ -107,13 +107,14 @@ namespace InGame
         {
             if(player == null) return;
 
-            Transform tr = player.transform;
-
-            PlayerBodyMove move = tr.GetComponentInChildren<PlayerBodyMove>();
+            PlayerBodyMove move = player.GetComponentInChildren<PlayerBodyMove>();
             if (move != null) move.OnMissStage();
 
-            PlayerLip lip = tr.GetComponentInChildren<PlayerLip>();
+            PlayerLip lip = player.GetComponentInChildren<PlayerLip>();
             if (lip != null) lip.OnMissStage();
+
+            PlayerBodyHealth health = player.GetComponentInChildren<PlayerBodyHealth>();
+            if (health != null) health.SetIgnoreDamage(true);
         }
 
         private IEnumerator WaitForEndOfVibrate(GameObject player)

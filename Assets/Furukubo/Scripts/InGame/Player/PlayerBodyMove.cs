@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -20,9 +21,12 @@ namespace InGame.Player
         [SerializeField] private PlayerLip _lip;
         [SerializeField] private UnityEvent _onDashEvent;
 
+        public event Action<Vector2> _onBlackHoleDead;
+
         private Vector2 _rotateInput;
         private bool _isIgnoreInput;
 
+        public Vector2 Velocity => _bodyRb.linearVelocity;
         public Vector2 Position => _bodyRb.position;
         public float Rotation => _bodyRb.rotation;
 
@@ -67,13 +71,11 @@ namespace InGame.Player
         public void OnClearStage()
         {
             _isIgnoreInput = true;
-            _bodyRb.linearVelocity = Vector2.zero;
         }
 
         public void OnMissStage()
         {
             _isIgnoreInput = true;
-            _bodyRb.linearVelocity = Vector2.zero;
         }
 
         public void AddForce(Vector2 force) => _bodyRb.AddForce(force);
@@ -112,6 +114,11 @@ namespace InGame.Player
 
             _bodyRb.SetRotation(newAng);
             _bodyRb.angularVelocity = 0f;
+        }
+
+        public void OnHitBlackhole(Vector2 blackHolePos)
+        {
+            _onBlackHoleDead?.Invoke(blackHolePos);
         }
     }
 }

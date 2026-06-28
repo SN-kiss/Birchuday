@@ -26,10 +26,11 @@ namespace InGame.Player
         private int _remainHealth;
         private float _remainInvincibleTime;
 
-
         public Vector2 Position => _rb.position;
         private bool IsInvincible => 0f < _remainInvincibleTime;
         private bool IsDead => _remainHealth <= 0;
+
+        private bool _ignoreDamage;
 
         private void Start()
         {
@@ -56,6 +57,8 @@ namespace InGame.Player
 
         public void OnDamaged(int damageAmount, Vector2 knockback)
         {
+            if (_ignoreDamage) return;
+
             _rb.linearVelocity = Vector2.zero;
             _rb.AddForce(knockback, ForceMode2D.Impulse);
 
@@ -86,6 +89,8 @@ namespace InGame.Player
         }
 
         private void PlayDamagedAudio() => _audioSource.PlayOneShot(_damagedAudioClip);
+
+        public void SetIgnoreDamage(bool value) => _ignoreDamage = value;
 
         private void InvokeOnDead() => OnDead?.Invoke();
 
