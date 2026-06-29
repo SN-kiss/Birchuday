@@ -9,8 +9,15 @@ namespace InGame.Player
     {
         [SerializeField] private PlayerType _player;
 
+        private bool _ignore;
+
         public void OnHitGoal(Collider2D col)
         {
+            if (_ignore)
+            {
+                return;
+            }
+
             if (col.TryGetComponent(out NormalGoal goal))
             {
                 if (_player == PlayerType.North)
@@ -23,6 +30,8 @@ namespace InGame.Player
                 }
             }
         }
+
+        public void SetIgnoreGoal(bool value) => _ignore = value;
 
         private enum PlayerType
         {

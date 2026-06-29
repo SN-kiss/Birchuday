@@ -6079,6 +6079,10 @@ PrefabInstance:
       propertyPath: _fade
       value: 
       objectReference: {fileID: 1870800038}
+    - target: {fileID: 3270252490295341879, guid: f7a80f43bb435b2468adc6021249ae95, type: 3}
+      propertyPath: _cameraShake
+      value: 
+      objectReference: {fileID: 7273860727138075768}
     - target: {fileID: 4368082227994164560, guid: f7a80f43bb435b2468adc6021249ae95, type: 3}
       propertyPath: m_Name
       value: StageNormalMissProductionManager
@@ -7151,6 +7155,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 790ff322ba9740f4f96f84e411e97bb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Camera.CameraTarget
+--- !u!114 &7273860727138075768 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5504221224611816382, guid: c8af8ef42a042a9429d96c68e1550444, type: 3}
+  m_PrefabInstance: {fileID: 7273860727138075766}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf4f722d714b1a842b312935e5fd1b26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InGame.Camera.CameraShake
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

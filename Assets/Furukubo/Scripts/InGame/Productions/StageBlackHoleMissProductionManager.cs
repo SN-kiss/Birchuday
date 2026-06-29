@@ -124,6 +124,9 @@ namespace InGame
 
             PlayerBodyHealth health = player.GetComponentInChildren<PlayerBodyHealth>();
             if(health != null) health.SetIgnoreDamage(true);
+
+            PlayerNormalGoalTrigger trigger = player.GetComponentInChildren<PlayerNormalGoalTrigger>();
+            if (trigger != null) trigger.SetIgnoreGoal(true);
         }
 
         private IEnumerator WaitForEndOfFadeOut()
