@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 
 namespace InGame.Gimmick
@@ -7,46 +8,128 @@ namespace InGame.Gimmick
     /// </summary>
     public class Door : MonoBehaviour
     {
-        [Header("References")]
-        [SerializeField] private float _openSpeed;
-        [SerializeField] private float _openRadius;
-
-        [Header("References")]
+        [Header("Parameters")]
+        [SerializeField, Range(0, 1f)] private float _timeDoorOpen;
+        [SerializeField, Range(0, 1f)] private float _timeSpriteChangeThreashoud;
+        [SerializeField, Min(1f)] private float _doorRadius;
+        [SerializeField, Min(1f)] private float _openRadius;
+        [SerializeField, Min(0.05f)] private float _openSpeed;
         [SerializeField] private AnimationCurve _openCurve;
-        [SerializeField] private Transform _doorADefaultPointTr;
-        [SerializeField] private Transform _doorBDefaultPointTr;
-        [SerializeField] private Rigidbody2D _DoorARb;
-        [SerializeField] private Rigidbody2D _DoorBRb;
 
-        private float _time;
+        [Header("References")]
+        [SerializeField] private Sprite _sprClose;
+        [SerializeField] private Sprite _sprOpen;
+        [Header("Door Left")]
+        [SerializeField] private Rigidbody2D _rbLeft;
+        [SerializeField] private BoxCollider2D _colLeft;
+        [SerializeField] private SpriteRenderer _srLeft;
+        [Header("Door Right")]
+        [SerializeField] private Rigidbody2D _rbRight;
+        [SerializeField] private BoxCollider2D _colRight;
+        [SerializeField] private SpriteRenderer _srRight;
 
         public void OnOpenUpdate()
         {
-            if (1f <= _time) return;
-            SetDoors(Mathf.Clamp01(_time + _openSpeed * Time.fixedDeltaTime));
+            if (1f <= _timeDoorOpen) return;
+
+            _timeDoorOpen = Mathf.Clamp01(_timeDoorOpen + _openSpeed * Time.fixedDeltaTime);
+            float curvedTime = _openCurve?.Evaluate(_timeDoorOpen) ?? 0f;
+
+            UpdateDoorPositions(curvedTime);
         }
 
         public void OnCloseUpdate()
         {
-            if (_time <= 0f) return;
-            SetDoors(Mathf.Clamp01(_time - _openSpeed * Time.fixedDeltaTime));
+            if (_timeDoorOpen <= 0f) return;
+
+            _timeDoorOpen = Mathf.Clamp01(_timeDoorOpen - _openSpeed * Time.fixedDeltaTime);
+            float curvedTime = _openCurve?.Evaluate(_timeDoorOpen) ?? 0f;
+            
+            UpdateDoorPositions(curvedTime);
         }
 
-        private void SetDoors(float time)
+        private void UpdateDoorPositions(float t)
         {
-            _time = time;
+            if (_rbLeft != null)
+            {
+                Vector2 leftClosePos = transform.TransformPoint(new Vector2(-_doorRadius * 0.5f, 0f));
+                Vector3 leftOpenPos = transform.TransformPoint(new Vector2(-(_doorRadius * 0.5f + _openRadius), 0f));
+                Vector2 left = Vector2.Lerp(leftClosePos, leftOpenPos, t);
+                _rbLeft.MovePosition(left);
+            }
 
-            float curvedTime = _openCurve?.Evaluate(time) ?? 0f;
+            if (_srLeft != null)
+            {
+                _srLeft.sprite = t < _timeSpriteChangeThreashoud ? _sprClose : _sprOpen;
+            }
 
-            Vector2 dir = OriginalCalculateUtils.AngleToDirection(transform.localEulerAngles.z);
+            if (_rbRight != null)
+            {
+                Vector2 rightClosePos = transform.TransformPoint(new Vector2(_doorRadius * 0.5f, 0f));
+                Vector3 rightOpenPos = transform.TransformPoint(new Vector2(_doorRadius * 0.5f + _openRadius, 0f));
+                Vector2 right = Vector2.Lerp(rightClosePos, rightOpenPos, t);
+                _rbRight.MovePosition(right);
+            }
 
-            Vector2 aDefPos = _doorADefaultPointTr.position;
-            Vector2 aPos = Vector2.Lerp(aDefPos, aDefPos + dir * _openRadius, curvedTime);
-            _DoorARb.MovePosition(aPos);
+            if (_srRight != null)
+            {
+                _srRight.sprite = t < _timeSpriteChangeThreashoud ? _sprClose : _sprOpen;
+            }
+        }
 
-            Vector2 bDefPos = _doorBDefaultPointTr.position;
-            Vector2 bPos = Vector2.Lerp(bDefPos, bDefPos - dir * _openRadius, curvedTime);
-            _DoorBRb.MovePosition(bPos);
+        private void OnValidateDoorsWhileEditor()
+        {
+            float curvedTime = _openCurve?.Evaluate(_timeDoorOpen) ?? 0f;
+
+            if (_srLeft != null)
+            {
+                _srLeft.size = new Vector2(_doorRadius, 1f);
+
+                _srLeft.sprite = curvedTime < _timeSpriteChangeThreashoud ? _sprClose : _sprOpen;
+            }
+
+            if (_colLeft != null)
+            {
+                _colLeft.size = new Vector2(_doorRadius, 1f);
+            }
+
+            if (_rbLeft != null)
+            {
+                Vector2 leftClosePos = transform.TransformPoint(new Vector2(-_doorRadius * 0.5f, 0f));
+                Vector3 leftOpenPos = transform.TransformPoint(new Vector2(-(_doorRadius * 0.5f + _openRadius), 0f));
+                Vector2 left = Vector2.Lerp(leftClosePos, leftOpenPos, curvedTime);
+                _rbLeft.transform.position = left;
+            }
+
+            if (_srRight != null)
+            {
+                _srRight.size = new Vector2(_doorRadius, 1f);
+
+                _srRight.sprite = curvedTime < _timeSpriteChangeThreashoud ? _sprClose : _sprOpen;
+            }
+
+            if (_colRight != null)
+            {
+                _colRight.size = new Vector2(_doorRadius, 1f);
+            }
+
+            if (_rbRight != null)
+            {
+                Vector2 rightClosePos = transform.TransformPoint(new Vector2(_doorRadius * 0.5f, 0f));
+                Vector3 rightOpenPos = transform.TransformPoint(new Vector2(_doorRadius * 0.5f + _openRadius, 0f));
+                Vector2 right = Vector2.Lerp(rightClosePos, rightOpenPos, curvedTime);
+                _rbRight.transform.position = right;
+            }
+        }
+
+        private void OnValidate()
+        {
+#if UNITY_EDITOR
+            EditorApplication.delayCall += () =>
+            {
+                OnValidateDoorsWhileEditor();
+            };
+#endif
         }
     }
 }

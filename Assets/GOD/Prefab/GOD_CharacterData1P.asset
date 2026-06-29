@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: GOD_CharacterData1P
   m_EditorClassIdentifier: Assembly-CSharp::GOD_CharacterData
   CharacterName: PlayerNorth
-  Prefab: {fileID: 4576121960555575272, guid: ee05a8af25a7e444aacc3a8c341bfce2, type: 3}
+  Prefab: {fileID: 4576121960555575272, guid: baf01140ee6d00248828f3ccb41ecfe4, type: 3}

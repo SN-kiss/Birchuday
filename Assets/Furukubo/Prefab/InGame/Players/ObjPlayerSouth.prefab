@@ -89,7 +89,6 @@ MonoBehaviour:
   _dashPower: 5
   _moveInputThreshoud: 0.1
   _rotateSpeed: 10
-  _blackHoleEffectPrefab: {fileID: 2795192981632614952, guid: b5e485e7a2f4a6b41bcda4af1f468ef5, type: 3}
   _bodyRb: {fileID: 7552898071879817585}
   _lip: {fileID: 1555302358898285022}
   _onDashEvent:
@@ -197,7 +196,7 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
