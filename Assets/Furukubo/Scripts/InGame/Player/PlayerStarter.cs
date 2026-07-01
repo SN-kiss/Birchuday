@@ -25,21 +25,40 @@ namespace InGame.Player
             {
                 switch (StageEntryInfo.Instance.State)
                 {
+                    case StageEntryState.First:
+                        Debug.Log("<color=yellow>Fisrt</color>");
+                        FirstStart();
+                        break;
+
                     case StageEntryState.Clear:
-                        Debug.Log("<color=yellow>New Stage!</color>");
+                        Debug.Log("<color=yellow>Clear</color>");
                         ClearStart();
                         break;
 
-                    case StageEntryState.Retry:
-                        Debug.Log("<color=yellow>Retry Stage!</color>");
-                        RetryStart();
+                    case StageEntryState.Miss:
+                        Debug.Log("<color=yellow>Retry</color>");
+                        MissStart();
                         break;
                 }
             }
             else
             {
                 Debug.Log("<color=yellow>StageEntryInfo.Instance == null</color>");
-                RetryStart();
+                MissStart();
+            }
+        }
+
+        private void FirstStart()
+        {
+            if (_ps != null) _ps.Play(true);
+
+            StartCoroutine(FirstStartCoroutine());
+
+            IEnumerator FirstStartCoroutine()
+            {
+                yield return new WaitForSeconds(_waitTime);
+
+                ActiveAll(true);
             }
         }
 
@@ -48,13 +67,13 @@ namespace InGame.Player
             ActiveAll(true);
         }
 
-        private void RetryStart()
+        private void MissStart()
         {
             if (_ps != null) _ps.Play(true);
 
-            StartCoroutine(WaitCoroutine());
+            StartCoroutine(RetryStartCoroutine());
 
-            IEnumerator WaitCoroutine()
+            IEnumerator RetryStartCoroutine()
             {
                 yield return new WaitForSeconds(_waitTime);
 
@@ -64,7 +83,7 @@ namespace InGame.Player
 
         private void ActiveAll(bool value)
         {
-            if (_move != null) _move.SetIgnoreInput(value);
+            if (_move != null) _move.SetIgnoreInput(!value);
 
             if (_lr != null) _lr.enabled = value;
 

@@ -64,6 +64,11 @@ namespace InGame
             if (_isStageMissed) return;
             _isStageMissed = true;
 
+            if (StageEntryInfo.Instance != null)
+            {
+                StageEntryInfo.Instance.SetEntryState(StageEntryState.Miss);
+            }
+
             StartCoroutine(PlayerMissCoroutine(_playerNorth, _playerSouth));
         }
 
@@ -71,6 +76,11 @@ namespace InGame
         {
             if (_isStageMissed) return;
             _isStageMissed = true;
+
+            if (StageEntryInfo.Instance != null)
+            {
+                StageEntryInfo.Instance.SetEntryState(StageEntryState.Miss);
+            }
 
             StartCoroutine(PlayerMissCoroutine(_playerSouth, _playerNorth));
         }
