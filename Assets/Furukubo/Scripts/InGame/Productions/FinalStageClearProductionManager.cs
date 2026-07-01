@@ -46,7 +46,7 @@ namespace InGame
             Transform tr = player.transform;
 
             PlayerBodyMove move = tr.GetComponentInChildren<PlayerBodyMove>();
-            if (move != null) move.OnClearStage();
+            if (move != null) move.SetIgnoreInput(true);
 
             PlayerLip lip = tr.GetComponentInChildren<PlayerLip>();
             if (lip != null) lip.OnClearStage();
