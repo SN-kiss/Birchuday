@@ -54,6 +54,11 @@ namespace InGame
 
         private void PlayerNorthBlackHoleDead(Vector2 blackholePos)
         {
+            if (StageEntryInfo.Instance != null)
+            {
+                StageEntryInfo.Instance.SetEntryState(StageEntryState.Miss);
+            }
+
             PlayerStageMiss(_playerNorth);
             PlayerStageMiss(_playerSouth);
 
@@ -84,6 +89,11 @@ namespace InGame
 
         private void PlayerSouthBlackHoleDead(Vector2 blackholePos)
         {
+            if (StageEntryInfo.Instance != null)
+            {
+                StageEntryInfo.Instance.SetEntryState(StageEntryState.Miss);
+            }
+
             PlayerStageMiss(_playerNorth);
             PlayerStageMiss(_playerSouth);
 

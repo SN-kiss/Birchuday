@@ -22,6 +22,11 @@ namespace InGame
             if (_isPlayerNorthStageCleared) return;
             _isPlayerNorthStageCleared = true;
 
+            if (StageEntryInfo.Instance != null)
+            {
+                StageEntryInfo.Instance.SetEntryState(StageEntryState.Clear);
+            }
+
             PlayerStageClear(GameObject.FindGameObjectWithTag(_playerNorthTag));
 
             if(_cameraTarget != null) _cameraTarget.SetIgnorePlayerNorth();
@@ -33,6 +38,11 @@ namespace InGame
         {
             if (_isPlayerSouthStageCleared) return;
             _isPlayerSouthStageCleared = true;
+
+            if (StageEntryInfo.Instance != null)
+            {
+                StageEntryInfo.Instance.SetEntryState(StageEntryState.Clear);
+            }
 
             PlayerStageClear(GameObject.FindGameObjectWithTag(_playerSouthTag));
 

@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class StageEntryInfo : MonoBehaviour
 {
-    [SerializeField] private StageEntryState _initState;
-
     public static StageEntryInfo Instance { get; private set; }
 
     public StageEntryState State { get; private set; }
@@ -15,7 +13,7 @@ public class StageEntryInfo : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
 
-            SetEntryState(_initState);
+            SetEntryState(StageEntryState.First);
         }
         else
         {
@@ -36,6 +34,7 @@ public class StageEntryInfo : MonoBehaviour
 
 public enum StageEntryState
 {
+    First,
     Clear,
-    Retry
+    Miss
 }
