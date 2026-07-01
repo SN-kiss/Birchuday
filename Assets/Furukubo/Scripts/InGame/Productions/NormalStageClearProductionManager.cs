@@ -50,7 +50,7 @@ namespace InGame
             PlayerBodyMove move = player.GetComponentInChildren<PlayerBodyMove>();
             if (move != null)
             {
-                move.OnClearStage();
+                move.SetIgnoreInput(true);
                 move.AddForceImpulse(Vector2.right * 20f);
             }
 

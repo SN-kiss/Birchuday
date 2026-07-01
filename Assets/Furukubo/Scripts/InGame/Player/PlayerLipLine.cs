@@ -18,14 +18,11 @@ namespace InGame.Player
         [SerializeField] private Transform _connectPointTrLip;
         [SerializeField] private LineRenderer _line;
 
-        private void Start()
-        {
-            _line.positionCount = _lineSegments + 1;
-        }
-        
         private void Update()
         {
             if(_line == null) return;
+
+            _line.positionCount = _lineSegments + 1;
 
             Vector3 pos = transform.position;
 

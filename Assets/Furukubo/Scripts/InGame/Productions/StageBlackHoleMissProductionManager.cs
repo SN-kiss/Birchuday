@@ -117,7 +117,7 @@ namespace InGame
             if (player == null) return;
 
             PlayerBodyMove move = player.GetComponentInChildren<PlayerBodyMove>();
-            if (move != null) move.OnMissStage();
+            if (move != null) move.SetIgnoreInput(true);
 
             PlayerLip lip = player.GetComponentInChildren<PlayerLip>();
             if (lip != null) lip.OnMissStage();

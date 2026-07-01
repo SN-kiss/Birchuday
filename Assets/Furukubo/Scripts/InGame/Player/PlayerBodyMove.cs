@@ -68,14 +68,9 @@ namespace InGame.Player
             _lip.OnDetach();
         }
 
-        public void OnClearStage()
+        public void SetIgnoreInput(bool value)
         {
-            _isIgnoreInput = true;
-        }
-
-        public void OnMissStage()
-        {
-            _isIgnoreInput = true;
+            _isIgnoreInput = value;
         }
 
         public void AddForce(Vector2 force) => _bodyRb.AddForce(force);
