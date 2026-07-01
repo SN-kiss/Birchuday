@@ -43,8 +43,8 @@ namespace InGame.Player
             }
             else
             {
-                Debug.Log("<color=yellow>StageEntryInfo.Instance == null</color>");
-                MissStart();
+                Debug.Log("<color=yellow>StageEntryInfo.Instance == null => First</color>");
+                FirstStart();
             }
         }
 
