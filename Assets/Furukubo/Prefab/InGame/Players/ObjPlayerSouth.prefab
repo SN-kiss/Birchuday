@@ -133,6 +133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Player.PlayerBodyDamage
   _healthMax: 3
   _invincibleTime: 1
+  _selfMagneticType: 2
   _damagedAudioClip: {fileID: 8300000, guid: ffed0989912fd3c4eae22a28cb4eb12c, type: 3}
   _audioSource: {fileID: 4453171696946694562}
   _rb: {fileID: 7552898071879817585}

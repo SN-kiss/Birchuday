@@ -50,16 +50,7 @@ namespace InGame.Player
 
         private void FirstStart()
         {
-            if (_ps != null) _ps.Play(true);
-
-            StartCoroutine(FirstStartCoroutine());
-
-            IEnumerator FirstStartCoroutine()
-            {
-                yield return new WaitForSeconds(_waitTime);
-
-                ActiveAll(true);
-            }
+            ActiveAll(true);
         }
 
         private void ClearStart()

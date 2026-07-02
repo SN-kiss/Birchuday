@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace InGame.Enemy
@@ -8,44 +9,93 @@ namespace InGame.Enemy
     public class EnemyMoveChase : MonoBehaviour
     {
         [Header("Parameters")]
-        [SerializeField] private float _missDistance;
         [SerializeField] private float _chasePower;
         [SerializeField] private MagneticType _selfMagnetixType;
 
         [Header("References")]
         [SerializeField] private Rigidbody2D _rb;
-        [SerializeField] private GameObject _objSearchArea;
 
-        private ILip _target;
+        private List<IDamageTarget> _targets;
+
+        private void Awake()
+        {
+            _targets = new List<IDamageTarget>();
+        }
 
         public void OnHitSearchCollider(Collider2D col)
         {
-            if (_target != null) return;
-
-            if (col.TryGetComponent(out ILip target))
+            if (col.TryGetComponent(out IDamageTarget target))
             {
                 if (!MagnetJudgement.IsAttachable(_selfMagnetixType, target.MagneticType)) return;
 
-                _target = target;
-                _objSearchArea.SetActive(false);
+                if (_targets.Contains(target)) return;
+
+                _targets.Add(target);
             }
         }
 
         private void FixedUpdate()
         {
-            if (_target == null) return;
+            if(_rb == null) return;
+            if (_targets == null) return;
+            if (_targets.Count == 0) return;
 
-            Vector2 delta = _target.LipPosition - _rb.position;
+            Vector2 pos = _rb.position;
 
-            if (_missDistance * _missDistance <= delta.sqrMagnitude)
+            IDamageTarget result = null;
+            float resultSqrDistance = float.PositiveInfinity;
+
+            foreach (var t in _targets)
             {
-                _target = null;
-                _objSearchArea.SetActive(true);
+                if (t == null) continue;
+
+                float newSqrDistance = (t.Position - pos).sqrMagnitude;
+
+                if (newSqrDistance <= resultSqrDistance)
+                {
+                    result = t;
+                    resultSqrDistance = newSqrDistance;
+                }
             }
-            else
+
+            if (result == null) return;
+
+            Vector2 dir = (result.Position - pos).normalized;
+
+            _rb.AddForce(dir * _chasePower);
+        }
+
+        private void OnDrawGizmos()
+        {
+            if (_rb == null) return;
+            if (_targets == null) return;
+            if (_targets.Count == 0) return;
+
+            Vector2 pos = _rb.position;
+
+            IDamageTarget result = null;
+            float resultSqrDistance = float.PositiveInfinity;
+
+            foreach (var t in _targets)
             {
-                _rb.AddForce(delta.normalized * _chasePower);
+                if (t == null) continue;
+
+                float newSqrDistance = (t.Position - pos).sqrMagnitude;
+
+                if (newSqrDistance <= resultSqrDistance)
+                {
+                    result = t;
+                    resultSqrDistance = newSqrDistance;
+                }
             }
+
+            if (result == null) return;
+
+            float length = 1.5f;
+            Vector2 resultPos = result.Position;
+
+            Debug.DrawLine(resultPos + new Vector2(-length, length), resultPos + new Vector2(length, -length), Color.red);
+            Debug.DrawLine(resultPos + new Vector2(length, length), resultPos + new Vector2(-length, -length), Color.red);
         }
     }
 }

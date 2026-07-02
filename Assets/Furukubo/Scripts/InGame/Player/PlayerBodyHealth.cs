@@ -12,6 +12,7 @@ namespace InGame.Player
         [Header("Parameters")]
         [SerializeField] private int _healthMax;
         [SerializeField] private float _invincibleTime;
+        [SerializeField] private MagneticType _selfMagneticType;
 
         [Header("References")]
         [SerializeField] private AudioClip _damagedAudioClip;
@@ -26,6 +27,7 @@ namespace InGame.Player
         private int _remainHealth;
         private float _remainInvincibleTime;
 
+        public MagneticType MagneticType => _selfMagneticType;
         public Vector2 Position => _rb.position;
         private bool IsInvincible => 0f < _remainInvincibleTime;
         private bool IsDead => _remainHealth <= 0;
