@@ -94,10 +94,7 @@ namespace InGame
 
             yield return new WaitForSeconds(_waitingExplodeStartTime);
 
-            GenerateExplodeEffect(deadPlayer);
-            Debug.Log($"<color=blue>{deadPlayer} Exploded!</color>");
-
-            yield return new WaitForSeconds(_waitingDeadPlayerPassiveTime);
+            yield return WaitForGenerateExplodeEffect(deadPlayer);
 
             if(_cameraShake != null) _cameraShake.SetShake(_explosionCamShakeData);
             deadPlayer.gameObject.SetActive(false);
@@ -139,13 +136,31 @@ namespace InGame
             if(v != null) yield return v.VibrateCoroutine();
         }
 
-        private void GenerateExplodeEffect(GameObject player)
+        private IEnumerator WaitForGenerateExplodeEffect(GameObject player)
         {
-            if (player == null) return;
+            if (player != null)
+            {
+                Transform tr = player.transform.Find(_bodyObjName);
 
-            Transform tr = player.transform.Find(_bodyObjName);
+                if (tr != null && _explosionEffectPrefab != null)
+                {
+                    EffectControler ef = Instantiate(_explosionEffectPrefab);
+                    ef.OnGenerated(tr.position);
 
-            if (tr != null) Instantiate(_explosionEffectPrefab).OnGenerated(tr.position);
+                    float time = 0f;
+
+                    while (time < _waitingDeadPlayerPassiveTime)
+                    {
+                        time += Time.deltaTime;
+
+                        ef.transform.position = tr.position;
+
+                        yield return null;
+                    }
+                }
+            }
+
+            Debug.Log($"<color=yellow>{player} Exploded!</color>");
         }
 
         private IEnumerator WaitForEndOfFadeOut()
