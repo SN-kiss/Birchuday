@@ -139,8 +139,8 @@ public class GOD_ControllerConnectionUI : MonoBehaviour
         bool p1 = slots[0] != null;
         bool p2 = slots[1] != null;
 
-        slot1StatusText.text = p1 ? "OK" : "Press A";
-        slot2StatusText.text = p2 ? "OK" : "Press A";
+        slot1StatusText.text = p1 ? "" : "Press A";
+        slot2StatusText.text = p2 ? "" : "Press A";
 
     }
 }
