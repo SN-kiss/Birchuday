@@ -752,6 +752,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f2f570772391ba42a4595801fce9f5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Fade
+--- !u!1001 &413100837
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 841981931604903509, guid: 37cf5ee97955c15469d0781bd95ddda7, type: 3}
+      propertyPath: m_Name
+      value: BGMSelector
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391699195217491963, guid: 37cf5ee97955c15469d0781bd95ddda7, type: 3}
+      propertyPath: _type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6558462899329538856, guid: 37cf5ee97955c15469d0781bd95ddda7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.05404
+      objectReference: {fileID: 0}
+    - target: {fileID: 6558462899329538856, guid: 37cf5ee97955c15469d0781bd95ddda7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.65403
+      objectReference: {fileID: 0}
+    - target: {fileID: 6558462899329538856, guid: 37cf5ee97955c15469d0781bd95ddda7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6558462899329538856, guid: 37cf5ee97955c15469d0781bd95ddda7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6558462899329538856, guid: 37cf5ee97955c15469d0781bd95ddda7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6558462899329538856, guid: 37cf5ee97955c15469d0781bd95ddda7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6558462899329538856, guid: 37cf5ee97955c15469d0781bd95ddda7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6558462899329538856, guid: 37cf5ee97955c15469d0781bd95ddda7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6558462899329538856, guid: 37cf5ee97955c15469d0781bd95ddda7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6558462899329538856, guid: 37cf5ee97955c15469d0781bd95ddda7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 37cf5ee97955c15469d0781bd95ddda7, type: 3}
 --- !u!1001 &415672632
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9031,7 +9092,7 @@ PrefabInstance:
       objectReference: {fileID: 1977748107}
     - target: {fileID: 2700339846389002083, guid: 9455ecc84ca25184d82b62e24f5ed5f5, type: 3}
       propertyPath: _nextSceneName
-      value: GOD_Stage01
+      value: GOD_Tittle
       objectReference: {fileID: 0}
     - target: {fileID: 4368082227994164560, guid: 9455ecc84ca25184d82b62e24f5ed5f5, type: 3}
       propertyPath: m_Name
@@ -9801,12 +9862,13 @@ SceneRoots:
   m_Roots:
   - {fileID: 906822668}
   - {fileID: 2129018342}
+  - {fileID: 413100837}
+  - {fileID: 2025591575}
   - {fileID: 1285089871}
   - {fileID: 785752518}
   - {fileID: 1610002821}
   - {fileID: 1686102019}
   - {fileID: 1428754074}
-  - {fileID: 2025591575}
   - {fileID: 518969481}
   - {fileID: 1834479915}
   - {fileID: 1714189105}

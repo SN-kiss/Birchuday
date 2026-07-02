@@ -28,6 +28,11 @@ namespace InGame.Gimmick
         [SerializeField] private BoxCollider2D _colRight;
         [SerializeField] private SpriteRenderer _srRight;
 
+        private void Awake()
+        {
+            Init();
+        }
+
         public void OnOpenUpdate()
         {
             if (1f <= _timeDoorOpen) return;
@@ -77,7 +82,7 @@ namespace InGame.Gimmick
             }
         }
 
-        private void OnValidateDoorsWhileEditor()
+        private void Init()
         {
             float curvedTime = _openCurve?.Evaluate(_timeDoorOpen) ?? 0f;
 
@@ -124,12 +129,6 @@ namespace InGame.Gimmick
 
         private void OnValidate()
         {
-#if UNITY_EDITOR
-            EditorApplication.delayCall += () =>
-            {
-                OnValidateDoorsWhileEditor();
-            };
-#endif
         }
     }
 }
