@@ -20,7 +20,7 @@ namespace InGame.Gimmick
         [SerializeField] private AudioClip _recoveryAudioClip;
         [SerializeField] private AudioSource _audioSource;
         [SerializeField] private SpringyScaleAnimation _scaleAnim;
-        [SerializeField] private EffectGenerator _recoveryEffectGenerater;
+        [SerializeField] private ParticleSystem _ps;
 
         public virtual Vector2 Position => transform.position;
         public MagneticType MagneticType => MagneticType.Both;
@@ -62,7 +62,7 @@ namespace InGame.Gimmick
                     transform.localScale = new Vector3(scale, scale, 1f);
                 }
 
-                if (_recoveryEffectGenerater != null) _recoveryEffectGenerater.GenerateEffect(transform.position);
+                if (_ps != null) _ps.Play(true);
 
                 if (_audioSource != null && _recoveryAudioClip != null) _audioSource.PlayOneShot(_recoveryAudioClip);
             }
