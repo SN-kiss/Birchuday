@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2552476817304723859}
   - component: {fileID: 414099158476337932}
   m_Layer: 0
-  m_Name: ObjPressurePlate
+  m_Name: ObjPressurePlateHeavy
   m_TagString: Wall
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -72,7 +72,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 4
+    m_Bits: 63
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -90,7 +90,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.4}
+  m_Offset: {x: 0, y: 0.38}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -100,7 +100,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.5, y: 0.25}
+  m_Size: {x: 1.25, y: 0.2}
   m_EdgeRadius: 0
 --- !u!1 &2166503063490767855
 GameObject:
@@ -111,7 +111,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1392259234772959027}
-  - component: {fileID: 7695530300083117481}
+  - component: {fileID: 2817914334402941592}
   m_Layer: 0
   m_Name: Colllider_Body
   m_TagString: Untagged
@@ -134,8 +134,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4061576219146684377}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &7695530300083117481
-BoxCollider2D:
+--- !u!60 &2817914334402941592
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -168,7 +168,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.125}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -178,8 +178,13 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.5, y: 0.25}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.72, y: 0.25}
+      - {x: -0.72, y: 0.25}
+      - {x: -0.895, y: 0}
+      - {x: 0.895, y: 0}
+  m_UseDelaunayMesh: 1
 --- !u!1 &8250233276724915159
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,7 +267,7 @@ SpriteRenderer:
   m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: 1292223162, guid: 6255b37fd99cfc9409e42b87bbdbf75a, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6333332, g: 0, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
