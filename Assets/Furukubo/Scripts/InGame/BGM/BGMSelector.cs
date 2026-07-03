@@ -9,6 +9,13 @@ public class BGMSelector : MonoBehaviour
 
     private void Start()
     {
-        if (BGMPlayer.Instance != null) BGMPlayer.Instance.SetAndPlayBGM(_type);
+        if (BGMPlayer.Instance == null)
+        {
+            Debug.LogWarning("Instance of BGMPlayer was not found!");
+        }
+        else
+        {
+            BGMPlayer.Instance.SetAndPlayBGM(_type);
+        }
     }
 }
