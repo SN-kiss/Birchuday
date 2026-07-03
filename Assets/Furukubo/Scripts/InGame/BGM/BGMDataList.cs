@@ -10,7 +10,7 @@ public class BGMDataList : ScriptableObject
 {
     [SerializeField] private List<BGMData> _list;
 
-    public BGMData[] GetBGMs() => _list?.ToArray();
+    public BGMData[] GetBGMs() => _list.ToArray();
 }
 
 [Serializable]

@@ -20,7 +20,7 @@ public class BGMPlayer : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            if(_dataList != null) Init(_dataList);
+            if(_dataList != null) Init(_dataList.GetBGMs());
         }
         else
         {
@@ -35,41 +35,30 @@ public class BGMPlayer : MonoBehaviour
 
     public void SetAndPlayBGM(BGMType type)
     {
-        if (_audioSource == null)
+        if (_audioSource == null || _dictionary == null)
         {
-            Debug.LogWarning($"Failed to Play BGM because AudioSource is null!: {type}");
-            return;
-        }
-
-        if (_dictionary == null)
-        {
-            Debug.LogWarning($"Failed to Play BGM because BGM disctionary is not already initialized!: {type}");
+            Debug.Log($"Failed to Play BGM : {type}");
             return;
         }
 
         if (_current == type)
         {
-            Debug.Log($"The same BGM is already playing: {type}");
+            Debug.Log($"You are trying to play same BGM! : {type}");
             return;
         }
 
         if (_dictionary.TryGetValue(type, out AudioClip audio))
         {
-            if (audio == null)
-            {
-                Debug.LogWarning($"Failed to Play BGM because you are trying to play BGM witch no AudioClip was set!: {type}");
-                return;
-            }
-
+            if (audio == null) return;
             _current = type;
             _audioSource.clip = audio;
             _audioSource.Play();
 
-            Debug.Log($"Completed to Play BGM! : {type}");
+            Debug.Log($"Completed to Play BGM : {type}");
         }
         else
         {
-            Debug.LogWarning($"Failed to Play BGM because you are trying to play BGM that is not contained to dictionary!: {type}");
+            Debug.Log($"Failed to Play BGM : {type}");
         }
     }
 
@@ -83,12 +72,8 @@ public class BGMPlayer : MonoBehaviour
         if (_audioSource == null) _audioSource.UnPause();
     }
 
-    private void Init(BGMDataList dataList)
+    private void Init(BGMData[] bgms)
     {
-        if (dataList == null) return;
-
-        BGMData[] bgms = dataList.GetBGMs();
-
         _dictionary = new Dictionary<BGMType, AudioClip>();
 
         foreach (BGMData bgm in bgms)
