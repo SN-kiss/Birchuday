@@ -129,11 +129,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 142359952412926854, guid: a88823f5b6b8894479e09402ad155dae, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.388158
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 142359952412926854, guid: a88823f5b6b8894479e09402ad155dae, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.88021195
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 142359952412926854, guid: a88823f5b6b8894479e09402ad155dae, type: 3}
       propertyPath: m_LocalPosition.z
@@ -171,12 +171,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: spr_blackholl
       objectReference: {fileID: 0}
+    - target: {fileID: 796453658520082279, guid: a88823f5b6b8894479e09402ad155dae, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5139551389490138372, guid: a88823f5b6b8894479e09402ad155dae, type: 3}
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5139551389490138372, guid: a88823f5b6b8894479e09402ad155dae, type: 3}
       propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5552583368818536245, guid: a88823f5b6b8894479e09402ad155dae, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -259,7 +267,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!199 &1217597197
 ParticleSystemRenderer:
   serializedVersion: 7
@@ -10245,7 +10253,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_MaskInteraction: 0
   m_Sprite: {fileID: -3535219798735450760, guid: f596931377742634284eb562b7d708aa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
