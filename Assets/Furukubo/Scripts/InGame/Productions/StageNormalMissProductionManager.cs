@@ -64,10 +64,9 @@ namespace InGame
             if (_isStageMissed) return;
             _isStageMissed = true;
 
-            if (StageEntryInfo.Instance != null)
-            {
-                StageEntryInfo.Instance.SetEntryState(StageEntryState.Miss);
-            }
+            if (StageEntryInfo.Instance != null) StageEntryInfo.Instance.SetEntryState(StageEntryState.Miss);
+
+            if (GameSceneDebugger.Instance != null) GameSceneDebugger.Instance.AddMissCount();
 
             StartCoroutine(PlayerMissCoroutine(_playerNorth, _playerSouth));
         }
@@ -77,10 +76,9 @@ namespace InGame
             if (_isStageMissed) return;
             _isStageMissed = true;
 
-            if (StageEntryInfo.Instance != null)
-            {
-                StageEntryInfo.Instance.SetEntryState(StageEntryState.Miss);
-            }
+            if (StageEntryInfo.Instance != null) StageEntryInfo.Instance.SetEntryState(StageEntryState.Miss);
+
+            if (GameSceneDebugger.Instance != null) GameSceneDebugger.Instance.AddMissCount();
 
             StartCoroutine(PlayerMissCoroutine(_playerSouth, _playerNorth));
         }

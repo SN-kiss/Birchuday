@@ -22,10 +22,9 @@ namespace InGame
             if (_isStageCleared) return;
             _isStageCleared = true;
 
-            if (StageEntryInfo.Instance != null)
-            {
-                StageEntryInfo.Instance.SetEntryState(StageEntryState.First);
-            }
+            if (StageEntryInfo.Instance != null) StageEntryInfo.Instance.SetEntryState(StageEntryState.First);
+
+            if (GameSceneDebugger.Instance != null) GameSceneDebugger.Instance.AddClearCount();
 
             PlayerStageClear(GameObject.FindGameObjectWithTag(_playerNorthTag));
             PlayerStageClear(GameObject.FindGameObjectWithTag(_playerSouthTag));
