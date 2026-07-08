@@ -68,11 +68,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90a0ae0d35d00a34da5cb9c31051e94c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Enemy.EnemyMoveChase
-  _missDistance: 10
   _chasePower: 4
   _selfMagnetixType: 1
   _rb: {fileID: 6182139779195821986}
-  _objSearchArea: {fileID: 8376500306190248895}
 --- !u!50 &6182139779195821986
 Rigidbody2D:
   serializedVersion: 5
@@ -328,9 +326,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingLayerID: 1568613461
+  m_SortingLayer: 3
+  m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 1207568879, guid: 7ec8f586189e9164e85d02d7970f763a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
