@@ -75,16 +75,9 @@ namespace InGame
             if (_isMiss) return;
             _isMiss = true;
 
+            if (GameSceneDebugger.Instance != null) GameSceneDebugger.Instance.AddMissCount();
+
             StartCoroutine(MissCoroutine());
-
-            IEnumerator MissCoroutine()
-            {
-                yield return new WaitForSeconds(_waitTimeToStartFadeOut);
-
-                yield return WaitForEndOfFadeOut();
-
-                ReloadCurrentScene();
-            }
         }
 
         private void PlayerSouthBlackHoleDead(Vector2 blackholePos)
@@ -110,16 +103,18 @@ namespace InGame
             if (_isMiss) return;
             _isMiss = true;
 
+            if (GameSceneDebugger.Instance != null) GameSceneDebugger.Instance.AddMissCount();
+
             StartCoroutine(MissCoroutine());
+        }
 
-            IEnumerator MissCoroutine()
-            {
-                yield return new WaitForSeconds(_waitTimeToStartFadeOut);
+        private IEnumerator MissCoroutine()
+        {
+            yield return new WaitForSeconds(_waitTimeToStartFadeOut);
 
-                yield return WaitForEndOfFadeOut();
+            yield return WaitForEndOfFadeOut();
 
-                ReloadCurrentScene();
-            }
+            ReloadCurrentScene();
         }
 
         private void PlayerStageMiss(GameObject player)
