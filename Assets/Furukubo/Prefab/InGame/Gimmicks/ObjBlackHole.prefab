@@ -318,6 +318,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: spr_blackholl
       objectReference: {fileID: 0}
+    - target: {fileID: 1307608829113822977, guid: a88823f5b6b8894479e09402ad155dae, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

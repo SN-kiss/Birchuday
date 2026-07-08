@@ -5294,7 +5294,6 @@ MonoBehaviour:
   - {fileID: 2361690925190956089}
   - {fileID: 8893691851360343224}
   - {fileID: 7258202431576574960}
-  _dammy: {fileID: 5474132957568414665, guid: 8b1d1600523ec8341801957979b97469, type: 3}
 --- !u!50 &4866489351488611125
 Rigidbody2D:
   serializedVersion: 5
@@ -5366,9 +5365,9 @@ SortingGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3765046351041452336}
   m_Enabled: 1
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingLayerID: 1568613461
+  m_SortingLayer: 3
+  m_SortingOrder: 0
   m_SortAtRoot: 0
   m_Sort3DAs2D: 0
 --- !u!1 &6271733617038559570
