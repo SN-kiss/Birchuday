@@ -247,6 +247,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4969533702633015830}
+  - component: {fileID: -318701674198322068}
   m_Layer: 0
   m_Name: ObjEnemyMoveRailedBoth
   m_TagString: Untagged
@@ -271,6 +272,19 @@ Transform:
   - {fileID: 6142518580525322630}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!210 &-318701674198322068
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4027220331526260156}
+  m_Enabled: 1
+  m_SortingLayerID: 1568613461
+  m_SortingLayer: 3
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!1 &5692462324176136667
 GameObject:
   m_ObjectHideFlags: 0

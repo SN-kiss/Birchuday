@@ -4869,7 +4869,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -1168547259
-  m_SortingLayer: 3
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_RenderMode: 1
@@ -9772,7 +9772,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -1168547259
-  m_SortingLayer: 3
+  m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
   m_RenderMode: 0
@@ -9815,6 +9815,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2733681191353661306}
+  - component: {fileID: -6169944418314643609}
   - component: {fileID: 7588610745361715725}
   - component: {fileID: 2102853344260413377}
   m_Layer: 0
@@ -9841,6 +9842,19 @@ Transform:
   - {fileID: 1155987615481319126}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!210 &-6169944418314643609
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8806811013308307348}
+  m_Enabled: 1
+  m_SortingLayerID: 1772672441
+  m_SortingLayer: 4
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!198 &7588610745361715725
 ParticleSystem:
   m_ObjectHideFlags: 0
