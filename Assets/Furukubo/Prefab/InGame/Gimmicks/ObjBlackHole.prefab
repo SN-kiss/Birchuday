@@ -112,7 +112,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4374292849417448577}
   - component: {fileID: 4535673720278144005}
-  - component: {fileID: 3030170081498351750}
   m_Layer: 0
   m_Name: ObjBlackHole
   m_TagString: Untagged
@@ -151,19 +150,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Gimmick.BlackHole
   _inhalePowerBase: 300
---- !u!210 &3030170081498351750
-SortingGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5601152431033845089}
-  m_Enabled: 1
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_SortAtRoot: 0
-  m_Sort3DAs2D: 0
 --- !u!1 &8993653388949549225
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5720461350542809569}
+  - component: {fileID: 4726697293547903091}
   - component: {fileID: 2852316292112223487}
   - component: {fileID: 7248502374987656291}
   - component: {fileID: 8258410108067951077}
@@ -35,6 +36,19 @@ Transform:
   - {fileID: 4319390263170399629}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!210 &4726697293547903091
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5888764587839892997}
+  m_Enabled: 1
+  m_SortingLayerID: -109357019
+  m_SortingLayer: 1
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!212 &2852316292112223487
 SpriteRenderer:
   serializedVersion: 2
@@ -81,7 +95,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -651811991
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -4084759217471455398, guid: 6771a64f07d548941aee3e3a1bc3c931, type: 3}
@@ -9699,7 +9713,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -1168547259
-  m_SortingLayer: 3
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_RenderMode: 1

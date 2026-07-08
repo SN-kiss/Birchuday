@@ -69,8 +69,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Enemy.EnemyMoveChase
   _chasePower: 4
+  _rotateSpeed: 0
   _selfMagnetixType: 1
   _rb: {fileID: 6182139779195821986}
+  _trTex: {fileID: 2630069644512652793}
 --- !u!50 &6182139779195821986
 Rigidbody2D:
   serializedVersion: 5
@@ -142,8 +144,8 @@ SortingGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2297067286631052604}
   m_Enabled: 1
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1568613461
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_SortAtRoot: 0
   m_Sort3DAs2D: 0

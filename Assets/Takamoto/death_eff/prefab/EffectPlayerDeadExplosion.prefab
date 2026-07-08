@@ -19631,6 +19631,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7188334224673922434}
   - component: {fileID: 6040070245916911295}
+  - component: {fileID: 4289451855261736181}
   - component: {fileID: 7040705686017079584}
   - component: {fileID: 6057525187150537949}
   m_Layer: 0
@@ -19676,6 +19677,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65f2e5dfdb56ee74182fc566adbd502f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Effect.EffectControler
+--- !u!210 &4289451855261736181
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902176806372221958}
+  m_Enabled: 1
+  m_SortingLayerID: 1772672441
+  m_SortingLayer: 4
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!198 &7040705686017079584
 ParticleSystem:
   m_ObjectHideFlags: 0

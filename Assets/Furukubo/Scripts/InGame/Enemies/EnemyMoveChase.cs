@@ -10,16 +10,20 @@ namespace InGame.Enemy
     {
         [Header("Parameters")]
         [SerializeField] private float _chasePower;
+        [SerializeField] private float _rotateSpeed;
         [SerializeField] private MagneticType _selfMagnetixType;
 
         [Header("References")]
         [SerializeField] private Rigidbody2D _rb;
+        [SerializeField] private Transform _trTex;
 
         private List<IDamageTarget> _targets;
+        private float _sign;
 
         private void Awake()
         {
             _targets = new List<IDamageTarget>();
+            _sign = Random.value < 0.5f ? -1f : 1f;
         }
 
         public void OnHitSearchCollider(Collider2D col)
@@ -32,6 +36,14 @@ namespace InGame.Enemy
 
                 _targets.Add(target);
             }
+        }
+
+        private void Update()
+        {
+            float angle = _trTex.localEulerAngles.z;
+            float delta = _rb.linearVelocity.magnitude * _rotateSpeed * Time.deltaTime;
+            float newAngle = angle + delta * _sign;
+            _trTex.localEulerAngles = new Vector3(0f, 0f, newAngle);
         }
 
         private void FixedUpdate()

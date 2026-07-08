@@ -12,6 +12,7 @@ namespace InGame.Gimmick
         [SerializeField] private SpriteRenderer _sr;
         [SerializeField] private Sprite _sprOn;
         [SerializeField] private Sprite _sprOff;
+        [SerializeField] private UnityEvent _onPressed;
         [SerializeField] private UnityEvent _onPressing;
         [SerializeField] private UnityEvent _onReleasing;
 
@@ -36,7 +37,11 @@ namespace InGame.Gimmick
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
+            if (_isPressing) return;
+
             _isPressing = true;
+
+            _onPressed?.Invoke();
         }
 
         private void OnTriggerStay2D(Collider2D collision)
