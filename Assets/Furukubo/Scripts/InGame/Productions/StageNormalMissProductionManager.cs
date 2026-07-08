@@ -20,6 +20,8 @@ namespace InGame
         [SerializeField] private float _waitingRemainPlayerPassiveTime;
         [SerializeField] private float _waitingFadeStartTime;
         [SerializeField] private EffectControler _explosionEffectPrefab;
+        [SerializeField] private AudioSource _explosionAudioSource;
+        [SerializeField] private AudioClip _explosionAudioClip;
         [SerializeField] private CameraShakeData _explosionCamShakeData;
         [SerializeField] private CameraShake _cameraShake;
         [SerializeField] private Fade _fade;
@@ -142,8 +144,8 @@ namespace InGame
 
                 if (tr != null && _explosionEffectPrefab != null)
                 {
-                    EffectControler ef = Instantiate(_explosionEffectPrefab);
-                    ef.OnGenerated(tr.position);
+                    EffectControler effect = Instantiate(_explosionEffectPrefab);
+                    effect.OnGenerated(tr.position);
 
                     float time = 0f;
 
@@ -151,9 +153,14 @@ namespace InGame
                     {
                         time += Time.deltaTime;
 
-                        ef.transform.position = tr.position;
+                        effect.transform.position = tr.position;
 
                         yield return null;
+                    }
+
+                    if (_explosionAudioSource != null && _explosionAudioClip != null)
+                    {
+                        _explosionAudioSource.PlayOneShot(_explosionAudioClip);
                     }
                 }
             }
