@@ -44,7 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3bbc07a428d96a4b991dfaa8dc68395, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  _fadeStartWaitTime: 7
   _playerNorthTag: PlayerNorth
   _playerSouthTag: PlayerSouth
-  _nextSceneName: 
+  _nextSceneName: GOD_Title
   _fade: {fileID: 0}

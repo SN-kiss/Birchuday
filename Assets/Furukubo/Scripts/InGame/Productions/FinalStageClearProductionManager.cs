@@ -10,6 +10,7 @@ namespace InGame
     /// </summary>
     public class FinalStageClearProductionManager : MonoBehaviour
     {
+        [SerializeField] private float _fadeStartWaitTime;
         [SerializeField] private string _playerNorthTag;
         [SerializeField] private string _playerSouthTag;
         [SerializeField] private string _nextSceneName;
@@ -33,6 +34,8 @@ namespace InGame
             
             IEnumerator ClearStageCoroutine()
             {
+                yield return new WaitForSeconds(_fadeStartWaitTime);
+
                 yield return WaitForEndOfFadeOut();
 
                 Debug.Log("<color=yellow>Stage Clear!</color>");

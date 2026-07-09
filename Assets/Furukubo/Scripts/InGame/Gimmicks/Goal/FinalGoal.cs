@@ -9,7 +9,7 @@ namespace InGame.Gimmick
     public class FinalGoal : MonoBehaviour
     {
         [SerializeField] private UnityEvent _onGoal;
-        [SerializeField] private Animator _anim;
+        [SerializeField] private ParticleSystem _ps;
 
         private bool _isGoaled;
 
@@ -21,8 +21,7 @@ namespace InGame.Gimmick
 
             Debug.Log("Goaled!!!");
 
-            _anim.gameObject.SetActive(true);
-            _anim.Play("Start");
+            _ps.Play(true);
 
             _onGoal?.Invoke();
         }
