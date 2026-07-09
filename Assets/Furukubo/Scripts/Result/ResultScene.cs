@@ -1,0 +1,34 @@
+using System.Collections;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.Video;
+
+public class ResultScene : MonoBehaviour
+{
+    [SerializeField] private string _nextSceneName;
+    [SerializeField] private VideoPlayer _videoPlayer;
+
+    private void Start()
+    {
+        StartCoroutine(VideoPlayCoroutine());
+    }
+
+    private IEnumerator VideoPlayCoroutine()
+    {
+        if(_videoPlayer == null) yield break;
+
+        yield return null;
+
+        _videoPlayer.Prepare();
+        
+        yield return new WaitUntil(() => _videoPlayer.isPrepared);
+
+        yield return null;
+
+        _videoPlayer.Play();
+
+        yield return new WaitUntil(() => !_videoPlayer.isPlaying);
+
+        SceneManager.LoadScene(_nextSceneName);
+    }
+}
