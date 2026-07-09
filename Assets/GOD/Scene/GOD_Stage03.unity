@@ -9090,10 +9090,6 @@ PrefabInstance:
       propertyPath: _fade
       value: 
       objectReference: {fileID: 1977748107}
-    - target: {fileID: 2700339846389002083, guid: 9455ecc84ca25184d82b62e24f5ed5f5, type: 3}
-      propertyPath: _nextSceneName
-      value: GOD_Tittle
-      objectReference: {fileID: 0}
     - target: {fileID: 4368082227994164560, guid: 9455ecc84ca25184d82b62e24f5ed5f5, type: 3}
       propertyPath: m_Name
       value: FinalStageClearProductionManager
