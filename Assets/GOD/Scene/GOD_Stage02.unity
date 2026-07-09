@@ -201,7 +201,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2552476817304723859, guid: 515c0436492482940935dd477235e01c, type: 3}
       propertyPath: _onReleasing.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: OnOpenUpdate
+      value: OnCloseUpdate
       objectReference: {fileID: 0}
     - target: {fileID: 2552476817304723859, guid: 515c0436492482940935dd477235e01c, type: 3}
       propertyPath: _onPressing.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
