@@ -587,6 +587,10 @@ PrefabInstance:
       value: ObjEnemyMoveChaseBoth (3)
       objectReference: {fileID: 0}
     - target: {fileID: 2316492099743163923, guid: 8b24df6469aa494408e94d94ea4e54c4, type: 3}
+      propertyPath: _chasePower
+      value: 5.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2316492099743163923, guid: 8b24df6469aa494408e94d94ea4e54c4, type: 3}
       propertyPath: _missDistance
       value: 20
       objectReference: {fileID: 0}
@@ -939,6 +943,10 @@ PrefabInstance:
       value: ObjEnemyMoveChaseBoth (1)
       objectReference: {fileID: 0}
     - target: {fileID: 2316492099743163923, guid: 8b24df6469aa494408e94d94ea4e54c4, type: 3}
+      propertyPath: _chasePower
+      value: 5.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2316492099743163923, guid: 8b24df6469aa494408e94d94ea4e54c4, type: 3}
       propertyPath: _missDistance
       value: 20
       objectReference: {fileID: 0}
@@ -1002,6 +1010,10 @@ PrefabInstance:
     - target: {fileID: 2297067286631052604, guid: 8b24df6469aa494408e94d94ea4e54c4, type: 3}
       propertyPath: m_Name
       value: ObjEnemyMoveChaseBoth (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2316492099743163923, guid: 8b24df6469aa494408e94d94ea4e54c4, type: 3}
+      propertyPath: _chasePower
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 2316492099743163923, guid: 8b24df6469aa494408e94d94ea4e54c4, type: 3}
       propertyPath: _missDistance
@@ -8817,6 +8829,10 @@ PrefabInstance:
     - target: {fileID: 2297067286631052604, guid: 8b24df6469aa494408e94d94ea4e54c4, type: 3}
       propertyPath: m_Name
       value: ObjEnemyMoveChaseBoth
+      objectReference: {fileID: 0}
+    - target: {fileID: 2316492099743163923, guid: 8b24df6469aa494408e94d94ea4e54c4, type: 3}
+      propertyPath: _chasePower
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 2316492099743163923, guid: 8b24df6469aa494408e94d94ea4e54c4, type: 3}
       propertyPath: _missDistance
