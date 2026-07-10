@@ -100,7 +100,7 @@ MonoBehaviour:
         m_MethodName: PlayOneShot
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: ffed0989912fd3c4eae22a28cb4eb12c, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: 3fbf612eec2b9bb40bae45e4bd689c69, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -134,7 +134,7 @@ MonoBehaviour:
   _healthMax: 3
   _invincibleTime: 1
   _selfMagneticType: 2
-  _damagedAudioClip: {fileID: 8300000, guid: ffed0989912fd3c4eae22a28cb4eb12c, type: 3}
+  _damagedAudioClip: {fileID: 8300000, guid: 43634e69f42d2254bb34348b70abc4c3, type: 3}
   _audioSource: {fileID: 4453171696946694562}
   _rb: {fileID: 7552898071879817585}
   _bodyMove: {fileID: 2094306004515770775}
