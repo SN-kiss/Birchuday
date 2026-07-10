@@ -6,6 +6,7 @@ using UnityEngine.Video;
 public class ResultScene : MonoBehaviour
 {
     [SerializeField] private string _nextSceneName;
+    [SerializeField] private GameObject _objWhite;
     [SerializeField] private VideoPlayer _videoPlayer;
 
     private void Start()
@@ -23,9 +24,11 @@ public class ResultScene : MonoBehaviour
         
         yield return new WaitUntil(() => _videoPlayer.isPrepared);
 
-        yield return null;
-
         _videoPlayer.Play();
+
+        yield return new WaitUntil(() => _videoPlayer.isPlaying);
+
+        _objWhite.SetActive(false);
 
         yield return new WaitUntil(() => !_videoPlayer.isPlaying);
 
