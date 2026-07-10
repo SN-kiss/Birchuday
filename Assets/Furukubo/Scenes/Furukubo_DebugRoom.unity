@@ -3686,7 +3686,7 @@ PrefabInstance:
       objectReference: {fileID: 1669455992}
     - target: {fileID: 2700339846389002083, guid: 9455ecc84ca25184d82b62e24f5ed5f5, type: 3}
       propertyPath: _nextSceneName
-      value: Furukubo_DebugRoom
+      value: Furukubo_Result
       objectReference: {fileID: 0}
     - target: {fileID: 4368082227994164560, guid: 9455ecc84ca25184d82b62e24f5ed5f5, type: 3}
       propertyPath: m_Name
