@@ -66,7 +66,7 @@ namespace InGame
             if (_isStageMissed) return;
             _isStageMissed = true;
 
-            if (StageEntryInfo.Instance != null) StageEntryInfo.Instance.SetEntryState(StageEntryState.Miss);
+            if (StageEntryInfo.Instance != null) StageEntryInfo.Instance.SetEntryState(StageEntryState.Retry);
 
             if (GameSceneDebugger.Instance != null) GameSceneDebugger.Instance.AddMissCount();
 
@@ -78,7 +78,7 @@ namespace InGame
             if (_isStageMissed) return;
             _isStageMissed = true;
 
-            if (StageEntryInfo.Instance != null) StageEntryInfo.Instance.SetEntryState(StageEntryState.Miss);
+            if (StageEntryInfo.Instance != null) StageEntryInfo.Instance.SetEntryState(StageEntryState.Retry);
 
             if (GameSceneDebugger.Instance != null) GameSceneDebugger.Instance.AddMissCount();
 

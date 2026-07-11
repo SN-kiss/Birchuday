@@ -1382,6 +1382,8 @@ MonoBehaviour:
   _move: {fileID: 2094306004515770775}
   _ps: {fileID: 9153919523023569822}
   _lr: {fileID: 2255970650008981745}
+  _audioSource: {fileID: 4453171696946694562}
+  _respawnClip: {fileID: 8300000, guid: ffed0989912fd3c4eae22a28cb4eb12c, type: 3}
   _srs:
   - {fileID: 5328167503501202440}
   - {fileID: 4844234110461687697}

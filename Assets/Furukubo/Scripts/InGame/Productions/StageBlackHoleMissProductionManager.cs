@@ -56,7 +56,7 @@ namespace InGame
         {
             if (StageEntryInfo.Instance != null)
             {
-                StageEntryInfo.Instance.SetEntryState(StageEntryState.Miss);
+                StageEntryInfo.Instance.SetEntryState(StageEntryState.Retry);
             }
 
             PlayerStageMiss(_playerNorth);
@@ -84,7 +84,7 @@ namespace InGame
         {
             if (StageEntryInfo.Instance != null)
             {
-                StageEntryInfo.Instance.SetEntryState(StageEntryState.Miss);
+                StageEntryInfo.Instance.SetEntryState(StageEntryState.Retry);
             }
 
             PlayerStageMiss(_playerNorth);

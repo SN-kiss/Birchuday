@@ -38,5 +38,5 @@ public enum StageEntryState
 {
     First,
     Clear,
-    Miss
+    Retry
 }
