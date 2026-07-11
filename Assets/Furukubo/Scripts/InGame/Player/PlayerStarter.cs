@@ -12,6 +12,8 @@ namespace InGame.Player
         [SerializeField] private PlayerBodyMove _move;
         [SerializeField] private ParticleSystem _ps;
         [SerializeField] private LineRenderer _lr;
+        [SerializeField] private AudioSource _audioSource;
+        [SerializeField] private AudioClip _respawnClip;
         [SerializeField] private SpriteRenderer[] _srs;
 
         private void Awake()
@@ -35,9 +37,9 @@ namespace InGame.Player
                         ClearStart();
                         break;
 
-                    case StageEntryState.Miss:
+                    case StageEntryState.Retry:
                         Debug.Log("<color=yellow>Retry</color>");
-                        MissStart();
+                        RetryStart();
                         break;
                 }
             }
@@ -58,15 +60,17 @@ namespace InGame.Player
             ActiveAll(true);
         }
 
-        private void MissStart()
+        private void RetryStart()
         {
-            if (_ps != null) _ps.Play(true);
-
             StartCoroutine(RetryStartCoroutine());
 
             IEnumerator RetryStartCoroutine()
             {
+                if (_ps != null) _ps.Play(true);
+
                 yield return new WaitForSeconds(_waitTime);
+
+                if (_audioSource != null && _respawnClip != null) _audioSource.PlayOneShot(_respawnClip);
 
                 ActiveAll(true);
             }
