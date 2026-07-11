@@ -12,11 +12,15 @@ namespace InGame.Gimmick
         [Header("Parameters")]
         [SerializeField] private int _attachedCountNeedToMoveMin;
 
+        [Header("References")]
+        [SerializeField] private GameObject _objLampRed;
+        [SerializeField] private GameObject _objLampBlue;
+
         private bool IsMovable => _attachedCountNeedToMoveMin <= _attachedCount;
 
         private int _attachedCount;
 
-        public override void OnAttached(ILip attacher)
+        public override void OnAttached(ILip lip)
         {
             _attachedCount = Mathf.Clamp(_attachedCount + 1, 0, _attachedCountNeedToMoveMin);
 
@@ -24,6 +28,17 @@ namespace InGame.Gimmick
                 _attachedCountNeedToMoveMin <= _attachedCount
                 ? RigidbodyType2D.Dynamic
                 : RigidbodyType2D.Kinematic;
+
+            if (lip.MagneticType == MagneticType.North)
+            {
+                if (_objLampRed == null) return;
+                _objLampRed.SetActive(true);
+            }
+            else if (lip.MagneticType == MagneticType.South)
+            {
+                if (_objLampBlue == null) return;
+                _objLampBlue.SetActive(true);
+            }
         }
 
         public override void OnDetached(ILip lip)
@@ -37,6 +52,17 @@ namespace InGame.Gimmick
                 _attachedCountNeedToMoveMin <= _attachedCount 
                 ? RigidbodyType2D.Dynamic 
                 : RigidbodyType2D.Kinematic;
+
+            if(lip.MagneticType == MagneticType.North)
+            {
+                if (_objLampRed == null) return;
+                _objLampRed.SetActive(false);
+            }
+            else if(lip.MagneticType == MagneticType.South)
+            {
+                if (_objLampBlue == null) return;
+                _objLampBlue.SetActive(false);
+            }
         }
 
         public override void AddForce(Vector2 force)
