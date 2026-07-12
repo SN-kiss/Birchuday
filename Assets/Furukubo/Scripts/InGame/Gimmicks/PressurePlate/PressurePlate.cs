@@ -27,12 +27,10 @@ namespace InGame.Gimmick
         {
             if (_isPressing)
             {
-                Debug.Log("Pressingggggggggggggggggggggggggggggggggg");
                 _onPressing?.Invoke();
             }
             else
             {
-                Debug.Log("Releasinggggggggggggggggggggggggggggggggg");
                 _onReleasing?.Invoke();
             }
         }

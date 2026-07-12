@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 4751885898393672741}
   - component: {fileID: 7920196932021533494}
   - component: {fileID: 5025743071273418443}
+  - component: {fileID: 1140261264957757350}
   - component: {fileID: 1951988637841431446}
   - component: {fileID: 2717984402589636751}
   - component: {fileID: 5226923501324766743}
@@ -139,6 +140,7 @@ MonoBehaviour:
   _rb: {fileID: 1951988637841431446}
   _bodyMove: {fileID: 4751885898393672741}
   _lip: {fileID: 373577956428877147}
+  _damagedEffect: {fileID: 1140261264957757350}
   _spriteChange: {fileID: 1047346530120764059}
 --- !u!114 &5025743071273418443
 MonoBehaviour:
@@ -155,6 +157,19 @@ MonoBehaviour:
   _selfMagneticType: 1
   _rb: {fileID: 1951988637841431446}
   _col: {fileID: 2717984402589636751}
+--- !u!114 &1140261264957757350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2779530561194208092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17f46122a90674f46ac4630c6f75fea6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InGame.Effect.EffectGenerator
+  _prefab: {fileID: 7283597939057811325, guid: 2e6199e492131804a9d68cef8ec7f252, type: 3}
 --- !u!50 &1951988637841431446
 Rigidbody2D:
   serializedVersion: 5

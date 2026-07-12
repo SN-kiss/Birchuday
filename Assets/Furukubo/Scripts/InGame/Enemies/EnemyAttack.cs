@@ -27,7 +27,7 @@ namespace InGame.Enemy
             {
                 Vector2 pos = Position;
                 Vector2 nockback = (target.Position - pos).normalized * _nockbackPower;
-                target.OnDamaged(_damageAmount, nockback);
+                target.OnDamaged(_damageAmount, nockback, col.ClosestPoint(Position));
             }
         }
 

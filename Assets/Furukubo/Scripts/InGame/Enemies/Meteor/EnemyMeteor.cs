@@ -31,15 +31,15 @@ namespace InGame.Enemy
             _trTexture.localEulerAngles += new Vector3(0f, 0f, deltaRot);
         }
 
-        private void OnTriggerEnter2D(Collider2D collision)
+        private void OnTriggerEnter2D(Collider2D col)
         {
-            if (collision.TryGetComponent(out IDamageTarget target))
+            if (col.TryGetComponent(out IDamageTarget target))
             {
-                target.OnDamaged(_damageAmount, _rb.linearVelocity);//dammy
+                target.OnDamaged(_damageAmount, _rb.linearVelocity, col.ClosestPoint(Position));//dammy
                 target.OnDetach();
                 Explode();
             }
-            else if(collision.gameObject.tag == _wallTag)
+            else if(col.gameObject.tag == _wallTag)
             {
                 Explode();
             }

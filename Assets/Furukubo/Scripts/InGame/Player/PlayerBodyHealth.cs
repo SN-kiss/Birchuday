@@ -1,3 +1,4 @@
+using InGame.Effect;
 using System;
 using UnityEngine;
 using UnityEngine.Events;
@@ -20,6 +21,7 @@ namespace InGame.Player
         [SerializeField] private Rigidbody2D _rb;
         [SerializeField] private PlayerBodyMove _bodyMove;
         [SerializeField] private PlayerLip _lip;
+        [SerializeField] private EffectGenerator _damagedEffect;
         [SerializeField] private PlayerSpriteChange _spriteChange;
         
         public event Action OnDead;
@@ -57,7 +59,7 @@ namespace InGame.Player
 
         public void OnDetach() => _lip.OnDetach();
 
-        public void OnDamaged(int damageAmount, Vector2 knockback)
+        public void OnDamaged(int damageAmount, Vector2 knockback, Vector2 hitPos)
         {
             if (_ignoreDamage) return;
 
@@ -80,6 +82,7 @@ namespace InGame.Player
             }
 
             PlayDamagedAudio();
+            GenerateDamagedEffect(hitPos);
         }
 
         private void AddHealthAmount(int add)
@@ -90,7 +93,17 @@ namespace InGame.Player
             InvokeOnHealthAmountChanged();
         }
 
-        private void PlayDamagedAudio() => _audioSource.PlayOneShot(_damagedAudioClip);
+        private void PlayDamagedAudio()
+        {
+            if(_audioSource == null || _damagedAudioClip == null) return;
+            _audioSource.PlayOneShot(_damagedAudioClip);
+        }
+
+        private void GenerateDamagedEffect(Vector2 pos)
+        {
+            if( _damagedEffect == null) return;
+            _damagedEffect.GenerateEffect(pos);
+        }
 
         public void SetIgnoreDamage(bool value) => _ignoreDamage = value;
 

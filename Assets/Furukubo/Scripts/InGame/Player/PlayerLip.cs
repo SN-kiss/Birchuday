@@ -112,8 +112,10 @@ namespace InGame.Player
 
         public void OnDamaged(int damageAmount, float nockbackPower, DamageType type)
         {
-            //Write changing texture code here.
-            _bodyHealth.OnDamaged(damageAmount, (_bodyMove.Position - LipPosition).normalized * nockbackPower);
+            _bodyHealth.OnDamaged(
+                damageAmount,
+                (_bodyMove.Position - LipPosition).normalized * nockbackPower,
+                LipPosition);
         }
 
         public bool TryRecover(int recoverAmount)
