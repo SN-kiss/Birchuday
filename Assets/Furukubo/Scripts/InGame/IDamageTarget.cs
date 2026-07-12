@@ -9,7 +9,7 @@ namespace InGame
     {
         MagneticType MagneticType { get; }
         Vector2 Position { get; }
-        void OnDamaged(int damage, Vector2 nockback);
+        void OnDamaged(int damage, Vector2 nockback, Vector2 hitPos);
         void OnDetach();
     }
 }
