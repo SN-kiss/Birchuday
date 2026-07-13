@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17f46122a90674f46ac4630c6f75fea6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Effect.EffectGenerator
-  _prefab: {fileID: 7283597939057811325, guid: 2e6199e492131804a9d68cef8ec7f252, type: 3}
+  _prefab: {fileID: 4716149784345195080, guid: fd449f1bb9b7d4f4eb0a92f1fb98f739, type: 3}
 --- !u!50 &7552898071879817585
 Rigidbody2D:
   serializedVersion: 5
