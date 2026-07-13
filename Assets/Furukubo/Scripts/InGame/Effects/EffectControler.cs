@@ -46,6 +46,13 @@ namespace InGame.Effect
         {
             transform.position = pos;
             _disposed = false;
+
+            if (_pss == null) return;
+
+            foreach (ParticleSystem ps in _pss)
+            {
+                if (ps != null) ps.Play();
+            }
         }
     }
 }

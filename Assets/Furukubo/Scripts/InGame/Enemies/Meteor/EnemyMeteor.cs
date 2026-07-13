@@ -14,7 +14,7 @@ namespace InGame.Enemy
         [SerializeField] private float _rotateSpeed;
         [SerializeField] private Rigidbody2D _rb;
         [SerializeField] private Transform _trTexture;
-        [SerializeField] private TrailRenderer[] _trails;
+        [SerializeField] private TrailRenderer _trail;
 
         public event Action<EnemyMeteor> OnReleaseToPool;
         public event Action<Vector2> OnGenerateExplosionEffect;
@@ -59,12 +59,7 @@ namespace InGame.Enemy
                 _rb.AddForce(initForce, ForceMode2D.Impulse);
             }
 
-            if (_trails == null) return;
-            foreach (var trail in _trails)
-            {
-                if(trail == null) continue;
-                trail.Clear();
-            }
+            if (_trail != null) _trail.Clear();
         }
 
         private void Explode()

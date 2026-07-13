@@ -9,60 +9,51 @@ namespace InGame.Gimmick
     public class LipAttachTargetHeavy : LipAttachTargetNormal
     {
         [Header("LipAttachTargetHeavy----------------")]
-        [Header("Parameters")]
-        [SerializeField] private int _attachedCountNeedToMoveMin;
 
         [Header("References")]
-        [SerializeField] private GameObject _objLampRed;
-        [SerializeField] private GameObject _objLampBlue;
+        [SerializeField] private SpriteRenderer _sr;
+        [SerializeField] private Sprite _sprNone;
+        [SerializeField] private Sprite _sprNorth;
+        [SerializeField] private Sprite _sprSouth;
+        [SerializeField] private Sprite _sprBoth;
 
-        private bool IsMovable => _attachedCountNeedToMoveMin <= _attachedCount;
+        private bool IsMovable => _northAttaching && _southAttaching;
 
-        private int _attachedCount;
+        private bool _northAttaching;
+        private bool _southAttaching;
 
         public override void OnAttached(ILip lip)
         {
-            _attachedCount = Mathf.Clamp(_attachedCount + 1, 0, _attachedCountNeedToMoveMin);
-
-            Rb.bodyType =
-                _attachedCountNeedToMoveMin <= _attachedCount
-                ? RigidbodyType2D.Dynamic
-                : RigidbodyType2D.Kinematic;
-
             if (lip.MagneticType == MagneticType.North)
             {
-                if (_objLampRed == null) return;
-                _objLampRed.SetActive(true);
+                _northAttaching = true;
             }
             else if (lip.MagneticType == MagneticType.South)
             {
-                if (_objLampBlue == null) return;
-                _objLampBlue.SetActive(true);
+                _southAttaching = true;
             }
+
+            Rb.bodyType = IsMovable ? RigidbodyType2D.Dynamic : RigidbodyType2D.Kinematic;
+            if(!IsMovable) Rb.linearVelocity = Vector2.zero;
+
+            ChangeSprite();
         }
 
         public override void OnDetached(ILip lip)
         {
-            _attachedCount = Mathf.Clamp(_attachedCount - 1, 0, _attachedCountNeedToMoveMin);
-
-            Rb.linearVelocity = Vector2.zero;
-            Rb.angularVelocity = 0f;
-
-            Rb.bodyType = 
-                _attachedCountNeedToMoveMin <= _attachedCount 
-                ? RigidbodyType2D.Dynamic 
-                : RigidbodyType2D.Kinematic;
-
-            if(lip.MagneticType == MagneticType.North)
+            if (lip.MagneticType == MagneticType.North)
             {
-                if (_objLampRed == null) return;
-                _objLampRed.SetActive(false);
+                _northAttaching = false;
             }
-            else if(lip.MagneticType == MagneticType.South)
+            else if (lip.MagneticType == MagneticType.South)
             {
-                if (_objLampBlue == null) return;
-                _objLampBlue.SetActive(false);
+                _southAttaching = false;
             }
+
+            Rb.bodyType = IsMovable ? RigidbodyType2D.Dynamic : RigidbodyType2D.Kinematic;
+            if (!IsMovable) Rb.linearVelocity = Vector2.zero;
+
+            ChangeSprite();
         }
 
         public override void AddForce(Vector2 force)
@@ -83,6 +74,27 @@ namespace InGame.Gimmick
         public override void AddTorqueImpulse(float torque)
         {
             if (IsMovable) Rb.AddTorque(torque, ForceMode2D.Impulse);
+        }
+
+        private void ChangeSprite()
+        {
+            if (_sr == null) return;
+
+            switch (_northAttaching, _southAttaching)
+            {
+                case (true, true):
+                    _sr.sprite = _sprBoth;
+                    break;
+                case (true, false):
+                    _sr.sprite = _sprNorth;
+                    break;
+                case (false, true):
+                    _sr.sprite = _sprSouth;
+                    break;
+                case (false, false):
+                    _sr.sprite = _sprNone;
+                    break;
+            }
         }
     }
 }
