@@ -38,23 +38,7 @@ public class GOD_ControllerConnectionUI : MonoBehaviour
         // --- シーン遷移（2台揃っているときのみ）---
         if (GOD_ControllerConnectionManager.AllSlotsReady())
         {
-            var kb = Keyboard.current;
-            if (kb != null && (kb.enterKey.wasPressedThisFrame))
-            {
-                GoToNextScene();
-                return;
-            }
-
-            foreach (var device in GOD_ControllerConnectionManager.SlotDevices)
-            {
-                if (device is Gamepad gp && gp.buttonEast.wasPressedThisFrame)
-                {
-                    GoToNextScene();
-                    return;
-                }
-            }
-
-            return; // 登録処理はスキップ
+            return; // 登録処理はスキップ（遷移トリガーは削除）
         }
 
         // --- キーボード登録 ---
@@ -67,22 +51,12 @@ public class GOD_ControllerConnectionUI : MonoBehaviour
         // --- Gamepad 登録 ---
         foreach (var gamepad in Gamepad.all)
         {
-            if (gamepad.buttonSouth.wasPressedThisFrame ||
-                gamepad.buttonNorth.wasPressedThisFrame ||
-                gamepad.buttonEast.wasPressedThisFrame ||
-                gamepad.buttonWest.wasPressedThisFrame ||
-                gamepad.startButton.wasPressedThisFrame)
+            if (gamepad.buttonSouth.wasPressedThisFrame)   // ← Aボタンのみ
             {
                 GOD_ControllerConnectionManager.TryRegisterDevice(gamepad, out _);
             }
         }
     }
-
-    void GoToNextScene()
-    {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("GOD_Stage01");
-    }
-
     void HandleSlotConnected(int slot, InputDevice device)
     {
         if (GOD_PlayerData.Instance != null)
