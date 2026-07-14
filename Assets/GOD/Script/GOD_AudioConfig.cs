@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
+//GOD
+//Audioミキサーとスライダー繋いでるコード
+
 public class GOD_AudioConfig : MonoBehaviour
 {
     [SerializeField] AudioMixer audioMixer;

@@ -3,6 +3,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
+//GOD
+//接続ui関連、スポーンもここにあるよ
+
 public class GOD_ControllerConnectionUI : MonoBehaviour
 {
     [Header("スロット表示")]
