@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+//GOD
+//ボタン選択時にスケール変更するコード
+
 public class GOD_ButtonScale : MonoBehaviour, ISelectHandler, IDeselectHandler
 {
     private Vector3 defaultScale;

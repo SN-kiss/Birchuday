@@ -1,13 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
-/// <summary>
-/// 特定のシーン専用のUI表示シーケンス制御スクリプト。
-/// このスクリプトは「対象のシーンに存在するGameObject」にアタッチしてください。
-/// シーンが読み込まれるたびに Start() が呼ばれて状態がリセットされるため、
-/// 「このシーンに戻ってくると再びこの一連の流れが発動する」動作は自動的に満たされます。
-/// （他のシーンには絶対にこのスクリプトを置かないでください＝それだけで「このシーンのみで動く」を実現できます）
-/// </summary>
+//GOD
+//操作説明ui関連
+
 public class GOD_TutorialUIController : MonoBehaviour
 {
     [Header("UIパネル（Canvas内の3つのパネルをアタッチ）")]
@@ -101,15 +97,10 @@ public class GOD_TutorialUIController : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// 一連の流れ（ui_turn→ui_dash→ui_detach→非表示）が完了した時に呼ばれる。
-    /// ここに「今から作ろうとしているスクリプト」の処理を呼び出してください。
-    /// 例：GetComponent<次のスクリプト>().enabled = true; など
-    /// </summary>
+  
     private void OnSequenceFinished()
     {
-        // TODO: ここに完了後の処理を書く
-        Debug.Log("UIシーケンスが完了しました。");
+        Debug.Log("もう操作できるよねフフフ");
     }
 
     private void SetPanelActive(GameObject panel, bool active)

@@ -2,6 +2,9 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 
+//GOD
+//コントローラーとプレイヤー結ぶコード
+
 public class GOD_ControllerConnectionManager : MonoBehaviour
 {
     // 接続済みデバイス（スロット順）
