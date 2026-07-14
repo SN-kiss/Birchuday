@@ -62,4 +62,17 @@ public class GOD_ControllerConnectionManager : MonoBehaviour
 
     public static bool AllSlotsReady() =>
         SlotDevices[0] != null && SlotDevices[1] != null;
+
+    public static void ResetAllSlots()
+    {
+        for (int i = 0; i < SlotDevices.Length; i++)
+        {
+            if (SlotDevices[i] != null)
+            {
+                var device = SlotDevices[i];
+                SlotDevices[i] = null;
+                OnSlotDisconnected?.Invoke(i, device);
+            }
+        }
+    }
 }
