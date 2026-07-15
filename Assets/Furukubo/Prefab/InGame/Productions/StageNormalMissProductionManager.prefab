@@ -52,7 +52,7 @@ MonoBehaviour:
   _waitingDeadPlayerPassiveTime: 2.5
   _waitingRemainPlayerPassiveTime: 0.2
   _waitingFadeStartTime: 3
-  _explosionEffectPrefab: {fileID: 6040070245916911295, guid: 47318205e0138bd4883285de5ea522dd, type: 3}
+  _explosionEffectPrefab: {fileID: 6040070245916911295, guid: 8bf56a73ba69bbf40b597e4dbdcef0f2, type: 3}
   _explosionAudioSource: {fileID: 6555063508115281166}
   _explosionAudioClip: {fileID: 8300000, guid: 849fefda85e469a499e96c33b1170217, type: 3}
   _explosionCamShakeData: {fileID: 11400000, guid: b27c929a10f0f1740ba6b512e6c017f9, type: 2}
