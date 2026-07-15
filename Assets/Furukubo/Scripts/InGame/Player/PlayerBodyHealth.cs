@@ -23,6 +23,7 @@ namespace InGame.Player
         [SerializeField] private PlayerLip _lip;
         [SerializeField] private EffectGenerator _damagedEffect;
         [SerializeField] private PlayerSpriteChange _spriteChange;
+        [SerializeField] private ParticleSystem _psRecovery;
         
         public event Action OnDead;
         public event Action<int, int> OnHealthChanged;
@@ -53,6 +54,7 @@ namespace InGame.Player
             if(_healthMax == _remainHealth) return false;
 
             AddHealthAmount(recoverAmount);
+            PlayRecoveryParticle();
 
             return true;
         }
@@ -97,6 +99,12 @@ namespace InGame.Player
         {
             if(_audioSource == null || _damagedAudioClip == null) return;
             _audioSource.PlayOneShot(_damagedAudioClip);
+        }
+
+        private void PlayRecoveryParticle()
+        {
+            if (_psRecovery == null) return;
+            _psRecovery.Play(true);
         }
 
         private void GenerateDamagedEffect(Vector2 pos)
