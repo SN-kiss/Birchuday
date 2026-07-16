@@ -9,10 +9,11 @@ public class GameSceneDebugger : MonoBehaviour
 {
     [Header("Scene names")]
     [SerializeField] private string _titleSceneName;
+    [SerializeField] private string _linkSceneName;
     [SerializeField] private string _stage01SceneName;
     [SerializeField] private string _stage02SceneName;
     [SerializeField] private string _stage03SceneName;
-    [SerializeField] private string _linkSceneName;
+    [SerializeField] private string _resultSceneName;
 
     [Header("References")]
     [SerializeField] private GameObject _objDebugMessageBox;
@@ -81,28 +82,70 @@ public class GameSceneDebugger : MonoBehaviour
     }
 
     private string CurrentSceneName => SceneManager.GetActiveScene().name;
+    private bool IsBoxActive => _objDebugMessageBox.activeSelf;
 
-    public void OnPress1()
+    public void Debug1()
     {
-        if (_objDebugMessageBox == null) return;
-        _objDebugMessageBox.SetActive(!_objDebugMessageBox.activeSelf);
+        OpenOrCloseBox();
     }
 
-    public void OnPress2()
+    public void Debug2()
     {
+        if (!IsBoxActive) return;
         SetStageEntryInfo(StageEntryState.First);
         LoadScene(_titleSceneName);
     }
 
-    public void OnPress3() => LoadScene(CurrentSceneName);
+    public void Debug3()
+    {
+        if (!IsBoxActive) return;
+        SetStageEntryInfo(StageEntryState.First);
+        LoadScene(_linkSceneName);
+    }
     
-    public void OnPress4() { }
-    public void OnPress5() { }
-    public void OnPress6() { }
-    public void OnPress7() { }
-    public void OnPress8() { }
-    public void OnPress9() { }
-    public void OnPress0() { }
+    public void Debug4()
+    {
+        if (!IsBoxActive) return;
+        if (!IsEnableToTransitionStages()) return;
+        SetStageEntryInfo(StageEntryState.First);
+        LoadScene(_stage01SceneName);
+    }
+
+    public void Debug5()
+    {
+        if (!IsBoxActive) return;
+        if (!IsEnableToTransitionStages()) return;
+        SetStageEntryInfo(StageEntryState.First);
+        LoadScene(_stage02SceneName);
+    }
+
+    public void Debug6()
+    {
+        if (!IsBoxActive) return;
+        if (!IsEnableToTransitionStages()) return;
+        SetStageEntryInfo(StageEntryState.First);
+        LoadScene(_stage03SceneName);
+    }
+
+    public void Debug7()
+    {
+        if (!IsBoxActive) return;
+        LoadScene(_resultSceneName);
+    }
+
+    public void Debug8()
+    {
+        if (!IsBoxActive) return;
+        LoadScene(CurrentSceneName);
+    }
+
+    public void Debug9()
+    {
+    }
+
+    public void Debug0()
+    {
+    }
 
     public void AddPlayCount() => _playCount++;
     public void AddClearCount() => _clearCount++;
@@ -132,7 +175,7 @@ public class GameSceneDebugger : MonoBehaviour
 
         SceneManager.LoadScene(sceneName);
         
-        Debug.Log($"<color=cyan><b>Scene Debug Manager : The scene automatically transitioned to \"{sceneName}\"</b></color>");
+        Debug.Log($"<color=cyan><b>Game Scene Debbuger : The scene automatically transitioned to \"{sceneName}\"</b></color>");
     }
     
     private void SetStageEntryInfo(StageEntryState state)
@@ -142,6 +185,32 @@ public class GameSceneDebugger : MonoBehaviour
 
     private void OnSceneChanged(Scene from, Scene to)
     {
-        if(to.name == _linkSceneName) _playCount++;
+        if(to.name == _linkSceneName)
+        {
+            _playCount++;
+        }
+    }
+
+    private void OpenOrCloseBox()
+    {
+        if (_objDebugMessageBox == null) return;
+        _objDebugMessageBox.SetActive(!_objDebugMessageBox.activeSelf);
+    }
+
+    private bool IsEnableToTransitionStages()
+    {
+        if (GOD_PlayerData.Instance == null) return false;
+
+        if(GOD_PlayerData.Instance.Slots == null) return false;
+
+        if (GOD_PlayerData.Instance.Slots.Length < 2) return false;
+
+        var slot0 = GOD_PlayerData.Instance.Slots[0];
+        if (slot0.CharacterPrefab == null || slot0.Device == null) return false;
+
+        var slot1 = GOD_PlayerData.Instance.Slots[1];
+        if (slot1.CharacterPrefab == null || slot1.Device == null) return false;
+
+        return true;
     }
 }
