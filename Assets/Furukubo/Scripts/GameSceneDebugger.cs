@@ -14,9 +14,11 @@ public class GameSceneDebugger : MonoBehaviour
     [SerializeField] private string _stage02SceneName;
     [SerializeField] private string _stage03SceneName;
     [SerializeField] private string _resultSceneName;
+    [SerializeField] private string _animStateName;
 
     [Header("References")]
     [SerializeField] private GameObject _objDebugMessageBox;
+    [SerializeField] private Animator _anim;
     [SerializeField] private TextMeshProUGUI _tmpFps;
     [SerializeField] private TextMeshProUGUI _tmpSceneName;
     [SerializeField] private TextMeshProUGUI _tmpPlayCount;
@@ -106,25 +108,32 @@ public class GameSceneDebugger : MonoBehaviour
     public void Debug4()
     {
         if (!IsBoxActive) return;
-        if (!IsEnableToTransitionStages()) return;
-        SetStageEntryInfo(StageEntryState.First);
-        LoadScene(_stage01SceneName);
+        if (IsEnableToTransitionStages())
+        {
+            SetStageEntryInfo(StageEntryState.First);
+            LoadScene(_stage01SceneName);
+        }
     }
 
     public void Debug5()
     {
         if (!IsBoxActive) return;
-        if (!IsEnableToTransitionStages()) return;
-        SetStageEntryInfo(StageEntryState.First);
-        LoadScene(_stage02SceneName);
+        if (IsEnableToTransitionStages())
+        {
+            SetStageEntryInfo(StageEntryState.First);
+            LoadScene(_stage02SceneName);
+        }
     }
 
     public void Debug6()
     {
         if (!IsBoxActive) return;
-        if (!IsEnableToTransitionStages()) return;
-        SetStageEntryInfo(StageEntryState.First);
-        LoadScene(_stage03SceneName);
+
+        if (IsEnableToTransitionStages())
+        {
+            SetStageEntryInfo(StageEntryState.First);
+            LoadScene(_stage03SceneName);
+        }
     }
 
     public void Debug7()
@@ -195,21 +204,47 @@ public class GameSceneDebugger : MonoBehaviour
     {
         if (_objDebugMessageBox == null) return;
         _objDebugMessageBox.SetActive(!_objDebugMessageBox.activeSelf);
+
+        if (_objDebugMessageBox.activeSelf)
+        {
+            if (_anim == null) return;
+            _anim.Play(_animStateName);
+        }
     }
 
     private bool IsEnableToTransitionStages()
     {
-        if (GOD_PlayerData.Instance == null) return false;
+        if (GOD_PlayerData.Instance == null)
+        {
+            Debug.Log(0);
+            return false;
+        }
 
-        if(GOD_PlayerData.Instance.Slots == null) return false;
+        if(GOD_PlayerData.Instance.Slots == null)
+        {
+            Debug.Log(1);
+            return false;
+        }
 
-        if (GOD_PlayerData.Instance.Slots.Length < 2) return false;
+        if (GOD_PlayerData.Instance.Slots.Length < 2)
+        {
+            Debug.Log(2);
+            return false;
+        }
 
         var slot0 = GOD_PlayerData.Instance.Slots[0];
-        if (slot0.CharacterPrefab == null || slot0.Device == null) return false;
+        if (slot0.CharacterPrefab == null || slot0.Device == null)
+        {
+            Debug.Log(3);
+            return false;
+        }
 
         var slot1 = GOD_PlayerData.Instance.Slots[1];
-        if (slot1.CharacterPrefab == null || slot1.Device == null) return false;
+        if (slot1.CharacterPrefab == null || slot1.Device == null)
+        {
+            Debug.Log(4);
+            return false;
+        }
 
         return true;
     }
