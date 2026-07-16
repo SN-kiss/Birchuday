@@ -32,7 +32,7 @@ namespace InGame.Ui
 
                     if(health != null)
                     {
-                        health.OnHealthChanged += _playerNorthUi.SetAmounts;
+                        health.OnHealthChangedEvent += _playerNorthUi.SetAmounts;
                         health.InvokeOnHealthAmountChanged();
                         _wasPlayerNorthFinded = true;
                         Debug.Log("Found : Player North");
@@ -50,7 +50,7 @@ namespace InGame.Ui
 
                     if (health != null)
                     {
-                        health.OnHealthChanged += _playerSouthUi.SetAmounts;
+                        health.OnHealthChangedEvent += _playerSouthUi.SetAmounts;
                         health.InvokeOnHealthAmountChanged();
                         _wasPlayerSouthFinded = true;
                         Debug.Log("Found : Player South");

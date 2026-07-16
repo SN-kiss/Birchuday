@@ -19,6 +19,7 @@ namespace InGame
         [SerializeField] private float _waitingDeadPlayerPassiveTime;
         [SerializeField] private float _waitingRemainPlayerPassiveTime;
         [SerializeField] private float _waitingFadeStartTime;
+        [SerializeField] private DeviceVibrationData _deviceVibrationData;
         [SerializeField] private EffectControler _explosionEffectPrefab;
         [SerializeField] private AudioSource _explosionAudioSource;
         [SerializeField] private AudioClip _explosionAudioClip;
@@ -40,7 +41,7 @@ namespace InGame
                     _playerNorth = obj;
 
                     PlayerBodyHealth h = obj.transform.GetComponentInChildren<PlayerBodyHealth>();
-                    if (h != null) h.OnDead += OnPlayerNorthMiss;
+                    if (h != null) h.OnDeadEvent += OnPlayerNorthMiss;
 
                     Debug.Log($"Found: {_playerNorth.name}");
                 }
@@ -54,7 +55,7 @@ namespace InGame
                     _playerSouth = obj;
 
                     PlayerBodyHealth h = obj.transform.GetComponentInChildren<PlayerBodyHealth>();
-                    if (h != null) h.OnDead += OnPlayerSouthMiss;
+                    if (h != null) h.OnDeadEvent += OnPlayerSouthMiss;
 
                     Debug.Log($"Found: {_playerSouth.name}");
                 }
@@ -161,6 +162,11 @@ namespace InGame
                     if (_explosionAudioSource != null && _explosionAudioClip != null)
                     {
                         _explosionAudioSource.PlayOneShot(_explosionAudioClip);
+                    }
+
+                    if (DeviceVibrator.Instance != null)
+                    {
+                        DeviceVibrator.Instance.StartVibrate(_deviceVibrationData);
                     }
                 }
             }

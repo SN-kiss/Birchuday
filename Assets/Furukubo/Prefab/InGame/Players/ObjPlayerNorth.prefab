@@ -144,6 +144,7 @@ MonoBehaviour:
   _damagedEffect: {fileID: 1140261264957757350}
   _spriteChange: {fileID: 1047346530120764059}
   _psRecovery: {fileID: 3762231467322970963}
+  _deviceVibrationData: {fileID: 11400000, guid: 850a1927a67fb084e83e92eb47d8d754, type: 2}
 --- !u!114 &5025743071273418443
 MonoBehaviour:
   m_ObjectHideFlags: 0

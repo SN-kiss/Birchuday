@@ -57,6 +57,7 @@ MonoBehaviour:
   _explosionAudioClip: {fileID: 8300000, guid: 849fefda85e469a499e96c33b1170217, type: 3}
   _explosionCamShakeData: {fileID: 11400000, guid: b27c929a10f0f1740ba6b512e6c017f9, type: 2}
   _cameraShake: {fileID: 0}
+  _deviceVibrationData: {fileID: 11400000, guid: 59fa537af589f424eac452ada67c59c3, type: 2}
   _fade: {fileID: 0}
 --- !u!82 &6555063508115281166
 AudioSource:
