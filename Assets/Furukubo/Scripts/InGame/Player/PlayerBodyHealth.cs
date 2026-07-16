@@ -24,9 +24,11 @@ namespace InGame.Player
         [SerializeField] private EffectGenerator _damagedEffect;
         [SerializeField] private PlayerSpriteChange _spriteChange;
         [SerializeField] private ParticleSystem _psRecovery;
-        
-        public event Action OnDead;
-        public event Action<int, int> OnHealthChanged;
+        [SerializeField] private DeviceVibrationData _deviceVibrationData;
+
+        public event Action OnDamagedEvent;
+        public event Action OnDeadEvent;
+        public event Action<int, int> OnHealthChangedEvent;
         private int _remainHealth;
         private float _remainInvincibleTime;
 
@@ -85,6 +87,13 @@ namespace InGame.Player
 
             PlayDamagedAudio();
             GenerateDamagedEffect(hitPos);
+
+            OnDamagedEvent?.Invoke();
+
+            if (DeviceVibrator.Instance != null)
+            {
+                DeviceVibrator.Instance.StartVibrate(_deviceVibrationData);
+            }
         }
 
         private void AddHealthAmount(int add)
@@ -115,8 +124,8 @@ namespace InGame.Player
 
         public void SetIgnoreDamage(bool value) => _ignoreDamage = value;
 
-        private void InvokeOnDead() => OnDead?.Invoke();
+        private void InvokeOnDead() => OnDeadEvent?.Invoke();
 
-        public void InvokeOnHealthAmountChanged() => OnHealthChanged?.Invoke(_remainHealth, _healthMax);
+        public void InvokeOnHealthAmountChanged() => OnHealthChangedEvent?.Invoke(_remainHealth, _healthMax);
     }
 }

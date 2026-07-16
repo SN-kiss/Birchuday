@@ -143,7 +143,7 @@ MonoBehaviour:
   _recoveryCountMax: 2
   _scaleMin: 0.25
   _col: {fileID: 2729473381549551118}
-  _recoveryAudioClip: {fileID: 8300000, guid: ffed0989912fd3c4eae22a28cb4eb12c, type: 3}
+  _recoveryAudioClip: {fileID: 8300000, guid: 4a45852c618459248b8da015a8632372, type: 3}
   _audioSource: {fileID: 6168069078158869545}
   _scaleAnim: {fileID: 8782740140553131437}
   _ps: {fileID: 5450407741942061139}

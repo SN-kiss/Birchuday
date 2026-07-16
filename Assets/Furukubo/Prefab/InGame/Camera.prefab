@@ -276,6 +276,7 @@ GameObject:
   - component: {fileID: 1231904269601749666}
   - component: {fileID: 7082180714275775922}
   - component: {fileID: 5504221224611816382}
+  - component: {fileID: 210538575827985018}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -348,6 +349,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Camera.CameraShake
   _shakeTr: {fileID: 3074901065001163705}
+--- !u!114 &210538575827985018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6076279064305368998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4baf9d569b5218b4ca48b458556e03c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InGame.Camera.CameraPlayerDamagedVibrationInitializer
+  _playerNorthTag: PlayerNorth
+  _playerSouthTag: PlayerSouth
+  _damagedCamShakeData: {fileID: 11400000, guid: 7eb0c52547874464191d8a5900e2bb00, type: 2}
+  _cameraShake: {fileID: 5504221224611816382}
 --- !u!1 &6571525608570197962
 GameObject:
   m_ObjectHideFlags: 0
