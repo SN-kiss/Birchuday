@@ -47,6 +47,12 @@ public class BGMPlayer : MonoBehaviour
             return;
         }
 
+        if (type == BGMType.None)
+        {
+            _audioSource.Stop();
+            return;
+        }
+
         if (_dictionary.TryGetValue(type, out AudioClip audio))
         {
             if (audio == null) return;
