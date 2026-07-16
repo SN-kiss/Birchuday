@@ -49,6 +49,8 @@ public class GameSceneDebuggerInput : MonoBehaviour
 
     private void OnEnable()
     {
+        SceneManager.activeSceneChanged += OnSceneChanged;
+
         _debugMap?.Enable();
 
         if (_debug1Act != null) _debug1Act.performed += Debug1;
@@ -65,6 +67,8 @@ public class GameSceneDebuggerInput : MonoBehaviour
 
     private void OnDisable()
     {
+        SceneManager.activeSceneChanged -= OnSceneChanged;
+
         _debugMap?.Disable();
 
         if (_debug1Act != null) _debug1Act.performed -= Debug1;
@@ -77,6 +81,11 @@ public class GameSceneDebuggerInput : MonoBehaviour
         if (_debug8Act != null) _debug8Act.performed -= Debug8;
         if (_debug9Act != null) _debug9Act.performed -= Debug9;
         if (_debug0Act != null) _debug0Act.performed -= Debug0;
+    }
+
+    private void OnSceneChanged(Scene from, Scene to)
+    {
+        _debugMap?.Enable();
     }
 
     private void Debug1(InputAction.CallbackContext ctx)
