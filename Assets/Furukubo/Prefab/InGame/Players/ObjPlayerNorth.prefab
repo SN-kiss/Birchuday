@@ -361,6 +361,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2045317591642878268}
   - component: {fileID: 373577956428877147}
+  - component: {fileID: 4206405441268279494}
   - component: {fileID: 278509828133917856}
   - component: {fileID: 9094767899558992017}
   m_Layer: 2
@@ -433,6 +434,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4206405441268279494}
+        m_TargetAssemblyTypeName: GOD_KissRelay, Assembly-CSharp
+        m_MethodName: NotifyKiss
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _onKissNoGoalAttachEvent:
     m_PersistentCalls:
       m_Calls:
@@ -452,6 +465,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
         m_MethodName: Play
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 4206405441268279494}
+        m_TargetAssemblyTypeName: GOD_KissRelay, Assembly-CSharp
+        m_MethodName: NotifyKiss
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -487,6 +512,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 4206405441268279494}
+        m_TargetAssemblyTypeName: GOD_KissRelay, Assembly-CSharp
+        m_MethodName: NotifyKiss
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+--- !u!114 &4206405441268279494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3359591918751862802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 924634a6a73abe948b6e560180cfceab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GOD_KissRelay
 --- !u!50 &278509828133917856
 Rigidbody2D:
   serializedVersion: 5
@@ -879,7 +928,7 @@ MonoBehaviour:
   _ps: {fileID: 4051229798642572035}
   _lr: {fileID: 3553208535524089218}
   _audioSource: {fileID: 8376911725583067250}
-  _respawnClip: {fileID: 8300000, guid: ffed0989912fd3c4eae22a28cb4eb12c, type: 3}
+  _respawnClip: {fileID: 8300000, guid: 4a45852c618459248b8da015a8632372, type: 3}
   _srs:
   - {fileID: 9072272913764650286}
   - {fileID: 787281359439157101}

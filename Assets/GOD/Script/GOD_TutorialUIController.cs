@@ -2,112 +2,179 @@
 using UnityEngine.InputSystem;
 
 //GOD
-//操作説明ui関連
+//プレハブ側に置いたGOD_KissRelay.cs関係でチュートリアル終了のやつ
 
-public class GOD_TutorialUIController : MonoBehaviour
+public class GOD_TutorialController : MonoBehaviour
 {
-    [Header("UIパネル（Canvas内の3つのパネルをアタッチ）")]
-    [SerializeField] private GameObject uiTurn;
-    [SerializeField] private GameObject uiDash;
-    [SerializeField] private GameObject uiDetach;
+    [Header("チュートリアルパネル")]
+    [SerializeField] private GameObject ui_turn;
+    [SerializeField] private GameObject ui_dash;
+    [SerializeField] private GameObject ui_detach;
 
-    [Header("入力設定")]
-    [Tooltip("左スティックをどれくらい倒したら『動かした』と判定するか（0〜1）")]
-    [SerializeField] private float stickDeadzone = 0.3f;
+    [Header("入力しきい値")]
+    [SerializeField, Range(0f, 1f)] private float stickThreshold = 0.3f;
 
-    // 現在の進行状態
-    private enum SequenceState
+    private enum Step
     {
-        Waiting,      // Aボタン入力待ち（何も表示していない）
-        TurnShown,    // ui_turn表示中。左スティック入力待ち
-        DashShown,    // ui_dash表示中。Aボタン入力待ち
-        DetachShown,  // ui_detach表示中。RT入力待ち
-        Finished      // 一連の流れが完了した状態
+        WaitingSpawn,   // 2人揃うのを待っている
+        WaitingTurn,    // ui_turn 表示中：2人ともスティック入力待ち
+        WaitingDash,    // ui_dash 表示中：2人ともAボタン入力待ち
+        WaitingDetach,  // ui_detach 表示中：キス成立後、2人ともRT入力待ち
+        Finished
     }
 
-    private SequenceState currentState = SequenceState.Waiting;
+    private Step _step = Step.WaitingSpawn;
 
-    private void Start()
+    // スロットごとのデバイス（0=PlayerA, 1=PlayerB）
+    private readonly InputDevice[] _slotDevices = new InputDevice[2];
+
+    private readonly bool[] _stepDone = new bool[2];
+
+    private bool _isKissed;
+
+    public static event System.Action OnTutorialCompleted;
+
+    private void Awake()
     {
-        // シーンに入った瞬間は全パネル非表示＆状態リセット
-        ResetSequence();
+        SetActiveSafe(ui_turn, false);
+        SetActiveSafe(ui_dash, false);
+        SetActiveSafe(ui_detach, false);
     }
 
-    private void ResetSequence()
+    private void OnEnable()
     {
-        currentState = SequenceState.Waiting;
-        SetPanelActive(uiTurn, false);
-        SetPanelActive(uiDash, false);
-        SetPanelActive(uiDetach, false);
+        GOD_ControllerConnectionManager.OnSlotConnected += HandleSlotConnected;
+        GOD_KissRelay.OnKiss += HandleKiss;
+    }
+
+    private void OnDisable()
+    {
+        GOD_ControllerConnectionManager.OnSlotConnected -= HandleSlotConnected;
+        GOD_KissRelay.OnKiss -= HandleKiss;
+    }
+
+    private void HandleSlotConnected(int slot, InputDevice device)
+    {
+        if (slot < 0 || slot >= _slotDevices.Length) return;
+
+        _slotDevices[slot] = device;
+
+        // 2人とも揃ったらチュートリアル開始
+        if (_step == Step.WaitingSpawn && _slotDevices[0] != null && _slotDevices[1] != null)
+        {
+            StartStep(Step.WaitingTurn, ui_turn);
+        }
+    }
+
+    private void HandleKiss()
+    {
+        _isKissed = true;
     }
 
     private void Update()
     {
-        var gamepad = Gamepad.current;
-        if (gamepad == null)
+        switch (_step)
         {
-            // ゲームパッドが接続されていない場合は何もしない
-            return;
-        }
-
-        switch (currentState)
-        {
-            case SequenceState.Waiting:
-                // Aボタン（Xbox系パッドの buttonSouth）
-                if (gamepad.buttonSouth.wasPressedThisFrame)
-                {
-                    SetPanelActive(uiTurn, true);
-                    currentState = SequenceState.TurnShown;
-                }
+            case Step.WaitingTurn:
+                CheckBothPlayers(IsStickTilted, () => StartStep(Step.WaitingDash, ui_dash, ui_turn));
                 break;
 
-            case SequenceState.TurnShown:
-                // 左スティックをどの方向でもいいので一定以上倒したら反応
-                if (gamepad.leftStick.ReadValue().magnitude > stickDeadzone)
-                {
-                    SetPanelActive(uiTurn, false);
-                    SetPanelActive(uiDash, true);
-                    currentState = SequenceState.DashShown;
-                }
+            case Step.WaitingDash:
+                CheckBothPlayers(IsButtonSouthPressed, () => StartStep(Step.WaitingDetach, ui_detach, ui_dash));
                 break;
 
-            case SequenceState.DashShown:
-                if (gamepad.buttonSouth.wasPressedThisFrame)
-                {
-                    SetPanelActive(uiDash, false);
-                    SetPanelActive(uiDetach, true);
-                    currentState = SequenceState.DetachShown;
-                }
-                break;
-
-            case SequenceState.DetachShown:
-                // RT（右トリガー）
-                if (gamepad.rightTrigger.wasPressedThisFrame)
-                {
-                    SetPanelActive(uiDetach, false);
-                    currentState = SequenceState.Finished;
-
-                    OnSequenceFinished();
-                }
-                break;
-
-            case SequenceState.Finished:
-                // 完了後は何もしない（次にこのシーンを読み込み直した時に再度Start()から始まる）
+            case Step.WaitingDetach:
+                if (!_isKissed) return; // キス成立まではRTを受け付けない
+                CheckBothPlayers(IsRightTriggerPressed, () => FinishStep(ui_detach));
                 break;
         }
     }
 
-  
-    private void OnSequenceFinished()
+    /// 各プレイヤーについて条件判定を行い、まだ達成していなければ記録する。
+    /// 両方達成したら onBothDone を呼ぶ。
+    private void CheckBothPlayers(System.Func<InputDevice, bool> condition, System.Action onBothDone)
     {
-        Debug.Log("もう操作できるよねフフフ");
+        for (int i = 0; i < 2; i++)
+        {
+            if (_stepDone[i]) continue;
+            if (_slotDevices[i] == null) continue;
+
+            if (condition(_slotDevices[i]))
+            {
+                _stepDone[i] = true;
+            }
+        }
+
+        if (_stepDone[0] && _stepDone[1])
+        {
+            onBothDone?.Invoke();
+        }
     }
 
-    private void SetPanelActive(GameObject panel, bool active)
+
+    private bool IsStickTilted(InputDevice device)
     {
-        if (panel != null)
+        if (device is Gamepad gamepad)
         {
-            panel.SetActive(active);
+            return gamepad.leftStick.ReadValue().sqrMagnitude >= stickThreshold * stickThreshold;
         }
+        if (device is Keyboard keyboard)
+        {
+            return keyboard.wKey.isPressed || keyboard.aKey.isPressed ||
+                   keyboard.sKey.isPressed || keyboard.dKey.isPressed ||
+                   keyboard.upArrowKey.isPressed || keyboard.leftArrowKey.isPressed ||
+                   keyboard.downArrowKey.isPressed || keyboard.rightArrowKey.isPressed;
+        }
+        return false;
+    }
+
+    private bool IsButtonSouthPressed(InputDevice device)
+    {
+        if (device is Gamepad gamepad)
+        {
+            return gamepad.buttonSouth.wasPressedThisFrame;
+        }
+        if (device is Keyboard keyboard)
+        {
+            return keyboard.spaceKey.wasPressedThisFrame;
+        }
+        return false;
+    }
+
+    private bool IsRightTriggerPressed(InputDevice device)
+    {
+        if (device is Gamepad gamepad)
+        {
+            return gamepad.rightTrigger.wasPressedThisFrame;
+        }
+        if (device is Keyboard keyboard)
+        {
+            return keyboard.zKey.wasPressedThisFrame;
+        }
+        return false;
+    }
+
+    private void StartStep(Step next, GameObject show, GameObject hide = null)
+    {
+        SetActiveSafe(hide, false);
+        SetActiveSafe(show, true);
+
+        _stepDone[0] = false;
+        _stepDone[1] = false;
+
+        _step = next;
+    }
+
+    private void FinishStep(GameObject hide)
+    {
+        SetActiveSafe(hide, false);
+        _step = Step.Finished;
+
+        OnTutorialCompleted?.Invoke();
+    }
+
+    private void SetActiveSafe(GameObject go, bool value)
+    {
+        if (go != null) go.SetActive(value);
     }
 }
