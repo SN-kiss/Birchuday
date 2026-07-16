@@ -1,0 +1,559 @@
+fileFormatVersion: 2
+guid: 7b8152a68079e284db328080ddfd51d1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4751145188320429631
+    second: spr_ui_logo_0
+  - first:
+      213: -4455345315398325433
+    second: spr_ui_logo_1
+  - first:
+      213: 5738367289443225626
+    second: spr_ui_logo_2
+  - first:
+      213: -3546631445027323074
+    second: spr_ui_logo_3
+  - first:
+      213: -2706308651157939600
+    second: spr_ui_logo_4
+  - first:
+      213: -8738745150425164170
+    second: spr_ui_logo_5
+  - first:
+      213: -933299435928144942
+    second: spr_ui_logo_6
+  - first:
+      213: -1960046865946410825
+    second: spr_ui_logo_7
+  - first:
+      213: 1298262633105431007
+    second: spr_ui_logo_8
+  - first:
+      213: 1398145114037069533
+    second: spr_ui_logo_9
+  - first:
+      213: 2125639164459775153
+    second: spr_ui_logo_10
+  - first:
+      213: -7690309861014243851
+    second: spr_ui_logo_11
+  - first:
+      213: -3134975796550244598
+    second: spr_ui_logo_12
+  - first:
+      213: -1285164715760473426
+    second: spr_ui_logo_13
+  - first:
+      213: 3800321405485258275
+    second: spr_ui_logo_14
+  - first:
+      213: 3461888573968037766
+    second: spr_ui_logo_15
+  - first:
+      213: 6183513771877222374
+    second: spr_ui_logo_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: spr_ui_logo_0
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 402
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c9bad5bf9a801eb0800000000000000
+      internalID: -4751145188320429631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_ui_logo_1
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 386
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74b6bf38a0f6b22c0800000000000000
+      internalID: -4455345315398325433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_ui_logo_2
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 357
+        width: 36
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a101cf585a6c2af40800000000000000
+      internalID: 5738367289443225626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_ui_logo_3
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 229
+        width: 85
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e338ae9dd75d7cec0800000000000000
+      internalID: -3546631445027323074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_ui_logo_4
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 229
+        width: 88
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07a1a23de92417ad0800000000000000
+      internalID: -2706308651157939600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_ui_logo_5
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 229
+        width: 99
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6769d36e59db9b680800000000000000
+      internalID: -8738745150425164170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_ui_logo_6
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 351
+        width: 45
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d33e6c9b114c03f0800000000000000
+      internalID: -933299435928144942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_ui_logo_7
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 356
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b0852c92c38cc4e0800000000000000
+      internalID: -1960046865946410825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_ui_logo_8
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 351
+        width: 44
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd9996f7cfa540210800000000000000
+      internalID: 1298262633105431007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_ui_logo_9
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 229
+        width: 26
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd6a0a2d295376310800000000000000
+      internalID: 1398145114037069533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_ui_logo_10
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 229
+        width: 69
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b47846de89cf7d10800000000000000
+      internalID: 2125639164459775153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_ui_logo_11
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 229
+        width: 101
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f5ff892de7864590800000000000000
+      internalID: -7690309861014243851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_ui_logo_12
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 229
+        width: 87
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a07ec237f145e74d0800000000000000
+      internalID: -3134975796550244598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_ui_logo_13
+      rect:
+        serializedVersion: 2
+        x: 683
+        y: 232
+        width: 87
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eaa2b37008d2a2ee0800000000000000
+      internalID: -1285164715760473426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_ui_logo_14
+      rect:
+        serializedVersion: 2
+        x: 773
+        y: 187
+        width: 91
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 326134eee247db430800000000000000
+      internalID: 3800321405485258275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_ui_logo_15
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 185
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 687395fe0591b0030800000000000000
+      internalID: 3461888573968037766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_ui_logo_16
+      rect:
+        serializedVersion: 2
+        x: 753
+        y: 185
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e74a7c830140d550800000000000000
+      internalID: 6183513771877222374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      spr_ui_logo_0: -4751145188320429631
+      spr_ui_logo_1: -4455345315398325433
+      spr_ui_logo_10: 2125639164459775153
+      spr_ui_logo_11: -7690309861014243851
+      spr_ui_logo_12: -3134975796550244598
+      spr_ui_logo_13: -1285164715760473426
+      spr_ui_logo_14: 3800321405485258275
+      spr_ui_logo_15: 3461888573968037766
+      spr_ui_logo_16: 6183513771877222374
+      spr_ui_logo_2: 5738367289443225626
+      spr_ui_logo_3: -3546631445027323074
+      spr_ui_logo_4: -2706308651157939600
+      spr_ui_logo_5: -8738745150425164170
+      spr_ui_logo_6: -933299435928144942
+      spr_ui_logo_7: -1960046865946410825
+      spr_ui_logo_8: 1298262633105431007
+      spr_ui_logo_9: 1398145114037069533
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
