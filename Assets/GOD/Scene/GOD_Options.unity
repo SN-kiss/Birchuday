@@ -279,6 +279,7 @@ GameObject:
   m_Component:
   - component: {fileID: 139699309}
   - component: {fileID: 139699310}
+  - component: {fileID: 139699311}
   m_Layer: 5
   m_Name: BGMSlider
   m_TagString: Untagged
@@ -318,9 +319,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 139699308}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Script: {fileID: 11500000, guid: f1c684ee44f231243b1bd68a60276484, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
+  m_EditorClassIdentifier: Assembly-CSharp::GOD_ControllerAdjustableSlider
   m_Navigation:
     m_Mode: 3
     m_WrapAround: 0
@@ -333,8 +334,8 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.51257855, g: 0.82151026, b: 1, a: 1}
-    m_DisabledColor: {r: 1, g: 0.45597476, b: 0.45597476, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.9960785, g: 0.5137255, b: 0.5176471, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -356,7 +357,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -372,6 +373,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  stepSize: 0.05
+  leftNavigationTarget: {fileID: 0}
+  editingIndicator: {fileID: 0}
+--- !u!114 &139699311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139699308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08ba541f30cba694b84ac376850f06e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GOD_SubmitToSelect
+  target: {fileID: 221311555}
 --- !u!1 &187958850
 GameObject:
   m_ObjectHideFlags: 0
@@ -494,9 +511,21 @@ MonoBehaviour:
   tabs:
   - button: {fileID: 1803255713}
     panel: {fileID: 271851274}
+    buttonRect: {fileID: 0}
+    buttonBasePos: {x: 0, y: 0}
+    panelRect: {fileID: 0}
+    panelBasePos: {x: 0, y: 0}
+    panelGroup: {fileID: 0}
   - button: {fileID: 546358534}
     panel: {fileID: 427498124}
+    buttonRect: {fileID: 0}
+    buttonBasePos: {x: 0, y: 0}
+    panelRect: {fileID: 0}
+    panelBasePos: {x: 0, y: 0}
+    panelGroup: {fileID: 0}
   defaultButton: {fileID: 1803255713}
+  unselectedOffsetX: 20
+  moveDuration: 0.1
 --- !u!1 &221311553
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,7 +544,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &221311554
 RectTransform:
   m_ObjectHideFlags: 0
@@ -549,19 +578,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnDown: {fileID: 1970732359}
+    m_SelectOnLeft: {fileID: 1803255715}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 1, g: 0.8066038, b: 0.8066038, a: 1}
     m_PressedColor: {r: 0.6367924, g: 0.94242585, b: 1, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_SelectedColor: {r: 0.21960786, g: 0.7686275, b: 0.8313726, a: 1}
+    m_DisabledColor: {r: 0.9960785, g: 0.5137255, b: 0.5176471, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -2436,6 +2465,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1631250720}
   - component: {fileID: 1631250721}
+  - component: {fileID: 1631250722}
   m_Layer: 5
   m_Name: SESlider
   m_TagString: Untagged
@@ -2475,9 +2505,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1631250719}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Script: {fileID: 11500000, guid: f1c684ee44f231243b1bd68a60276484, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
+  m_EditorClassIdentifier: Assembly-CSharp::GOD_ControllerAdjustableSlider
   m_Navigation:
     m_Mode: 3
     m_WrapAround: 0
@@ -2490,8 +2520,8 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.5137255, g: 0.81960785, b: 1, a: 1}
-    m_DisabledColor: {r: 1, g: 0.45490196, b: 0.45490196, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.9960785, g: 0.5137255, b: 0.5176471, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -2513,7 +2543,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -2529,6 +2559,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  stepSize: 0.05
+  leftNavigationTarget: {fileID: 0}
+  editingIndicator: {fileID: 0}
+--- !u!114 &1631250722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631250719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08ba541f30cba694b84ac376850f06e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GOD_SubmitToSelect
+  target: {fileID: 1970732359}
 --- !u!1 &1634870405
 GameObject:
   m_ObjectHideFlags: 0
@@ -2655,12 +2701,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
-    m_Mode: 2
+    m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnDown: {fileID: 546358536}
     m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnRight: {fileID: 221311555}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -2990,7 +3036,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1970732358
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3024,11 +3070,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
+    m_SelectOnUp: {fileID: 221311555}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnLeft: {fileID: 1803255715}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
