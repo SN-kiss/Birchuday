@@ -1,11 +1,17 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 
 public class GOD_GoTitle : MonoBehaviour
 {
-    public void OnGameStart()
+    [SerializeField] private string sceneName = "GOD_Title";
+
+    void Update()
     {
-        SceneManager.LoadScene("GOD_Title");
+        if (Gamepad.current != null && Gamepad.current.buttonEast.wasPressedThisFrame)
+        {
+            SceneManager.LoadScene(sceneName);
+        }
     }
 }
