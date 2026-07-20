@@ -22,7 +22,7 @@ namespace InGame
         public float GetAttachRotation(Vector2 pos);
         public Vector2 GetAttachPoint(Vector2 pos);
 
-        public float GetInverseTransformRotation(float rot);//Mathf.DeltaAngle(_rb.rotation, rot);
+        public float GetInverseTransformRotation(float rot);//Mathf.DeltaAngle(_bodyRb.rotation, rot);
         public float GetTransformRotation(float rot);
 
         public Vector2 GetInverseTransformPoint(Vector2 pos);
