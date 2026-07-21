@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e6e4992c3a761ff4a82d9414978540e5
+guid: 2fdaecac9bc40104aa7c95590981d39b
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -109,10 +109,10 @@ TextureImporter:
       name: title_player_red_mouth_0
       rect:
         serializedVersion: 2
-        x: 549
-        y: 511
-        width: 811
-        height: 421
+        x: 553
+        y: 505
+        width: 848
+        height: 427
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

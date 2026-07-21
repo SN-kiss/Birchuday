@@ -1,0 +1,975 @@
+fileFormatVersion: 2
+guid: e21aa0b0553934247973cc94ea0726ff
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6573100005387149079
+    second: ui_option_Button_jp_0
+  - first:
+      213: 7069152256258577332
+    second: ui_option_Button_jp_1
+  - first:
+      213: -7947629610851808949
+    second: ui_option_Button_jp_2
+  - first:
+      213: 5303948308564726600
+    second: ui_option_Button_jp_3
+  - first:
+      213: 5897610099604115712
+    second: ui_option_Button_jp_4
+  - first:
+      213: 3026035902922638487
+    second: ui_option_Button_jp_5
+  - first:
+      213: 5336360612890209468
+    second: ui_option_Button_jp_6
+  - first:
+      213: 4772734589930073543
+    second: ui_option_Button_jp_7
+  - first:
+      213: -7361068011876647081
+    second: ui_option_Button_jp_8
+  - first:
+      213: -6432526863493406907
+    second: ui_option_Button_jp_9
+  - first:
+      213: 2905032653963287060
+    second: ui_option_Button_jp_10
+  - first:
+      213: -1030487635022490555
+    second: ui_option_Button_jp_11
+  - first:
+      213: -3009096369794383360
+    second: ui_option_Button_jp_12
+  - first:
+      213: -2908073320610252529
+    second: ui_option_Button_jp_13
+  - first:
+      213: 3905738414554964814
+    second: ui_option_Button_jp_14
+  - first:
+      213: -8111715477463356738
+    second: ui_option_Button_jp_15
+  - first:
+      213: 6848808075272596893
+    second: ui_option_Button_jp_16
+  - first:
+      213: 6757979467889071621
+    second: ui_option_Button_jp_17
+  - first:
+      213: 613072538082919454
+    second: ui_option_Button_jp_18
+  - first:
+      213: -4490900810205925905
+    second: ui_option_Button_jp_19
+  - first:
+      213: 3786949785641724707
+    second: ui_option_Button_jp_20
+  - first:
+      213: -2223641535269633883
+    second: ui_option_Button_jp_21
+  - first:
+      213: -8260565656400063528
+    second: ui_option_Button_jp_22
+  - first:
+      213: 8137759802444440857
+    second: ui_option_Button_jp_23
+  - first:
+      213: -3733404947003437080
+    second: ui_option_Button_jp_24
+  - first:
+      213: -3348069933010273959
+    second: ui_option_Button_jp_25
+  - first:
+      213: 7597517534279708498
+    second: ui_option_Button_jp_26
+  - first:
+      213: -281195934590131255
+    second: ui_option_Button_jp_27
+  - first:
+      213: 2184542462581892608
+    second: ui_option_Button_jp_28
+  - first:
+      213: 8841614345466278637
+    second: ui_option_Button_jp_29
+  - first:
+      213: 7478566304676375712
+    second: ui_option_Button_jp_30
+  - first:
+      213: -1111725316827856680
+    second: ui_option_Button_jp_31
+  - first:
+      213: 8344183965246164314
+    second: ui_option_Button_jp_32
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ui_option_Button_jp_0
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 421
+        width: 47
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e0e7c1fe58a7c4a0800000000000000
+      internalID: -6573100005387149079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_option_Button_jp_1
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 419
+        width: 58
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b39179e58caa1260800000000000000
+      internalID: 7069152256258577332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_option_Button_jp_2
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 468
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b494dce2af854b190800000000000000
+      internalID: -7947629610851808949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_option_Button_jp_3
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 472
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 843d80792e86b9940800000000000000
+      internalID: 5303948308564726600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_option_Button_jp_4
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 420
+        width: 54
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 001d8a2832588d150800000000000000
+      internalID: 5897610099604115712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_option_Button_jp_5
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 458
+        width: 23
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 794484ffe93aef920800000000000000
+      internalID: 3026035902922638487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_option_Button_jp_6
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 427
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbce4b444bf8e0a40800000000000000
+      internalID: 5336360612890209468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_option_Button_jp_7
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 427
+        width: 21
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cd600092d82c3240800000000000000
+      internalID: 4772734589930073543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_option_Button_jp_8
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 421
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75ff990d4ab38d990800000000000000
+      internalID: -7361068011876647081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_option_Button_jp_9
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 381
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54f515d06e21bb6a0800000000000000
+      internalID: -6432526863493406907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_option_Button_jp_10
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 333
+        width: 50
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41a5468aecfb05820800000000000000
+      internalID: 2905032653963287060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_option_Button_jp_11
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 333
+        width: 63
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5445d09a4f8f2b1f0800000000000000
+      internalID: -1030487635022490555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_option_Button_jp_12
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 364
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0020d776bca8d36d0800000000000000
+      internalID: -3009096369794383360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_option_Button_jp_13
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 364
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f093c38f8b274a7d0800000000000000
+      internalID: -2908073320610252529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_option_Button_jp_14
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 336
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4365210568f33630800000000000000
+      internalID: 3905738414554964814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_option_Button_jp_15
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 334
+        width: 17
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eba22ce30c56d6f80800000000000000
+      internalID: -8111715477463356738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_option_Button_jp_16
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 208
+        width: 37
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9d237d68aadb0f50800000000000000
+      internalID: 6848808075272596893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_option_Button_jp_17
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 207
+        width: 58
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50659ee458a29cd50800000000000000
+      internalID: 6757979467889071621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_option_Button_jp_18
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 256
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e14caf5a932128800800000000000000
+      internalID: 613072538082919454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_option_Button_jp_19
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 260
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fed6926c18d1da1c0800000000000000
+      internalID: -4490900810205925905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_option_Button_jp_20
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 208
+        width: 54
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32baa6314c2fd8430800000000000000
+      internalID: 3786949785641724707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_option_Button_jp_21
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 246
+        width: 23
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a003761ec90421e0800000000000000
+      internalID: -2223641535269633883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_option_Button_jp_22
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 215
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d39b764d439c5d80800000000000000
+      internalID: -8260565656400063528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_option_Button_jp_23
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 215
+        width: 21
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9156724bc612fe070800000000000000
+      internalID: 8137759802444440857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_option_Button_jp_24
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 209
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ef8c2b2bf7403cc0800000000000000
+      internalID: -3733404947003437080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_option_Button_jp_25
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 152
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 959b1cf72244981d0800000000000000
+      internalID: -3348069933010273959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_option_Button_jp_26
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 123
+        width: 54
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25f2b8da1fdcf6960800000000000000
+      internalID: 7597517534279708498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_option_Button_jp_27
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 121
+        width: 50
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c3a87e89cdf81cf0800000000000000
+      internalID: -281195934590131255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_option_Button_jp_28
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 121
+        width: 43
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00663f6abcd015e10800000000000000
+      internalID: 2184542462581892608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_option_Button_jp_29
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 122
+        width: 19
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de2f38ef669b3ba70800000000000000
+      internalID: 8841614345466278637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_option_Button_jp_30
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 123
+        width: 35
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ace0735e6439c760800000000000000
+      internalID: 7478566304676375712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_option_Button_jp_31
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 131
+        width: 64
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d0caaae6bb5290f0800000000000000
+      internalID: -1111725316827856680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_option_Button_jp_32
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 124
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5d02056b1f7cc370800000000000000
+      internalID: 8344183965246164314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      ui_option_Button_jp_0: -6573100005387149079
+      ui_option_Button_jp_1: 7069152256258577332
+      ui_option_Button_jp_10: 2905032653963287060
+      ui_option_Button_jp_11: -1030487635022490555
+      ui_option_Button_jp_12: -3009096369794383360
+      ui_option_Button_jp_13: -2908073320610252529
+      ui_option_Button_jp_14: 3905738414554964814
+      ui_option_Button_jp_15: -8111715477463356738
+      ui_option_Button_jp_16: 6848808075272596893
+      ui_option_Button_jp_17: 6757979467889071621
+      ui_option_Button_jp_18: 613072538082919454
+      ui_option_Button_jp_19: -4490900810205925905
+      ui_option_Button_jp_2: -7947629610851808949
+      ui_option_Button_jp_20: 3786949785641724707
+      ui_option_Button_jp_21: -2223641535269633883
+      ui_option_Button_jp_22: -8260565656400063528
+      ui_option_Button_jp_23: 8137759802444440857
+      ui_option_Button_jp_24: -3733404947003437080
+      ui_option_Button_jp_25: -3348069933010273959
+      ui_option_Button_jp_26: 7597517534279708498
+      ui_option_Button_jp_27: -281195934590131255
+      ui_option_Button_jp_28: 2184542462581892608
+      ui_option_Button_jp_29: 8841614345466278637
+      ui_option_Button_jp_3: 5303948308564726600
+      ui_option_Button_jp_30: 7478566304676375712
+      ui_option_Button_jp_31: -1111725316827856680
+      ui_option_Button_jp_32: 8344183965246164314
+      ui_option_Button_jp_4: 5897610099604115712
+      ui_option_Button_jp_5: 3026035902922638487
+      ui_option_Button_jp_6: 5336360612890209468
+      ui_option_Button_jp_7: 4772734589930073543
+      ui_option_Button_jp_8: -7361068011876647081
+      ui_option_Button_jp_9: -6432526863493406907
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

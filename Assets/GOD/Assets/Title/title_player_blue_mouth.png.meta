@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9a99f249d0c46f64cbfa33483413368a
+guid: bf318efc021376141a270f315085442d
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -131,10 +131,10 @@ TextureImporter:
       name: title_player_blue_mouth_1
       rect:
         serializedVersion: 2
-        x: 1036
-        y: 538
-        width: 49
-        height: 10
+        x: 572
+        y: 178
+        width: 741
+        height: 368
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,10 +153,10 @@ TextureImporter:
       name: title_player_blue_mouth_2
       rect:
         serializedVersion: 2
-        x: 572
-        y: 178
-        width: 741
-        height: 355
+        x: 1036
+        y: 538
+        width: 49
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
