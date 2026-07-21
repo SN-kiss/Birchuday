@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 347210a3e44cc04468b4243d04b2513f
+guid: 8aafe59133f9fcb4facde2210ccd5dfb
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -178,10 +178,10 @@ TextureImporter:
       name: title_player_red_body_3
       rect:
         serializedVersion: 2
-        x: 1870
-        y: 51
-        width: 23
-        height: 37
+        x: 1878
+        y: 67
+        width: 15
+        height: 21
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

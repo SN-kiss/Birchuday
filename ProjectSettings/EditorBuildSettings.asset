@@ -41,6 +41,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/GOD/Scene/GOD_Load_3.unity
     guid: d67cdaba63f3ca54c9df1678b460e3d7
+  - enabled: 1
+    path: Assets/GOD/Scene/GOD_Transition.unity
+    guid: 7919943904006e84e81ebda26264a2ac
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: cdbbbda81706c0c40831365cb219fcce, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: f31fedd08c2bb2c479e75261ac1381c3, type: 3}

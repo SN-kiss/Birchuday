@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e3c6855294e4ba442ace6c73d179a30f
+guid: 02c38d7173cd1014cb63996d7ac4dc90
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -103,10 +103,10 @@ TextureImporter:
       name: title_enemy_red_0
       rect:
         serializedVersion: 2
-        x: 403
-        y: 449
-        width: 1102
-        height: 1171
+        x: 388
+        y: 433
+        width: 1137
+        height: 1219
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
