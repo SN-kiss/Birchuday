@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: 8612416787668382654}
   - component: {fileID: 4148182930841478276}
   - component: {fileID: 1470372515465693554}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ObjBoxNormalNorth
   m_TagString: Wall
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}

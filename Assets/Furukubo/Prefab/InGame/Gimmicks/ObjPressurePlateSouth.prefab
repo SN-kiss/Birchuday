@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4061576219146684377}
   - component: {fileID: 2552476817304723859}
   - component: {fileID: 414099158476337932}
-  - component: {fileID: 5188480894809789394}
+  - component: {fileID: 6773669084015817377}
   m_Layer: 0
-  m_Name: ObjPressurePlateNormal
+  m_Name: ObjPressurePlateSouth
   m_TagString: Wall
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -49,12 +49,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InGame.PressurePlate
   _sr: {fileID: 3794319474417279268}
-  _sprOn: {fileID: -1450984921, guid: 15cd54c22ed9baf4d8d2d6973afb7b44, type: 3}
-  _sprOff: {fileID: 1292223162, guid: 6255b37fd99cfc9409e42b87bbdbf75a, type: 3}
+  _sprOn: {fileID: 7749766465458158924, guid: a1bc2f94fe8e85442bf8de5bef1cbb88, type: 3}
+  _sprOff: {fileID: 3165015403764164570, guid: 03cf4d1556294434d9169b676617c26f, type: 3}
   _onPressed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5188480894809789394}
+      - m_Target: {fileID: 6773669084015817377}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: PlayOneShot
         m_Mode: 2
@@ -85,10 +85,10 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 4
+    m_Bits: 255
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -118,7 +118,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.5, y: 0.4}
   m_EdgeRadius: 0
---- !u!82 &5188480894809789394
+--- !u!82 &6773669084015817377
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -224,7 +224,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1392259234772959027}
-  - component: {fileID: 3603369624380892646}
+  - component: {fileID: 2592944965562012346}
   m_Layer: 0
   m_Name: Colllider_Body
   m_TagString: Untagged
@@ -247,7 +247,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4061576219146684377}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &3603369624380892646
+--- !u!61 &2592944965562012346
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -374,7 +374,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 1292223162, guid: 6255b37fd99cfc9409e42b87bbdbf75a, type: 3}
+  m_Sprite: {fileID: 3165015403764164570, guid: 03cf4d1556294434d9169b676617c26f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
