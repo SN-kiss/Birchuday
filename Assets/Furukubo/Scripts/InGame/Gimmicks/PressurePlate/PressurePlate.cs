@@ -12,6 +12,7 @@ namespace InGame.Gimmick
         [SerializeField] private SpriteRenderer _sr;
         [SerializeField] private Sprite _sprOn;
         [SerializeField] private Sprite _sprOff;
+        [SerializeField] private Collider2D _plateCollider;
         [SerializeField] private UnityEvent _onPressed;
         [SerializeField] private UnityEvent _onPressing;
         [SerializeField] private UnityEvent _onReleasing;
@@ -28,10 +29,12 @@ namespace InGame.Gimmick
             if (_isPressing)
             {
                 _onPressing?.Invoke();
+               if(_plateCollider != null) _plateCollider.enabled = false;
             }
             else
             {
                 _onReleasing?.Invoke();
+                if (_plateCollider != null) _plateCollider.enabled = true;
             }
         }
 
