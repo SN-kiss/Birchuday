@@ -102,8 +102,23 @@ LineRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Positions:
-  - {x: 0.75, y: 0, z: 0}
-  - {x: 1.1, y: 0, z: 0}
+  - {x: 0.35, y: 0, z: 0}
+  - {x: 0.41329345, y: 0, z: 0}
+  - {x: 0.46376953, y: 0, z: 0}
+  - {x: 0.5032593, y: 0, z: 0}
+  - {x: 0.5335938, y: 0, z: 0}
+  - {x: 0.556604, y: 0, z: 0}
+  - {x: 0.5741211, y: 0, z: 0}
+  - {x: 0.5879761, y: 0, z: 0}
+  - {x: 0.6, y: 0, z: 0}
+  - {x: 0.61202395, y: 0, z: 0}
+  - {x: 0.62587893, y: 0, z: 0}
+  - {x: 0.643396, y: 0, z: 0}
+  - {x: 0.6664063, y: 0, z: 0}
+  - {x: 0.69674075, y: 0, z: 0}
+  - {x: 0.7362305, y: 0, z: 0}
+  - {x: 0.78670657, y: 0, z: 0}
+  - {x: 0.85, y: 0, z: 0}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -198,7 +213,7 @@ Transform:
   m_GameObject: {fileID: 480642563867321503}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.26, y: 3.65, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -346,10 +361,9 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 3281865627200395616}
+  m_Children: []
   m_Father: {fileID: 4051054973614272528}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7877257284656091697
@@ -529,7 +543,7 @@ GameObject:
   m_Layer: 0
   m_Name: LipDefaultPoint
   m_TagString: Untagged
-  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -541,12 +555,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3639160092590213864}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.1, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.75, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7382787998911745203}
+  m_Father: {fileID: 4051054973614272528}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5223860578598113073
 GameObject:
@@ -580,6 +594,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7382787998911745203}
+  - {fileID: 3281865627200395616}
   - {fileID: 6774624400853060934}
   - {fileID: 891061502292534023}
   m_Father: {fileID: 4757044632358011469}
@@ -598,6 +613,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpearBody
   _damageAmount: 1
   _nockbackPower: 10
+  _angleRange: 30
+  _rotateSpeed: 30
+  _rbBody: {fileID: 7788434631424701098}
 --- !u!50 &7788434631424701098
 Rigidbody2D:
   serializedVersion: 5
@@ -639,7 +657,7 @@ GameObject:
   - component: {fileID: 7382758387435570213}
   m_Layer: 2
   m_Name: Lip
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -653,7 +671,7 @@ Transform:
   m_GameObject: {fileID: 5472086877068129383}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalPosition: {x: 0.75, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -775,7 +793,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4916629005171996171}
@@ -864,7 +882,7 @@ Transform:
   m_GameObject: {fileID: 7515312047102709462}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.75, y: 0, z: 0}
+  m_LocalPosition: {x: 0.35, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -970,8 +988,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 1, y: 0}
-  m_Size: {x: 1.5, y: 0.25}
+  m_Offset: {x: 0.75, y: 0}
+  m_Size: {x: 1, y: 0.25}
   m_Direction: 1
 --- !u!1 &8499477095808919284
 GameObject:
@@ -1074,4 +1092,4 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 1
+  m_Radius: 0.75

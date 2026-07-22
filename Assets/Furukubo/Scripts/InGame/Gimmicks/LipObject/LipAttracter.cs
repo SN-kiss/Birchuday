@@ -12,12 +12,21 @@ namespace InGame
         [SerializeField] private float _attractPowerBase;
         [SerializeField] private float _attractPower;
         [SerializeField] private MagneticType _selfMagneticType;
+        [SerializeField] private string[] _ignoreTags;
 
         [Header("References")]
         [SerializeField] private Collider2D _col;
 
         private void OnTriggerStay2D(Collider2D other)
         {
+            if (_ignoreTags != null)
+            {
+                foreach (var tag in _ignoreTags)
+                {
+                    if (other.CompareTag(tag)) return;
+                }
+            }
+
             if (other.TryGetComponent(out ILipAttractTarget target))
             {
                 if (!MagnetJudgement.IsAttachable(_selfMagneticType, target.MagneticType)) return;

@@ -22,6 +22,8 @@ namespace InGame.Player
         {
             if(_line == null) return;
 
+            if (_connectPointTrBody == null || _connectPointTrLip == null) return;
+
             _line.positionCount = _lineSegments + 1;
 
             Vector3 pos = transform.position;
@@ -71,13 +73,23 @@ namespace InGame.Player
 #if UNITY_EDITOR
             if (!Application.isPlaying)
             {
+                if (_line == null) return;
+
                 if (_connectPointTrBody == null || _connectPointTrLip == null) return;
+
+                _line.positionCount = _lineSegments + 1;
 
                 Vector3 pos = transform.position;
 
-                _line.positionCount = 2;
-                _line.SetPosition(0, _connectPointTrBody.position - pos);
-                _line.SetPosition(1, _connectPointTrLip.position - pos);
+                Vector2 body = _connectPointTrBody.position - pos;
+                Vector2 lip = _connectPointTrLip.position - pos;
+
+                Vector2 bodyDir = OriginalCalculateUtils.AngleToDirection(_bodyRb.rotation);
+                Vector2 lipDir = OriginalCalculateUtils.AngleToDirection(_lipRb.rotation);
+
+                float length = (body - lip).magnitude * _handleLengthCoef;
+
+                _line.SetPositions(GetPoints(body, body + bodyDir * length, lip - lipDir * length, lip, _lineSegments));
             }
 #endif
         }
