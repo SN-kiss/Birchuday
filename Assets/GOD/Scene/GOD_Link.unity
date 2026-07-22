@@ -730,7 +730,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4bb87f71113bfe443997ac46e87a2f31, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9539e20fb6d55e14bb01211b34e65dae, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -760,7 +760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f88ab66f0e8fc0478ed6aaeb3182355, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GOD_LocalizedImage
-  enSprite: {fileID: 21300000, guid: 4bb87f71113bfe443997ac46e87a2f31, type: 3}
+  enSprite: {fileID: 21300000, guid: 9539e20fb6d55e14bb01211b34e65dae, type: 3}
   jpSprite: {fileID: 21300000, guid: f5de010d69ad58142a21852a76856aa2, type: 3}
 --- !u!1 &321653385
 GameObject:
@@ -3323,7 +3323,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 44afb262cd7cbde47abebd0420e6cee9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8b84899a2a9b35d43a713ab4865906e7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.64705884}
   m_FlipX: 0
   m_FlipY: 0
@@ -3342,8 +3342,8 @@ Transform:
   m_GameObject: {fileID: 1133282421}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.5, y: 0.1, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: 9.16, y: 0.1, z: 0}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -3574,7 +3574,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a12ed96436e0d0f45a16fafa6c45ea36, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ccdc0c370232f684e92e0a37cf34a815, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3604,7 +3604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f88ab66f0e8fc0478ed6aaeb3182355, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GOD_LocalizedImage
-  enSprite: {fileID: 21300000, guid: a12ed96436e0d0f45a16fafa6c45ea36, type: 3}
+  enSprite: {fileID: 21300000, guid: ccdc0c370232f684e92e0a37cf34a815, type: 3}
   jpSprite: {fileID: 21300000, guid: 2c2b04447ccb8af4786d7147fc195476, type: 3}
 --- !u!1 &1350302093
 GameObject:
@@ -3711,7 +3711,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9f2352efbe3f8ab45994c30936ff0e91, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c6a11231a09ba7046bf46f06ec578f4b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3741,7 +3741,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f88ab66f0e8fc0478ed6aaeb3182355, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GOD_LocalizedImage
-  enSprite: {fileID: 21300000, guid: 9f2352efbe3f8ab45994c30936ff0e91, type: 3}
+  enSprite: {fileID: 21300000, guid: c6a11231a09ba7046bf46f06ec578f4b, type: 3}
   jpSprite: {fileID: 21300000, guid: 91aca8f354b03474aaae52a4b79b2036, type: 3}
 --- !u!1 &1984230933
 GameObject:
