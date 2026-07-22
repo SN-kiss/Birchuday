@@ -524,7 +524,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Player.PlayerLipMove
   _attractableRangeThreshoud: 0.5
-  _attractedCancelTime: 1
+  _attractedCancelTime: 0.5
   _attractedCoolTime: 1
   _pullBodyPowerCoef: 2
   _pullBodyPowerMax: 30
