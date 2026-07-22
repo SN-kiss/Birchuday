@@ -88,7 +88,7 @@ BoxCollider2D:
     m_Bits: 64
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 63
+    m_Bits: 447
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -224,7 +224,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1392259234772959027}
-  - component: {fileID: 2817914334402941592}
+  - component: {fileID: 2592944965562012346}
   m_Layer: 0
   m_Name: Colllider_Body
   m_TagString: Untagged
@@ -247,8 +247,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4061576219146684377}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &2817914334402941592
-PolygonCollider2D:
+--- !u!61 &2592944965562012346
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -281,7 +281,7 @@ PolygonCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.15}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -291,13 +291,8 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.85, y: 0.33}
-      - {x: -0.85, y: 0.33}
-      - {x: -0.95, y: 0}
-      - {x: 0.95, y: 0}
-  m_UseDelaunayMesh: 1
+  m_Size: {x: 1.75, y: 0.3}
+  m_EdgeRadius: 0
 --- !u!1 &8250233276724915159
 GameObject:
   m_ObjectHideFlags: 0
