@@ -1567,7 +1567,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 266b6368eec331043980a422badcf162, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 01d5bd9b785625e45884d2d6dce45a46, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1636,7 +1636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f88ab66f0e8fc0478ed6aaeb3182355, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GOD_LocalizedImage
-  enSprite: {fileID: 21300000, guid: 266b6368eec331043980a422badcf162, type: 3}
+  enSprite: {fileID: 21300000, guid: 01d5bd9b785625e45884d2d6dce45a46, type: 3}
   jpSprite: {fileID: 21300000, guid: f2b16478ca7e1ed48a3beb05349b2c09, type: 3}
 --- !u!1 &734014590
 GameObject:
@@ -4261,7 +4261,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ce39a7a1e8b7e944a8e8a4b1ea738f70, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cd1246a058c0393429c1cdebfc69e639, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4330,7 +4330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f88ab66f0e8fc0478ed6aaeb3182355, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GOD_LocalizedImage
-  enSprite: {fileID: 21300000, guid: ce39a7a1e8b7e944a8e8a4b1ea738f70, type: 3}
+  enSprite: {fileID: 21300000, guid: cd1246a058c0393429c1cdebfc69e639, type: 3}
   jpSprite: {fileID: 21300000, guid: d62d2c26831c3304c98b225203efc718, type: 3}
 --- !u!1 &2106931850
 GameObject:

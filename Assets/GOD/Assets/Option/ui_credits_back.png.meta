@@ -103,10 +103,10 @@ TextureImporter:
       name: ui_credits_back_0
       rect:
         serializedVersion: 2
-        x: 120
-        y: 99
-        width: 1010
-        height: 427
+        x: 163
+        y: 174
+        width: 574
+        height: 252
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
