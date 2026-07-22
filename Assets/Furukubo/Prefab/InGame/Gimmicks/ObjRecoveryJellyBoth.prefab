@@ -257,6 +257,8 @@ MonoBehaviour:
   _attractPowerBase: 20
   _attractPower: 80
   _selfMagneticType: 0
+  _ignoreTags:
+  - Enemy
   _col: {fileID: 0}
 --- !u!61 &6692809417568995196
 BoxCollider2D:

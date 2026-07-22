@@ -485,6 +485,8 @@ MonoBehaviour:
   _attractPowerBase: 20
   _attractPower: 60
   _selfMagneticType: 0
+  _ignoreTags:
+  - Enemy
   _col: {fileID: 534548411749942605}
 --- !u!58 &5006307666734452090
 CircleCollider2D:
