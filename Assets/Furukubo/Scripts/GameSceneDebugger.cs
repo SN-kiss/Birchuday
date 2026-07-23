@@ -1,6 +1,8 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 /// <summary>
 /// Furukubo
@@ -18,7 +20,6 @@ public class GameSceneDebugger : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private GameObject _objDebugMessageBox;
-    [SerializeField] private Animator _anim;
     [SerializeField] private TextMeshProUGUI _tmpFps;
     [SerializeField] private TextMeshProUGUI _tmpSceneName;
     [SerializeField] private TextMeshProUGUI _tmpPlayCount;
@@ -26,6 +27,9 @@ public class GameSceneDebugger : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _tmpMiss1Count;
     [SerializeField] private TextMeshProUGUI _tmpMiss2Count;
     [SerializeField] private TextMeshProUGUI _tmpMiss3Count;
+    [SerializeField] private Animator _anim;
+    [SerializeField] private Image _img;
+    [SerializeField] private TextMeshProUGUI _text;
 
     public static GameSceneDebugger Instance { get; private set; }
     private string _textFps;
@@ -185,6 +189,8 @@ public class GameSceneDebugger : MonoBehaviour
         SceneManager.LoadScene(sceneName);
         
         Debug.Log($"<color=cyan><b>Game Scene Debbuger : The scene automatically transitioned to \"{sceneName}\"</b></color>");
+
+        if (_text != null) _text.text = $"Welcome to '{sceneName}'!!!";
     }
     
     private void SetStageEntryInfo(StageEntryState state)
@@ -207,8 +213,23 @@ public class GameSceneDebugger : MonoBehaviour
 
         if (_objDebugMessageBox.activeSelf)
         {
-            if (_anim == null) return;
-            _anim.Play(_animStateName);
+            if (_anim != null) _anim.Play(_animStateName);
+
+            if (_img != null)
+            {
+                if (Random.Range(0, 5) == 0)
+                {
+                    _img.color = Color.HSVToRGB(Random.value, 1f, 1f);
+
+                    if (_text != null) _text.text = SuperHappyDebugTimeText();
+            
+                }
+                else
+                {
+                    _img.color = Color.white;
+                    if (_text != null) _text.text = "Normal Debug Time...";
+                }
+            }
         }
     }
 
@@ -247,5 +268,35 @@ public class GameSceneDebugger : MonoBehaviour
         }
 
         return true;
+    }
+
+    private string SuperHappyDebugTimeText()
+    {
+        return
+            "<color=#FF0000>S</color>" +
+            "<color=#FF7700>U</color>" +
+            "<color=#FFFF00>P</color>" +
+            "<color=#77FF00>E</color>" +
+            "<color=#00FF00>R</color>" +
+            " " +
+            "<color=#00FF77>H</color>" +
+            "<color=#00FFFF>A</color>" +
+            "<color=#0077FF>P</color>" +
+            "<color=#0000FF>P</color>" +
+            "<color=#7700FF>Y</color>" +
+            " " +
+            "<color=#FF00FF>D</color>" +
+            "<color=#FF0077>E</color>" +
+            "<color=#FF0000>B</color>" +
+            "<color=#FF7700>U</color>" +
+            "<color=#FFFF00>G</color>" +
+            " " +
+            "<color=#77FF00>T</color>" +
+            "<color=#00FF00>I</color>" +
+            "<color=#00FF77>M</color>" +
+            "<color=#00FFFF>E</color>" +
+            "<color=#0077FF>!</color>" +
+            "<color=#0000FF>!</color>" +
+            "<color=#7700FF>!</color>";
     }
 }
