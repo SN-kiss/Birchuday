@@ -49,6 +49,7 @@ public class BGMPlayer : MonoBehaviour
 
         if (type == BGMType.None)
         {
+            _current = type;
             _audioSource.Stop();
             return;
         }
