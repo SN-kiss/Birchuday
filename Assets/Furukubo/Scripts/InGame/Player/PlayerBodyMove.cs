@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using Random = UnityEngine.Random;
 
 namespace InGame.Player
 {
@@ -15,10 +16,13 @@ namespace InGame.Player
         [SerializeField] private float _dashPower;
         [SerializeField] private float _moveInputThreshoud;
         [SerializeField] private float _rotateSpeed;
+        [SerializeField] private float _playDashSEIntervalTime;
 
         [Header("References")]
         [SerializeField] private Rigidbody2D _bodyRb;
         [SerializeField] private PlayerLip _lip;
+        [SerializeField] private AudioSource _dashAudioSource;
+        [SerializeField] private AudioClip _dashAudioClip;
         [SerializeField] private UnityEvent _onDashEvent;
 
         public event Action<Vector2> _onBlackHoleDead;
@@ -59,6 +63,9 @@ namespace InGame.Player
             _onDashEvent?.Invoke();
 
             AddForceImpulse(OriginalCalculateUtils.AngleToDirection(_bodyRb.rotation) * _dashPower);
+
+            if (_dashAudioSource == null || _dashAudioClip == null) return;
+            if (!_dashAudioSource.isPlaying) _dashAudioSource.PlayOneShot(_dashAudioClip);
         }
 
         public void OnDetach()
