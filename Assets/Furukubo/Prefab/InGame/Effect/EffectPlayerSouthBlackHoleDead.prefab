@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1767119491164242802}
-  - component: {fileID: 716252958192920905}
   - component: {fileID: 7983185341509496445}
   m_Layer: 0
   m_Name: UpLeft
@@ -33,20 +32,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8111374548363904265}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
---- !u!114 &716252958192920905
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 648885728532712120}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f92840ea3f04e54db73e96dbccdd855, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InGame.PlayerLegs
-  _rootTr: {fileID: 0}
-  _centerTr: {fileID: 0}
 --- !u!212 &7983185341509496445
 SpriteRenderer:
   serializedVersion: 2
@@ -206,7 +191,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8200805830989714427}
-  - component: {fileID: 117732443910081332}
   - component: {fileID: 4062533582554025976}
   m_Layer: 0
   m_Name: DownRight
@@ -230,20 +214,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8111374548363904265}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -135}
---- !u!114 &117732443910081332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2753777461754511496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f92840ea3f04e54db73e96dbccdd855, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InGame.PlayerLegs
-  _rootTr: {fileID: 0}
-  _centerTr: {fileID: 0}
 --- !u!212 &4062533582554025976
 SpriteRenderer:
   serializedVersion: 2
@@ -312,7 +282,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4646257590004735970}
-  - component: {fileID: 6547640767950854314}
   - component: {fileID: 9001253968573759099}
   m_Layer: 0
   m_Name: UpRight
@@ -336,20 +305,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8111374548363904265}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -45}
---- !u!114 &6547640767950854314
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2758426546240842238}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f92840ea3f04e54db73e96dbccdd855, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InGame.PlayerLegs
-  _rootTr: {fileID: 0}
-  _centerTr: {fileID: 0}
 --- !u!212 &9001253968573759099
 SpriteRenderer:
   serializedVersion: 2
@@ -577,7 +532,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5084442134777079212}
-  - component: {fileID: 7189687604299450071}
   - component: {fileID: 3346371959154680886}
   m_Layer: 0
   m_Name: DownLeft
@@ -601,20 +555,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8111374548363904265}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 135}
---- !u!114 &7189687604299450071
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5606519339419197878}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f92840ea3f04e54db73e96dbccdd855, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InGame.PlayerLegs
-  _rootTr: {fileID: 0}
-  _centerTr: {fileID: 0}
 --- !u!212 &3346371959154680886
 SpriteRenderer:
   serializedVersion: 2
