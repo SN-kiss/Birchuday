@@ -287,7 +287,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &126476173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -357,6 +357,7 @@ GameObject:
   - component: {fileID: 139699310}
   - component: {fileID: 139699312}
   - component: {fileID: 139699311}
+  - component: {fileID: 139699313}
   m_Layer: 5
   m_Name: BGMSlider
   m_TagString: Untagged
@@ -478,6 +479,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GOD_ButtonSelectIndicator
   targetObject: {fileID: 1387127016}
+--- !u!114 &139699313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139699308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eed33b77add69744cab32295075eebed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GOD_UIButtonSE
 --- !u!1 &187958850
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,6 +643,7 @@ GameObject:
   - component: {fileID: 221311559}
   - component: {fileID: 221311555}
   - component: {fileID: 221311558}
+  - component: {fileID: 221311561}
   m_Layer: 5
   m_Name: BgmButton
   m_TagString: Untagged
@@ -765,6 +779,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GOD_ButtonSelectIndicator
   targetObject: {fileID: 1432874758}
+--- !u!114 &221311561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 221311553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eed33b77add69744cab32295075eebed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GOD_UIButtonSE
 --- !u!1 &271851274
 GameObject:
   m_ObjectHideFlags: 0
@@ -1437,6 +1463,7 @@ GameObject:
   - component: {fileID: 546358537}
   - component: {fileID: 546358540}
   - component: {fileID: 546358536}
+  - component: {fileID: 546358542}
   m_Layer: 5
   m_Name: Button_Credits
   m_TagString: Untagged
@@ -1573,6 +1600,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GOD_ButtonSelectIndicator
   targetObject: {fileID: 2067050893}
+--- !u!114 &546358542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546358534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eed33b77add69744cab32295075eebed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GOD_UIButtonSE
 --- !u!1001 &598118784
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1759,6 +1798,7 @@ GameObject:
   - component: {fileID: 773766761}
   - component: {fileID: 773766765}
   - component: {fileID: 773766760}
+  - component: {fileID: 773766767}
   m_Layer: 5
   m_Name: Jp
   m_TagString: Untagged
@@ -1906,6 +1946,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GOD_ButtonSelectIndicator
   targetObject: {fileID: 502410972}
+--- !u!114 &773766767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 773766759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eed33b77add69744cab32295075eebed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GOD_UIButtonSE
 --- !u!1 &974808738
 GameObject:
   m_ObjectHideFlags: 0
@@ -2498,6 +2550,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1432874758}
   m_CullTransparentMesh: 1
+--- !u!1 &1432935348
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1432935350}
+  - component: {fileID: 1432935349}
+  m_Layer: 0
+  m_Name: SeButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1432935349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432935348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbb481a6308a1c64ea005f849480cac5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GOD_SEPlayer
+  _seMixerGroup: {fileID: -7321305418190822381, guid: 9e00b2506b8c99b4e9767cd15e31f19a, type: 2}
+  _selectClip: {fileID: 8300000, guid: a5961fc56aab9504bb942b7cbbff5fa4, type: 3}
+  _clickClip: {fileID: 8300000, guid: 4a45852c618459248b8da015a8632372, type: 3}
+--- !u!4 &1432935350
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432935348}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.14043, y: 0.53736, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1508884009
 GameObject:
   m_ObjectHideFlags: 0
@@ -2725,6 +2824,7 @@ GameObject:
   - component: {fileID: 1631250721}
   - component: {fileID: 1631250723}
   - component: {fileID: 1631250722}
+  - component: {fileID: 1631250724}
   m_Layer: 5
   m_Name: SESlider
   m_TagString: Untagged
@@ -2846,6 +2946,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GOD_ButtonSelectIndicator
   targetObject: {fileID: 462495886}
+--- !u!114 &1631250724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631250719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eed33b77add69744cab32295075eebed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GOD_UIButtonSE
 --- !u!1 &1634870405
 GameObject:
   m_ObjectHideFlags: 0
@@ -2935,6 +3047,7 @@ GameObject:
   - component: {fileID: 1777796050}
   - component: {fileID: 1777796054}
   - component: {fileID: 1777796049}
+  - component: {fileID: 1777796056}
   m_Layer: 5
   m_Name: En
   m_TagString: Untagged
@@ -3082,6 +3195,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GOD_ButtonSelectIndicator
   targetObject: {fileID: 1796048922}
+--- !u!114 &1777796056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1777796048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eed33b77add69744cab32295075eebed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GOD_UIButtonSE
 --- !u!1 &1796048922
 GameObject:
   m_ObjectHideFlags: 0
@@ -3171,6 +3296,7 @@ GameObject:
   - component: {fileID: 1803255716}
   - component: {fileID: 1803255719}
   - component: {fileID: 1803255715}
+  - component: {fileID: 1803255721}
   m_Layer: 5
   m_Name: Button_Setings
   m_TagString: Untagged
@@ -3307,6 +3433,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GOD_ButtonSelectIndicator
   targetObject: {fileID: 126476172}
+--- !u!114 &1803255721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1803255713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eed33b77add69744cab32295075eebed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GOD_UIButtonSE
 --- !u!1 &1864264060
 GameObject:
   m_ObjectHideFlags: 0
@@ -3651,6 +3789,7 @@ GameObject:
   - component: {fileID: 1970732363}
   - component: {fileID: 1970732359}
   - component: {fileID: 1970732362}
+  - component: {fileID: 1970732365}
   m_Layer: 5
   m_Name: SeButton
   m_TagString: Untagged
@@ -3786,6 +3925,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GOD_ButtonSelectIndicator
   targetObject: {fileID: 1508884009}
+--- !u!114 &1970732365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970732357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eed33b77add69744cab32295075eebed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GOD_UIButtonSE
 --- !u!1 &2067050893
 GameObject:
   m_ObjectHideFlags: 0
@@ -3908,3 +4059,4 @@ SceneRoots:
   - {fileID: 1546343335}
   - {fileID: 1252411526}
   - {fileID: 1933570822}
+  - {fileID: 1432935350}

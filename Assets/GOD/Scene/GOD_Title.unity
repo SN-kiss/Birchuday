@@ -1300,6 +1300,7 @@ GameObject:
   - component: {fileID: 695397969}
   - component: {fileID: 695397970}
   - component: {fileID: 695397971}
+  - component: {fileID: 695397973}
   m_Layer: 5
   m_Name: Button2
   m_TagString: Untagged
@@ -1475,6 +1476,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GOD_LocalizedImage
   enSprite: {fileID: 21300000, guid: 01d5bd9b785625e45884d2d6dce45a46, type: 3}
   jpSprite: {fileID: 21300000, guid: f2b16478ca7e1ed48a3beb05349b2c09, type: 3}
+--- !u!114 &695397973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 695397963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eed33b77add69744cab32295075eebed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GOD_UIButtonSE
 --- !u!1 &734014590
 GameObject:
   m_ObjectHideFlags: 0
@@ -2599,6 +2612,53 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1063798002
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1063798004}
+  - component: {fileID: 1063798003}
+  m_Layer: 0
+  m_Name: SeButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1063798003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063798002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbb481a6308a1c64ea005f849480cac5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GOD_SEPlayer
+  _seMixerGroup: {fileID: -7321305418190822381, guid: 9e00b2506b8c99b4e9767cd15e31f19a, type: 2}
+  _selectClip: {fileID: 8300000, guid: a5961fc56aab9504bb942b7cbbff5fa4, type: 3}
+  _clickClip: {fileID: 8300000, guid: 4a45852c618459248b8da015a8632372, type: 3}
+--- !u!4 &1063798004
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063798002}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.14043, y: 0.53736, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1068267510
 GameObject:
   m_ObjectHideFlags: 0
@@ -4115,6 +4175,7 @@ GameObject:
   - component: {fileID: 2052617121}
   - component: {fileID: 2052617122}
   - component: {fileID: 2052617123}
+  - component: {fileID: 2052617125}
   m_Layer: 5
   m_Name: Button1
   m_TagString: Untagged
@@ -4290,6 +4351,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GOD_LocalizedImage
   enSprite: {fileID: 21300000, guid: cd1246a058c0393429c1cdebfc69e639, type: 3}
   jpSprite: {fileID: 21300000, guid: d62d2c26831c3304c98b225203efc718, type: 3}
+--- !u!114 &2052617125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052617115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eed33b77add69744cab32295075eebed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GOD_UIButtonSE
 --- !u!1 &2106931850
 GameObject:
   m_ObjectHideFlags: 0
@@ -4474,3 +4547,4 @@ SceneRoots:
   - {fileID: 1389754448}
   - {fileID: 1816418982}
   - {fileID: 1913469142}
+  - {fileID: 1063798004}
