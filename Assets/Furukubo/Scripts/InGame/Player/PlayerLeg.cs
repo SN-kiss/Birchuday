@@ -15,6 +15,8 @@ namespace InGame
 
         private void Start()
         {
+            if (_centerTr == null) return;
+
             _oldCenterPos = _centerTr.position;
         }
 
