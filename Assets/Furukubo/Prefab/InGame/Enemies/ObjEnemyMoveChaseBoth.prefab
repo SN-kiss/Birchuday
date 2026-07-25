@@ -69,6 +69,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Enemy.EnemyMoveChase
   _chasePower: 6
+  _maxSpeed: 5
   _rotateSpeed: 60
   _selfMagnetixType: 0
   _rb: {fileID: 6182139779195821986}
