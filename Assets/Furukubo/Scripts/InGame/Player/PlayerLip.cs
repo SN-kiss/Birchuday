@@ -101,12 +101,16 @@ namespace InGame.Player
                 Instantiate(_prefabKissConnector).Kiss(this, otherLip);
 
                 _onKissNoGoalAttachEvent?.Invoke();
+
+                Debug.Log("Player Kiss");
             }
             else if (col.TryGetComponent(out ILipAttachTarget attachTarget))
             {
                 OnAttach(attachTarget);
 
                 _onNoKissAttachEvent?.Invoke();
+
+                Debug.Log("Object Kiss");
             }
         }
 
@@ -228,8 +232,9 @@ namespace InGame.Player
             LipVelocity = Vector2.zero;
             LipKinematic = true;
 
-            LipRotation = _target.GetAttachRotation(LipPosition);
-            LipPosition = _target.GetAttachPoint(LipPosition);
+            Vector2 attachPos = _target.GetAttachPoint(LipPosition);
+            LipRotation = attachPos == LipPosition ? LipRotation : _target.GetAttachRotation(LipPosition);
+            LipPosition = attachPos;
 
             _attachedRotation = _target.GetInverseTransformRotation(LipRotation);
             _attachedPoint = _target.GetInverseTransformPoint(LipPosition);
