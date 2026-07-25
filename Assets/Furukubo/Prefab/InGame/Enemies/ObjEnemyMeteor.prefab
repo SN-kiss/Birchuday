@@ -234,9 +234,33 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3683295304243169971, guid: 811f4c4b6d330304381594674f146b01, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3683295304243169971, guid: 811f4c4b6d330304381594674f146b01, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3683295304243169971, guid: 811f4c4b6d330304381594674f146b01, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5111688080926350335, guid: 811f4c4b6d330304381594674f146b01, type: 3}
       propertyPath: m_Name
       value: startrail_eff
+      objectReference: {fileID: 0}
+    - target: {fileID: 5145696078016765308, guid: 811f4c4b6d330304381594674f146b01, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5145696078016765308, guid: 811f4c4b6d330304381594674f146b01, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5145696078016765308, guid: 811f4c4b6d330304381594674f146b01, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5145696078016765308, guid: 811f4c4b6d330304381594674f146b01, type: 3}
       propertyPath: m_Parameters.widthMultiplier
