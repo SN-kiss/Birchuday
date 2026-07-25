@@ -10,6 +10,7 @@ namespace InGame.Player
         [Header("Parameters")]
         [SerializeField] private float _attractPowerBase;
         [SerializeField] private float _attractPower;
+        [SerializeField] private string _wallLayerName;
         [SerializeField, Range(-1f, 1f)] private float _attractRangeThrehoud;
         [SerializeField] private MagneticType _selfMagneticType;
 
@@ -21,6 +22,12 @@ namespace InGame.Player
         private void OnTriggerStay2D(Collider2D col)
         {
             if (col == _ingnoreCol) return;
+
+            if (IsBindingWall(transform.position, col.transform.position))
+            {
+                Debug.Log("Is binding wall");
+                return;
+            }
 
             if (col.TryGetComponent(out ILipAttractTarget target))
             {
@@ -44,6 +51,13 @@ namespace InGame.Player
         {
             if (_col == null) return transform.position;
             return _col.ClosestPoint(pos);
+        }
+
+        private bool IsBindingWall(Vector2 start, Vector2 end)
+        {
+            RaycastHit2D[] hits = Physics2D.LinecastAll(start, end, LayerMask.GetMask(_wallLayerName));
+
+            return 0 < hits.Length;
         }
     }
 }
