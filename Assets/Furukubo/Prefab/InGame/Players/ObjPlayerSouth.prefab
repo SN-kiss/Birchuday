@@ -1444,6 +1444,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InGame.LipAttracter
   _attractPowerBase: 20
   _attractPower: 80
+  _wallLayerName: Wall
   _selfMagneticType: 2
   _ignoreTags: []
   _col: {fileID: 8827685636854380862}
@@ -2517,6 +2518,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InGame.Player.PlayerBodyLipAttracter
   _attractPowerBase: 20
   _attractPower: 80
+  _wallLayerName: Wall
   _attractRangeThrehoud: 0
   _selfMagneticType: 2
   _rb: {fileID: 7552898071879817585}

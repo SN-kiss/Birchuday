@@ -484,6 +484,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InGame.LipAttracter
   _attractPowerBase: 20
   _attractPower: 60
+  _wallLayerName: Wall
   _selfMagneticType: 1
   _ignoreTags:
   - Enemy
