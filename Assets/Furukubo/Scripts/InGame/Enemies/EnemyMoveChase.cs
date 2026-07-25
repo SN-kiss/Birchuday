@@ -10,6 +10,7 @@ namespace InGame.Enemy
     {
         [Header("Parameters")]
         [SerializeField] private float _chasePower;
+        [SerializeField] private float _maxSpeed;
         [SerializeField] private float _rotateSpeed;
         [SerializeField] private MagneticType _selfMagnetixType;
 
@@ -75,6 +76,10 @@ namespace InGame.Enemy
             Vector2 dir = (result.Position - pos).normalized;
 
             _rb.AddForce(dir * _chasePower);
+            if (_maxSpeed * _maxSpeed <= _rb.linearVelocity.sqrMagnitude)
+            {
+                _rb.linearVelocity = _rb.linearVelocity.normalized * _maxSpeed;
+            }
         }
 
         private void OnDrawGizmos()

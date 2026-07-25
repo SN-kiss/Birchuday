@@ -732,7 +732,7 @@ MonoBehaviour:
   _attractableRangeThreshoud: 0.25
   _attractedCancelTime: 1
   _attractedCoolTime: 2
-  _attractedPowerCoef: 0.75
+  _attractedPowerCoef: 0.5
   _damageAmount: 1
   _nockbackPower: 10
   _seltMagneticType: 2

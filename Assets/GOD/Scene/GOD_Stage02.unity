@@ -763,6 +763,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ObjEnemyMoveChaseBoth
       objectReference: {fileID: 0}
+    - target: {fileID: 2316492099743163923, guid: 8b24df6469aa494408e94d94ea4e54c4, type: 3}
+      propertyPath: _chasePower
+      value: 5.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3013267129533194261, guid: 8b24df6469aa494408e94d94ea4e54c4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 37.04

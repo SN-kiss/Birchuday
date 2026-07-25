@@ -693,8 +693,12 @@ PrefabInstance:
       value: ObjEnemyMoveChaseBoth (3)
       objectReference: {fileID: 0}
     - target: {fileID: 2316492099743163923, guid: 8b24df6469aa494408e94d94ea4e54c4, type: 3}
+      propertyPath: _maxSpeed
+      value: 5.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2316492099743163923, guid: 8b24df6469aa494408e94d94ea4e54c4, type: 3}
       propertyPath: _chasePower
-      value: 5.5
+      value: 5.25
       objectReference: {fileID: 0}
     - target: {fileID: 2316492099743163923, guid: 8b24df6469aa494408e94d94ea4e54c4, type: 3}
       propertyPath: _missDistance
@@ -1155,8 +1159,12 @@ PrefabInstance:
       value: ObjEnemyMoveChaseBoth (1)
       objectReference: {fileID: 0}
     - target: {fileID: 2316492099743163923, guid: 8b24df6469aa494408e94d94ea4e54c4, type: 3}
+      propertyPath: _maxSpeed
+      value: 5.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2316492099743163923, guid: 8b24df6469aa494408e94d94ea4e54c4, type: 3}
       propertyPath: _chasePower
-      value: 5.5
+      value: 5.25
       objectReference: {fileID: 0}
     - target: {fileID: 2316492099743163923, guid: 8b24df6469aa494408e94d94ea4e54c4, type: 3}
       propertyPath: _missDistance
@@ -1224,8 +1232,12 @@ PrefabInstance:
       value: ObjEnemyMoveChaseBoth (2)
       objectReference: {fileID: 0}
     - target: {fileID: 2316492099743163923, guid: 8b24df6469aa494408e94d94ea4e54c4, type: 3}
+      propertyPath: _maxSpeed
+      value: 5.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2316492099743163923, guid: 8b24df6469aa494408e94d94ea4e54c4, type: 3}
       propertyPath: _chasePower
-      value: 5.5
+      value: 5.25
       objectReference: {fileID: 0}
     - target: {fileID: 2316492099743163923, guid: 8b24df6469aa494408e94d94ea4e54c4, type: 3}
       propertyPath: _missDistance
@@ -49325,8 +49337,12 @@ PrefabInstance:
       value: ObjEnemyMoveChaseBoth
       objectReference: {fileID: 0}
     - target: {fileID: 2316492099743163923, guid: 8b24df6469aa494408e94d94ea4e54c4, type: 3}
+      propertyPath: _maxSpeed
+      value: 5.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2316492099743163923, guid: 8b24df6469aa494408e94d94ea4e54c4, type: 3}
       propertyPath: _chasePower
-      value: 5.5
+      value: 5.25
       objectReference: {fileID: 0}
     - target: {fileID: 2316492099743163923, guid: 8b24df6469aa494408e94d94ea4e54c4, type: 3}
       propertyPath: _missDistance
@@ -50003,11 +50019,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4374292849417448577, guid: 8d1ba1a90df9d6646be74093405f3884, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.9822598
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4374292849417448577, guid: 8d1ba1a90df9d6646be74093405f3884, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.3297606
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 4374292849417448577, guid: 8d1ba1a90df9d6646be74093405f3884, type: 3}
       propertyPath: m_LocalPosition.z
