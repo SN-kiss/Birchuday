@@ -4,12 +4,14 @@ namespace InGame.Enemy
 {
     public class EnemySpearLip : MonoBehaviour, ILipAttractTarget
     {
-        [SerializeField, Range(-1f, 1f)] private float _attractableRangeThreshoud;
+        [SerializeField, Range(0f, 1f)] private float _attractableDotThreshoud;
         [SerializeField] private float _attractedCancelTime;
         [SerializeField] private float _attractedCoolTime;
         [SerializeField] private float _attractedPowerCoef;
         [SerializeField] private int _damageAmount;
         [SerializeField] private float _nockbackPower;
+        [SerializeField] private float _maxSpeed;
+        [SerializeField] private float _maxDistance;
         [SerializeField] private MagneticType _seltMagneticType;
         [SerializeField] private Rigidbody2D _lipRb;
         [SerializeField] private Rigidbody2D _bodyRb;
@@ -43,6 +45,11 @@ namespace InGame.Enemy
         {
             get => _lipRb.linearVelocity;
             set => _lipRb.linearVelocity = value;
+        }
+
+        private void Start()
+        {
+            FollowBody();
         }
 
         private void FixedUpdate()
@@ -90,19 +97,29 @@ namespace InGame.Enemy
         {
             if (0f < _attractCoolTimeCount) return;
 
-            float dot = Vector2.Dot(OriginalCalculateUtils.AngleToDirection(_lipRb.rotation), force.normalized);
+            Vector2 curDir = OriginalCalculateUtils.AngleToDirection(_lipRb.rotation);
+            float dot = Vector2.Dot(curDir, force.normalized);
 
-            if (_attractableRangeThreshoud < dot)
+            if (_attractableDotThreshoud < dot)
             {
                 _attractedCancelTimeCounter = 0f;
 
                 LipKinematic = false;
-                _lipRb.AddForce(force * _attractedPowerCoef);
+
+                float ratio = _attractableDotThreshoud == 1f ? 1f : ((dot - _attractableDotThreshoud) / (1f - _attractableDotThreshoud));
+                Vector2 lerpedForce = Vector2.Lerp(Vector2.zero, force * _attractedPowerCoef, ratio);
+
+                _lipRb.AddForce(lerpedForce);
 
                 if (LipVelocity.sqrMagnitude != 0f)
                 {
                     LipRotation = OriginalCalculateUtils.DirectionToAngle(_lipRb.linearVelocity);
                 }
+            }
+
+            if (_maxSpeed * _maxSpeed <= LipVelocity.sqrMagnitude)
+            {
+                LipVelocity = LipVelocity.normalized * _maxSpeed;
             }
         }
 
@@ -113,6 +130,10 @@ namespace InGame.Enemy
             if (_attractedCancelTime <= _attractedCancelTimeCounter)
             {
                 _attractedCancelTimeCounter = 0f;
+                CancelAttracted();
+            }
+            else if (_maxDistance * _maxDistance <= ((Vector2)_lipDefaultPointTr.position - LipPosition).sqrMagnitude)
+            {
                 CancelAttracted();
             }
         }
