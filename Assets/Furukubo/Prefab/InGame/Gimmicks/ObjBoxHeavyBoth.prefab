@@ -190,7 +190,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InGame.TestAttractArea
   _attractPowerBase: 20
   _attractPower: 70
-  _wallLayerName: Wall
   _selfMagneticType: 0
   _ignoreTags:
   - Enemy
