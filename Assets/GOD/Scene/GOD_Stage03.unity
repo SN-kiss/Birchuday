@@ -49552,7 +49552,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5377467784525808979, guid: e939438544c15c54ab6d7d0b604d9126, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -50191,12 +50191,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4659161991008020728, guid: 7d9f600ca6903334197c4f25ad5f75c4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4659161991008020728, guid: 7d9f600ca6903334197c4f25ad5f75c4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4659161991008020728, guid: 7d9f600ca6903334197c4f25ad5f75c4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4659161991008020728, guid: 7d9f600ca6903334197c4f25ad5f75c4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.63
       objectReference: {fileID: 0}
     - target: {fileID: 4659161991008020728, guid: 7d9f600ca6903334197c4f25ad5f75c4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.5
+      value: 7.62
       objectReference: {fileID: 0}
     - target: {fileID: 4659161991008020728, guid: 7d9f600ca6903334197c4f25ad5f75c4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -50229,6 +50241,10 @@ PrefabInstance:
     - target: {fileID: 4659161991008020728, guid: 7d9f600ca6903334197c4f25ad5f75c4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4659161991008020728, guid: 7d9f600ca6903334197c4f25ad5f75c4, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5082219613136960753, guid: 7d9f600ca6903334197c4f25ad5f75c4, type: 3}
       propertyPath: m_Name
