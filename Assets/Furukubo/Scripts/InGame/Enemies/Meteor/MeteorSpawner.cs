@@ -1,4 +1,5 @@
 using InGame.Effect;
+using InGame.Gimmick;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -10,6 +11,7 @@ namespace InGame.Enemy
     public class MeteorSpawner : MonoBehaviour
     {
         [Header("Paramters")]
+        [SerializeField] private float _delayTime;
         [SerializeField, Min(0.05f)] private float _spawnIntervalTime;
         [SerializeField] private float _angle;
         [SerializeField, Min(0f)] private float _power;
@@ -17,10 +19,12 @@ namespace InGame.Enemy
         [SerializeField] private EnemyMeteor _meteorPrefab;
         [SerializeField] private EffectGenerator _effectGenerator;
         [SerializeField] private EffectBlackHoleDead _blackHoleEffectPrefab;
+        [SerializeField] private MeteorSpawnerProduction _production;
 
         private ObjectPool<EnemyMeteor> _meteorPool;
         private ObjectPool<EffectBlackHoleDead> _blackHoleEffectPool;
         private float _spawnIntervalTimeCount;
+        private float _delayTimeCount;
         private bool _isStop;
 
         private void Awake()
@@ -34,11 +38,20 @@ namespace InGame.Enemy
                 () => InstantiateNewBlackHoleEffect(),
                 (e) => e.gameObject.SetActive(true),
                 (e) => e.gameObject.SetActive(false));
+
+            _delayTimeCount = _delayTime;
+            if(_production != null) _production.SetSpawnTimeIntervalRatio(0f, _angle);
         }
 
         public void Update()
         {
-            if(_isStop) return;
+            if (0f < _delayTimeCount)
+            {
+                _delayTimeCount -= Time.deltaTime;
+                return;
+            }
+
+            if (_isStop) return;
 
             _spawnIntervalTimeCount += Time.deltaTime;
 
@@ -47,6 +60,13 @@ namespace InGame.Enemy
                 _spawnIntervalTimeCount = 0f;
 
                 OnSpawn();
+
+                if(_production != null) _production.PlaySpawnParticle();
+            }
+
+            if(_spawnIntervalTime != 0f && _production != null)
+            {
+                _production.SetSpawnTimeIntervalRatio(_spawnIntervalTimeCount / _spawnIntervalTime, _angle);
             }
         }
 
