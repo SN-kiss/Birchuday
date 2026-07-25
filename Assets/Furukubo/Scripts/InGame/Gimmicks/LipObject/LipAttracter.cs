@@ -11,23 +11,30 @@ namespace InGame
         [Header("Parameters")]
         [SerializeField] private float _attractPowerBase;
         [SerializeField] private float _attractPower;
+        [SerializeField] private string _wallLayerName;
         [SerializeField] private MagneticType _selfMagneticType;
         [SerializeField] private string[] _ignoreTags;
 
         [Header("References")]
         [SerializeField] private Collider2D _col;
 
-        private void OnTriggerStay2D(Collider2D other)
+        private void OnTriggerStay2D(Collider2D col)
         {
             if (_ignoreTags != null)
             {
                 foreach (var tag in _ignoreTags)
                 {
-                    if (other.CompareTag(tag)) return;
+                    if (col.CompareTag(tag)) return;
                 }
             }
 
-            if (other.TryGetComponent(out ILipAttractTarget target))
+            if (IsBindingWall(transform.position, col.transform.position))
+            {
+                Debug.Log("Is binding wall");
+                return;
+            }
+
+            if (col.TryGetComponent(out ILipAttractTarget target))
             {
                 if (!MagnetJudgement.IsAttachable(_selfMagneticType, target.MagneticType)) return;
 
@@ -44,6 +51,13 @@ namespace InGame
         {
             if(_col == null) return transform.position;
             return _col.ClosestPoint(pos);
+        }
+
+        private bool IsBindingWall(Vector2 start, Vector2 end)
+        {
+            RaycastHit2D[] hits = Physics2D.LinecastAll(start, end, LayerMask.GetMask(_wallLayerName));
+
+            return 0 < hits.Length;
         }
     }
 }
