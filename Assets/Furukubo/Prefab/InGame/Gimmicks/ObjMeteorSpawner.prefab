@@ -337,9 +337,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ae2bc6769769bd46b9559389a0706b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MeteorSpawner
+  _delayTime: 0
   _spawnIntervalTime: 4
   _angle: 0
-  _power: 5
+  _power: 3
   _meteorPrefab: {fileID: 6754554871022338048, guid: 514135f82c4df6747bf9b2ae957a4e0a, type: 3}
   _effectGenerator: {fileID: 7804721621076840760}
   _blackHoleEffectPrefab: {fileID: 3047497849344681988, guid: 5a86b629dfd474a46a5afd07281d0e3b, type: 3}
