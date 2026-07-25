@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 101119199486608670}
   - component: {fileID: 1972151531535613612}
   m_Layer: 2
-  m_Name: Attracter
+  m_Name: LipAttracter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -138,7 +138,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InGame.LipAttracter
   _attractPowerBase: 20
   _attractPower: 60
+  _wallLayerName: Wall
   _selfMagneticType: 2
+  _ignoreTags: []
   _col: {fileID: 4751335758256358277}
 --- !u!58 &1972151531535613612
 CircleCollider2D:
