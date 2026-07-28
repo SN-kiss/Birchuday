@@ -36,7 +36,7 @@ namespace InGame.Enemy
             if (col.TryGetComponent(out IDamageTarget target))
             {
                 target.OnDamaged(_damageAmount, _rb.linearVelocity, col.ClosestPoint(Position));//dammy
-                target.OnDetach();
+                target.OnDetachByDamaged();
                 Explode();
             }
             else if(col.gameObject.tag == _wallTag)
