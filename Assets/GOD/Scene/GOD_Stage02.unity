@@ -764,6 +764,10 @@ PrefabInstance:
       value: ObjEnemyMoveChaseBoth
       objectReference: {fileID: 0}
     - target: {fileID: 2316492099743163923, guid: 8b24df6469aa494408e94d94ea4e54c4, type: 3}
+      propertyPath: _maxSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2316492099743163923, guid: 8b24df6469aa494408e94d94ea4e54c4, type: 3}
       propertyPath: _chasePower
       value: 5.5
       objectReference: {fileID: 0}
