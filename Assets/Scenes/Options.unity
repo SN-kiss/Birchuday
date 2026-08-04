@@ -3799,7 +3799,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a86aee11f8e5b54b93c2f481c5e7f1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GOD_GoTitle
-  sceneName: GOD_Title
+  sceneName: Title
 --- !u!4 &1933570822
 Transform:
   m_ObjectHideFlags: 0

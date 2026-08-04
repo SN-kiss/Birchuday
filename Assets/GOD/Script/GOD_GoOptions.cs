@@ -6,6 +6,6 @@ public class GOD_GoOptions : MonoBehaviour
 {
     public void OnGameStart()
     {
-        SceneManager.LoadScene("GOD_Options");
+        SceneManager.LoadScene("Options");
     }
 }
