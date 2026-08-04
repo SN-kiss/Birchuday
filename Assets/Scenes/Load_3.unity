@@ -348,7 +348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1a9c71b2db0561489b48db762db5eb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GOD_AnimationSceneLoader
-  nextSceneName: GOD_Stage03
+  nextSceneName: Stage03
 --- !u!114 &997267720
 MonoBehaviour:
   m_ObjectHideFlags: 0

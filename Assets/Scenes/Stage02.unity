@@ -627,7 +627,7 @@ PrefabInstance:
       objectReference: {fileID: 7273860727138075767}
     - target: {fileID: 5433547385378300226, guid: cd20d00c824b5c04ca76b342193c7b73, type: 3}
       propertyPath: _nextSceneName
-      value: GOD_Load_3
+      value: Load_3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

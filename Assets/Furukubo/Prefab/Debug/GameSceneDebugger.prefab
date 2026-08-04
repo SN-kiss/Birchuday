@@ -2430,11 +2430,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1db1c24ef6b1dc94eb7c5d4e48e1762a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameSceneDebugger
-  _titleSceneName: GOD_Title
-  _linkSceneName: GOD_Link
-  _stage01SceneName: GOD_Stage01
-  _stage02SceneName: GOD_Stage02
-  _stage03SceneName: GOD_Stage03
+  _titleSceneName: Title
+  _linkSceneName: Link
+  _stage01SceneName: Stage01
+  _stage02SceneName: Stage02
+  _stage03SceneName: Stage03
   _resultSceneName: Furukubo_Result
   _animStateName: Appear
   _objDebugMessageBox: {fileID: 398744868713413994}

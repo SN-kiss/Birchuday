@@ -9,40 +9,40 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: Assets/GOD/Scene/GOD_Title.unity
+    path: Assets/Scenes/Title.unity
     guid: 4333160e26126684ea148d63d8d0b2ae
   - enabled: 1
-    path: Assets/GOD/Scene/GOD_Link.unity
+    path: Assets/Scenes/Link.unity
     guid: d4de93d4f74f65e4386b4b5994c0814d
   - enabled: 1
     path: Assets/GOD/Scene/GOD_MainTest.unity
     guid: b1164c1f9a50ed9429114f595679ea6e
   - enabled: 1
-    path: Assets/GOD/Scene/GOD_Stage01.unity
+    path: Assets/Scenes/Stage01.unity
     guid: e9641be63cc71ef41a9cc35c28ea50bb
   - enabled: 1
-    path: Assets/GOD/Scene/GOD_Stage02.unity
+    path: Assets/Scenes/Stage02.unity
     guid: 93ab732d06cf3264fbd38adc17440212
   - enabled: 1
-    path: Assets/GOD/Scene/GOD_Stage03.unity
+    path: Assets/Scenes/Stage03.unity
     guid: 6288c1d2049755841852ac5667aabefc
   - enabled: 1
-    path: Assets/GOD/Scene/GOD_Options.unity
+    path: Assets/Scenes/Options.unity
     guid: 303d2d1d6deba044b8efbc65770e7840
   - enabled: 1
     path: Assets/Furukubo/Scenes/Furukubo_Result.unity
     guid: 2dcda472b3694614d95369683b6b2537
   - enabled: 1
-    path: Assets/GOD/Scene/GOD_Load_1.unity
+    path: Assets/Scenes/Load_1.unity
     guid: 9644614959c88e6478082ba3c0184a6b
   - enabled: 1
-    path: Assets/GOD/Scene/GOD_Load_2.unity
+    path: Assets/Scenes/Load_2.unity
     guid: 7ea9d64a7d337794fa0c23d1158d0a55
   - enabled: 1
-    path: Assets/GOD/Scene/GOD_Load_3.unity
+    path: Assets/Scenes/Load_3.unity
     guid: d67cdaba63f3ca54c9df1678b460e3d7
   - enabled: 1
-    path: Assets/GOD/Scene/GOD_Transition.unity
+    path: Assets/Scenes/Transition.unity
     guid: 7919943904006e84e81ebda26264a2ac
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: cdbbbda81706c0c40831365cb219fcce, type: 2}

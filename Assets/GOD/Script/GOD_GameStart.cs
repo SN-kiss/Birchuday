@@ -7,6 +7,6 @@ public class GOD_GameStart : MonoBehaviour
 {
    public void OnGameStart()
     {
-        SceneManager.LoadScene("GOD_Link");
+        SceneManager.LoadScene("Link");
     }
 }
