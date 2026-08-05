@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GOD_GoTitle : MonoBehaviour
 {
-    [SerializeField] private string sceneName = "GOD_Title";
+    [SerializeField] private string sceneName = "Title";
 
     void Update()
     {

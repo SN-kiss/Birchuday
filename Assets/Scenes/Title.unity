@@ -4172,7 +4172,7 @@ GameObject:
   - component: {fileID: 2052617124}
   - component: {fileID: 2052617119}
   - component: {fileID: 2052617118}
-  - component: {fileID: 2052617121}
+  - component: {fileID: 2052617126}
   - component: {fileID: 2052617122}
   - component: {fileID: 2052617123}
   - component: {fileID: 2052617125}
@@ -4248,8 +4248,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2052617121}
-        m_TargetAssemblyTypeName: GOD_GameStart, Assembly-CSharp
+      - m_Target: {fileID: 2052617126}
+        m_TargetAssemblyTypeName: GOD_GoDifficulty, Assembly-CSharp
         m_MethodName: OnGameStart
         m_Mode: 1
         m_Arguments:
@@ -4298,18 +4298,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2052617115}
   m_CullTransparentMesh: 1
---- !u!114 &2052617121
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2052617115}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9f05cff81037fa47a0747541a57d6e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GOD_GameStart
 --- !u!114 &2052617122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4363,6 +4351,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eed33b77add69744cab32295075eebed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GOD_UIButtonSE
+--- !u!114 &2052617126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052617115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0440233af2420f49ac42582c0bf5d91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GOD_GoDifficulty
 --- !u!1 &2106931850
 GameObject:
   m_ObjectHideFlags: 0
