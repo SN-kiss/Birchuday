@@ -3643,7 +3643,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1a9c71b2db0561489b48db762db5eb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GOD_AnimationSceneLoader
-  nextSceneName: GOD_Title
+  nextSceneName: Title
 --- !u!1 &1758435563
 GameObject:
   m_ObjectHideFlags: 0
