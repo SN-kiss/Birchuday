@@ -34664,7 +34664,7 @@ PrefabInstance:
       objectReference: {fileID: 430568680}
     - target: {fileID: 5433547385378300226, guid: cd20d00c824b5c04ca76b342193c7b73, type: 3}
       propertyPath: _nextSceneName
-      value: GOD_Load_2
+      value: Easy_Load_2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -35715,7 +35715,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5377467784525808979, guid: e939438544c15c54ab6d7d0b604d9126, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
