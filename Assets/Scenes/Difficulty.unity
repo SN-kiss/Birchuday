@@ -833,7 +833,7 @@ GameObject:
   - component: {fileID: 643460703}
   - component: {fileID: 643460702}
   - component: {fileID: 643460701}
-  - component: {fileID: 643460700}
+  - component: {fileID: 643460705}
   - component: {fileID: 643460699}
   - component: {fileID: 643460698}
   - component: {fileID: 643460697}
@@ -904,18 +904,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GOD_ButtonParticleEffect
   particleLeft: {fileID: 1996197175}
   particleRight: {fileID: 792122282}
---- !u!114 &643460700
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 643460695}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9f05cff81037fa47a0747541a57d6e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GOD_GameStart
 --- !u!114 &643460701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -960,8 +948,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 643460700}
-        m_TargetAssemblyTypeName: GOD_GameStart, Assembly-CSharp
+      - m_Target: {fileID: 643460705}
+        m_TargetAssemblyTypeName: GOD_GoHard, Assembly-CSharp
         m_MethodName: OnGameStart
         m_Mode: 1
         m_Arguments:
@@ -1024,6 +1012,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 643460695}
   m_CullTransparentMesh: 1
+--- !u!114 &643460705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 643460695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9f2fcb25e625d5419b408d4cd690010, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GOD_GoHard
 --- !u!1 &663134185
 GameObject:
   m_ObjectHideFlags: 0
