@@ -27,11 +27,9 @@ public class GOD_Portal : MonoBehaviour
     public Transform bStartPoint;
     public float bGrowDuration = 0.4f;
     public float bShrinkDuration = 0.4f;
-    [Tooltip("拡大カーブ。1を超えるとオーバーシュート(バウンド)")]
     public AnimationCurve bGrowCurve = new AnimationCurve(
         new Keyframe(0f, 0f), new Keyframe(0.6f, 1.15f),
         new Keyframe(0.8f, 0.95f), new Keyframe(1f, 1f));
-    [Tooltip("縮小カーブ。マイナスにすると一度大きくなってから縮む")]
     public AnimationCurve bShrinkCurve = new AnimationCurve(
         new Keyframe(0f, 0f), new Keyframe(0.3f, -0.15f), new Keyframe(1f, 1f));
 
@@ -42,11 +40,22 @@ public class GOD_Portal : MonoBehaviour
     [Header("シーン移動")]
     public string sceneName;
 
+    [Header("移動前のロード演出(Load_A)")]
+    [Tooltip("Load_A の Animator(Hierarchyの Load_A をドラッグ)")]
+    public Animator loadAnimator;
+    [Tooltip("再生するステート名(Animatorウィンドウで確認)")]
+    public string loadStateName = "Load_A";
+    [Tooltip("loadAnimator が空のとき、この名前のオブジェクトを探す")]
+    public string loadObjectName = "Load_A";
+    [Tooltip("アニメーションが終わらない場合に、これだけ待ったら移動する(秒)")]
+    public float maxWaitSeconds = 5f;
+
     Vector3 aBaseScale;
     Color aBaseColor;
-    Vector3 bEndPos;    // Bのシーン上の位置(拡大後の位置)
-    Vector3 bStartPos;  // Bが出てくる位置
+    Vector3 bEndPos;
+    Vector3 bStartPos;
     Coroutine aRoutine, bRoutine;
+    bool isLoading;
     readonly HashSet<GameObject> playersInRange = new HashSet<GameObject>();
 
     void Awake()
@@ -82,7 +91,6 @@ public class GOD_Portal : MonoBehaviour
         ResetState();
     }
 
-    // 離れているときの状態(Aは元の大きさ、Bは0で非表示)に戻す
     void ResetState()
     {
         if (spriteA) spriteA.localScale = aBaseScale;
@@ -97,6 +105,7 @@ public class GOD_Portal : MonoBehaviour
 
     void Update()
     {
+        if (isLoading) return;
         if (playersInRange.Count == 0) return;
 
         bool pressed = false;
@@ -110,7 +119,47 @@ public class GOD_Portal : MonoBehaviour
             pressed = true;
 
         if (pressed && !string.IsNullOrEmpty(sceneName))
-            SceneManager.LoadScene(sceneName);
+            StartCoroutine(LoadSceneRoutine());
+    }
+
+    // Load_Aを再生 → 終わったらシーン移動
+    IEnumerator LoadSceneRoutine()
+    {
+        isLoading = true;
+
+        if (!loadAnimator) loadAnimator = FindLoadAnimator();
+
+        if (loadAnimator)
+        {
+            loadAnimator.gameObject.SetActive(true);
+            loadAnimator.Play(loadStateName, 0, 0f);
+            yield return null; // 次のフレームでステートが切り替わる
+
+            float elapsed = 0f;
+            while (elapsed < maxWaitSeconds)
+            {
+                var info = loadAnimator.GetCurrentAnimatorStateInfo(0);
+                if (!info.IsName(loadStateName)) break;   // 別ステートへ移った/ステート名が違う
+                if (info.normalizedTime >= 1f) break;     // 再生が終わった
+                elapsed += Time.unscaledDeltaTime;
+                yield return null;
+            }
+        }
+        else
+        {
+            Debug.LogWarning("GOD_Portal: Load_A の Animator が見つからないので、そのまま移動します", this);
+        }
+
+        SceneManager.LoadScene(sceneName);
+    }
+
+    Animator FindLoadAnimator()
+    {
+        // 非アクティブなオブジェクトも含めて探す
+        var all = FindObjectsByType<Animator>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+        foreach (var a in all)
+            if (a.gameObject.name == loadObjectName) return a;
+        return null;
     }
 
     GameObject FindPlayerRoot(Collider2D other)
@@ -143,7 +192,6 @@ public class GOD_Portal : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        // オブジェクトが無効になるときにも呼ばれるので、そのときは何もしない
         if (!isActiveAndEnabled) return;
 
         GameObject root = FindPlayerRoot(other);

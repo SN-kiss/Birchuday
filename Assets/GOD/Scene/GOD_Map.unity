@@ -514,6 +514,10 @@ MonoBehaviour:
   playerTagNorth: PlayerNorth
   playerTagSouth: PlayerSouth
   sceneName: Easy_Stage_1
+  loadAnimator: {fileID: 1605230232}
+  loadStateName: Load_A
+  loadObjectName: Load_A
+  maxWaitSeconds: 5
 --- !u!58 &449894730
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1737,6 +1741,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92417b3fc58e362408daa7fcce7dea6c, type: 3}
+--- !u!95 &1605230232 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2937040149502553909, guid: 92417b3fc58e362408daa7fcce7dea6c, type: 3}
+  m_PrefabInstance: {fileID: 1605230231}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1605230233 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7640465980146636402, guid: 92417b3fc58e362408daa7fcce7dea6c, type: 3}
@@ -1998,7 +2007,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5377467784525808979, guid: e939438544c15c54ab6d7d0b604d9126, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
