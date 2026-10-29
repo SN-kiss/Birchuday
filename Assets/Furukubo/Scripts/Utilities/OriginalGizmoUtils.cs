@@ -8,6 +8,30 @@ public static class OriginalGizmoUtils
     private const float _ArrowHeadAngle = 30f;
     private const float _ArrowHeadLength = 0.25f;
 
+    public static void DrawBox(float xMin, float xMax, float yMin, float yMax, Color color)
+    {
+        DrawBox(
+            new Vector2(xMin, yMax),
+            new Vector2(xMax, yMax), 
+            new Vector2(xMax, yMin), 
+            new Vector2(xMin, yMin), 
+            color);
+    }
+
+    public static void DrawBox(Vector2 leftUp, Vector2 rightUp, Vector2 rightDown, Vector2 leftDown, Color color)
+    {
+        Debug.DrawLine(leftUp, rightUp, color);
+        Debug.DrawLine(rightUp, rightDown, color);
+        Debug.DrawLine(rightDown, leftDown, color);
+        Debug.DrawLine(leftDown, leftUp, color);
+    }
+
+    public static void DrawCross(Vector2 pos, float size, Color color)
+    {
+        Debug.DrawLine(pos + new Vector2(-size, size), pos + new Vector2(size, -size), color);
+        Debug.DrawLine(pos + new Vector2(size, size), pos + new Vector2(-size, -size), color);
+    }
+
     public static void DrawArrow(Vector2 start, Vector2 end) => DrawArrow(start, end, Color.white);
 
     public static void DrawArrow(Vector2 start, Vector2 end, Color color)

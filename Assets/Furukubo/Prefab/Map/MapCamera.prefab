@@ -5315,6 +5315,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7048665cc23a0334e92dd8b6103ba0cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Map.MapCameraTarget
+  _xMax: 5
+  _xMin: -5
+  _yMax: 0
+  _yMin: 0
   _playerNorthTag: PlayerNorth
   _playerSouthTag: PlayerSouth
   _bodyObjName: Body
@@ -5345,7 +5349,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 6
+  m_Constraints: 4
 --- !u!1 &4490923246129219169
 GameObject:
   m_ObjectHideFlags: 0
