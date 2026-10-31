@@ -198,7 +198,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5101800876637614331}
-  - component: {fileID: 8612416787668382654}
+  - component: {fileID: 7999483922698809476}
   - component: {fileID: 4148182930841478276}
   - component: {fileID: 1470372515465693554}
   m_Layer: 7
@@ -225,7 +225,7 @@ Transform:
   - {fileID: 7879266599686740663}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8612416787668382654
+--- !u!114 &7999483922698809476
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -234,9 +234,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7286429584295049089}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3f2aba97c3de3f43af8e01598ca14b8, type: 3}
+  m_Script: {fileID: 11500000, guid: 507ca0caf454c754ba4a2b30502dcdfe, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InGame.TestSunctionObject
+  m_EditorClassIdentifier: Assembly-CSharp::InGame.LipAttachTargetBox
   _selfMagneticType: 1
   _rb: {fileID: 4148182930841478276}
   _col: {fileID: 1470372515465693554}
