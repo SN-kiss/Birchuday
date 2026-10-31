@@ -21,26 +21,11 @@ namespace InGame
         protected Rigidbody2D Rb => _rb;
         protected Collider2D Col => _col;
 
-        private int _attachingCount;
+        //private int _attachingCount;
 
-        public virtual void OnAttached(ILip lip)
-        {
-            _attachingCount = Mathf.Clamp(_attachingCount + 1, 0, int.MaxValue);
+        public virtual void OnAttached(ILip lip) { }
 
-            Rb.bodyType = RigidbodyType2D.Dynamic;
-        }
-
-        public virtual void OnDetached(ILip lip)
-        {
-            _attachingCount = Mathf.Clamp(_attachingCount - 1, 0, int.MaxValue);
-
-            if(_attachingCount <= 0)
-            {
-                Rb.bodyType = RigidbodyType2D.Kinematic;
-                Rb.linearVelocity = Vector2.zero;
-                Rb.angularVelocity = 0f;
-            }
-        }
+        public virtual void OnDetached(ILip lip) { }
 
         public virtual void AddForce(Vector2 force) => _rb.AddForce(force);
         public virtual void AddForceImpulse(Vector2 force) => _rb.AddForce(force, ForceMode2D.Impulse);
