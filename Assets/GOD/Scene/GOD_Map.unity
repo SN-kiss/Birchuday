@@ -409,7 +409,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   playerTagNorth: PlayerNorth
   playerTagSouth: PlayerSouth
-  sceneName: Easy_Stage_1
+  sceneName: Stage_3
   loadAnimator: {fileID: 1605230232}
   loadStateName: Load_A
   loadObjectName: Load_A
@@ -861,7 +861,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   playerTagNorth: PlayerNorth
   playerTagSouth: PlayerSouth
-  sceneName: Easy_Stage_1
+  sceneName: Stage_2
   loadAnimator: {fileID: 1605230232}
   loadStateName: Load_A
   loadObjectName: Load_A
@@ -1266,7 +1266,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   playerTagNorth: PlayerNorth
   playerTagSouth: PlayerSouth
-  sceneName: Easy_Stage_1
+  sceneName: Stage_1
   loadAnimator: {fileID: 1605230232}
   loadStateName: Load_A
   loadObjectName: Load_A
@@ -1578,7 +1578,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5391699195217491963, guid: 37cf5ee97955c15469d0781bd95ddda7, type: 3}
       propertyPath: _type
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6558462899329538856, guid: 37cf5ee97955c15469d0781bd95ddda7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1958,7 +1958,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   playerTagNorth: PlayerNorth
   playerTagSouth: PlayerSouth
-  sceneName: Easy_Stage_1
+  sceneName: Stage_7
   loadAnimator: {fileID: 1605230232}
   loadStateName: Load_A
   loadObjectName: Load_A
@@ -2137,7 +2137,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   playerTagNorth: PlayerNorth
   playerTagSouth: PlayerSouth
-  sceneName: Easy_Stage_1
+  sceneName: Stage_9
   loadAnimator: {fileID: 1605230232}
   loadStateName: Load_A
   loadObjectName: Load_A
@@ -2828,7 +2828,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   playerTagNorth: PlayerNorth
   playerTagSouth: PlayerSouth
-  sceneName: Easy_Stage_1
+  sceneName: Stage_8
   loadAnimator: {fileID: 1605230232}
   loadStateName: Load_A
   loadObjectName: Load_A
@@ -3231,7 +3231,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   playerTagNorth: PlayerNorth
   playerTagSouth: PlayerSouth
-  sceneName: Easy_Stage_1
+  sceneName: Stage_6
   loadAnimator: {fileID: 1605230232}
   loadStateName: Load_A
   loadObjectName: Load_A
@@ -3714,7 +3714,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   playerTagNorth: PlayerNorth
   playerTagSouth: PlayerSouth
-  sceneName: Easy_Stage_1
+  sceneName: Stage_5
   loadAnimator: {fileID: 1605230232}
   loadStateName: Load_A
   loadObjectName: Load_A
@@ -4706,7 +4706,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   playerTagNorth: PlayerNorth
   playerTagSouth: PlayerSouth
-  sceneName: Easy_Stage_1
+  sceneName: Stage_4
   loadAnimator: {fileID: 1605230232}
   loadStateName: Load_A
   loadObjectName: Load_A
@@ -5143,7 +5143,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5377467784525808979, guid: e939438544c15c54ab6d7d0b604d9126, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
